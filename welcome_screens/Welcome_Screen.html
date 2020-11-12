@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -15,55 +15,72 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
         .ui-page:before {
             content: "";
             position: absolute;
-            left: 0; right: 0;
-            top: 0; bottom: 0;
-            background: rgba(0,0,0,.4);
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, .4);
         }
 
         div.absolute1 {
             position: absolute;
             width: 100%;
-            bottom: 10%;
+            bottom: 18%;
         }
 
         div.absolute2 {
             position: absolute;
             width: 100%;
-            bottom: 18%;
+            bottom: 10%;
         }
 
         .empty {
             width: 20%;
         }
+
         .content {
             width: 60%;
         }
-        .btn-main{
-          border-radius: 16px !important;
+
+        .btn-main {
+            border-radius: 16px !important;
+            background-color: #EC7A23 !important;
+            border-color: #EC7A23 !important;
+            color: white !important;
         }
 
-
+        .btn-sec {
+            border-radius: 16px !important;
+            border-width: 3px !important;
+            border-color: #EC7A23 !important;
+            background-color: transparent !important;
+            color: white !important;
+        }
 
         @media only screen and (max-height: 770px) {
             div.absolute1 {
-                bottom: 10%;
+                bottom: 20%;
 
             }
+
             div.absolute2 {
-                bottom: 20%;
+                bottom: 10%;
             }
+
         }
 
         @media only screen and (max-height: 400px) {
             div.absolute1 {
-                bottom: 10%;
+                bottom: 30%;
 
             }
+
             div.absolute2 {
-                bottom: 30%;
+                bottom: 10%;
             }
         }
 
@@ -72,6 +89,7 @@
                 width: 10%;
 
             }
+
             .content {
                 width: 80%;
             }
@@ -82,23 +100,24 @@
     <title>Document</title>
 </head>
 <body>
-    <div data-role="page">
+<div data-role="page">
 
-            <div class="w3-row absolute1">
-                <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
-                <div class="w3-col w3-container content">
-                    <a href="#" data-role="button" data-theme="a" class="btn-main">Sign In</a>
-                </div>
-                <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
-            </div>
-
-            <div class="w3-row absolute2">
-                <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
-                <div class="w3-col w3-container content">
-                    <a href="#" data-role="button" data-theme="a" class="btn-main">Get Started</a>
-                </div>
-                <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
-            </div>
+    <div class="w3-row absolute1">
+        <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
+        <div class="w3-col w3-container content">
+            <a href="#" data-role="button" data-theme="a" class="btn-main"><span>Sign In</span></a>
+        </div>
+        <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
     </div>
+
+    <div class="w3-row absolute2">
+        <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
+        <div class="w3-col w3-container content">
+            <a href="#" data-role="button" data-theme="a" class="btn-sec"><span>Get Started</span></a>
+        </div>
+        <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
+    </div>
+
+</div>
 </body>
 </html>
