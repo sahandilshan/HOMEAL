@@ -16,9 +16,57 @@
             background-size: cover;
         }
 
-        #hrefButton4{
-            /* border-radius: 20% !important; */
+        div.absolute1 {
+            position: absolute;
+            width: 100%;
+            bottom: 10%;
         }
+
+        div.absolute2 {
+            position: absolute;
+            width: 100%;
+            bottom: 18%;
+        }
+
+        .empty {
+            width: 20%;
+        }
+        .content {
+            width: 60%;
+        }
+
+
+
+        @media only screen and (max-height: 770px) {
+            div.absolute1 {
+                bottom: 10%;
+
+            }
+            div.absolute2 {
+                bottom: 20%;
+            }
+        }
+
+        @media only screen and (max-height: 400px) {
+            div.absolute1 {
+                bottom: 10%;
+
+            }
+            div.absolute2 {
+                bottom: 30%;
+            }
+        }
+
+        @media only screen and (max-width: 380px) {
+            .empty {
+                width: 10%;
+
+            }
+            .content {
+                width: 80%;
+            }
+        }
+
     </style>
 
     <title>Document</title>
@@ -26,29 +74,20 @@
 <body>
     <div data-role="page">
 
-            <div class="w3-row"><div class="w3-col w3-container" style="width:100%"><p>&nbsp;</p></div></div>
-            <div class="w3-row"><div class="w3-col w3-container" style="width:100%"><p>&nbsp;</p></div></div>
-            <div class="w3-row"><div class="w3-col w3-container" style="width:100%"><p>&nbsp;</p></div></div>
-            <div class="w3-row"><div class="w3-col w3-container" style="width:100%"><p>&nbsp;</p></div></div>
-            <div class="w3-row"><div class="w3-col w3-container" style="width:100%"><p>&nbsp;</p></div></div>
-            <div class="w3-row"><div class="w3-col w3-container" style="width:100%"><p>&nbsp;</p></div></div>
-            <div class="w3-row"><div class="w3-col w3-container" style="width:100%"><p>&nbsp;</p></div></div>
-            <div class="w3-row"><div class="w3-col w3-container" style="width:100%"><p>&nbsp;</p></div></div>
-
-            <div class="w3-row">
-                <div class="w3-col w3-container" style="width:20%"><p>&nbsp;</p></div>
-                <div class="w3-col w3-container" style="width:60%">
+            <div class="w3-row absolute1">
+                <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
+                <div class="w3-col w3-container content">
                     <a href="#" data-role="button" data-theme="a">Sign In</a>
                 </div>
-                <div class="w3-col w3-container" style="width:20%"><p>&nbsp;</p></div>
+                <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
             </div>
 
-            <div class="w3-row">
-                <div class="w3-col w3-container" style="width:20%"><p>&nbsp;</p></div>
-                <div class="w3-col w3-container" style="width:60%">
-                    <a href="#" data-role="button" class="w3-round-xlarge" data-theme="a" id="hrefButton4">Get Started</a>
+            <div class="w3-row absolute2">
+                <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
+                <div class="w3-col w3-container content">
+                    <a href="#" data-role="button" data-theme="a">Get Started</a>
                 </div>
-                <div class="w3-col w3-container" style="width:20%"><p>&nbsp;</p></div>
+                <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
             </div>
     </div>
 </body>
