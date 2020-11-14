@@ -62,18 +62,36 @@
             border-top: 2px solid rgba(0, 0, 0, 0.1);
         }
 
+        .custom-back {
+            border: none;
+        }
+
+        .custom-notification {
+            border: none;
+        }
+        .img-fluid {
+            height: 35px !important;
+        }
+
+        @media only screen and (max-height: 700px) {
+            .img-fluid {
+                height: 22px !important;
+            }
+        }
+
+
     </style>
 
 </head>
 <body>
 <div class="ml-3 mr-3 mt-3">
     <div data-role="header" class="mb-3">
-        <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back">Back
+        <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back
         </button>
         <h1>
-            <img src="../assets/logos/LightMainLogo-01-02.png" class="img-fluid" alt="Logo.png">
+            <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
         </h1>
-        <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
+        <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification custom-notification">Notification</button>
 
     </div>
     <div class="row justify-content-center">
