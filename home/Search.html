@@ -25,6 +25,7 @@
 
         .ui-icon-notification {
             background-color: transparent !important;
+            border: none;
         }
 
         .ui-icon-location {
@@ -46,7 +47,8 @@
         }
 
         .ui-icon-back {
-            background-color: transparent !important;;
+            background-color: transparent !important;
+            border: none;
         }
 
         .ui-icon-filter:after {
@@ -56,22 +58,88 @@
             background-color: transparent;
         }
 
+        .ui-icon-home:after {
+            background-image: url("../assets/icons/home_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            background-color: transparent;
+        }
+
+        .ui-icon-home {
+            background-color: transparent !important;
+            border: none;
+        }
+
+        .ui-icon-orders:after {
+            background-image: url("../assets/icons/orders_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            background-color: transparent;
+        }
+
+        .ui-icon-orders {
+            background-color: transparent !important;
+            border: none;
+        }
+
+        .ui-icon-cart:after {
+            background-image: url("../assets/icons/orders_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            background-color: transparent;
+        }
+
+        .ui-icon-cart {
+            background-color: transparent !important;
+            border: none;
+        }
+
+        .ui-icon-profile:after {
+            background-image: url("../assets/icons/person_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            background-color: transparent;
+        }
+
+        .ui-icon-profile {
+            background-color: transparent !important;
+            border: none;
+        }
+
+        .top {
+            position: fixed;
+            width: 100%;
+        }
+
         hr {
             margin-bottom: 1rem;
             border: 0;
             border-top: 2px solid rgba(0, 0, 0, 0.1);
         }
 
-        .custom-back {
-            border: none;
-        }
-
-        .custom-notification {
-            border: none;
-        }
         .img-fluid {
             height: 35px !important;
         }
+
+        .main {
+            min-height: calc(80vh);
+        }
+
+        .footer {
+            background: #282F33;
+            color: #FFFFFF;
+        }
+
+        .font1 {
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .font2 {
+            font-size: 10px;
+            text-align: right;
+        }
+
 
         @media only screen and (max-height: 700px) {
             .img-fluid {
@@ -79,19 +147,28 @@
             }
         }
 
+        @media only screen and (max-width: 680px) {
+            .font1 {
+                font-size: 10px;
+            }
+
+            .font2 {
+                font-size: 8px;
+            }
+        }
 
     </style>
 
 </head>
 <body>
-<div class="ml-3 mr-3 mt-3">
+<div  data-position="fixed" class="ml-3 mr-3 mt-3">
     <div data-role="header" class="mb-3">
         <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back
         </button>
         <h1>
             <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
         </h1>
-        <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification custom-notification">Notification</button>
+        <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
 
     </div>
     <div class="row justify-content-center">
@@ -121,7 +198,46 @@
     <div class="row">
         <div class="col">Home/Search</div>
     </div>
+</div>
 
+<div class="main ml-3 mr-3 mt-3">
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa et corrupti aliquid accusantium!
+    </p>
+</div>
+
+<footer>
+    <div class="footer row justify-content-between">
+        <div class="col d-flex justify-content-left ml-3 p-3">
+            <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+        </div>
+        <div class="col mr-3 p-3">
+            <div class="row">
+                <div class="col font1">Privacy Policy Terms of Use</div>
+                <div class="w-100"></div>
+                <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
+            </div>
+<!--            <br/>-->
+<!--            -->
+        </div>
+    </div>
+</footer>
+
+<div data-role="footer" data-position="fixed">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <button class="ui-btn ui-btn-icon-notext ui-icon-home">Home</button>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <button class="ui-btn ui-btn-icon-notext ui-icon-orders">Orders</button>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <button class="ui-btn ui-btn-icon-notext ui-icon-cart">Cart</button>
+        </div>
+        <div class="col d-flex justify-content-center">
+            <button class="ui-btn ui-btn-icon-notext ui-icon-profile">Profile</button>
+        </div>
+    </div>
 </div>
 </body>
 </html>
