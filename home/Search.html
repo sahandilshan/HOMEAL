@@ -149,6 +149,59 @@
             text-align: right;
         }
 
+        .custom-search-bar {
+            padding-top: 0.5em !important;;
+            padding-bottom: 0.5em !important;
+            margin : 0 !important;
+        }
+
+        .card {
+            background: #FFF;
+            border: 1px solid #AAA;
+            box-shadow: 0px 2px 3px 0px #AAA;
+            padding: 0px;
+            /*margin-right: 7.5px;*/
+            margin-bottom: 15px;
+            /*margin-left: 7.5px;*/
+            overflow: hidden;
+            border-radius: 3px;
+            height: 190px;
+            width: 100%;
+        }
+        .card-image {
+            width: 100%;
+            height: 160px;
+            padding: 0px;
+            margin: 0px;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-title {
+            position: absolute;
+            bottom: 0px;
+            color: black;
+            margin: 0px;
+            padding: 5px;
+            border: none;
+            padding-left: 8px !important;
+        }
+        .card-rating {
+            bottom: 0px;
+            color: black;
+            margin: 0px;
+            padding: 5px;
+            border: none;
+            float: right !important;
+            padding-right: 8px !important;
+        }
+
+        .custom-star {
+            height: 23px;
+            width: 23px;
+        }
         @media only screen and (max-height: 1000px) {
             /*when height is less than ipad portrait mode*/
             .main {
@@ -167,6 +220,7 @@
                 top: 230px;
                 min-height: calc(54vh + 12px);
             }
+
         }
 
         @media only screen and (max-width: 680px) {
@@ -178,6 +232,7 @@
             .font2 {
                 font-size: 8px;
             }
+
         }
 
     </style>
@@ -196,7 +251,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-10">
-            <a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location">Select Your Location</a>
+            <a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select Your Location</a>
         </div>
     </div>
     <div class="row"> <!--first hr line-->
@@ -223,8 +278,51 @@
     </div>
 </div>
 
-<div class="main pl-3 pr-3">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa et corrupti aliquid accusantium!</p>
+<div class="main">
+    <div class="row mr-2 ml-2">
+            <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3">
+                <div class="card">
+                    <div class="card-image">
+                        <img alt="home" src="../assets/merchants/pizza-3007395.jpg" style="width: 100%;"/>
+                    </div>
+                    <div class="ui-grid-a">
+                        <span class="card-title">Pizza Zone</span>
+                        <span class="row card-rating">  <img alt="home"
+                                                             src="../assets/icons/star_orange_18dp.png"
+                                                             class="custom-star"/>50+ Rating</span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3">
+                <div class="card">
+                    <div class="card-image">
+                        <img alt="home" src="../assets/merchants/food-2203732.jpg" style="width: 100%;"/>
+                    </div>
+                    <div class="ui-grid-a">
+                        <span class="card-title">Pizza Zone</span>
+                        <span class="row card-rating">  <img alt="home"
+                                                             src="../assets/icons/star_orange_18dp.png"
+                                                             class="custom-star"/>50+ Rating</span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3">
+                <div class="card">
+                    <div class="card-image">
+                        <img alt="home" src="../assets/merchants/meal-5590186.jpg" style="width: 100%;"/>
+                    </div>
+                    <div class="ui-grid-a">
+                        <span class="card-title">Pizza Zone</span>
+                        <span class="row card-rating">  <img alt="home"
+                                                             src="../assets/icons/star_orange_18dp.png"
+                                                             class="custom-star"/>50+ Rating</span>
+
+                    </div>
+                </div>
+            </div>
+    </div>
 </div>
 
 <div class="footer">
