@@ -106,9 +106,9 @@
             border: none;
         }
 
-        .top {
-            position: fixed;
-            width: 100%;
+        .header {
+            background: transparent !important;
+            border: none;
         }
 
         hr {
@@ -121,13 +121,22 @@
             height: 35px !important;
         }
 
+        .top {
+            background-color: #FFFFFF;
+            z-index: 100;
+        }
+
         .main {
-            min-height: calc(80vh);
+            min-height: calc(70vh + 3px);
+            position: relative;
+            top: 240px;
         }
 
         .footer {
             background: #282F33;
             color: #FFFFFF;
+            position: relative;
+            top: 190px;
         }
 
         .font1 {
@@ -140,14 +149,28 @@
             text-align: right;
         }
 
+        @media only screen and (max-height: 1000px) {
+            /*when height is less than ipad portrait mode*/
+            .main {
+                min-height: calc(60vh + 3px);
+
+            }
+        }
 
         @media only screen and (max-height: 700px) {
+            /*when height is less than ipad landscape*/
             .img-fluid {
                 height: 22px !important;
+            }
+
+            .main {
+                top: 230px;
+                min-height: calc(54vh + 12px);
             }
         }
 
         @media only screen and (max-width: 680px) {
+            /*when width is less than iPhone portrait mode */
             .font1 {
                 font-size: 10px;
             }
@@ -161,8 +184,8 @@
 
 </head>
 <body>
-<div  data-position="fixed" class="ml-3 mr-3 mt-3">
-    <div data-role="header" class="mb-3">
+<div class="top pl-3 pr-3 pb-3 fixed-top">
+    <div data-role="header" class="mb-1 header">
         <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back
         </button>
         <h1>
@@ -200,14 +223,12 @@
     </div>
 </div>
 
-<div class="main ml-3 mr-3 mt-3">
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa et corrupti aliquid accusantium!
-    </p>
+<div class="main pl-3 pr-3">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa et corrupti aliquid accusantium!</p>
 </div>
 
-<footer>
-    <div class="footer row justify-content-between">
+<div class="footer">
+    <div class="row justify-content-between">
         <div class="col d-flex justify-content-left ml-3 p-3">
             <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
         </div>
@@ -217,11 +238,9 @@
                 <div class="w-100"></div>
                 <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
             </div>
-<!--            <br/>-->
-<!--            -->
         </div>
     </div>
-</footer>
+</div>
 
 <div data-role="footer" data-position="fixed">
     <div class="row">
