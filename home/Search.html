@@ -200,11 +200,57 @@
             height: 23px;
             width: 23px;
         }
+
+        div.ui-slider-switch {
+            width: 60px !important;
+            height: 30px !important;
+            top: 0;
+        }
+
+        div.ui-slider {
+            margin: 0 !important;
+        }
+
+        .ui-slider-switch .ui-slider-label {
+            overflow: hidden;
+            font-size: 14px !important;
+            font-weight: normal !important;
+        }
+
+        .ui-slider-track .ui-btn.ui-slider-handle {
+            width: 26px !important;
+            height: 26px !important;
+
+        }
+
+        .ui-slider-inneroffset {
+            margin: 0px 12px !important;
+        }
+
+        .custom-filter {
+            width: 450px;
+            height: 330px;
+            padding: 20px;
+            background-color: #EC7A23;
+        }
+
+        .custom-close-button {
+            text-align: -webkit-right !important;
+            margin-top: -10px;
+        }
+        .ui-popup-screen.in {
+            background-color: black !important;
+        }
         @media only screen and (max-height: 1000px) {
             /*when height is less than ipad portrait mode*/
             .main {
                 min-height: 55vh;
 
+            }
+
+            .custom-filter {
+                width: 350px !important;
+                height: 320px !important;
             }
         }
 
@@ -219,6 +265,11 @@
                 min-height: 52vh;
             }
 
+            .custom-filter {
+                width: 350px !important;
+                height: 320px !important;
+            }
+
         }
 
         @media only screen and (max-width: 680px) {
@@ -229,6 +280,11 @@
 
             .font2 {
                 font-size: 8px;
+            }
+
+            .custom-filter {
+                width: 350px !important;
+                height: 320px !important;
             }
 
         }
@@ -263,7 +319,7 @@
             <!--            <input type="search" name="search" id="search" value="" placeholder="Search Restaurant by Name"/>-->
         </div>
         <div class="col-auto">
-            <a href="#" class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext">Filter</a>
+            <a href="#popupBasic" data-rel="popup" data-transition="pop" class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext">Filter</a>
         </div>
     </div>
     <div class="row mt-n3">  <!--second hr line-->
@@ -277,6 +333,98 @@
 </div>
 
 <div class="main mb-5">
+    <!--Filters Modal-->
+    <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a" data-transition="pop">
+        <div class="row mb-2">
+            <div class="col-8">
+                <label><strong>Categories </strong> </label>
+            </div>
+            <div class="col-4 custom-close-button">
+                <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+            </div>
+        </div>
+
+        <form>
+        <div class="row mb-3">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4">
+                <label for="flip-1">Pizza</label>
+                    </div>
+                    <div class="col-8">
+                        <select name="flip-1" id="flip-1" data-role="slider" style="width: 4.0em;">
+                            <option value="off"></option>
+                            <option value="on"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="flip-2">Noodles</label>
+                    </div>
+                    <div class="col-8">
+                            <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
+                                <option value="off"></option>
+                                <option value="on"></option>
+                            </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="row mb-3">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="flip-3">Bakery</label>
+                        </div>
+                        <div class="col-8">
+                                <select name="flip-3" id="flip-3" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="flip-4">Chinese</label>
+                        </div>
+                        <div class="col-8">
+                                <select name="flip-4" id="flip-4" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <form>
+            <div data-role="rangeslider">
+                <label for="range-1a" class="mb-3"><strong>Price Range (LKR)</strong></label>
+                <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
+                <label for="range-1b">Rangeslider:</label>
+                <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
+            </div>
+        </form>
+
+        <div class="row mb-3 mt-3">
+            <div class="col-6">
+                <a href="#" data-rel="back" data-role="button" class="ui-btn">Cancel</a>
+            </div>
+            <div class="col-6">
+                <button class="ui-btn">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Merchant Cards-->
     <div class="row mr-2 ml-2">
         <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3">
             <div class="card">
@@ -324,6 +472,7 @@
 
 </div>
 
+<!--Footer-->
 <div class="footer">
     <div class="row justify-content-between">
         <div class="col d-flex justify-content-left ml-3 p-3">
