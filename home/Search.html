@@ -152,6 +152,20 @@
             padding-bottom: 0.5em !important;
             margin : 0 !important;
         }
+        .custom-filter-button {
+            margin: 0.7em 0 !important;
+        }
+
+        .ui-input-search {
+            margin-top: 0em !important;
+        }
+
+        .custom-location {
+            width: 450px;
+            height: auto;
+            padding: 20px;
+            background-color: #EC7A23;
+        }
 
         .card {
             background: #FFF;
@@ -252,6 +266,9 @@
                 width: 350px !important;
                 height: 320px !important;
             }
+            .custom-location {
+                width: 350px !important;
+            }
         }
 
         @media only screen and (max-height: 700px) {
@@ -269,7 +286,9 @@
                 width: 350px !important;
                 height: 320px !important;
             }
-
+            .custom-location {
+                width: 350px !important;
+            }
         }
 
         @media only screen and (max-width: 680px) {
@@ -285,6 +304,9 @@
             .custom-filter {
                 width: 350px !important;
                 height: 320px !important;
+            }
+            .custom-location {
+                width: 350px !important;
             }
 
         }
@@ -304,7 +326,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-10">
-            <a class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select Your
+            <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select Your
                 Location</a>
         </div>
     </div>
@@ -314,12 +336,11 @@
         </div>
     </div>
     <div class="row mt-n3"> <!--search by name and filtering row-->
-        <div class="col-8 mr-auto pt-2">
-            Search Restaurant by Name
-            <!--            <input type="search" name="search" id="search" value="" placeholder="Search Restaurant by Name"/>-->
+        <div class="col-10 mr-auto pt-2">
+           <input data-type="search" id="searchForCollapsibleSet" name="search" value="" placeholder="Search Restaurant by Name"/>
         </div>
         <div class="col-auto">
-            <a href="#popupBasic" data-rel="popup" data-transition="pop" class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext">Filter</a>
+            <a href="#popupBasic" data-rel="popup" data-transition="pop" class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext custom-filter-button">Filter</a>
         </div>
     </div>
     <div class="row mt-n3">  <!--second hr line-->
@@ -333,6 +354,29 @@
 </div>
 
 <div class="main mb-5">
+    <!--Location Modal-->
+    <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window" data-overlay-theme="a" data-transition="pop">
+        <div class="row mb-2">
+            <div class="col-8">
+            </div>
+            <div class="col-4 custom-close-button">
+                <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+            </div>
+        </div>
+        <form>
+            <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+                <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input" placeholder="Search by locations..." value="au">
+            </div>
+            <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true" data-input="#pre-rendered-example-input" class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
+                <div class="ui-controlgroup-controls">
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo 10</a>
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo 11</a>
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+                </div>
+            </div>
+        </form>
+    </div>
     <!--Filters Modal-->
     <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a" data-transition="pop">
         <div class="row mb-2">
@@ -425,8 +469,8 @@
     </div>
 
     <!--Merchant Cards-->
-    <div class="row mr-2 ml-2">
-        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3">
+    <div class="row mr-2 ml-2" data-role="collapsible-set" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3 mt-3" data-filtertext="Pizza Zone">
             <div class="card">
                 <div class="card-image">
                     <img alt="home" src="../assets/merchants/pizza-3007395.jpg" style="width: 100%;"/>
@@ -440,13 +484,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3">
+        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="Pizza">
             <div class="card">
                 <div class="card-image">
                     <img alt="home" src="../assets/merchants/food-2203732.jpg" style="width: 100%;"/>
                 </div>
                 <div class="ui-grid-a">
-                    <span class="card-title">Pizza Zone</span>
+                    <span class="card-title">Pizza</span>
                     <span class="row card-rating">  <img alt="home"
                                                          src="../assets/icons/star_orange_18dp.png"
                                                          class="custom-star"/>50+ Rating</span>
@@ -454,13 +498,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3">
+        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="Burger House">
             <div class="card">
                 <div class="card-image">
                     <img alt="home" src="../assets/merchants/meal-5590186.jpg" style="width: 100%;"/>
                 </div>
                 <div class="ui-grid-a">
-                    <span class="card-title">Pizza Zone</span>
+                    <span class="card-title">Burger House</span>
                     <span class="row card-rating">  <img alt="home"
                                                          src="../assets/icons/star_orange_18dp.png"
                                                          class="custom-star"/>50+ Rating</span>
