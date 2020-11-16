@@ -140,11 +140,13 @@
         .font1 {
             font-size: 12px;
             text-align: right;
+            text-shadow: 0 0 black !important;
         }
 
         .font2 {
             font-size: 10px;
             text-align: right;
+            text-shadow: 0 0 black !important;
         }
 
         .custom-search-bar {
@@ -295,6 +297,7 @@
             /*when width is less than iPhone portrait mode */
             .font1 {
                 font-size: 10px;
+
             }
 
             .font2 {
@@ -366,7 +369,7 @@
         </div>
         <form>
             <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
-                <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input" placeholder="Search by locations..." value="au">
+                <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input" placeholder="Search by locations..." value="">
             </div>
             <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true" data-input="#pre-rendered-example-input" class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
                 <div class="ui-controlgroup-controls">
@@ -390,17 +393,17 @@
         </div>
 
         <form>
-        <div class="row mb-3">
+            <div class="row mb-3">
             <div class="col-6">
                 <div class="row">
                     <div class="col-4">
                 <label for="flip-1">Pizza</label>
                     </div>
                     <div class="col-8">
-                        <select name="flip-1" id="flip-1" data-role="slider" style="width: 4.0em;">
-                            <option value="off"></option>
-                            <option value="on"></option>
-                        </select>
+                    <select name="flip-1" id="flip-1" data-role="slider" style="width: 4.0em;">
+                    <option value="off"></option>
+                    <option value="on"></option>
+                    </select>
                     </div>
                 </div>
             </div>
@@ -410,15 +413,14 @@
                         <label for="flip-2">Noodles</label>
                     </div>
                     <div class="col-8">
-                            <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
-                                <option value="off"></option>
-                                <option value="on"></option>
-                            </select>
+                        <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
+                        <option value="off"></option>
+                        <option value="on"></option>
+                        </select>
                     </div>
                 </div>
             </div>
         </div>
-
             <div class="row mb-3">
                 <div class="col-6">
                     <div class="row">
@@ -426,10 +428,10 @@
                             <label for="flip-3">Bakery</label>
                         </div>
                         <div class="col-8">
-                                <select name="flip-3" id="flip-3" data-role="slider" style="width: 4.0em;">
-                                    <option value="off"></option>
-                                    <option value="on"></option>
-                                </select>
+                            <select name="flip-3" id="flip-3" data-role="slider" style="width: 4.0em;">
+                            <option value="off"></option>
+                            <option value="on"></option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -439,15 +441,14 @@
                             <label for="flip-4">Chinese</label>
                         </div>
                         <div class="col-8">
-                                <select name="flip-4" id="flip-4" data-role="slider" style="width: 4.0em;">
-                                    <option value="off"></option>
-                                    <option value="on"></option>
-                                </select>
+                            <select name="flip-4" id="flip-4" data-role="slider" style="width: 4.0em;">
+                                <option value="off"></option>
+                                <option value="on"></option>
+                            </select>
                         </div>
                     </div>
                 </div>
             </div>
-
         </form>
         <form>
             <div data-role="rangeslider">
@@ -469,8 +470,8 @@
     </div>
 
     <!--Merchant Cards-->
-    <div class="row mr-2 ml-2" data-role="collapsible-set" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3 mt-3" data-filtertext="Pizza Zone">
+    <div class="row mr-2 ml-2 pt-3" data-role="collapsible-set" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="Pizza Zone">
             <div class="card">
                 <div class="card-image">
                     <img alt="home" src="../assets/merchants/pizza-3007395.jpg" style="width: 100%;"/>
