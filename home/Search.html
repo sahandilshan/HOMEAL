@@ -15,6 +15,9 @@
     <title>Search</title>
 
     <style>
+        .ui-focus,.ui-btn:focus {
+            box-shadow: none !important;
+        }
 
         .ui-icon-notification:after {
             background-image: url("../assets/icons/notifications_black.png");
@@ -62,48 +65,70 @@
             background-image: url("../assets/icons/home_black.png");
             /* Make your icon fit */
             background-size: 18px 18px;
-            background-color: transparent;
+            border-radius:0px !important;
+            background-color: transparent !important;
+            border: 0 !important;
+            -webkit-box-shadow: none;
+            box-shadow: none;
         }
 
-        .ui-icon-home {
-            background-color: transparent !important;
-            border: none;
+
+        .ui-icon-home.ui-btn-active:after{
+            background-image: url("../assets/icons/home_orange.png") !important;
+            background-size: 18px 18px;
         }
 
         .ui-icon-orders:after {
-            background-image: url("../assets/icons/orders_black.png");
+            background-image: url("../assets/icons/ordersIcon_black.png");
+            border-radius:0px !important;
+            background-color: transparent !important;
             /* Make your icon fit */
             background-size: 18px 18px;
-            background-color: transparent;
+            /*background-color: transparent;*/
         }
 
-        .ui-icon-orders {
-            background-color: transparent !important;
-            border: none;
+
+        .ui-icon-orders.ui-btn-active:after{
+            background-image: url("../assets/icons/ordersIcon_orange.png") !important;
+            background-size: 18px 18px;
         }
 
         .ui-icon-cart:after {
-            background-image: url("../assets/icons/orders_black.png");
+            background-image: url("../assets/icons/cartIcon_black.png");
             /* Make your icon fit */
             background-size: 18px 18px;
-            background-color: transparent;
+            border-radius:0px !important;
+            background-color: transparent !important;
+            border: none !important;
+            /*background-color: transparent;*/
         }
 
-        .ui-icon-cart {
-            background-color: transparent !important;
-            border: none;
+        .ui-icon-cart.ui-btn-active:after{
+            background-image: url("../assets/icons/cartIcon_orange.png") !important;
+            background-size: 18px 18px;
         }
 
         .ui-icon-profile:after {
             background-image: url("../assets/icons/person_black.png");
             /* Make your icon fit */
             background-size: 18px 18px;
-            background-color: transparent;
+            border-radius:0px !important;
+            border: none !important;
+            background-color: transparent !important;
+            /*background-color: transparent;*/
         }
 
-        .ui-icon-profile {
-            background-color: transparent !important;
-            border: none;
+        .ui-icon-profile.ui-btn-active:after{
+            background-image: url("../assets/icons/person_orange.png") !important;
+            background-size: 18px 18px;
+        }
+
+        {.ui-icon-profile,.ui-icon-cart,.ui-icon-orders,.ui-icon-home}.ui-btn-active{
+            color:#ec7a23 !important;
+            background: none !important;
+            background-color: snow !important;
+            border-color: snow !important;
+            text-shadow: none !important;
         }
 
         .header {
@@ -248,6 +273,9 @@
             height: 330px;
             padding: 20px;
             background-color: #EC7A23;
+        }
+        .custom-switch {
+            text-align: end;
         }
 
         .custom-close-button {
@@ -396,7 +424,7 @@
                         <div class="col-4">
                             <label for="flip-1">Pizza</label>
                         </div>
-                        <div class="col-8">
+                        <div class="col-8 custom-switch">
                             <select name="flip-1" id="flip-1" data-role="slider" style="width: 4.0em;">
                                 <option value="off"></option>
                                 <option value="on"></option>
@@ -409,7 +437,7 @@
                         <div class="col-4">
                             <label for="flip-2">Noodles</label>
                         </div>
-                        <div class="col-8">
+                        <div class="col-8 custom-switch">
                             <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
                                 <option value="off"></option>
                                 <option value="on"></option>
@@ -424,7 +452,7 @@
                         <div class="col-4">
                             <label for="flip-3">Bakery</label>
                         </div>
-                        <div class="col-8">
+                        <div class="col-8 custom-switch">
                             <select name="flip-3" id="flip-3" data-role="slider" style="width: 4.0em;">
                                 <option value="off"></option>
                                 <option value="on"></option>
@@ -437,7 +465,7 @@
                         <div class="col-4">
                             <label for="flip-4">Chinese</label>
                         </div>
-                        <div class="col-8">
+                        <div class="col-8 custom-switch">
                             <select name="flip-4" id="flip-4" data-role="slider" style="width: 4.0em;">
                                 <option value="off"></option>
                                 <option value="on"></option>
@@ -534,22 +562,14 @@
 </div>
 
 <div data-role="footer" class="fixed-bottom">
-    <div class="row">
-        <div class="col d-flex justify-content-center">
-            <button class="ui-btn ui-btn-icon-notext ui-icon-home">Home</button>
-            <!--            <button class="ui-btn ui-btn-icon-notext ui-icon-top">Home</button>-->
-            <!--if we need text at the bottom-->
-        </div>
-        <div class="col d-flex justify-content-center">
-            <button class="ui-btn ui-btn-icon-notext ui-icon-orders">Orders</button>
-        </div>
-        <div class="col d-flex justify-content-center">
-            <button class="ui-btn ui-btn-icon-notext ui-icon-cart">Cart</button>
-        </div>
-        <div class="col d-flex justify-content-center">
-            <button class="ui-btn ui-btn-icon-notext ui-icon-profile">Profile</button>
-        </div>
-    </div>
+    <nav data-role="navbar">
+        <ul>
+            <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
+            <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+            <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+            <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+        </ul>
+    </nav>
 </div>
 </body>
 </html>
