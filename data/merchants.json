@@ -1,0 +1,20 @@
+[
+  {
+    "merchant_id": "1000",
+    "name": "Pizza Zone",
+    "filter_text": "Pizza Zone",
+    "img_path": "../assets/merchants/pizza-3007395.jpg"
+  },
+  {
+    "merchant_id": "1001",
+    "name": "Pizza",
+    "filter_text": "Pizza",
+    "img_path": "../assets/merchants/food-2203732.jpg"
+  },
+  {
+    "merchant_id": "1002",
+    "name": "Burger House",
+    "filter_text": "Burger House",
+    "img_path": "../assets/merchants/meal-5590186.jpg"
+  }
+]

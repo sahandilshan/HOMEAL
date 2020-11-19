@@ -15,7 +15,7 @@
     <title>Search</title>
 
     <style>
-        .ui-focus,.ui-btn:focus {
+        .ui-focus, .ui-btn:focus {
             box-shadow: none !important;
         }
 
@@ -65,7 +65,7 @@
             background-image: url("../assets/icons/home_black.png");
             /* Make your icon fit */
             background-size: 18px 18px;
-            border-radius:0px !important;
+            border-radius: 0px !important;
             background-color: transparent !important;
             border: 0 !important;
             -webkit-box-shadow: none;
@@ -73,14 +73,14 @@
         }
 
 
-        .ui-icon-home.ui-btn-active:after{
+        .ui-icon-home.ui-btn-active:after {
             background-image: url("../assets/icons/home_orange.png") !important;
             background-size: 18px 18px;
         }
 
         .ui-icon-orders:after {
             background-image: url("../assets/icons/ordersIcon_black.png");
-            border-radius:0px !important;
+            border-radius: 0px !important;
             background-color: transparent !important;
             /* Make your icon fit */
             background-size: 18px 18px;
@@ -88,7 +88,7 @@
         }
 
 
-        .ui-icon-orders.ui-btn-active:after{
+        .ui-icon-orders.ui-btn-active:after {
             background-image: url("../assets/icons/ordersIcon_orange.png") !important;
             background-size: 18px 18px;
         }
@@ -97,13 +97,13 @@
             background-image: url("../assets/icons/cartIcon_black.png");
             /* Make your icon fit */
             background-size: 18px 18px;
-            border-radius:0px !important;
+            border-radius: 0px !important;
             background-color: transparent !important;
             border: none !important;
             /*background-color: transparent;*/
         }
 
-        .ui-icon-cart.ui-btn-active:after{
+        .ui-icon-cart.ui-btn-active:after {
             background-image: url("../assets/icons/cartIcon_orange.png") !important;
             background-size: 18px 18px;
         }
@@ -112,21 +112,33 @@
             background-image: url("../assets/icons/person_black.png");
             /* Make your icon fit */
             background-size: 18px 18px;
-            border-radius:0px !important;
+            border-radius: 0px !important;
             border: none !important;
             background-color: transparent !important;
             /*background-color: transparent;*/
         }
 
-        .ui-icon-profile.ui-btn-active:after{
+        .ui-icon-profile.ui-btn-active:after {
             background-image: url("../assets/icons/person_orange.png") !important;
             background-size: 18px 18px;
         }
 
-        {.ui-icon-profile,.ui-icon-cart,.ui-icon-orders,.ui-icon-home}.ui-btn-active{
-            color:#ec7a23 !important;
-            background: none !important;
-            background-color: snow !important;
+        {
+        .
+        ui-icon-profile
+        ,
+        .
+        ui-icon-cart
+        ,
+        .
+        ui-icon-orders
+        ,
+        .
+        ui-icon-home
+        }
+        .ui-btn-active {
+            color: #ec7a23 !important;
+            background: snow none !important;
             border-color: snow !important;
             text-shadow: none !important;
         }
@@ -159,7 +171,7 @@
             background: #282F33;
             color: #FFFFFF;
             position: relative;
-            bottom: 2.5rem;
+            bottom: 2.0rem;
         }
 
         .font1 {
@@ -177,8 +189,9 @@
         .custom-search-bar {
             padding-top: 0.5em !important;;
             padding-bottom: 0.5em !important;
-            margin : 0 !important;
+            margin: 0 !important;
         }
+
         .custom-filter-button {
             margin: 0.7em 0 !important;
         }
@@ -207,6 +220,7 @@
             height: 190px;
             width: 100%;
         }
+
         .card-image {
             width: 100%;
             height: 160px;
@@ -227,6 +241,7 @@
             border: none;
             padding-left: 8px !important;
         }
+
         .card-rating {
             bottom: 0;
             color: black;
@@ -274,6 +289,7 @@
             padding: 20px;
             background-color: #EC7A23;
         }
+
         .custom-switch {
             text-align: end;
         }
@@ -282,9 +298,11 @@
             text-align: -webkit-right !important;
             margin-top: -10px;
         }
+
         .ui-popup-screen.in {
             background-color: black !important;
         }
+
         @media only screen and (max-height: 1000px) {
             /*when height is less than ipad portrait mode*/
             .main {
@@ -296,6 +314,7 @@
                 width: 350px !important;
                 height: 320px !important;
             }
+
             .custom-location {
                 width: 350px !important;
             }
@@ -316,8 +335,13 @@
                 width: 350px !important;
                 height: 320px !important;
             }
+
             .custom-location {
                 width: 350px !important;
+            }
+
+            .footer {
+                bottom: 3.5rem;
             }
         }
 
@@ -336,6 +360,7 @@
                 width: 350px !important;
                 height: 320px !important;
             }
+
             .custom-location {
                 width: 350px !important;
             }
@@ -343,6 +368,37 @@
         }
 
     </style>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $.support.cors = true
+        $(document).ready(function () {
+            $.getJSON("../data/merchants.json", function (result) {
+                console.log(result);
+                let merchants = "";
+                $.each(result, function (i, merchant) {
+                    console.log("i: ", i, "merchant: ", merchant);
+                    merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img alt="home" src="${merchant.img_path}" style="width: 100%;"/>
+                                </div>
+                                <div class="ui-grid-a">
+                                    <span class="card-title">${merchant.name}</span>
+                                    <span class="row card-rating">  <img alt="home"
+                                                                         src="../assets/icons/star_orange_18dp.png"
+                                                                         class="custom-star"/>50+ Rating</span>
+
+                                </div>
+                            </div>
+                        </div>`;
+                });
+                $("#collapsiblesetForFilter").append(merchants);
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -356,7 +412,8 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-sm-10">
-            <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select Your
+            <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
+               class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select Your
                 Location</a>
         </div>
     </div>
@@ -367,10 +424,12 @@
     </div>
     <div class="row mt-n3"> <!--search by name and filtering row-->
         <div class="col-10 mr-auto pt-2">
-           <input data-type="search" id="searchForCollapsibleSet" name="search" value="" placeholder="Search Restaurant by Name"/>
+            <input data-type="search" id="searchForCollapsibleSet" name="search" value=""
+                   placeholder="Search Restaurant by Name"/>
         </div>
         <div class="col-auto">
-            <a href="#popupBasic" data-rel="popup" data-transition="pop" class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext custom-filter-button">Filter</a>
+            <a href="#popupBasic" data-rel="popup" data-transition="pop"
+               class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext custom-filter-button">Filter</a>
         </div>
     </div>
     <div class="row mt-n3">  <!--second hr line-->
@@ -383,7 +442,8 @@
     </div>
 
     <!--Location Modal-->
-    <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window" data-overlay-theme="a" data-transition="pop">
+    <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
+         data-overlay-theme="a" data-transition="pop">
         <div class="row mb-2">
             <div class="col-8">
             </div>
@@ -394,19 +454,28 @@
         </div>
         <form>
             <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
-                <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input" placeholder="Search by locations..." value="">
+                <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input"
+                       placeholder="Search by locations..." value="">
             </div>
-            <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true" data-input="#pre-rendered-example-input" class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
+            <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true"
+                 data-input="#pre-rendered-example-input"
+                 class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
                 <div class="ui-controlgroup-controls">
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo 10</a>
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo 11</a>
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+                    <a href="#"
+                       class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo
+                        10</a>
+                    <a href="#"
+                       class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo
+                        11</a>
+                    <a href="#"
+                       class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
                 </div>
             </div>
         </form>
     </div>
     <!--Filters Modal-->
-    <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a" data-transition="pop">
+    <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a"
+         data-transition="pop">
         <div class="row mb-2">
             <div class="col-8">
                 <label><strong>Categories </strong> </label>
@@ -496,51 +565,11 @@
 
 </div>
 
-<div class="main mb-5"> <!--content area starts from here-->
+<div class="main mb-5" da> <!--content area starts from here-->
     <!--Merchant Cards-->
-    <div class="row mr-2 ml-2 mt-n3" data-role="collapsible-set" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="Pizza Zone">
-            <div class="card">
-                <div class="card-image">
-                    <img alt="home" src="../assets/merchants/pizza-3007395.jpg" style="width: 100%;"/>
-                </div>
-                <div class="ui-grid-a">
-                    <span class="card-title">Pizza Zone</span>
-                    <span class="row card-rating">  <img alt="home"
-                                                         src="../assets/icons/star_orange_18dp.png"
-                                                         class="custom-star"/>50+ Rating</span>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="Pizza">
-            <div class="card">
-                <div class="card-image">
-                    <img alt="home" src="../assets/merchants/food-2203732.jpg" style="width: 100%;"/>
-                </div>
-                <div class="ui-grid-a">
-                    <span class="card-title">Pizza</span>
-                    <span class="row card-rating">  <img alt="home"
-                                                         src="../assets/icons/star_orange_18dp.png"
-                                                         class="custom-star"/>50+ Rating</span>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="Burger House">
-            <div class="card">
-                <div class="card-image">
-                    <img alt="home" src="../assets/merchants/meal-5590186.jpg" style="width: 100%;"/>
-                </div>
-                <div class="ui-grid-a">
-                    <span class="card-title">Burger House</span>
-                    <span class="row card-rating">  <img alt="home"
-                                                         src="../assets/icons/star_orange_18dp.png"
-                                                         class="custom-star"/>50+ Rating</span>
-
-                </div>
-            </div>
-        </div>
+    <div class="row mr-2 ml-2 mt-n3" data-role="collapsible-set" data-filter="true" data-inset="true"
+         id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+        <!--merchants cards will be appeared here.-->
     </div>
 
 </div>
