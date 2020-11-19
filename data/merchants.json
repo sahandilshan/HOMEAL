@@ -1,20 +1,28 @@
 [
-  {
-    "merchant_id": "1000",
-    "name": "Pizza Zone",
-    "filter_text": "Pizza Zone",
-    "img_path": "../assets/merchants/pizza-3007395.jpg"
-  },
-  {
-    "merchant_id": "1001",
-    "name": "Pizza",
-    "filter_text": "Pizza",
-    "img_path": "../assets/merchants/food-2203732.jpg"
-  },
-  {
-    "merchant_id": "1002",
-    "name": "Burger House",
-    "filter_text": "Burger House",
-    "img_path": "../assets/merchants/meal-5590186.jpg"
-  }
+	{
+		"merchant_id": "M001",
+		"merchant_name": "Pizza Zone",
+		"filter_text": "Pizza Zone",
+		"merchantLocation": "Colombo 10",
+		"sellerDetails": {
+			"seller_id": "S8574",
+			"seller_name": "Sahan Dilshan"
+		},
+		"merchant_background_img_path": "../assets/merchants/pizza-3007395.jpg",
+		"merchant_logo_img_path": "",
+		"merchant_category": "Asian",
+		"product_categories": [
+			{
+				"category_name": "Noodles"
+			},
+			{
+				"category_name": "Salads"
+			},
+			{
+				"category_name": "Rice"
+			}
+		],
+		"tax_percentage": "5%",
+		"delivery_amount": "100"
+	}
 ]
