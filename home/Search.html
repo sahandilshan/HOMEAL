@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Search</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -12,201 +13,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <title>Search</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--jquey-->
+
+    <link rel="stylesheet" href="../css/custom.css"/>
 
     <style>
-        .ui-focus, .ui-btn:focus {
-            box-shadow: none !important;
-        }
-
-        .ui-icon-notification:after {
-            background-image: url("../assets/icons/notifications_black.png");
-            /* Make your icon fit */
-            background-size: 18px 18px;
-            background-color: transparent;
-        }
-
-        .ui-icon-notification {
-            background-color: transparent !important;
-            border: none;
-        }
-
-        .ui-icon-location {
-            text-align: left;
-        }
-
-        .ui-icon-location:after {
-            background-image: url("../assets/icons/place_orange.png");
-            /* Make your icon fit */
-            background-size: 18px 18px;
-            background-color: transparent;
-        }
-
-        .ui-icon-back:after {
-            background-image: url("../assets/icons/arrow_left_black.png");
-            /* Make your icon fit */
-            background-size: 18px 18px;
-            background-color: transparent;
-        }
-
-        .ui-icon-back {
-            background-color: transparent !important;
-            border: none;
-        }
-
-        .ui-icon-filter:after {
-            background-image: url("../assets/icons/slider.png");
-            /* Make your icon fit */
-            background-size: 18px 18px;
-            background-color: transparent;
-        }
-
-        .ui-icon-home:after {
-            background-image: url("../assets/icons/home_black.png");
-            /* Make your icon fit */
-            background-size: 18px 18px;
-            border-radius: 0px !important;
-            background-color: transparent !important;
-            border: 0 !important;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
-
-
-        .ui-icon-home.ui-btn-active:after {
-            background-image: url("../assets/icons/home_orange.png") !important;
-            background-size: 18px 18px;
-        }
-
-        .ui-icon-orders:after {
-            background-image: url("../assets/icons/ordersIcon_black.png");
-            border-radius: 0px !important;
-            background-color: transparent !important;
-            /* Make your icon fit */
-            background-size: 18px 18px;
-            /*background-color: transparent;*/
-        }
-
-
-        .ui-icon-orders.ui-btn-active:after {
-            background-image: url("../assets/icons/ordersIcon_orange.png") !important;
-            background-size: 18px 18px;
-        }
-
-        .ui-icon-cart:after {
-            background-image: url("../assets/icons/cartIcon_black.png");
-            /* Make your icon fit */
-            background-size: 18px 18px;
-            border-radius: 0px !important;
-            background-color: transparent !important;
-            border: none !important;
-            /*background-color: transparent;*/
-        }
-
-        .ui-icon-cart.ui-btn-active:after {
-            background-image: url("../assets/icons/cartIcon_orange.png") !important;
-            background-size: 18px 18px;
-        }
-
-        .ui-icon-profile:after {
-            background-image: url("../assets/icons/person_black.png");
-            /* Make your icon fit */
-            background-size: 18px 18px;
-            border-radius: 0px !important;
-            border: none !important;
-            background-color: transparent !important;
-            /*background-color: transparent;*/
-        }
-
-        .ui-icon-profile.ui-btn-active:after {
-            background-image: url("../assets/icons/person_orange.png") !important;
-            background-size: 18px 18px;
-        }
-
-        {
-        .
-        ui-icon-profile
-        ,
-        .
-        ui-icon-cart
-        ,
-        .
-        ui-icon-orders
-        ,
-        .
-        ui-icon-home
-        }
-        .ui-btn-active {
-            color: #ec7a23 !important;
-            background: snow none !important;
-            border-color: snow !important;
-            text-shadow: none !important;
-        }
-
-        .header {
-            background: transparent !important;
-            border: none;
-        }
-
-        hr {
-            margin-bottom: 1rem;
-            border: 0;
-            border-top: 2px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .img-fluid {
-            height: 35px !important;
-        }
-
-        .top {
-            background-color: #FFFFFF;
-        }
-
-        .main {
-            min-height: 66vh;
-            margin-top: 14rem;
-        }
-
-        .footer {
-            background: #282F33;
-            color: #FFFFFF;
-            position: relative;
-            bottom: 2.0rem;
-        }
-
-        .font1 {
-            font-size: 12px;
-            text-align: right;
-            text-shadow: 0 0 black !important;
-        }
-
-        .font2 {
-            font-size: 10px;
-            text-align: right;
-            text-shadow: 0 0 black !important;
-        }
-
-        .custom-search-bar {
-            padding-top: 0.5em !important;;
-            padding-bottom: 0.5em !important;
-            margin: 0 !important;
-        }
-
-        .custom-filter-button {
-            margin: 0.7em 0 !important;
-        }
-
-        .ui-input-search {
-            margin-top: 0em !important;
-        }
-
-        .custom-location {
-            width: 450px;
-            height: auto;
-            padding: 20px;
-            background-color: #EC7A23;
-        }
-
         .card {
             background: #FFF;
             border: 1px solid #AAA;
@@ -256,121 +67,7 @@
             height: 23px;
             width: 23px;
         }
-
-        div.ui-slider-switch {
-            width: 60px !important;
-            height: 30px !important;
-            top: 0;
-        }
-
-        div.ui-slider {
-            margin: 0 !important;
-        }
-
-        .ui-slider-switch .ui-slider-label {
-            overflow: hidden;
-            font-size: 14px !important;
-            font-weight: normal !important;
-        }
-
-        .ui-slider-track .ui-btn.ui-slider-handle {
-            width: 26px !important;
-            height: 26px !important;
-
-        }
-
-        .ui-slider-inneroffset {
-            margin: 0px 12px !important;
-        }
-
-        .custom-filter {
-            width: 450px;
-            height: 330px;
-            padding: 20px;
-            background-color: #EC7A23;
-        }
-
-        .custom-switch {
-            text-align: end;
-        }
-
-        .custom-close-button {
-            text-align: -webkit-right !important;
-            margin-top: -10px;
-        }
-
-        .ui-popup-screen.in {
-            background-color: black !important;
-        }
-
-        @media only screen and (max-height: 1000px) {
-            /*when height is less than ipad portrait mode*/
-            .main {
-                min-height: 55vh;
-
-            }
-
-            .custom-filter {
-                width: 350px !important;
-                height: 320px !important;
-            }
-
-            .custom-location {
-                width: 350px !important;
-            }
-        }
-
-        @media only screen and (max-height: 700px) {
-            /*when height is less than ipad landscape*/
-            .img-fluid {
-                height: 22px !important;
-            }
-
-            .main {
-                margin-top: 13rem;
-                min-height: 52vh;
-            }
-
-            .custom-filter {
-                width: 350px !important;
-                height: 320px !important;
-            }
-
-            .custom-location {
-                width: 350px !important;
-            }
-
-            .footer {
-                bottom: 3.5rem;
-            }
-        }
-
-        @media only screen and (max-width: 680px) {
-            /*when width is less than iPhone portrait mode */
-            .font1 {
-                font-size: 10px;
-
-            }
-
-            .font2 {
-                font-size: 8px;
-            }
-
-            .custom-filter {
-                width: 350px !important;
-                height: 320px !important;
-            }
-
-            .custom-location {
-                width: 350px !important;
-            }
-
-        }
-
     </style>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
         $.support.cors = true
@@ -383,10 +80,10 @@
                     merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
                             <div class="card">
                                 <div class="card-image">
-                                    <img alt="home" src="${merchant.img_path}" style="width: 100%;"/>
+                                    <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
                                 </div>
                                 <div class="ui-grid-a">
-                                    <span class="card-title">${merchant.name}</span>
+                                    <span class="card-title">${merchant.merchant_name}</span>
                                     <span class="row card-rating">  <img alt="home"
                                                                          src="../assets/icons/star_orange_18dp.png"
                                                                          class="custom-star"/>50+ Rating</span>
@@ -565,11 +262,13 @@
 
 </div>
 
-<div class="main mb-5"> <!--content area starts from here-->
-    <!--Merchant Cards-->
-    <div class="row mr-2 ml-2 mt-n3" data-role="collapsible-set" data-filter="true" data-inset="true"
-         id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-        <!--merchants cards will be appeared here.-->
+<div class="main"> <!--content area starts from here-->
+    <div class="mr-2 ml-2 mt-n3">
+        <!--Merchant Cards-->
+        <div class="row" data-role="collapsible-set" data-filter="true" data-inset="true"
+             id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+            <!--merchants cards will be appeared here.-->
+        </div>
     </div>
 
 </div>
