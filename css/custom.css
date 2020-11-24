@@ -216,6 +216,10 @@ div.ui-slider {
     text-align: end;
 }
 
+.favorite-container {
+    text-align: -webkit-right !important;
+}
+
 .custom-close-button {
     text-align: -webkit-right !important;
     margin-top: -10px;
@@ -223,6 +227,184 @@ div.ui-slider {
 
 .ui-popup-screen.in {
     background-color: black !important;
+}
+
+.card {
+    background: #FFF;
+    border: 1px solid #AAA;
+    box-shadow: 0 2px 3px 0 #AAA;
+    padding: 0;
+    /*margin-right: 7.5px;*/
+    margin-bottom: 15px;
+    /*margin-left: 7.5px;*/
+    overflow: hidden;
+    border-radius: 3px;
+    height: 190px;
+    width: 100%;
+}
+
+.card-image {
+    width: 100%;
+    height: 160px;
+    padding: 0;
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-title {
+    position: absolute;
+    bottom: 0;
+    color: black;
+    margin: 0;
+    padding: 5px;
+    border: none;
+    padding-left: 8px !important;
+}
+
+.card-rating {
+    bottom: 0;
+    color: black;
+    margin: 0;
+    padding: 5px;
+    border: none;
+    float: right !important;
+    padding-right: 8px !important;
+}
+
+.custom-star {
+    height: 23px;
+    width: 23px;
+}
+
+.merchantBackground {
+    height: 180px !important;
+    width: 100% !important;
+    object-fit: cover;
+}
+
+.product-card {
+    background: #FFF;
+    border: 1px solid #AAA;
+    box-shadow: 0 2px 3px 0 #AAA;
+    padding: 0;
+    /*margin-right: 7.5px;*/
+    margin-bottom: 15px;
+    /*margin-left: 7.5px;*/
+    overflow: hidden;
+    border-radius: 3px;
+    width: 100%;
+}
+.product-card-image {
+    width: 100%;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-star {
+    height: 23px;
+    width: 23px;
+}
+
+.centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.centeredMerchantName {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 15px;
+    left: 16px;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 15px;
+    right: 16px;
+}
+.bottom-right-saving-tag {
+    position: absolute;
+    bottom: 10px;
+    right: 43px;
+}
+
+.product-name {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.product-price {
+    font-size: 11px;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.merchantLogo {
+    width: 65px;
+    height: 65px;
+}
+
+.deliveryTimeContainer {
+    background-color: #FFFFFF;
+    padding-left: 8px;
+    border-bottom-right-radius: 20px !important;
+    border-radius: 5px;
+}
+.deliveryTimeText {
+    color: black;
+    font-size: 14px !important;
+}
+.savingText {
+    color: black;
+    font-size: 10px !important;
+}
+.ratingText {
+    font-size: 14px !important;
+}
+
+div.scrollmenu {
+    background-color: white;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollmenu a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: normal !important;
+    font-size: 14px !important;
+}
+
+div.scrollmenu a:hover {
+    background-color: #EC7A23;
+    border-radius: 15px;
+    color: white !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
 }
 
 @media only screen and (max-height: 1000px) {
@@ -239,6 +421,22 @@ div.ui-slider {
 
     .custom-location {
         width: 350px !important;
+    }
+
+    .container, .container-md, .container-sm {
+        max-width: 100% !important;
+    }
+
+    .bottom-right-saving-tag {
+        position: absolute !important;
+        bottom: 10px !important;
+        right: 105px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .container, .container-md, .container-sm {
+        max-width: 100% !important;
     }
 }
 
@@ -261,26 +459,46 @@ div.ui-slider {
     .custom-location {
         width: 350px !important;
     }
-}
 
-@media only screen and (max-width: 680px) {
-    /*when width is less than iPhone landscape mode(iPhone Portrait Mode) */
-    .font1 {
-        font-size: 10px;
-
+    .container, .container-md, .container-sm {
+        max-width: 100% !important;
     }
 
-    .font2 {
-        font-size: 8px;
+    .bottom-right-saving-tag {
+        position: absolute !important;
+        bottom: 10px !important;
+        right: 40px !important;
     }
 
-    .custom-filter {
-        width: 350px !important;
-        height: 320px !important;
-    }
+    @media only screen and (max-width: 680px) {
+        /*when width is less than iPhone landscape mode(iPhone Portrait Mode) */
+        .font1 {
+            font-size: 10px;
 
-    .custom-location {
-        width: 350px !important;
-    }
+        }
 
+        .font2 {
+            font-size: 8px;
+        }
+
+        .custom-filter {
+            width: 350px !important;
+            height: 320px !important;
+        }
+
+        .custom-location {
+            width: 350px !important;
+        }
+
+        .container, .container-md, .container-sm {
+            max-width: 100% !important;
+        }
+
+        .bottom-right-saving-tag {
+            position: absolute !important;
+            bottom: 10px !important;
+            right: 40px !important;
+        }
+
+    }
 }

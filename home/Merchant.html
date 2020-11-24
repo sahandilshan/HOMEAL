@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--jquey-->
+
+    <link rel="stylesheet" href="../css/custom.css"/>
+
+</head>
+<body>
+<div class="top pl-3 pr-3 pb-2 fixed-top">
+    <div data-role="header" class="mb-1 header">
+        <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+        <h1>
+            <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
+        </h1>
+        <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-10">
+            <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
+               class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select Your
+                Location</a>
+        </div>
+    </div>
+    <div class="row mt-n2"> <!--first hr line-->
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row mt-n3"> <!--search by name and filtering row-->
+        <div class="col-10 mr-auto pt-2">
+            <input data-type="search" id="searchForCollapsibleSet" name="search" value=""
+                   placeholder="Search Restaurant by Name"/>
+        </div>
+        <div class="col-auto">
+            <a href="#popupBasic" data-rel="popup" data-transition="pop"
+               class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext custom-filter-button">Filter</a>
+        </div>
+    </div>
+    <div class="row mt-n3">  <!--second hr line-->
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row mt-n3">
+        <div class="col">Home/Search</div>
+    </div>
+
+    <!--Location Modal-->
+    <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
+         data-overlay-theme="a" data-transition="pop">
+        <div class="row mb-2">
+            <div class="col-8">
+            </div>
+            <div class="col-4 custom-close-button">
+                <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+            </div>
+        </div>
+        <form>
+            <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+                <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input"
+                       placeholder="Search by locations..." value="">
+            </div>
+            <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true"
+                 data-input="#pre-rendered-example-input"
+                 class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
+                <div class="ui-controlgroup-controls">
+                    <a href="#"
+                       class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo
+                        10</a>
+                    <a href="#"
+                       class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo
+                        11</a>
+                    <a href="#"
+                       class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--Filters Modal-->
+    <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a"
+         data-transition="pop">
+        <div class="row mb-2">
+            <div class="col-8">
+                <label><strong>Categories </strong> </label>
+            </div>
+            <div class="col-4 custom-close-button">
+                <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+            </div>
+        </div>
+
+        <form>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="flip-1">Pizza</label>
+                        </div>
+                        <div class="col-8 custom-switch">
+                            <select name="flip-1" id="flip-1" data-role="slider" style="width: 4.0em;">
+                                <option value="off"></option>
+                                <option value="on"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="flip-2">Noodles</label>
+                        </div>
+                        <div class="col-8 custom-switch">
+                            <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
+                                <option value="off"></option>
+                                <option value="on"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="flip-3">Bakery</label>
+                        </div>
+                        <div class="col-8 custom-switch">
+                            <select name="flip-3" id="flip-3" data-role="slider" style="width: 4.0em;">
+                                <option value="off"></option>
+                                <option value="on"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="flip-4">Chinese</label>
+                        </div>
+                        <div class="col-8 custom-switch">
+                            <select name="flip-4" id="flip-4" data-role="slider" style="width: 4.0em;">
+                                <option value="off"></option>
+                                <option value="on"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <form>
+            <div data-role="rangeslider">
+                <label for="range-1a" class="mb-3"><strong>Price Range (LKR)</strong></label>
+                <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
+                <label for="range-1b">Rangeslider:</label>
+                <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
+            </div>
+        </form>
+
+        <div class="row mb-3 mt-3">
+            <div class="col-6">
+                <a href="#" data-rel="back" data-role="button" class="ui-btn">Cancel</a>
+            </div>
+            <div class="col-6">
+                <button class="ui-btn">Apply</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="main"> <!--content area starts from here-->
+    <div class="mr-2 ml-2 mt-n3">
+        <!--Merchant Content-->
+        <div class="row" data-role="collapsible-set" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+            <div class="container pl-0 pr-0">
+                <div class="color-overlay">
+                    <img alt="home" src="../assets/merchants/pizza-3007395.jpg" class="merchantBackground"/>
+                </div>
+                <img alt="home" src="../assets/merchants/pizza-1428931.png" class="centered merchantLogo"/>
+                <div class="mt-2 centeredMerchantName">Pizza Zone</div>
+                <div class="bottom-left pl-3">
+                <span class="ratingText">  <img alt="home" src="../assets/icons/star_orange_18dp.png"
+                                                class="custom-star"/>50+ Rating</span>
+                </div>
+                <div class="bottom-right mr-3">
+                    <div class="deliveryTimeContainer"><span class="pr-3 deliveryTimeText">30-45 Mins</span></div>
+                </div>
+
+            </div>
+
+            <div class="container"><div class="scrollmenu">
+                <a href="#home">Home</a>
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+                <a href="#support">Support</a>
+                <a href="#blog">Blog</a>
+                <a href="#tools">Tools</a>
+                <a href="#base">Base</a>
+                <a href="#custom">Custom</a>
+                <a href="#more">More</a>
+                <a href="#logo">Logo</a>
+                <a href="#friends">Friends</a>
+                <a href="#partners">Partners</a>
+                <a href="#people">People</a>
+                <a href="#work">Work</a>
+            </div>
+
+            </div>
+
+            <div class="row mt-4 ml-2 mr-2">
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Chicken Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/margherita-pizza-993274.jpg" style="width: 100%;"/>
+                            <div class="bottom-right-saving-tag mr-3">
+                                <div class="deliveryTimeContainer pr-3 savingText">Save up to 10%</div>
+                            </div>
+                        </div>
+
+                        <div class="pl-2 pb-1">
+                            <div class="row">
+                                <div class="col-8 product-name">Beef Pizza</div>
+                                <!--<div class="col-6 favorite-container"> <button class="ui-btn ui-btn-icon-notext ui-icon-favorite m-0">Profile</button></div>-->
+                            </div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Beef Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/pizza-814044.jpg" style="width: 100%;"/>
+                        </div>
+                        <div class="col pl-2 pb-1">
+                            <div class="row-12 product-name">Beef Pizza</div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Seafood Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/pizza-2000600.jpg" style="width: 100%;"/>
+                        </div>
+                        <div class="col pl-2 pb-1">
+                            <div class="row-12 product-name">Seafood Pizza</div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Cheese Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/pizza-3000274.jpg" style="width: 100%;"/>
+                        </div>
+                        <div class="col pl-2 pb-1">
+                            <div class="row-12 product-name">Cheese Pizza</div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--Footer-->
+<div class="footer">
+    <div class="row justify-content-between">
+        <div class="col d-flex justify-content-left ml-3 p-3">
+            <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+        </div>
+        <div class="col mr-3 p-3">
+            <div class="row">
+                <div class="col font1">Privacy Policy Terms of Use</div>
+                <div class="w-100"></div>
+                <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-role="footer" class="fixed-bottom">
+    <nav data-role="navbar">
+        <ul>
+            <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
+            <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+            <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+            <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>
