@@ -1,39 +1,156 @@
 [
-	{
-				"merchant_id":"M001",
-				"product_id": "P001",
-				"product_name": "Beef Pizza",
-				"product_price": "Beef Pizza",
-				"product_description": "Beef pizza is good",
-				"product_img_path": "",
-				"variant_title": "Size",
-				"variants": [
-					{
-						"name": "Small",
-						"price": "1050",
-						"available_quantity": "14"
-					},
-					{
-						"name": "Medium",
-						"price": "1250",
-						"available_quantity": "11"
-					},
-					{
-						"name": "Large",
-						"price": "1650",
-						"available_quantity": "15"
-					}
-				],
-				"reviews": [
-					{
-						"review_id": "",
-						"user_id": "",
-						"rating": "",
-						"review_content": "",
-						"sellerComments": [],
-						"otherComments": []
-					},
-					{}
-				]
-			}
+  {
+    "merchant_id": "M001",
+    "products": [
+      {
+        "product_id": "P001",
+        "product_name": "Beef Pizza",
+        "product_price": "Beef Pizza",
+        "product_description": "Beef pizza is good",
+        "product_img_path": "../assets/products/pizza-814044.jpg",
+        "variant_title": "Size",
+        "variants": [
+          {
+            "name": "Small",
+            "price": "1050",
+            "available_quantity": "14"
+          },
+          {
+            "name": "Medium",
+            "price": "1250",
+            "available_quantity": "11"
+          },
+          {
+            "name": "Large",
+            "price": "1650",
+            "available_quantity": "15"
+          }
+        ],
+        "reviews": [
+          {
+            "review_id": "",
+            "user_id": "",
+            "rating": "",
+            "review_content": "",
+            "sellerComments": [],
+            "otherComments": []
+          },
+          {}
+        ]
+      },
+      {
+        "product_id": "P002",
+        "product_name": "Beef Pizza",
+        "product_price": "Beef Pizza",
+        "product_description": "Beef pizza is good",
+        "product_img_path": "../assets/products/pizza-814044.jpg",
+        "variant_title": "Size",
+        "variants": [
+          {
+            "name": "Small",
+            "price": "1050",
+            "available_quantity": "14"
+          },
+          {
+            "name": "Medium",
+            "price": "1250",
+            "available_quantity": "11"
+          },
+          {
+            "name": "Large",
+            "price": "1650",
+            "available_quantity": "15"
+          }
+        ],
+        "reviews": [
+          {
+            "review_id": "",
+            "user_id": "",
+            "rating": "",
+            "review_content": "",
+            "sellerComments": [],
+            "otherComments": []
+          },
+          {}
+        ]
+      }
+    ]
+  },
+  {
+  "merchant_id": "M002",
+  "products": [
+    {
+      "product_id": "P001",
+      "product_name": "Beef Pizza",
+      "product_price": "Beef Pizza",
+      "product_description": "Beef pizza is good",
+      "product_img_path": "",
+      "variant_title": "Size",
+      "variants": [
+        {
+          "name": "Small",
+          "price": "1050",
+          "available_quantity": "14"
+        },
+        {
+          "name": "Medium",
+          "price": "1250",
+          "available_quantity": "11"
+        },
+        {
+          "name": "Large",
+          "price": "1650",
+          "available_quantity": "15"
+        }
+      ],
+      "reviews": [
+        {
+          "review_id": "",
+          "user_id": "",
+          "rating": "",
+          "review_content": "",
+          "sellerComments": [],
+          "otherComments": []
+        },
+        {}
+      ]
+    },
+    {
+      "product_id": "P002",
+      "product_name": "Beef Pizza",
+      "product_price": "Beef Pizza",
+      "product_description": "Beef pizza is good",
+      "product_img_path": "",
+      "variant_title": "Size",
+      "variants": [
+        {
+          "name": "Small",
+          "price": "1050",
+          "available_quantity": "14"
+        },
+        {
+          "name": "Medium",
+          "price": "1250",
+          "available_quantity": "11"
+        },
+        {
+          "name": "Large",
+          "price": "1650",
+          "available_quantity": "15"
+        }
+      ],
+      "reviews": [
+        {
+          "review_id": "",
+          "user_id": "",
+          "rating": "",
+          "review_content": "",
+          "sellerComments": [],
+          "otherComments": []
+        },
+        {}
+      ]
+    }
+  ]
+}
 ]

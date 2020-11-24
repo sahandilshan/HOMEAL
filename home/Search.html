@@ -70,7 +70,7 @@
     </style>
 
     <script>
-        $.support.cors = true
+
         $(document).ready(function () {
             $.getJSON("../data/merchants.json", function (result) {
                 console.log(result);
@@ -78,7 +78,7 @@
                 $.each(result, function (i, merchant) {
                     console.log("i: ", i, "merchant: ", merchant);
                     merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
-                            <div class="card">
+                            <div class="card" data-id="${merchant.merchant_id}">
                                 <div class="card-image">
                                     <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
                                 </div>
@@ -95,6 +95,17 @@
                 $("#collapsiblesetForFilter").append(merchants);
             });
         });
+
+        $(document).on('click', '.card', function() {
+
+            let id = $(this).data('id');
+            if (id) {
+                console.log("id: ", id);
+                window.location = '/HOMEAL/home/Merchant.html?merchant_id=' + id; /*url needs to be change according
+                to the server we chose to host this application*/
+            }
+        });
+
     </script>
 
 </head>

@@ -17,6 +17,220 @@
 
     <link rel="stylesheet" href="../css/custom.css"/>
 
+    <script>
+
+        let merchant_id = '';
+        let merchant_json;
+        $(document).ready(function () {
+            let searchParams = new URLSearchParams(window.location.search);
+            if (searchParams.has('merchant_id')) {
+                merchant_id = searchParams.get('merchant_id');
+                console.log("Merchant id: ", merchant_id);
+            } else {
+                console.log("merchant id could not extract from the url.");
+            }
+
+            $.getJSON("../data/merchants.json", function (result) {
+                $.each(result, function (i, merchant) {
+                    if (merchant_id === merchant.merchant_id) {
+                        merchant_json = merchant;
+                        console.log('merchant_json: ', merchant_json);
+                        let container =
+                            `
+                            <div class="container pl-0 pr-0">
+                                <div class="color-overlay">
+                                    <img alt="home" src="${merchant_json.merchant_background_img_path}" class="merchantBackground"/>
+                                </div>
+                                <img alt="home" src="${merchant_json.merchant_logo_img_path}" class="centered merchantLogo"/>
+                                <div class="mt-2 centeredMerchantName">${merchant_json.filter_text}</div>
+                                <div class="bottom-left pl-3">
+                                    <span class="ratingText">  <img alt="home" src="../assets/icons/star_orange_18dp.png"
+                                                                    class="custom-star"/>50+ Rating</span>
+                                </div>
+                                <div class="bottom-right mr-3">
+                                    <div class="deliveryTimeContainer"><span class="pr-3 deliveryTimeText">30-45 Mins</span></div>
+                                </div>
+
+                            </div>
+
+                            <div class="container">
+                                <div class="scrollmenu">
+                                    <a href="#home">Home</a>
+                                    <a href="#news">News</a>
+                                    <a href="#contact">Contact</a>
+                                    <a href="#about">About</a>
+                                    <a href="#support">Support</a>
+                                    <a href="#blog">Blog</a>
+                                    <a href="#tools">Tools</a>
+                                    <a href="#base">Base</a>
+                                    <a href="#custom">Custom</a>
+                                    <a href="#more">More</a>
+                                    <a href="#logo">Logo</a>
+                                    <a href="#friends">Friends</a>
+                                    <a href="#partners">Partners</a>
+                                    <a href="#people">People</a>
+                                    <a href="#work">Work</a>
+                                </div>
+
+                            </div>`
+                        $("#collapsiblesetForFilter").append(container);
+                        return false; /*to break from the loop*/
+                    }
+                });
+            });
+
+            $.getJSON("../data/products.json", function (result) {
+                let productsArr;
+                let products = '<div class="row mt-4 ml-2 mr-2">';
+                /*let products = `
+            <div class="row mt-4 ml-2 mr-2">
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Chicken Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/margherita-pizza-993274.jpg" style="width: 100%;"/>
+                            <div class="bottom-right-saving-tag mr-3">
+                                <div class="deliveryTimeContainer pr-3 savingText">Save up to 10%</div>
+                            </div>
+                        </div>
+
+                        <div class="pl-2 pb-1">
+                            <div class="row">
+                                <div class="col-8 product-name">Beef Pizza</div>
+                                <!--<div class="col-6 favorite-container"> <button class="ui-btn ui-btn-icon-notext ui-icon-favorite m-0">Profile</button></div>-->
+                            </div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Beef Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/pizza-814044.jpg" style="width: 100%;"/>
+                        </div>
+                        <div class="col pl-2 pb-1">
+                            <div class="row-12 product-name">Beef Pizza</div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Seafood Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/pizza-2000600.jpg" style="width: 100%;"/>
+                        </div>
+                        <div class="col pl-2 pb-1">
+                            <div class="row-12 product-name">Seafood Pizza</div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Cheese Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/pizza-3000274.jpg" style="width: 100%;"/>
+                        </div>
+                        <div class="col pl-2 pb-1">
+                            <div class="row-12 product-name">Cheese Pizza</div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;*/
+                $.each(result, function (i, merchant) {
+                    if (merchant_id === merchant.merchant_id) {
+                        productsArr = merchant.products;
+                        console.log('productsArr: ', productsArr);
+                        productsArr.forEach(function(product){
+                            console.log('product: ', product);
+                            products +=
+                                `
+                            <div class="col-6 col-sm-3 col-md-3" data-filtertext="${product.filter_text}">
+                                <div class="product-card">
+                                    <div class="product-card-image">
+                                        <img alt="home" src="${product.product_img_path}" style="width: 100%;"/>
+                                    </div>
+                                    <div class="col pl-2 pb-1">
+                                        <div class="row-12 product-name">${product.product_name}</div>
+                                        <div class="row-12 product-price">LKR ${product.variants[0].price}.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            `
+                        });
+                        return false; /*to break from the loop*/
+                    }
+                });
+                products += '</div>'
+                $("#collapsiblesetForFilter").append(products);
+            });
+
+
+
+
+
+            /*`
+
+            <div class="row mt-4 ml-2 mr-2">
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Chicken Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/margherita-pizza-993274.jpg" style="width: 100%;"/>
+                            <div class="bottom-right-saving-tag mr-3">
+                                <div class="deliveryTimeContainer pr-3 savingText">Save up to 10%</div>
+                            </div>
+                        </div>
+
+                        <div class="pl-2 pb-1">
+                            <div class="row">
+                                <div class="col-8 product-name">Beef Pizza</div>
+                                <!--<div class="col-6 favorite-container"> <button class="ui-btn ui-btn-icon-notext ui-icon-favorite m-0">Profile</button></div>-->
+                            </div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Beef Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/pizza-814044.jpg" style="width: 100%;"/>
+                        </div>
+                        <div class="col pl-2 pb-1">
+                            <div class="row-12 product-name">Beef Pizza</div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Seafood Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/pizza-2000600.jpg" style="width: 100%;"/>
+                        </div>
+                        <div class="col pl-2 pb-1">
+                            <div class="row-12 product-name">Seafood Pizza</div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Cheese Pizza">
+                    <div class="product-card">
+                        <div class="product-card-image">
+                            <img alt="home" src="../assets/products/pizza-3000274.jpg" style="width: 100%;"/>
+                        </div>
+                        <div class="col pl-2 pb-1">
+                            <div class="row-12 product-name">Cheese Pizza</div>
+                            <div class="row-12 product-price">LKR 1050.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>`*/
+
+        });
+
+
+    </script>
+
 </head>
 <body>
 <div class="top pl-3 pr-3 pb-2 fixed-top">
@@ -186,96 +400,7 @@
     <div class="mr-2 ml-2 mt-n3">
         <!--Merchant Content-->
         <div class="row" data-role="collapsible-set" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-            <div class="container pl-0 pr-0">
-                <div class="color-overlay">
-                    <img alt="home" src="../assets/merchants/pizza-3007395.jpg" class="merchantBackground"/>
-                </div>
-                <img alt="home" src="../assets/merchants/pizza-1428931.png" class="centered merchantLogo"/>
-                <div class="mt-2 centeredMerchantName">Pizza Zone</div>
-                <div class="bottom-left pl-3">
-                <span class="ratingText">  <img alt="home" src="../assets/icons/star_orange_18dp.png"
-                                                class="custom-star"/>50+ Rating</span>
-                </div>
-                <div class="bottom-right mr-3">
-                    <div class="deliveryTimeContainer"><span class="pr-3 deliveryTimeText">30-45 Mins</span></div>
-                </div>
 
-            </div>
-
-            <div class="container"><div class="scrollmenu">
-                <a href="#home">Home</a>
-                <a href="#news">News</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
-                <a href="#support">Support</a>
-                <a href="#blog">Blog</a>
-                <a href="#tools">Tools</a>
-                <a href="#base">Base</a>
-                <a href="#custom">Custom</a>
-                <a href="#more">More</a>
-                <a href="#logo">Logo</a>
-                <a href="#friends">Friends</a>
-                <a href="#partners">Partners</a>
-                <a href="#people">People</a>
-                <a href="#work">Work</a>
-            </div>
-
-            </div>
-
-            <div class="row mt-4 ml-2 mr-2">
-                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Chicken Pizza">
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <img alt="home" src="../assets/products/margherita-pizza-993274.jpg" style="width: 100%;"/>
-                            <div class="bottom-right-saving-tag mr-3">
-                                <div class="deliveryTimeContainer pr-3 savingText">Save up to 10%</div>
-                            </div>
-                        </div>
-
-                        <div class="pl-2 pb-1">
-                            <div class="row">
-                                <div class="col-8 product-name">Beef Pizza</div>
-                                <!--<div class="col-6 favorite-container"> <button class="ui-btn ui-btn-icon-notext ui-icon-favorite m-0">Profile</button></div>-->
-                            </div>
-                            <div class="row-12 product-price">LKR 1050.00</div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Beef Pizza">
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <img alt="home" src="../assets/products/pizza-814044.jpg" style="width: 100%;"/>
-                        </div>
-                        <div class="col pl-2 pb-1">
-                            <div class="row-12 product-name">Beef Pizza</div>
-                            <div class="row-12 product-price">LKR 1050.00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Seafood Pizza">
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <img alt="home" src="../assets/products/pizza-2000600.jpg" style="width: 100%;"/>
-                        </div>
-                        <div class="col pl-2 pb-1">
-                            <div class="row-12 product-name">Seafood Pizza</div>
-                            <div class="row-12 product-price">LKR 1050.00</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-3 col-md-3" data-filtertext="Cheese Pizza">
-                    <div class="product-card">
-                        <div class="product-card-image">
-                            <img alt="home" src="../assets/products/pizza-3000274.jpg" style="width: 100%;"/>
-                        </div>
-                        <div class="col pl-2 pb-1">
-                            <div class="row-12 product-name">Cheese Pizza</div>
-                            <div class="row-12 product-price">LKR 1050.00</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
