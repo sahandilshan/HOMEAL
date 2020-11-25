@@ -407,6 +407,87 @@ div.scrollmenu a:hover {
     margin-bottom: 5px !important;
 }
 
+.colBackground {
+    text-align: -webkit-center;
+}
+
+.circle {
+    height: 250px;
+    width: 250px;
+    background-color: #555;
+    border-radius: 50%;
+}
+
+.circleImage {
+    text-align: -webkit-center;
+}
+
+.orderStatus {
+    text-align: -webkit-center !important;
+    font-size: 18px;
+    font-weight: bold;
+    color: darkgreen;
+}
+
+.orderDetails {
+    text-align: -webkit-center !important;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.centered-home {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.centered-top-home {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ui-header .ui-title, .ui-footer .ui-title {
+    margin: 0px 0% !important;
+}
+
+.banner {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.categoryContainer {
+    background-color: #282F33;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+}
+.categoryImage {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+div.scrollmenu-category {
+    background-color: white;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+div.scrollmenu-category a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: normal !important;
+    font-size: 14px !important;
+}
+
+
+
 @media only screen and (max-height: 1000px) {
     /*when height is less than ipad portrait mode*/
     .main {
@@ -470,6 +551,22 @@ div.scrollmenu a:hover {
         right: 40px !important;
     }
 
+    .circle {
+        height: 200px !important;
+        width: 200px !important;
+
+    }
+    .categoryContainer {
+        height: 100px !important;
+        width: 100px !important;
+    }
+
+    .categoryImage {
+        height: 100px !important;
+        width: 100px !important;
+    }
+}
+
     @media only screen and (max-width: 680px) {
         /*when width is less than iPhone landscape mode(iPhone Portrait Mode) */
         .font1 {
@@ -500,5 +597,24 @@ div.scrollmenu a:hover {
             right: 40px !important;
         }
 
+        .circle {
+            height: 200px !important;
+            width: 200px !important;
+        }
+
+        .banner {
+            height: 160px !important;
+
+        }
+
+        .categoryContainer {
+            height: 100px !important;
+            width: 100px !important;
+        }
+
+        .categoryImage {
+            height: 100px !important;
+            width: 100px !important;
+        }
     }
-}
+
