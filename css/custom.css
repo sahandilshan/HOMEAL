@@ -460,18 +460,18 @@ div.scrollmenu a:hover {
 .categoryContainer {
     background-color: #282F33;
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
 }
 .categoryImage {
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
     object-fit: cover;
 }
 
 div.scrollmenu-category {
-    background-color: white;
+    background-color: #f19b553d;
     overflow: auto;
     white-space: nowrap;
 }
@@ -486,6 +486,11 @@ div.scrollmenu-category a {
     font-size: 14px !important;
 }
 
+.mainTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
 
 
 @media only screen and (max-height: 1000px) {
@@ -557,13 +562,13 @@ div.scrollmenu-category a {
 
     }
     .categoryContainer {
-        height: 100px !important;
-        width: 100px !important;
+        height: 80px !important;
+        width: 80px !important;
     }
 
     .categoryImage {
-        height: 100px !important;
-        width: 100px !important;
+        height: 80px !important;
+        width: 80px !important;
     }
 }
 
@@ -608,13 +613,13 @@ div.scrollmenu-category a {
         }
 
         .categoryContainer {
-            height: 100px !important;
-            width: 100px !important;
+            height: 80px !important;
+            width: 80px !important;
         }
 
         .categoryImage {
-            height: 100px !important;
-            width: 100px !important;
+            height: 80px !important;
+            width: 80px !important;
         }
     }
 
