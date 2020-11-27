@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Search</title>
+
+    <style>
+        .ui-focus, .ui-btn:focus {
+            box-shadow: none !important;
+        }
+
+        .ui-icon-notification:after {
+            background-image: url("../../assets/icons/notifications_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            background-color: transparent;
+        }
+
+        .ui-icon-notification {
+            background-color: transparent !important;
+            border: none;
+        }
+
+        .ui-icon-location {
+            text-align: left;
+        }
+
+        .ui-icon-location:after {
+            background-image: url("../../assets/icons/place_orange.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            background-color: transparent;
+        }
+
+        .ui-icon-back:after {
+            background-image: url("../../assets/icons/arrow_left_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            background-color: transparent;
+        }
+
+        .ui-icon-back {
+            background-color: transparent !important;
+            border: none;
+        }
+
+        .ui-icon-filter:after {
+            background-image: url("../../assets/icons/slider.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            background-color: transparent;
+        }
+
+        .ui-icon-home:after {
+            background-image: url("../../assets/icons/home_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            border-radius: 0px !important;
+            background-color: transparent !important;
+            border: 0 !important;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .ui-icon-home.ui-btn-active:after {
+            background-image: url("../../assets/icons/home_orange.png") !important;
+            background-size: 18px 18px;
+        }
+
+        .ui-icon-orders:after {
+            background-image: url("../assets/icons/orders_black.png");
+            border-radius: 0px !important;
+            background-color: transparent !important;
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            /*background-color: transparent;*/
+        }
+
+        .ui-icon-orders.ui-btn-active:after {
+            background-image: url("../assets/icons/orders_orange.png") !important;
+            background-size: 18px 18px;
+        }
+
+        .ui-icon-cart:after {
+            background-image: url("../assets/icons/orders_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            border-radius: 0px !important;
+            background-color: transparent !important;
+            border: none !important;
+            /*background-color: transparent;*/
+        }
+
+        .ui-icon-cart.ui-btn-active:after {
+            background-image: url("../assets/icons/orders_orange.png") !important;
+            background-size: 18px 18px;
+        }
+
+        .ui-icon-profile:after {
+            background-image: url("../../assets/icons/person_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            border-radius: 0px !important;
+            border: none !important;
+            background-color: transparent !important;
+            /*background-color: transparent;*/
+        }
+
+        .ui-icon-profile.ui-btn-active:after {
+            background-image: url("../../assets/icons/person_orange.png") !important;
+            background-size: 18px 18px;
+        }
+
+        .ui-btn-active {
+            color: #ec7a23 !important;
+            background: none !important;
+            background-color: snow !important;
+            border-color: snow !important;
+            text-shadow: none !important;
+        }
+
+        .header {
+            background: transparent !important;
+            border: none;
+        }
+
+        hr {
+            margin-bottom: 1rem;
+            border: 0;
+            border-top: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .img-fluid {
+            height: 35px !important;
+        }
+
+        .top {
+            background-color: #FFFFFF;
+        }
+
+        .main {
+            min-height: 66vh;
+            margin-top: 14rem;
+        }
+
+        .footer {
+            background: #282F33;
+            color: #FFFFFF;
+            position: relative;
+            bottom: 2.5rem;
+        }
+
+        .font1 {
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .font2 {
+            font-size: 10px;
+            text-align: right;
+        }
+
+        .custom-search-bar {
+            padding-top: 0.5em !important;;
+            padding-bottom: 0.5em !important;
+            margin: 0 !important;
+        }
+
+        .custom-filter-button {
+            margin: 0.7em 0 !important;
+        }
+
+        .ui-input-search {
+            margin-top: 0em !important;
+        }
+
+        .custom-location {
+            width: 450px;
+            height: auto;
+            padding: 20px;
+            background-color: #EC7A23;
+        }
+
+        .card {
+            background: #FFF;
+            border: 1px solid #AAA;
+            box-shadow: 0 2px 3px 0 #AAA;
+            padding: 0;
+            /*margin-right: 7.5px;*/
+            margin-bottom: 15px;
+            /*margin-left: 7.5px;*/
+            overflow: hidden;
+            border-radius: 3px;
+            height: 190px;
+            width: 100%;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 160px;
+            padding: 0;
+            margin: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-title {
+            position: absolute;
+            bottom: 0;
+            color: black;
+            margin: 0;
+            padding: 5px;
+            border: none;
+            padding-left: 8px !important;
+        }
+
+        .card-rating {
+            bottom: 0;
+            color: black;
+            margin: 0;
+            padding: 5px;
+            border: none;
+            float: right !important;
+            padding-right: 8px !important;
+        }
+
+        .custom-star {
+            height: 23px;
+            width: 23px;
+        }
+
+        div.ui-slider-switch {
+            width: 60px !important;
+            height: 30px !important;
+            top: 0;
+        }
+
+        div.ui-slider {
+            margin: 0 !important;
+        }
+
+        .ui-slider-switch .ui-slider-label {
+            overflow: hidden;
+            font-size: 14px !important;
+            font-weight: normal !important;
+        }
+
+        .ui-slider-track .ui-btn.ui-slider-handle {
+            width: 26px !important;
+            height: 26px !important;
+
+        }
+
+        .ui-slider-inneroffset {
+            margin: 0px 12px !important;
+        }
+
+        .custom-filter {
+            width: 450px;
+            height: 330px;
+            padding: 20px;
+            background-color: #EC7A23;
+        }
+
+        .custom-close-button {
+            text-align: -webkit-right !important;
+            margin-top: -10px;
+        }
+
+        .ui-popup-screen.in {
+            background-color: black !important;
+        }
+
+        /**********************/
+        /**********************/
+        /*  Product Modal Styles*/
+        /* .prd-main-header{
+             position: relative;
+             max-width: 800px;
+             margin: 0 auto;
+         }*/
+
+        .prd-header {
+            color: white;
+            text-shadow: none !important;
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+            ),
+                /* bottom, image */ url(../../assets/merchants/croissants-569075.jpg),fixed;
+            border-bottom-right-radius: 35px;
+            margin-right: -16px !important;
+            margin-left: -16px !important;
+            margin-top: -2px !important;
+
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        .prdcard-btn {
+            text-shadow: none !important;
+            color: white !important;
+            background: #ec7a23 !important;
+            border-radius: 8px;
+
+        }
+
+        .prd-quantity-btn {
+            font-weight: bold;
+            opacity: 1 !important;
+
+        }
+
+        .product-modal {
+            width: 600px;
+        }
+
+        /* .ui-radio-btn{
+             padding-top: 0 !important;
+             padding-bottom: 0 !important;
+             background-color:transparent !important;
+             border:none !important;
+             border-color: transparent !important;
+         }*/
+        @media only screen and (max-height: 1000px) {
+            /*when height is less than ipad portrait mode*/
+            .main {
+                min-height: 55vh;
+
+            }
+
+            .custom-filter {
+                width: 350px !important;
+                height: 320px !important;
+            }
+
+            .custom-location {
+                width: 350px !important;
+            }
+        }
+
+        @media only screen and (max-height: 700px) {
+            /*when height is less than ipad landscape*/
+            .img-fluid {
+                height: 22px !important;
+            }
+
+            .main {
+                margin-top: 13rem;
+                min-height: 52vh;
+            }
+
+            .custom-filter {
+                width: 350px !important;
+                height: 320px !important;
+            }
+
+            .custom-location {
+                width: 350px !important;
+            }
+        }
+
+        @media only screen and (max-width: 680px) {
+            /*when width is less than iPhone portrait mode */
+            .font1 {
+                font-size: 10px;
+            }
+
+            .prdcard-btn {
+                text-shadow: none !important;
+                color: white !important;
+                background: #ec7a23 !important;
+                border-radius: 8px;
+                font-size: 12px !important;
+
+            }
+
+            .prd-quantity-btn {
+                font-size: 10px !important;
+            }
+
+            .product-modal {
+                width: 345px;
+                font-size: 14px;
+            }
+
+            .font2 {
+                font-size: 8px;
+            }
+
+            .custom-filter {
+                width: 350px !important;
+                height: 320px !important;
+            }
+
+            .custom-location {
+                width: 350px !important;
+            }
+
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="top pl-3 pr-3 pb-3 fixed-top">
+    <div data-role="header" class="mb-1 header">
+        <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+        <h1>
+            <img src="../../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
+        </h1>
+        <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
+
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-10">
+            <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
+               class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select Your
+                Location</a>
+        </div>
+    </div>
+    <div class="row"> <!--first hr line-->
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row mt-n3"> <!--search by name and filtering row-->
+        <div class="col-10 mr-auto pt-2">
+            <input data-type="search" id="searchForCollapsibleSet" name="search" value=""
+                   placeholder="Search Restaurant by Name"/>
+        </div>
+        <div class="col-auto">
+            <a href="#popupBasic" data-rel="popup" data-transition="pop"
+               class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext custom-filter-button">Filter</a>
+        </div>
+    </div>
+    <div class="row mt-n3">  <!--second hr line-->
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">Home/Search</div>
+    </div>
+    <div class="row">
+        <div class="col-auto">
+            <a href="#popupBasic" data-rel="popup" data-transition="pop" class="ui-btn ui-corner-all ">Product Modal</a>
+        </div>
+    </div>
+</div>
+
+<div class="main mb-5">
+    <!--Location Modal-->
+    <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
+         data-overlay-theme="a" data-transition="pop">
+        <div class="row mb-2">
+            <div class="col-8">
+            </div>
+            <div class="col-4 custom-close-button">
+                <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+            </div>
+        </div>
+        <form>
+            <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+                <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input"
+                       placeholder="Search by locations..." value="au">
+            </div>
+            <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true"
+                 data-input="#pre-rendered-example-input"
+                 class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
+                <div class="ui-controlgroup-controls">
+                    <a href="#"
+                       class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo
+                        10</a>
+                    <a href="#"
+                       class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo
+                        11</a>
+                    <a href="#"
+                       class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!--Product Modal-->
+    <div data-role="popup" id="popupBasic" class="container product-modal" data-position-to="window"
+         data-overlay-theme="a" data-transition="pop">
+
+        <div class="row prd-header">
+            <div class="col-8 mt-3">
+                <label><strong>Chicken Pizza</strong></label>
+            </div>
+            <div class="col-4 mt-1" style="text-align: -webkit-right !important;">
+                <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+            </div>
+            <br>
+            <div class="col-12">
+                <p>The consumption of food is normally enjoyable to humans. It contains protein, fat, carbohydrates,
+                    vitamins, water and minerals</p>
+            </div>
+            <div class="col-12">
+                <div style="background-color: white;font-weight: bold;width:90px;padding:5px;border-radius:10px;border-bottom-right-radius:35px;margin-bottom:5px;font-size: 10px;color: black">
+                    Save Upto 10%
+                </div>
+            </div>
+        </div>
+
+        <form>
+            <label class="mt-3"><strong>Size</strong></label>
+            <hr>
+            <div class="row mb-2">
+                <div class="col-12">
+                    <label for="radio-small" class="ui-radio-btn">Small<span
+                            class="pull-right">LKR 1300.00</span></label><input type="radio" name="size"
+                                                                                id="radio-small">
+                    <label for="radio-medium" class="ui-radio-btn">Medium<span
+                            class="pull-right">LKR 1300.00</span></label><input type="radio" name="size"
+                                                                                id="radio-medium">
+                    <label for="radio-large" class="ui-radio-btn">Large<span
+                            class="pull-right">LKR 1300.00</span></label><input type="radio" name="size"
+                                                                                id="radio-large"></div>
+            </div>
+        </form>
+
+
+        <div >
+            <div class="row m-1">
+            <label class="mb-2"><strong>Reviews</strong></label></div>
+
+            <div class="row m-1">
+                <div class="col-4"></div>
+                <div class="col-8">
+
+                    <div class="row">
+                        <div class="col-7 p-0 m-0">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+
+                        </div>
+                        <div class="col-5 p-0 m-0 text-right">2020/11/10</div>
+
+                    </div>
+                    <div class="row">John Doe</div>
+                    <div class="row">
+                        <p>This is a very good product</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div style="margin: 10px">
+            <div style="background-color: #AAAAAA;height: 1px;opacity:0.5"></div>
+            <div class="row">
+                <div class="col-3 p-0" style="display:inline-flex;">
+                    <button id="minus" data-inline="true" class="prd-quantity-btn">-</button>
+                    <input type="text" id="number" value="1" disabled="disabled" class="prd-quantity-btn text-center"/>
+                    <button id="plus" data-inline="true" class="prd-quantity-btn" style="margin-left:6%">+</button>
+
+                </div>
+                <div class="col-6 p-0 m-0">
+                    <button class="prdcard-btn"><span class="pull-left">Add to Cart</span><span class="pull-right">1500.00</span>
+                    </button>
+                </div>
+                <div class="col-3 p-0 m-0">
+                    <button class="prdcard-btn">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!--Footer-->
+<div class="footer">
+    <div class="row justify-content-between">
+        <div class="col d-flex justify-content-left ml-3 p-3">
+            <img src="../../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+        </div>
+        <div class="col mr-3 p-3">
+            <div class="row">
+                <div class="col font1">Privacy Policy Terms of Use</div>
+                <div class="w-100"></div>
+                <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-role="footer" class="fixed-bottom">
+    <nav data-role="navbar">
+        <ul>
+            <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
+            <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top ">Orders</a></li>
+            <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+            <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+        </ul>
+    </nav>
+</div>
+</body>
+<script>
+    $(document).ready(function () {
+        $('.ui-radio-btn').removeClass('ui-btn');
+        console.log("cc");
+
+    });
+    $('#plus').unbind('click').bind('click', function () {
+        var value = $('#number').val();
+        value++;
+        $('#number').val(value);
+    });
+
+    $('#minus').unbind('click').bind('click', function () {
+        var value = $('#number').val();
+        if (!(value <= 1)) {
+            value--;
+            $('#number').val(value);
+        }
+    });
+</script>
+</html>
