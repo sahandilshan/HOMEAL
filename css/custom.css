@@ -352,11 +352,11 @@ div.ui-slider {
     font-size: 11px;
 }
 
-.container {
+/*.container {
     position: relative;
     text-align: center;
     color: white;
-}
+}*/
 
 .merchantLogo {
     width: 65px;
@@ -493,6 +493,72 @@ div.scrollmenu-category a {
 }
 
 
+
+/*
+      ****************-------------------------------------**********************
+      ***********************Product modal related styles************************
+      ****************-------------------------------------**********************
+
+*/
+
+.prd-modal-header {
+    color: white;
+    text-shadow: none !important;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+    ),
+        /* bottom, image */ url(../assets/merchants/croissants-569075.jpg), fixed;
+    border-bottom-right-radius: 35px;
+    margin-right: -16px !important;
+    margin-left: -16px !important;
+    margin-top: -2px !important;
+
+}
+
+.prd-modal-discount-card {
+    background-color: white;
+    font-weight: bold;
+    width: 90px;
+    padding: 5px;
+    border-radius: 10px;
+    border-bottom-right-radius: 35px;
+    margin-bottom: 5px;
+    font-size: 10px;
+    color: black
+}
+
+/*
+      ****************-------------------------------------**********************
+      ***********************-------------END------------************************
+      ****************-------------------------------------**********************
+
+*/
+
+.prd-modal-start-checked {
+    color: orange;
+}
+
+.prd-modal-ctrl-btn {
+    text-shadow: none !important;
+    color: white !important;
+    background: #ec7a23 !important;
+    border-radius: 8px;
+
+}
+
+.prd-modal-qty-btn {
+    font-weight: bold;
+    opacity: 1 !important;
+
+}
+
+.product-modal {
+    width: 600px;
+}
+
+
+
 @media only screen and (max-height: 1000px) {
     /*when height is less than ipad portrait mode*/
     .main {
@@ -509,9 +575,9 @@ div.scrollmenu-category a {
         width: 350px !important;
     }
 
-    .container, .container-md, .container-sm {
+ /*   .container, .container-md, .container-sm {
         max-width: 100% !important;
-    }
+    }*/
 
     .bottom-right-saving-tag {
         position: absolute !important;
@@ -521,9 +587,9 @@ div.scrollmenu-category a {
 }
 
 @media (min-width: 768px) {
-    .container, .container-md, .container-sm {
+    /*.container, .container-md, .container-sm {
         max-width: 100% !important;
-    }
+    }*/
 }
 
 @media only screen and (max-height: 680px) {
@@ -546,9 +612,9 @@ div.scrollmenu-category a {
         width: 350px !important;
     }
 
-    .container, .container-md, .container-sm {
+    /*.container, .container-md, .container-sm {
         max-width: 100% !important;
-    }
+    }*/
 
     .bottom-right-saving-tag {
         position: absolute !important;
@@ -592,9 +658,9 @@ div.scrollmenu-category a {
             width: 350px !important;
         }
 
-        .container, .container-md, .container-sm {
+        /*.container, .container-md, .container-sm {
             max-width: 100% !important;
-        }
+        }*/
 
         .bottom-right-saving-tag {
             position: absolute !important;
@@ -621,5 +687,33 @@ div.scrollmenu-category a {
             height: 80px !important;
             width: 80px !important;
         }
+
+        /*
+        ******-------------------------------------*************
+        *************Product modal related styles***************
+        ******-------------------------------------*************
+        */
+        .prd-modal-ctrl-btn {
+            text-shadow: none !important;
+            color: white !important;
+            background: #ec7a23 !important;
+            border-radius: 8px;
+            font-size: 12px !important;
+
+        }
+
+        .prd-modal-qty-btn {
+            font-size: 10px !important;
+        }
+
+        .product-modal {
+            width: 345px;
+            font-size: 14px;
+        }
+        /*
+      ****************-------------------------------------***********
+      *******************-------------END------------*****************
+      ****************-------------------------------------***********
+      */
     }
 
