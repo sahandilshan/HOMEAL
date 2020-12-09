@@ -17,58 +17,6 @@
 
     <link rel="stylesheet" href="../css/custom.css"/>
 
-    <style>
-        .card {
-            background: #FFF;
-            border: 1px solid #AAA;
-            box-shadow: 0 2px 3px 0 #AAA;
-            padding: 0;
-            /*margin-right: 7.5px;*/
-            margin-bottom: 15px;
-            /*margin-left: 7.5px;*/
-            overflow: hidden;
-            border-radius: 3px;
-            height: 190px;
-            width: 100%;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 160px;
-            padding: 0;
-            margin: 0;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-title {
-            position: absolute;
-            bottom: 0;
-            color: black;
-            margin: 0;
-            padding: 5px;
-            border: none;
-            padding-left: 8px !important;
-        }
-
-        .card-rating {
-            bottom: 0;
-            color: black;
-            margin: 0;
-            padding: 5px;
-            border: none;
-            float: right !important;
-            padding-right: 8px !important;
-        }
-
-        .custom-star {
-            height: 23px;
-            width: 23px;
-        }
-    </style>
-
     <script>
         $.support.cors = true
         $(document).ready(function () {
@@ -99,7 +47,7 @@
 
 </head>
 <body>
-<div class="top pl-3 pr-3 pb-2 fixed-top">
+<div class="top pb-2 fixed-top">
     <img alt="home" src="../assets/otherImages/18717-min.jpg" class="banner"/>
     <div class="centered-top-home">
         <div data-role="header" class="mb-1 header m-0">
@@ -152,8 +100,8 @@
 </div>
 
 <div class="main"> <!--content area starts from here-->
-    <div class="mr-2 ml-2 mt-n3">
-        <div class="container"><div class="scrollmenu-category">
+    <div class="mt-n3 w-100">
+        <div class="w-100"><div class="scrollmenu-category">
             <a href="#" style=" text-align: -webkit-center;">
                 <div class="row-12 categoryContainer" style=" text-align: -webkit-center;">
                     <img alt="home" src="../assets/merchants/pizza-3007395.jpg" class="categoryImage"/>
@@ -199,6 +147,15 @@
 
         </div>
         </div>
+    </div>
+    <div class="ml-2 mr-2 mt-2">
+<div class="row-12  mainTitle">
+    All Restaurants
+</div>
+    <div class="row " data-role="collapsible-set" data-filter="true" data-inset="true"
+         id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
+        <!--merchants cards will be appeared here.-->
+    </div>
     </div>
 
 </div>
