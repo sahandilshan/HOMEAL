@@ -23,11 +23,13 @@
       border: 1px solid red;
       border-radius: 11px;
       border-bottom-right-radius: 45px;
-      padding: 8px;
-      padding-right: 20px;
-      padding-left: 14px;
+      padding-right: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 15px;
       text-shadow: none !important;
       background-color: #f9f9f9;
+      font-size: 12px;
     }
 
     .navigation{
@@ -58,12 +60,14 @@
 
     .add-more-items {
       border: 1px solid red;
-      padding: 8px;
-      padding-right: 20px;
-      padding-left: 14px;
+      padding-right: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 15px;
       border-radius: 11px;
       border-bottom-right-radius: 45px;
       font-size: 0.8rem;
+      font-size: 12px;
     }
 
     .ui-checkbox .ui-btn, .ui-radio .ui-btn {
@@ -193,11 +197,11 @@
 </div>
 
 <div class="main"> <!--content area starts from here-->
-  <div class="mr-2 ml-2 mt-n3">
+  <div class="mt-n3">
     <div class="container">
       <div class="row">
 
-        <div class="col-sm-6">
+        <div class="col-12 col-md-6">
 
           <div style="font-size: 1.3rem">
             <b>Delivery Address</b>
@@ -222,7 +226,7 @@
         </div>
 
 
-        <div class="col-sm-6">
+        <div class="col-12 col-md-6">
           <div style="font-size: 1.3rem"><b>Payment Method</b></div>
 
           <div>
@@ -271,12 +275,12 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-6">
+          <div class="col-12 col-md-6">
             <div class="row">
-              <div class="col-sm-6" style="font-size: 1.2rem;margin-left: inherit">
+              <div class="col-6" style="font-size: 1.2rem;margin-left: inherit">
                 <b>Your Order</b>
               </div>
-              <div>
+              <div class="col-6 float-right" style="">
                 <div class="add-more-items">
                  + Add More Items
                 </div>
@@ -287,7 +291,7 @@
               <div style="width: 100%">
                 <div class="row" style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
 
-                  <div  style="background-color: white;width: 50%;padding: 7px;border-radius: 6px">
+                  <div style="background-color: white;width: 50%;padding: 10px;border-radius: 6px">
                     <div style="font-size: 1rem"><b>Chicken Pizza (1)</b></div>
                     <div style="font-size: 0.8rem">LKR 1020.00</div>
                   </div>
@@ -303,16 +307,36 @@
               </div>
             </div>
 
+            <div class="row" style="margin-left: inherit">
+              <div style="width: 100%">
+                <div class="row" style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
+
+                  <div  style="background-color: white;width: 50%;padding: 10px;border-radius: 6px">
+                    <div style="font-size: 1rem"><b>Beef Pizza (1)</b></div>
+                    <div style="font-size: 0.8rem">LKR 1000.00</div>
+                  </div>
+                  <div class="col-sm-3" style="background-color: black;width: 20%;padding: 7px">
+                    <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid" alt="Logo.png" style="margin-left: 15px;
+    margin-top: 4px;">
+                  </div>
+                  <div class="col-sm-3" style="background-color: #f6f6f6;width: 20%;padding: 7px;border-radius: 6px">
+                    <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid" alt="Logo.png" style="margin-left: 15px;
+    margin-top: 4px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <div class="col-sm-6">
+          <div class="col-12 col-md-6">
 
-            <div class=" row ">
-              <div class="col-sm-12">
+            <div class="row mb-2">
+              <div class="col-sm-12 col-md-6">
                 <fieldset class="ui-grid-b float-right">
-                  <div style="width: 200px">
+                  <div>
 
-                    <button class="btn-promocode"  >Enter Promo Code</button>
+                    <button class="btn-promocode">Enter Promo Code</button>
 
                     </div>
                 </fieldset>
@@ -320,16 +344,16 @@
             </div>
 
             <div>
-              <div class="row">
+              <div class="row-12">
 
-                <div class="col-sm-6 float-left">
+                <div class="col-6 float-left">
                   <div style="font-size: 0.8rem">Subtotal</div>
                   <div style="font-size: 0.8rem">Tax</div>
                   <div style="font-size: 0.8rem">Delivery Fee</div>
                   <div style="font-size: 1rem"><b>Total</b></div>
                 </div>
 
-                <div class="col-sm-6">
+                <div class="col-6 float-right">
                   <div class="price-list">LKR 1020.00</div>
                   <div class="price-list">LKR 80.00</div>
                   <div class="price-list">LKR 100.00</div>
