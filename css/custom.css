@@ -315,13 +315,13 @@ div.ui-slider {
 
 .centered {
     position: absolute;
-    top: 40%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 .centeredMerchantName {
     position: absolute;
-    top: 60%;
+    top: 18%;
     left: 50%;
     transform: translate(-50%, -50%);
 }

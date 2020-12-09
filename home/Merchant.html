@@ -37,23 +37,26 @@
                         console.log('merchant_json: ', merchant_json);
                         let container =
                             `
-                            <div class="container pl-0 pr-0">
+                            <div class="container pl-0 pr-0" style=" max-width: 100% !important;">
                                 <div class="color-overlay">
                                     <img alt="home" src="${merchant_json.merchant_background_img_path}" class="merchantBackground"/>
-                                </div>
+
                                 <img alt="home" src="${merchant_json.merchant_logo_img_path}" class="centered merchantLogo"/>
                                 <div class="mt-2 centeredMerchantName">${merchant_json.filter_text}</div>
-                                <div class="bottom-left pl-3">
-                                    <span class="ratingText">  <img alt="home" src="../assets/icons/star_orange_18dp.png"
+                                <div class="row">
+                                <div class="col-6 pl-4">
+                                <span class="ratingText"> <img alt="home" src="../assets/icons/star_orange_18dp.png"
                                                                     class="custom-star"/>50+ Rating</span>
                                 </div>
-                                <div class="bottom-right mr-3">
-                                    <div class="deliveryTimeContainer"><span class="pr-3 deliveryTimeText">30-45 Mins</span></div>
+                                <div class="col-6 pr-4" style="text-align: end;">
+                                <div><span class="pr-3 deliveryTimeContainer deliveryTimeText">30-45 Mins</span></div>
+                                </div>
                                 </div>
 
                             </div>
+                             </div>
 
-                            <div class="container">
+                            <div class="container" style=" max-width: 100% !important;">
                                 <div class="scrollmenu">
                                     <a href="#home">Home</a>
                                     <a href="#news">News</a>
