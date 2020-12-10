@@ -2,48 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Search</title>
+    <title>Order Successful</title>
+    <link rel = "icon" href = "https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
+          type = "image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!--jquey-->
 
     <link rel="stylesheet" href="../css/custom.css"/>
-
-    <script>
-        $.support.cors = true
-        $(document).ready(function () {
-            $.getJSON("../data/merchants.json", function (result) {
-                console.log(result);
-                let merchants = "";
-                $.each(result, function (i, merchant) {
-                    console.log("i: ", i, "merchant: ", merchant);
-                    merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
-                                </div>
-                                <div class="ui-grid-a">
-                                    <span class="card-title">${merchant.merchant_name}</span>
-                                    <span class="row card-rating">  <img alt="home"
-                                                                         src="../assets/icons/star_orange_18dp.png"
-                                                                         class="custom-star"/>50+ Rating</span>
-
-                                </div>
-                            </div>
-                        </div>`;
-                });
-                $("#collapsiblesetForFilter").append(merchants);
-            });
-        });
-    </script>
 
 </head>
 <body>
