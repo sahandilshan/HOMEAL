@@ -45,6 +45,15 @@
         });
     </script>
 
+    <style>
+        .side-drawer-logo {
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 50px;
+            display: block;
+            width: 60%;
+        }
+    </style>
 </head>
 <body>
 <div class="top pb-2 fixed-top">
@@ -182,9 +191,24 @@
             <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
             <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
             <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
-            <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+            <li><a href="#side-drawer" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
         </ul>
     </nav>
 </div>
+<div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="side-drawer"
+     style="z-index: 1400">
+            
+    <div><img src="../assets/logos/MainLight.png" class="side-drawer-logo"></div>
+    <ul data-role="listview">
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Location</a></li>
+        <li><a href="Merchant.html"> Payment</a></li>
+        <li><a href="Help-about.html">Help/About</a></li>
+        <li><a href="#"> Favorites</a></li>
+        <li><a href="#">Acheivements</a></li>
+        <li><a href="#">Logout</a></li>
+    </ul>
+        
+</div><!-- /panel -->
 </body>
 </html>

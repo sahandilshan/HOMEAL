@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" style="background: #FFFFFF !important;">
+<head>
+    <meta charset="UTF-8">
+    <title>Template-1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../css/custom.css"/>
+<style>
+    .ui-page {
+        background:white;
+    }
+
+</style>
+</head>
+<body >
+<div class="top pl-3 pr-3 pb-2 fixed-top">
+    <div data-role="header" class="mb-1 header">
+        <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+        <h1>
+            <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
+        </h1>
+        <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-10">
+            <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
+               class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select Your
+                Location</a>
+        </div>
+    </div>
+    <div class="row mt-n2"> <!--first hr line-->
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row mt-0">
+        <div class="col-12">Profile/Help-About</div>
+    </div>
+</div>
+
+<!--Location Modal-->
+<div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
+     data-overlay-theme="a" data-transition="pop">
+    <div class="row mb-2">
+        <div class="col-8">
+        </div>
+        <div class="col-4 custom-close-button">
+            <a href="#" data-rel="back" data-role="button" data-transition="pop"
+               class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+        </div>
+    </div>
+    <form>
+        <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+            <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input"
+                   placeholder="Search by locations..." value="">
+        </div>
+        <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true"
+             data-input="#pre-rendered-example-input"
+             class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
+            <div class="ui-controlgroup-controls">
+                <a href="#"
+                   class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo
+                    10</a>
+                <a href="#"
+                   class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo
+                    11</a>
+                <a href="#"
+                   class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+            </div>
+        </div>
+    </form>
+</div>
+<!--Submit ticket modal-->
+<div data-role="popup" id="popup-submit-ticket" class="custom-location" data-position-to="window"
+     data-overlay-theme="a" data-transition="pop">
+    <div class="row mb-2">
+        <div class="col-8">
+        </div>
+        <div class="col-4 custom-close-button">
+            <a href="#" data-rel="back" data-role="button" data-transition="pop"
+               class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+        </div>
+    </div>
+    <div><h4>Submit Ticket</h4></div>
+    <form>
+        <input type="text" placeholder="issue">
+        <textarea rows="4" cols="50" name="comment" placeholder="Description" ></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div class="main container-fluid" data-role="main" style="margin-right: auto;margin-left: auto;display: block"> <!--content area starts from here-->
+    <div class="row">
+        <div class="col-12 mb-2"><h3>Help</h3></div>
+        <div class="col-12 "><p>Forgot Password</p><hr></div>
+        <div class="col-12 "><p>How to check past orders</p><hr></div>
+        <div class="col-12 "><p>How to update my payment method</p><hr></div>
+        <div class="col-12 "><p>How to update my location details</p><hr></div>
+        <div class="col-12"><p><a href="#popup-submit-ticket" data-rel="popup" data-transition="pop">Submit a ticket</a></p><hr></div>
+
+    </div>
+    <div class="row">
+        <div class="col-12 mb-3"><h3>About Us</h3></div>
+        <div class="col-12"><div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=iit&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://embedgooglemap.net/131/"></a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div></div>
+        <div class="col-12 mt-3 text-center"><p>A page is one side of a leaf of paper, parchment or other material in a book, magazine, newspaper, or other collection of sheets, on which text or illustrations can be printed, written or drawn, to create documents. It can be used as a measure of communicating general quantity of information or more specific quantity</p></div>
+    </div>
+</div>
+
+<!--Footer-->
+<div class="footer">
+    <div class="row justify-content-between">
+        <div class="col d-flex justify-content-left ml-3 p-3">
+            <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+        </div>
+        <div class="col mr-3 p-3">
+            <div class="row">
+                <div class="col font1">Privacy Policy Terms of Use</div>
+                <div class="w-100"></div>
+                <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-role="footer" class="fixed-bottom">
+    <nav data-role="navbar">
+        <ul>
+            <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
+            <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+            <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+            <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>
