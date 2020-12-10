@@ -554,6 +554,7 @@ div.scrollmenu-category a {
     width: 600px;
 }
 
+
 /*
       ****************-------------------------------------**********************
       ***********************-------------END------------************************
@@ -561,6 +562,31 @@ div.scrollmenu-category a {
 
 */
 
+/*
+      ****************-------------------------------------**********************
+      ***********************Order related styles************************
+      ****************-------------------------------------**********************
+
+*/
+.order-type-tab-bar {
+    padding-bottom: 2px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.order-status-container {
+    font-size:10px;
+    border: 2px solid #ec7a23;
+    border-bottom-right-radius: 150px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 70px ;
+    border-bottom-left-radius: 70px
+}
+/*
+      ****************-------------------------------------**********************
+      ***********************-------------END------------************************
+      ****************-------------------------------------**********************
+
+*/
 
 @media only screen and (max-height: 1000px) {
     /*when height is less than ipad portrait mode*/
