@@ -1,0 +1,11 @@
+[
+  {
+    "order_id" :"#001",
+    "products":[],
+    "merchant_id" :"M001",
+    "tax_percentage": "5%",
+    "delivery_amount": "100",
+    "total_amount":"1050",
+    "order_status":"Pending"
+  }
+]
