@@ -1,406 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Checkout</title>
-  <link rel = "icon" href = "https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
-        type = "image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="icon" href="https://media.geeksforgeeks.org/wp-content/cdn-uploads/gfg_200X200.png"
+          type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-  <link rel="stylesheet" href="../css/custom.css"/>
+    <link rel="stylesheet" href="../css/custom.css"/>
 
-  <style>
+    <style>
 
-    .btn-promocode{
-      border: 1px solid red;
-      border-radius: 11px;
-      border-bottom-right-radius: 45px;
-      padding-right: 15px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      padding-left: 15px;
-      text-shadow: none !important;
-      background-color: #f9f9f9;
-      font-size: 12px;
-    }
+        .btn-promocode {
+            border: 1px solid red;
+            border-radius: 11px;
+            border-bottom-right-radius: 45px;
+            padding-right: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 15px;
+            text-shadow: none !important;
+            background-color: #f9f9f9;
+            font-size: 12px;
+        }
 
-    .navigation{
-      margin-top: 0% !important;
-    }
+        .navigation {
+            margin-top: 0% !important;
+        }
 
-    .promocode{
-      border: 1px solid red;
-      border-radius: 11px;
-      border-bottom-right-radius: 45px;
-      padding: 8px;
-      padding-right: 20px;
-      padding-left: 14px;
-    }
+        .promocode {
+            border: 1px solid red;
+            border-radius: 11px;
+            border-bottom-right-radius: 45px;
+            padding: 8px;
+            padding-right: 20px;
+            padding-left: 14px;
+        }
 
-    .half-hr{
-      flex-basis: 0;
-      -ms-flex-positive: 1;
-      flex-grow: 1;
-      max-width: 100%;
-      padding: 0;
-    }
+        .half-hr {
+            flex-basis: 0;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            max-width: 100%;
+            padding: 0;
+        }
 
-    .price-list {
-      text-align: -webkit-right;
-      font-size: 0.8rem;
-    }
+        .price-list {
+            text-align: -webkit-right;
+            font-size: 0.8rem;
+        }
 
-    .add-more-items {
-      border: 1px solid red;
-      padding-right: 15px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      padding-left: 15px;
-      border-radius: 11px;
-      border-bottom-right-radius: 45px;
-      font-size: 0.8rem;
-      font-size: 12px;
-    }
+        .add-more-items {
+            border: 1px solid red;
+            padding-right: 15px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 15px;
+            border-radius: 11px;
+            border-bottom-right-radius: 45px;
+            font-size: 0.8rem;
+            font-size: 12px;
+        }
 
-    .ui-checkbox .ui-btn, .ui-radio .ui-btn {
-      margin: 0 !important;
-      text-align: left !important;
-      white-space: normal !important;
-      z-index: 0 !important;
-    }
+        .ui-checkbox .ui-btn, .ui-radio .ui-btn {
+            margin: 0 !important;
+            text-align: left !important;
+            white-space: normal !important;
+            z-index: 0 !important;
+        }
 
-    .card {
-      background: #FFF;
-      border: 1px solid #AAA;
-      box-shadow: 0 2px 3px 0 #AAA;
-      padding: 0;
-      /*margin-right: 7.5px;*/
-      margin-bottom: 15px;
-      /*margin-left: 7.5px;*/
-      overflow: hidden;
-      border-radius: 3px;
-      height: 190px;
-      width: 100%;
-    }
+        .card {
+            background: #FFF;
+            border: 1px solid #AAA;
+            box-shadow: 0 2px 3px 0 #AAA;
+            padding: 0;
+            /*margin-right: 7.5px;*/
+            margin-bottom: 15px;
+            /*margin-left: 7.5px;*/
+            overflow: hidden;
+            border-radius: 3px;
+            height: 190px;
+            width: 100%;
+        }
 
-    .card-image {
-      width: 100%;
-      height: 160px;
-      padding: 0;
-      margin: 0;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-      overflow: hidden;
-    }
+        .card-image {
+            width: 100%;
+            height: 160px;
+            padding: 0;
+            margin: 0;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .card-title {
-      position: absolute;
-      bottom: 0;
-      color: black;
-      margin: 0;
-      padding: 5px;
-      border: none;
-      padding-left: 8px !important;
-    }
+        .card-title {
+            position: absolute;
+            bottom: 0;
+            color: black;
+            margin: 0;
+            padding: 5px;
+            border: none;
+            padding-left: 8px !important;
+        }
 
-    .card-rating {
-      bottom: 0;
-      color: black;
-      margin: 0;
-      padding: 5px;
-      border: none;
-      float: right !important;
-      padding-right: 8px !important;
-    }
+        .card-rating {
+            bottom: 0;
+            color: black;
+            margin: 0;
+            padding: 5px;
+            border: none;
+            float: right !important;
+            padding-right: 8px !important;
+        }
 
-    .custom-star {
-      height: 23px;
-      width: 23px;
-    }
-  </style>
-
-  <script>
-
-    $(document).ready(function () {
-      $.getJSON("../data/merchants.json", function (result) {
-        console.log(result);
-        let merchants = "";
-        $.each(result, function (i, merchant) {
-          console.log("i: ", i, "merchant: ", merchant);
-          merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
-                            <div class="card" data-id="${merchant.merchant_id}">
-                                <div class="card-image">
-                                    <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
-                                </div>
-                                <div class="ui-grid-a">
-                                    <span class="card-title">${merchant.merchant_name}</span>
-                                    <span class="row card-rating">  <img alt="home"
-                                                                         src="../assets/icons/star_orange_18dp.png"
-                                                                         class="custom-star"/>50+ Rating</span>
-
-                                </div>
-                            </div>
-                        </div>`;
-        });
-        $("#collapsiblesetForFilter").append(merchants);
-      });
-    });
-
-    $(document).on('click', '.card', function () {
-
-      let id = $(this).data('id');
-      if (id) {
-        console.log("id: ", id);
-        window.location = '/HOMEAL/home/Merchant.html?merchant_id=' + id;
-        /*url needs to be change according
-                       to the server we chose to host this application*/
-      }
-    });
-
-  </script>
+        .custom-star {
+            height: 23px;
+            width: 23px;
+        }
+    </style>
 
 </head>
 <body>
-<div class="top pl-3 pr-3 pb-2 fixed-top">
-  <div data-role="header" class="mb-1 header">
-    <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
-    <h1>
-      <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
-    </h1>
-    <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-sm-10">
-      <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
-         class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Colombo 10</a>
-    </div>
-  </div>
-  <div class="row mt-n2"> <!--first hr line-->
-    <div class="col">
-      <hr>
-    </div>
-  </div>
-
-  <div class="row mt-n3 navigation">
-    <div class="col">Home / Search / Merchant<font color="#ec7a23"> / Checkout</font></div>
-  </div>
-
-</div>
-
-<div class="main"> <!--content area starts from here-->
-  <div class="mt-n3">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-12 col-md-6">
-
-          <div style="font-size: 1.3rem">
-            <b>Delivery Address</b>
-          </div>
-
-          <div>
-            <div style="margin-top: 3%;margin-bottom: 3%">
-              <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
-                 class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Colombo
-                10</a>
+<div data-role="page">
+    <div class="top pl-3 pr-3 pb-2 fixed-top">
+        <div data-role="header" class="mb-1 header">
+            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+            <h1>
+                <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
+            </h1>
+            <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-10">
+                <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
+                   class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Colombo
+                    10</a>
             </div>
-          </div>
-
-          <div class="row mt-n2"> <!--first hr line-->
-            <div class="half-hr">
-              <hr>
+        </div>
+        <div class="row mt-n2"> <!--first hr line-->
+            <div class="col">
+                <hr>
             </div>
-          </div>
-
-
-
         </div>
 
-
-        <div class="col-12 col-md-6">
-          <div style="font-size: 1.3rem"><b>Payment Method</b></div>
-
-          <div>
-
-            <form>
-              <div class="row" style="margin-left: auto;margin-top: 3.8%;margin-bottom: 4%;">
-                <!--<div >-->
-                  <!--<label  class="ui-radio-btn" style="border: none;background-color: #f9f9f9">-->
-                  <!--Cash-->
-                  <!--</label>-->
-                  <!--<input type="radio" name="size" id="radio-small">-->
-                <!--</div>-->
-
-                <!--<div >-->
-                  <!--<label  class="ui-radio-btn" style="border: none;background-color: #f9f9f9">-->
-                    <!--Card-->
-                  <!--</label>-->
-                  <!--<input type="radio" name="size" id="radio-small">-->
-                <!--</div>-->
-
-                <label  class="ui-radio-btn">Cash</label><input type="radio" name="size"
-                                                                        id="radio-small">
-
-                <label  class="ui-radio-btn" style="margin-left: 20%">Card</label><input type="radio" name="size"
-                                                                        id="radio-small">
-              </div>
-            </form>
-
-          </div>
-
-          <div class="row mt-n2"> <!--first hr line-->
-            <div class="half-hr">
-              <hr>
-            </div>
-          </div>
-
+        <div class="row mt-n3 navigation">
+            <div class="col">Home / Search / Merchant<font color="#ec7a23"> / Checkout</font></div>
         </div>
-      </div>
 
-      <!--<div class="row mt-n2"> &lt;!&ndash;first hr line&ndash;&gt;-->
-        <!--<div class="col">-->
-          <!--<hr>-->
-        <!--</div>-->
-      <!--</div>-->
+    </div>
 
-      <div class="container">
-        <div class="row">
+    <div class="main"> <!--content area starts from here-->
+        <div class="mt-n3">
+            <div class="container">
+                <div class="row">
 
-          <div class="col-12 col-md-6">
-            <div class="row">
-              <div class="col-6" style="font-size: 1.2rem;margin-left: inherit">
-                <b>Your Order</b>
-              </div>
-              <div class="col-6 float-right" style="">
-                <div class="add-more-items">
-                 + Add More Items
-                </div>
-              </div>
-            </div>
+                    <div class="col-12 col-md-6">
 
-            <div class="row" style="margin-left: inherit">
-              <div style="width: 100%">
-                <div class="row" style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
+                        <div style="font-size: 1.3rem">
+                            <b>Delivery Address</b>
+                        </div>
 
-                  <div style="background-color: white;width: 50%;padding: 10px;border-radius: 6px">
-                    <div style="font-size: 1rem"><b>Chicken Pizza (1)</b></div>
-                    <div style="font-size: 0.8rem">LKR 1020.00</div>
-                  </div>
-                  <div class="col-sm-3" style="background-color: black;width: 20%;padding: 7px">
-                    <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid" alt="Logo.png" style="margin-left: 15px;
-    margin-top: 4px;">
-                  </div>
-                  <div class="col-sm-3" style="background-color: #f6f6f6;width: 20%;padding: 7px;border-radius: 6px">
-                    <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid" alt="Logo.png" style="margin-left: 15px;
-    margin-top: 4px;">
-                  </div>
-                </div>
-              </div>
-            </div>
+                        <div>
+                            <div style="margin-top: 3%;margin-bottom: 3%">
+                                <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
+                                   class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Colombo
+                                    10</a>
+                            </div>
+                        </div>
 
-            <div class="row" style="margin-left: inherit">
-              <div style="width: 100%">
-                <div class="row" style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
+                        <div class="row mt-n2"> <!--first hr line-->
+                            <div class="half-hr">
+                                <hr>
+                            </div>
+                        </div>
 
-                  <div  style="background-color: white;width: 50%;padding: 10px;border-radius: 6px">
-                    <div style="font-size: 1rem"><b>Beef Pizza (1)</b></div>
-                    <div style="font-size: 0.8rem">LKR 1000.00</div>
-                  </div>
-                  <div class="col-sm-3" style="background-color: black;width: 20%;padding: 7px">
-                    <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid" alt="Logo.png" style="margin-left: 15px;
-    margin-top: 4px;">
-                  </div>
-                  <div class="col-sm-3" style="background-color: #f6f6f6;width: 20%;padding: 7px;border-radius: 6px">
-                    <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid" alt="Logo.png" style="margin-left: 15px;
-    margin-top: 4px;">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="col-12 col-md-6">
-
-            <div class="row mb-2">
-              <div class="col-sm-12 col-md-6">
-                <fieldset class="ui-grid-b float-right">
-                  <div>
-
-                    <button class="btn-promocode">Enter Promo Code</button>
 
                     </div>
-                </fieldset>
-              </div>
-            </div>
 
-            <div>
-              <div class="row-12">
 
-                <div class="col-6 float-left">
-                  <div style="font-size: 0.8rem">Subtotal</div>
-                  <div style="font-size: 0.8rem">Tax</div>
-                  <div style="font-size: 0.8rem">Delivery Fee</div>
-                  <div style="font-size: 1rem"><b>Total</b></div>
+                    <div class="col-12 col-md-6">
+                        <div style="font-size: 1.3rem"><b>Payment Method</b></div>
+
+                        <div>
+
+                            <form>
+                                <div class="row" style="margin-left: auto;margin-top: 3.8%;margin-bottom: 4%;">
+                                    <!--<div >-->
+                                    <!--<label  class="ui-radio-btn" style="border: none;background-color: #f9f9f9">-->
+                                    <!--Cash-->
+                                    <!--</label>-->
+                                    <!--<input type="radio" name="size" id="radio-small">-->
+                                    <!--</div>-->
+
+                                    <!--<div >-->
+                                    <!--<label  class="ui-radio-btn" style="border: none;background-color: #f9f9f9">-->
+                                    <!--Card-->
+                                    <!--</label>-->
+                                    <!--<input type="radio" name="size" id="radio-small">-->
+                                    <!--</div>-->
+
+                                    <label class="ui-radio-btn">Cash</label><input type="radio" name="size"
+                                                                                   id="radio-small">
+
+                                    <label class="ui-radio-btn" style="margin-left: 20%">Card</label><input type="radio"
+                                                                                                            name="size"
+                                                                                                            id="radio-small">
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <div class="row mt-n2"> <!--first hr line-->
+                            <div class="half-hr">
+                                <hr>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="col-6 float-right">
-                  <div class="price-list">LKR 1020.00</div>
-                  <div class="price-list">LKR 80.00</div>
-                  <div class="price-list">LKR 100.00</div>
-                  <div class="price-list" style="font-size: 1rem"><b>LKR 1200.00</b></div>
+                <!--<div class="row mt-n2"> &lt;!&ndash;first hr line&ndash;&gt;-->
+                <!--<div class="col">-->
+                <!--<hr>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12 col-md-6">
+                            <div class="row">
+                                <div class="col-6" style="font-size: 1.2rem;margin-left: inherit">
+                                    <b>Your Order</b>
+                                </div>
+                                <div class="col-6 float-right" style="">
+                                    <div class="add-more-items">
+                                        + Add More Items
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-left: inherit">
+                                <div style="width: 100%">
+                                    <div class="row"
+                                         style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
+
+                                        <div style="background-color: white;width: 50%;padding: 10px;border-radius: 6px">
+                                            <div style="font-size: 1rem"><b>Chicken Pizza (1)</b></div>
+                                            <div style="font-size: 0.8rem">LKR 1020.00</div>
+                                        </div>
+                                        <div class="col-sm-3" style="background-color: black;width: 20%;padding: 7px">
+                                            <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid"
+                                                 alt="Logo.png" style="margin-left: 15px;
+    margin-top: 4px;">
+                                        </div>
+                                        <div class="col-sm-3"
+                                             style="background-color: #f6f6f6;width: 20%;padding: 7px;border-radius: 6px">
+                                            <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid"
+                                                 alt="Logo.png" style="margin-left: 15px;
+    margin-top: 4px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-left: inherit">
+                                <div style="width: 100%">
+                                    <div class="row"
+                                         style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
+
+                                        <div style="background-color: white;width: 50%;padding: 10px;border-radius: 6px">
+                                            <div style="font-size: 1rem"><b>Beef Pizza (1)</b></div>
+                                            <div style="font-size: 0.8rem">LKR 1000.00</div>
+                                        </div>
+                                        <div class="col-sm-3" style="background-color: black;width: 20%;padding: 7px">
+                                            <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid"
+                                                 alt="Logo.png" style="margin-left: 15px;
+    margin-top: 4px;">
+                                        </div>
+                                        <div class="col-sm-3"
+                                             style="background-color: #f6f6f6;width: 20%;padding: 7px;border-radius: 6px">
+                                            <img src="../assets/icons/ordersIcon_orange.png" class="img-fluid"
+                                                 alt="Logo.png" style="margin-left: 15px;
+    margin-top: 4px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 col-md-6">
+
+                            <div class="row mb-2">
+                                <div class="col-sm-12 col-md-6">
+                                    <fieldset class="ui-grid-b float-right">
+                                        <div>
+
+                                            <button class="btn-promocode">Enter Promo Code</button>
+
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="row-12">
+
+                                    <div class="col-6 float-left">
+                                        <div style="font-size: 0.8rem">Subtotal</div>
+                                        <div style="font-size: 0.8rem">Tax</div>
+                                        <div style="font-size: 0.8rem">Delivery Fee</div>
+                                        <div style="font-size: 1rem"><b>Total</b></div>
+                                    </div>
+
+                                    <div class="col-6 float-right">
+                                        <div class="price-list">LKR 1020.00</div>
+                                        <div class="price-list">LKR 80.00</div>
+                                        <div class="price-list">LKR 100.00</div>
+                                        <div class="price-list" style="font-size: 1rem"><b>LKR 1200.00</b></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-              </div>
             </div>
-          </div>
         </div>
-      </div>
 
     </div>
-  </div>
 
-</div>
-
-<!--Footer-->
-<div class="footer">
-  <div class="row justify-content-between">
-    <div class="col d-flex justify-content-left ml-3 p-3">
-      <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+    <!--Footer-->
+    <div class="footer">
+        <div class="row justify-content-between">
+            <div class="col d-flex justify-content-left ml-3 p-3">
+                <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+            </div>
+            <div class="col mr-3 p-3">
+                <div class="row">
+                    <div class="col font1">Privacy Policy Terms of Use</div>
+                    <div class="w-100"></div>
+                    <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col mr-3 p-3">
-      <div class="row">
-        <div class="col font1">Privacy Policy Terms of Use</div>
-        <div class="w-100"></div>
-        <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div data-role="footer" class="fixed-bottom">
-  <nav data-role="navbar">
-    <ul>
-      <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
-      <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
-      <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
-      <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
-    </ul>
-  </nav>
+    <div data-role="footer" class="fixed-bottom">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+                <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+                <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
 </div>
 </body>
 
 <script>
-  $(document).ready(function () {
-    $('.btn-promocode').removeClass('ui-btn');
-    console.log("cc");
-  });
+    $(document).ready(function () {
+        $('.btn-promocode').removeClass('ui-btn');
+        console.log("cc");
+    });
 </script>
 
 </html>
