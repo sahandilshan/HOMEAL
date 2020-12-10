@@ -13,23 +13,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <title>SignIn</title>
+    <title>SignUp</title>
     <style>
         .ui-page {
             background: #282F33;
         }
 
-     /*   html {
-           !* height: 100%;
-            background-color: #282F33 !important;*!
-        }
-
-        body {
-            !*overflow: hidden;
-            min-height: 100%;
-            position: relative;
-            background-color: #282F33 !important;*!
-        }*/
 
         img {
             width: 40%;
@@ -39,7 +28,7 @@
             transform: translate(-50%, -50%);
         }
 
-        .signincard {
+        .signupcard {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -52,7 +41,7 @@
             border-radius: 35px;
         }
 
-        @media only screen and (max-width: 680px) {
+        @media only screen and (max-width: 375px) {
             .ui-page {
                 background: #282F33;
             }
@@ -70,19 +59,19 @@
             img {
                 all: revert;
                 width: 50%;
-                margin-top: 80px !important;
-                margin-bottom: 60px !important;
+                margin-top: 60px !important;
+                margin-bottom: 40px !important;
                 display: block;
                 margin: auto;
             }
 
-            .signincard {
+            .signupcard {
                 all: revert;
                 background-color: #FFFFFF;
                 color: #FFFFFF;
                 width: 85%;
-                padding-top: 10px;
-                height: 400px;
+                padding-top: 5px;
+                height: 500px;
                 margin: auto;
                 border-radius: 35px;
             }
@@ -100,11 +89,14 @@
     <img src="../assets/logos/MainDark.png">
 
 </div>
-<div class="signincard container">
+<div class="signupcard container">
     <div style="margin-top: 40px">
-        <div class="col-12" style="color:black;text-align: center;font-weight: bold;font-size: 24px">Sign In</div>
+        <div class="col-12" style="color:black;text-align: center;font-weight: bold;font-size: 24px">Sign Up</div>
 
 
+        <div class="row justify-content-center">
+            <div class="col-10"><input type="text"></div>
+        </div>
         <div class="row justify-content-center">
             <div class="col-10"><input type="text"></div>
         </div>
@@ -112,23 +104,29 @@
             <div class="col-10"><input type="password"></div>
         </div>
         <div class="row justify-content-center">
+            <div class="col-10"><input type="password"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div style="color: black" class="col-6 pull-left"> <label  style="color: black">Merchant
+                Acccount</label></div>
+            <div class="col-4  text-right" style="color: black">
+                        <select name="flip-7" id="flip-7" data-role="flipswitch" data-mini="true">
+                            
+                <option value="off">Off</option>
+                            
+                <option value="on">On</option>
+                        </select>
+            </div>
+        </div>
+        <div class="row justify-content-center">
             <div class="col-10">
                 <button style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
-                    Sign In
+                    Sign Up
                 </button>
             </div>
         </div>
 
-        <div style="color: black" class="text-center">Forgot Password?</div>
-        <hr>
-        <div class="row justify-content-center">
-            <div class="col-10">
-                <button style="background-color:#282F33 !important;color:white;text-shadow: none!important;border-radius:20px">
-                    Sign In with Google
-                </button>
-            </div>
-        </div>
-        <div style="color: black" class="text-center"> Dont Have an Account? <span style="color: #EC7A23">SignUp</span>
+        <div style="color: black" class="text-center"> Already Have an Account? <span style="color: #EC7A23">SignIn</span>
         </div>
     </div>
 </div>
