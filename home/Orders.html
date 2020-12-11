@@ -11,9 +11,6 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="../css/custom.css"/>
     <style>
@@ -74,136 +71,137 @@
             <div class="col">Home/Search</div>
         </div>
 
-    <!--Location Modal-->
-    <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
-         data-overlay-theme="a" data-transition="pop">
-        <div class="row mb-2">
-            <div class="col-8">
-            </div>
-            <div class="col-4 custom-close-button">
-                <a href="#" data-rel="back" data-role="button" data-transition="pop"
-                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
-            </div>
-        </div>
-        <form>
-            <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
-                <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input"
-                       placeholder="Search by locations..." value="">
-            </div>
-            <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true"
-                 data-input="#pre-rendered-example-input"
-                 class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
-                <div class="ui-controlgroup-controls">
-                    <a href="#"
-                       class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo
-                        10</a>
-                    <a href="#"
-                       class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo
-                        11</a>
-                    <a href="#"
-                       class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+        <!--Location Modal-->
+        <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
+             data-overlay-theme="a" data-transition="pop">
+            <div class="row mb-2">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
                 </div>
             </div>
-        </form>
+            <form>
+                <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+                    <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input"
+                           placeholder="Search by locations..." value="">
+                </div>
+                <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true"
+                     data-input="#pre-rendered-example-input"
+                     class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
+                    <div class="ui-controlgroup-controls">
+                        <a href="#"
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo
+                            10</a>
+                        <a href="#"
+                           class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo
+                            11</a>
+                        <a href="#"
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--Filters Modal-->
+        <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a"
+             data-transition="pop">
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label><strong>Categories </strong> </label>
+                </div>
+                <div class="col-4 custom-close-button">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+
+            <form>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-1">Pizza</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-1" id="flip-1" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-2">Noodles</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-3">Bakery</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-3" id="flip-3" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-4">Chinese</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-4" id="flip-4" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form>
+                <div data-role="rangeslider">
+                    <label for="range-1a" class="mb-3"><strong>Price Range (LKR)</strong></label>
+                    <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
+                    <label for="range-1b">Rangeslider:</label>
+                    <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
+                </div>
+            </form>
+
+            <div class="row mb-3 mt-3">
+                <div class="col-6">
+                    <a href="#" data-rel="back" data-role="button" class="ui-btn">Cancel</a>
+                </div>
+                <div class="col-6">
+                    <button class="ui-btn">Apply</button>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <!--Filters Modal-->
-    <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a"
-         data-transition="pop">
-        <div class="row mb-2">
-            <div class="col-8">
-                <label><strong>Categories </strong> </label>
-            </div>
-            <div class="col-4 custom-close-button">
-                <a href="#" data-rel="back" data-role="button" data-transition="pop"
-                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
-            </div>
-        </div>
 
-        <form>
-            <div class="row mb-3">
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-4">
-                            <label for="flip-1">Pizza</label>
-                        </div>
-                        <div class="col-8 custom-switch">
-                            <select name="flip-1" id="flip-1" data-role="slider" style="width: 4.0em;">
-                                <option value="off"></option>
-                                <option value="on"></option>
-                            </select>
-                        </div>
-                    </div>
+    <div class="main"> <!--content area starts from here-->
+        <div class="mr-2 ml-2 mt-n3">
+            <div class="row m-0 pl-3 pr-3 mb-4">
+                <div class="col-12 m-0 p-0">
+                    <span class="pb-2 text-black order-type-tab-bar" style="border-bottom: 3px solid #ec7a23;">Ongoing Orders (3)</span>
+                    <span class="ml-3 pb-2 text-black order-type-tab-bar" style="border-bottom: 3px solid #bebbb7;">Past Orders (2)</span>
                 </div>
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-4">
-                            <label for="flip-2">Noodles</label>
-                        </div>
-                        <div class="col-8 custom-switch">
-                            <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
-                                <option value="off"></option>
-                                <option value="on"></option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-4">
-                            <label for="flip-3">Bakery</label>
-                        </div>
-                        <div class="col-8 custom-switch">
-                            <select name="flip-3" id="flip-3" data-role="slider" style="width: 4.0em;">
-                                <option value="off"></option>
-                                <option value="on"></option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="row">
-                        <div class="col-4">
-                            <label for="flip-4">Chinese</label>
-                        </div>
-                        <div class="col-8 custom-switch">
-                            <select name="flip-4" id="flip-4" data-role="slider" style="width: 4.0em;">
-                                <option value="off"></option>
-                                <option value="on"></option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-        <form>
-            <div data-role="rangeslider">
-                <label for="range-1a" class="mb-3"><strong>Price Range (LKR)</strong></label>
-                <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
-                <label for="range-1b">Rangeslider:</label>
-                <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
-            </div>
-        </form>
-
-        <div class="row mb-3 mt-3">
-            <div class="col-6">
-                <a href="#" data-rel="back" data-role="button" class="ui-btn">Cancel</a>
-            </div>
-            <div class="col-6">
-                <button class="ui-btn">Apply</button>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<div class="main"> <!--content area starts from here-->
-    <div class="mr-2 ml-2 mt-n3">
-        <div class="row m-0 pl-3 pr-3 mb-4">
-            <div class="col-12 m-0 p-0">
-                <span class="pb-2 text-black order-type-tab-bar" style="border-bottom: 3px solid #ec7a23;">Ongoing Orders (3)</span>
-                <span class="ml-3 pb-2 text-black order-type-tab-bar" style="border-bottom: 3px solid #bebbb7;">Past Orders (2)</span>
             </div>
         </div>
         <div class="container col-12 col-md-6">
