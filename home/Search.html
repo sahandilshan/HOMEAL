@@ -27,6 +27,7 @@
             border-radius: 3px;
             height: 190px;
             width: 100%;
+            font-weight: normal !important;
         }
 
         .card-image {
@@ -68,6 +69,8 @@
 
     <script>
 
+        $.mobile.ajaxEnabled = false;
+        console.log('ajax disabled.')
         $(document).ready(function () {
             $.getJSON("../data/merchants.json", function (result) {
                 console.log(result);
@@ -75,7 +78,7 @@
                 $.each(result, function (i, merchant) {
                     console.log("i: ", i, "merchant: ", merchant);
                     merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
-                            <div class="card" data-id="${merchant.merchant_id}">
+                            <a class="card" href="/HOMEAL/home/Merchant.html?merchant_id=${merchant.merchant_id}">
                                 <div class="card-image">
                                     <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
                                 </div>
@@ -84,25 +87,40 @@
                                     <span class="row card-rating">  <img alt="home"
                                                                          src="../assets/icons/star_orange_18dp.png"
                                                                          class="custom-star"/>50+ Rating</span>
-
                                 </div>
-                            </div>
+                            </a>
                         </div>`;
                 });
                 $("#collapsiblesetForFilter").append(merchants);
             });
         });
 
-        $(document).on('click', '.card', function () {
+        $( "#backBtn" ).click(function() {
+            window.history.back();
+        });
 
+
+        /* ******************* Do not remove this part till 2021/01/13 *****************
+        $(document).on('click', '.card', function () {
             let id = $(this).data('id');
             if (id) {
                 console.log("id: ", id);
-                window.location = '/HOMEAL/home/Merchant.html?merchant_id=' + id; /*url needs to be change according
-                to the server we chose to host this application*/
+                $.mobile.ajaxEnabled = false;
+                $.mobile.pageContainer.pagecontainer("change", '/HOMEAL/home/Merchant.html?merchant_id=' + id,
+                    {transition: "flow", changeHash: true, reload: true, })
+            // $.mobile.pagecontainer( "load", '/HOMEAL/home/Merchant.html?merchant_id=' + id);
+            //     $.mobile.navigate('/HOMEAL/home/Merchant.html?merchant_id=' + id);
+               /!* $.mobile.changePage(
+                    window.location.href,
+                    {
+                        allowSamePageTransition : true,
+                        transition              : 'none',
+                        showLoadMsg             : false,
+                        reloadPage              : true
+                    }
+                );*!/
             }
-        });
-
+        });*/
     </script>
 
 </head>
@@ -110,7 +128,7 @@
 <div data-role="page">
     <div class="top pl-3 pr-3 pb-2 fixed-top">
         <div data-role="header" class="mb-1 header">
-            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back" id="backBtn">Back</button>
             <h1>
                 <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
             </h1>
