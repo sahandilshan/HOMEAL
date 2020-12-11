@@ -15,12 +15,17 @@
     <link rel="stylesheet" href="../css/custom.css"/>
     <style>
         .maintxt {
-            position: relative;
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+            ), /* bottom, image */ url(../assets/merchants/meal-5590186.jpg);
+            background-size:cover;
+            background-position: center !important;
+            height: 100px;
+            border-radius:10px;
+
         }
 
-        .maintxt > img, .overlay-text {
-            position: absolute;
-        }
     </style>
 
 </head>
@@ -198,21 +203,106 @@
                     <span class="ml-3 pb-2 text-black order-type-tab-bar" style="border-bottom: 3px solid #bebbb7;">Past Orders (2)</span>
                 </div>
             </div>
-            <div class="container col-12 col-md-6">
-                <div>
-                    <div class="maintxt">
-                        <img class="card-img" src="../assets/merchants/meal-5590186.jpg"
-                             style="border-radius: 10px; filter:brightness(55%); height: 100px !important; object-fit: cover;"
-                             alt="Card image">
-                        <div class="container overlay-text mt-2 ">
-                            <div class="row col-12 m-0  p-0">
-                                <div class="col-12 m-0 p-0">
-                                    <h5 class="text-white">Order #2121</h5>
-                                </div>
+        </div>
+        <div class="container col-12 col-md-6">
+            <div>
+                <div class="maintxt" id="prd-1-normal">
+
+                    <div class="container overlay-text mt-2 ">
+                        <div class="row col-12 m-0  p-0">
+                            <div class="col-12 m-0 p-0">
+                                <h5 class="text-white">Order #2121</h5>
                             </div>
-                            <div class="row m-0">
-                                <div class="col-6 m-0 p-0">
-                                    <span class="pb-3 text-white" style="font-size: 14px">Total LKR1050.00</span>
+                        </div>
+                        <div class="row m-0">
+                            <div class="col-6 m-0 p-0">
+                                <span class="pb-3 text-white" style="font-size: 14px">Total LKR1050.00</span>
+                            </div>
+                            <div class="col-6 m-0 p-0" style="text-align: end !important ">
+                                <span class="pb-3 text-white" id="prd-1-normal-down">^</span>
+                            </div>
+                        </div>
+                        <div class="row col-12 m-0  p-0">
+                            <div class="col-12 m-0 p-0">
+                                <span class="text-white pl-1 pr-2 order-status-container">COMPLETED</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="display: none" id="prd-1-extended">
+            <div class="maintxt" style="height: 240px">
+
+            <div class="container overlay-text mt-2 ">
+            <div class="row col-12 m-0  p-0">
+            <div class="col-8 m-0 p-0">
+            <h5 class="pb-3 text-white">Order #2121</h5>
+            </div>
+            <div class="col-4 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white">^</span>
+            </div>
+            </div>
+            <div class="row m-0">
+            <div class="col-6 m-0 p-0">
+            <h5 class="pb-3 text-white" style="font-size: 16px">Chicken pizza(1)</h5>
+            </div>
+            <div class="col-6 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white" style="font-size: 14px">Small LKR1050.00</span>
+            </div>
+            </div>
+            <div class="row m-0">
+            <div class="col-12 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white" style="font-size: 14px">Tax LKR1050.00</span>
+            </div>
+            </div>
+            <div class="row m-0">
+
+            <div class="col-12 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white" style="font-size: 14px">Delivery LKR1050.00</span>
+            </div>
+            </div>
+            <div class="row m-0">
+            <div class="col-6 m-0 p-0">
+            <span class="text-white pl-1 pr-2 order-status-container">COMPLETED</span>
+            </div>
+            <div class="col-6 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white" style="font-size: 14px">Small LKR1050.00</span>
+            </div>
+            </div>
+
+            <div class="row col-12 m-0 p-0 mt-3">
+            <div class="col-6 m-0 p-0">
+            <div class="text-center border rounded-pill ml-2 mr-2 text-white"
+            style="border: 2px solid #ff8600 !important;">Re-order
+            </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+            <div class="text-center border rounded-pill ml-2 mr-2 text-white"
+            style="border: 2px solid #ff8600 !important; ">Rate
+            </div>
+            </div>
+            </div>
+            </div>
+
+            </div>
+            </div>
+        </div>
+        <div class="container col-12 col-md-6">
+            <div>
+                <div class="maintxt">
+
+                    <div class="container overlay-text mt-2 ">
+                        <div class="row col-12 m-0  p-0">
+                            <div class="col-12 m-0 p-0">
+                                <h5 class="text-white">Order #2121</h5>
+                            </div>
+                        </div>
+                        <div class="row m-0">
+                            <div class="col-6 m-0 p-0">
+                                <span class="pb-3 text-white" style="font-size: 14px">Total LKR1050.00</span>
                                 </div>
                                 <div class="col-6 m-0 p-0" style="text-align: end !important ">
                                     <span class="pb-3 text-white">^</span>
@@ -229,64 +319,62 @@
                     </div>
                 </div>
 
-                <!--<div>-->
-                <!--<div class="maintxt">-->
-                <!--<img class="card-img" src="../assets/merchants/meal-5590186.jpg"-->
-                <!--style="border-radius: 3%; filter:brightness(55%); height: 240px !important; object-fit: cover;"-->
-                <!--alt="Card image">-->
-                <!--<div class="container overlay-text mt-2 ">-->
-                <!--<div class="row col-12 m-0  p-0">-->
-                <!--<div class="col-8 m-0 p-0">-->
-                <!--<h5 class="pb-3 text-white">Order #2121</h5>-->
-                <!--</div>-->
-                <!--<div class="col-4 m-0 p-0" style="text-align: end !important ">-->
-                <!--<span class="pb-3 text-white">^</span>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="row m-0">-->
-                <!--<div class="col-6 m-0 p-0">-->
-                <!--<h5 class="pb-3 text-white" style="font-size: 16px">Chicken pizza(1)</h5>-->
-                <!--</div>-->
-                <!--<div class="col-6 m-0 p-0" style="text-align: end !important ">-->
-                <!--<span class="pb-3 text-white" style="font-size: 14px">Small LKR1050.00</span>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="row m-0">-->
-                <!--<div class="col-12 m-0 p-0" style="text-align: end !important ">-->
-                <!--<span class="pb-3 text-white" style="font-size: 14px">Tax LKR1050.00</span>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="row m-0">-->
 
-                <!--<div class="col-12 m-0 p-0" style="text-align: end !important ">-->
-                <!--<span class="pb-3 text-white" style="font-size: 14px">Delivery LKR1050.00</span>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="row m-0">-->
-                <!--<div class="col-6 m-0 p-0">-->
-                <!--<span class="text-white pl-1 pr-2 order-status-container">COMPLETED</span>-->
-                <!--</div>-->
-                <!--<div class="col-6 m-0 p-0" style="text-align: end !important ">-->
-                <!--<span class="pb-3 text-white" style="font-size: 14px">Small LKR1050.00</span>-->
-                <!--</div>-->
-                <!--</div>-->
+            <div style="display: none">
+            <div class="maintxt" style="height: 240px">
 
-                <!--<div class="row col-12 m-0 p-0 mt-3">-->
-                <!--<div class="col-6 m-0 p-0">-->
-                <!--<div class="text-center border rounded-pill ml-2 mr-2 text-white"-->
-                <!--style="border: 2px solid #ff8600 !important;">Re-order-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-6 m-0 p-0">-->
-                <!--<div class="text-center border rounded-pill ml-2 mr-2 text-white"-->
-                <!--style="border: 2px solid #ff8600 !important; ">Rate-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--</div>-->
+            <div class="container overlay-text mt-2 ">
+            <div class="row col-12 m-0  p-0">
+            <div class="col-8 m-0 p-0">
+            <h5 class="pb-3 text-white">Order #2121</h5>
+            </div>
+            <div class="col-4 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white">^</span>
+            </div>
+            </div>
+            <div class="row m-0">
+            <div class="col-6 m-0 p-0">
+            <h5 class="pb-3 text-white" style="font-size: 16px">Chicken pizza(1)</h5>
+            </div>
+            <div class="col-6 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white" style="font-size: 14px">Small LKR1050.00</span>
+            </div>
+            </div>
+            <div class="row m-0">
+            <div class="col-12 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white" style="font-size: 14px">Tax LKR1050.00</span>
+            </div>
+            </div>
+            <div class="row m-0">
 
-                <!--</div>-->
-                <!--</div>-->
+            <div class="col-12 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white" style="font-size: 14px">Delivery LKR1050.00</span>
+            </div>
+            </div>
+            <div class="row m-0">
+            <div class="col-6 m-0 p-0">
+            <span class="text-white pl-1 pr-2 order-status-container">COMPLETED</span>
+            </div>
+            <div class="col-6 m-0 p-0" style="text-align: end !important ">
+            <span class="pb-3 text-white" style="font-size: 14px">Small LKR1050.00</span>
+            </div>
+            </div>
+
+            <div class="row col-12 m-0 p-0 mt-3">
+            <div class="col-6 m-0 p-0">
+            <div class="text-center border rounded-pill ml-2 mr-2 text-white"
+            style="border: 2px solid #ff8600 !important;">Re-order
+            </div>
+            </div>
+            <div class="col-6 m-0 p-0">
+            <div class="text-center border rounded-pill ml-2 mr-2 text-white"
+            style="border: 2px solid #ff8600 !important; ">Rate
+            </div>
+            </div>
+            </div>
+            </div>
+
+            </div>
             </div>
         </div>
     </div>

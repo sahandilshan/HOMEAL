@@ -133,8 +133,8 @@ hr {
 }
 
 .main {
-    min-height: 67vh;
-    margin-top: 14rem;
+    min-height: 97vh;
+    margin-top: 140rem;
     position: relative;
     margin-bottom: 3.8rem;
 }
@@ -512,7 +512,9 @@ div.scrollmenu-category a {
             rgba(0, 0, 0, 0.45),
             rgba(0, 0, 0, 0.45)
     ),
-        /* bottom, image */ url(../assets/merchants/croissants-569075.jpg), fixed;
+        /* bottom, image */ url(../assets/merchants/pizza-3007395.jpg);
+    background-size:cover;
+    background-position: center !important;
     border-bottom-right-radius: 35px;
     margin-right: -16px !important;
     margin-left: -16px !important;
