@@ -247,13 +247,16 @@
 
                             <div class="row col-12 m-0 p-0 mt-3">
                                 <div class="col-6 m-0 p-0">
-                                    <div class="text-center border rounded-pill ml-2 mr-2 text-white"
-                                         style="border: 2px solid #ff8600 !important;">Re-order
-                                    </div>
+                                    <!--<div class="text-center border rounded-pill ml-2 mr-2 text-white"-->
+                                    <!--style="border: 2px solid #ff8600 !important;">Re-order-->
+                                    <!--</div>-->
                                 </div>
                                 <div class="col-6 m-0 p-0">
                                     <div class="text-center border rounded-pill ml-2 mr-2 text-white"
-                                         style="border: 2px solid #ff8600 !important; ">Rate
+                                         style="border: 2px solid #ff8600 !important; "><a href="#popupTrack"
+                                                                                           style="color: white; text-decoration: none; font-weight: normal"
+                                                                                           data-rel="popup"
+                                                                                           data-transition="pop">Track</a>
                                     </div>
                                 </div>
                             </div>
@@ -287,6 +290,28 @@
                 </div>
             </div>
         </div>
+        <div data-role="popup" id="popupTrack" style=" width: 300px !important;
+        height: 350px!important;" data-position-to="window" data-overlay-theme="a"
+             data-transition="pop">
+            <div class="row mt-3">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button" style="padding-right: 25px;">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <div style="text-align: -webkit-center;">
+                <img id="gifName" src="./../assets/gifs/31454-food-prepared-food-app.gif" alt="this slowpoke moves"
+                     width=200/>
+            </div>
+            <div class="row mb-2" style="text-align: -webkit-center;">
+                <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
+                    Food is Preparing
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
