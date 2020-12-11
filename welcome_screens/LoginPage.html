@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="icon" href="../assets/logos/Title.png"
+          type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -9,9 +12,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <title>SignIn</title>
     <style>
@@ -19,17 +19,17 @@
             background: #282F33;
         }
 
-     /*   html {
-           !* height: 100%;
-            background-color: #282F33 !important;*!
-        }
+        /*   html {
+              !* height: 100%;
+               background-color: #282F33 !important;*!
+           }
 
-        body {
-            !*overflow: hidden;
-            min-height: 100%;
-            position: relative;
-            background-color: #282F33 !important;*!
-        }*/
+           body {
+               !*overflow: hidden;
+               min-height: 100%;
+               position: relative;
+               background-color: #282F33 !important;*!
+           }*/
 
         img {
             width: 40%;
@@ -96,42 +96,44 @@
     </style>
 </head>
 <body>
-<div>
-    <img src="../assets/logos/MainDark.png">
+<div data-role="page">
+    <div>
+        <img src="../assets/logos/MainDark.png">
+    </div>
+    <div class="signincard container">
+        <div style="margin-top: 40px">
+            <div class="col-12" style="color:black;text-align: center;font-weight: bold;font-size: 24px">Sign In</div>
 
-</div>
-<div class="signincard container">
-    <div style="margin-top: 40px">
-        <div class="col-12" style="color:black;text-align: center;font-weight: bold;font-size: 24px">Sign In</div>
 
-
-        <div class="row justify-content-center">
-            <div class="col-10"><input type="text"></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-10"><input type="password"></div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-10">
-                <button style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
-                    Sign In
-                </button>
+            <div class="row justify-content-center">
+                <div class="col-10"><input type="text"></div>
             </div>
-        </div>
-
-        <div style="color: black" class="text-center">Forgot Password?</div>
-        <hr>
-        <div class="row justify-content-center">
-            <div class="col-10">
-                <button style="background-color:#282F33 !important;color:white;text-shadow: none!important;border-radius:20px">
-                    Sign In with Google
-                </button>
+            <div class="row justify-content-center">
+                <div class="col-10"><input type="password"></div>
             </div>
-        </div>
-        <div style="color: black" class="text-center"> Dont Have an Account? <span style="color: #EC7A23">SignUp</span>
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <button style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
+                        Sign In
+                    </button>
+                </div>
+            </div>
+
+            <div style="color: black" class="text-center">Forgot Password?</div>
+            <hr>
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <button style="background-color:#282F33 !important;color:white;text-shadow: none!important;border-radius:20px">
+                        Sign In with Google
+                    </button>
+                </div>
+            </div>
+            <div style="color: black" class="text-center"> Dont Have an Account? <span
+                    style="color: #EC7A23">SignUp</span>
+            </div>
         </div>
     </div>
-</div>
 
+</div>
 </body>
 </html>
