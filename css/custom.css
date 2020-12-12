@@ -133,7 +133,7 @@ hr {
 }
 
 .main {
-    min-height: 67vh;
+    min-height: 68vh;
     margin-top: 14rem;
     position: relative;
     margin-bottom: 3.8rem;
@@ -593,7 +593,7 @@ div.scrollmenu-category a {
 @media only screen and (max-height: 1000px) {
     /*when height is less than ipad portrait mode*/
     .main {
-        min-height: 56.2vh;
+        min-height: 57.2vh;
 
     }
 
@@ -631,7 +631,7 @@ div.scrollmenu-category a {
 
     .main {
         margin-top: 13rem;
-        min-height: 53.2vh;
+        min-height: 54.2vh;
     }
 
     .custom-filter {

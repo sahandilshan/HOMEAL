@@ -67,62 +67,6 @@
         }
     </style>
 
-    <script>
-
-        $.mobile.ajaxEnabled = false;
-        console.log('ajax disabled.')
-        $(document).ready(function () {
-            $.getJSON("../data/merchants.json", function (result) {
-                console.log(result);
-                let merchants = "";
-                $.each(result, function (i, merchant) {
-                    console.log("i: ", i, "merchant: ", merchant);
-                    merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
-                            <a class="card" href="/HOMEAL/home/Merchant.html?merchant_id=${merchant.merchant_id}">
-                                <div class="card-image">
-                                    <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
-                                </div>
-                                <div class="ui-grid-a">
-                                    <span class="card-title">${merchant.merchant_name}</span>
-                                    <span class="row card-rating">  <img alt="home"
-                                                                         src="../assets/icons/star_orange_18dp.png"
-                                                                         class="custom-star"/>50+ Rating</span>
-                                </div>
-                            </a>
-                        </div>`;
-                });
-                $("#collapsiblesetForFilter").append(merchants);
-            });
-        });
-
-        $( "#backBtn" ).click(function() {
-            window.history.back();
-        });
-
-
-        /* ******************* Do not remove this part till 2021/01/13 *****************
-        $(document).on('click', '.card', function () {
-            let id = $(this).data('id');
-            if (id) {
-                console.log("id: ", id);
-                $.mobile.ajaxEnabled = false;
-                $.mobile.pageContainer.pagecontainer("change", '/HOMEAL/home/Merchant.html?merchant_id=' + id,
-                    {transition: "flow", changeHash: true, reload: true, })
-            // $.mobile.pagecontainer( "load", '/HOMEAL/home/Merchant.html?merchant_id=' + id);
-            //     $.mobile.navigate('/HOMEAL/home/Merchant.html?merchant_id=' + id);
-               /!* $.mobile.changePage(
-                    window.location.href,
-                    {
-                        allowSamePageTransition : true,
-                        transition              : 'none',
-                        showLoadMsg             : false,
-                        reloadPage              : true
-                    }
-                );*!/
-            }
-        });*/
-    </script>
-
 </head>
 <body>
 <div data-role="page">
@@ -291,7 +235,7 @@
     </div>
 
     <div class="main"> <!--content area starts from here-->
-        <div class="mr-2 ml-2 mt-n3">
+        <div class="mr-2 ml-2 mt-n4">
             <!--Merchant Cards-->
             <div class="row" data-role="collapsible-set" data-filter="true" data-inset="true"
                  id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
@@ -329,4 +273,62 @@
     </div>
 </div>
 </body>
+
+
+<script>
+
+    $.mobile.ajaxEnabled = false;
+    console.log('ajax disabled.')
+    $(document).ready(function () {
+        $.getJSON("../data/merchants.json", function (result) {
+            console.log(result);
+            let merchants = "";
+            $.each(result, function (i, merchant) {
+                console.log("i: ", i, "merchant: ", merchant);
+                merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
+                            <a class="card" href="/HOMEAL/home/Merchant.html?merchant_id=${merchant.merchant_id}">
+                                <div class="card-image">
+                                    <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
+                                </div>
+                                <div class="ui-grid-a">
+                                    <span class="card-title">${merchant.merchant_name}</span>
+                                    <span class="row card-rating">  <img alt="home"
+                                                                         src="../assets/icons/star_orange_18dp.png"
+                                                                         class="custom-star"/>50+ Rating</span>
+                                </div>
+                            </a>
+                        </div>`;
+            });
+            $("#collapsiblesetForFilter").append(merchants);
+        });
+    });
+
+    $( "#backBtn" ).click(function() {
+        window.history.back();
+    });
+
+
+    /* ******************* Do not remove this part till 2021/01/13 *****************
+    $(document).on('click', '.card', function () {
+        let id = $(this).data('id');
+        if (id) {
+            console.log("id: ", id);
+            $.mobile.ajaxEnabled = false;
+            $.mobile.pageContainer.pagecontainer("change", '/HOMEAL/home/Merchant.html?merchant_id=' + id,
+                {transition: "flow", changeHash: true, reload: true, })
+        // $.mobile.pagecontainer( "load", '/HOMEAL/home/Merchant.html?merchant_id=' + id);
+        //     $.mobile.navigate('/HOMEAL/home/Merchant.html?merchant_id=' + id);
+           /!* $.mobile.changePage(
+                window.location.href,
+                {
+                    allowSamePageTransition : true,
+                    transition              : 'none',
+                    showLoadMsg             : false,
+                    reloadPage              : true
+                }
+            );*!/
+        }
+    });*/
+</script>
+
 </html>
