@@ -301,6 +301,11 @@
             });
             $("#collapsiblesetForFilter").append(merchants);
         });
+
+        $.getJSON("../data/products.json", function (result) {
+            sessionStorage.setItem('products', JSON.stringify(result));
+        });
+
     });
 
     $( "#backBtn" ).click(function() {
