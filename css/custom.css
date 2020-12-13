@@ -37,6 +37,19 @@
     border: none;
 }
 
+.ui-icon-back-popup:after {
+    background-image: url("../assets/icons/arrow_left_black.png");
+    /* Make your icon fit */
+    background-size: 25px 25px;
+    background-color: transparent;
+    margin-top: -22%;
+}
+
+.ui-icon-back-popup {
+    background-color: transparent !important;
+    border: none;
+}
+
 .ui-icon-filter:after {
     background-image: url("../assets/icons/slider.png");
     /* Make your icon fit */
@@ -206,6 +219,13 @@ div.ui-slider {
 }
 
 .custom-filter {
+    width: 450px;
+    height: 330px;
+    padding: 20px;
+    background-color: #EC7A23;
+}
+
+.custom-filter-delivery {
     width: 450px;
     height: 330px;
     padding: 20px;
@@ -593,13 +613,17 @@ div.scrollmenu-category a {
 @media only screen and (max-height: 1000px) {
     /*when height is less than ipad portrait mode*/
     .main {
-        min-height: 57.2vh;
-
+        min-height: 56.2vh;
     }
 
     .custom-filter {
         width: 350px !important;
         height: 320px !important;
+    }
+
+    .custom-filter-delivery {
+        width: 350px !important;
+        height: 100% !important;
     }
 
     .custom-location {
@@ -637,6 +661,11 @@ div.scrollmenu-category a {
     .custom-filter {
         width: 350px !important;
         height: 320px !important;
+    }
+
+    .custom-filter-delivery {
+        width: 350px !important;
+        height: 100% !important;
     }
 
     .custom-location {
@@ -683,6 +712,12 @@ div.scrollmenu-category a {
         .custom-filter {
             width: 350px !important;
             height: 320px !important;
+        }
+
+        .custom-filter-delivery {
+            width: 350px !important;
+            height: 100% !important;
+            margin-top: 0% !important;
         }
 
         .custom-location {
