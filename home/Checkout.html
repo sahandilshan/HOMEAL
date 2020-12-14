@@ -160,7 +160,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-12 col-md-6">
+                    <div id="checkout-delivery-address" class="col-12 col-sm-6" style="width: 100%;margin-left: auto;margin-right: auto;display: block">
 
                         <div style="font-size: 18px">
                             <b>Delivery Address</b>
@@ -184,7 +184,7 @@
                     </div>
 
 
-                    <div class="col-12 col-md-6">
+                    <div id="checkout-payment-method" class="col-12 col-sm-6" style="width: 100%;margin-left: auto;margin-right: auto;display: block">
                         <div style="font-size: 18px"><b>Payment Method</b></div>
 
                         <div>
@@ -234,7 +234,7 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-12 col-md-6">
+                        <div id="checkout-cart" class="col-12 col-sm-6" style="width: 100%;margin-left: auto;margin-right: auto;display: block">
                             <div class="row">
                                 <div class="col-6" style="font-size: 18px;margin-left: inherit">
                                     <b>Your Order</b>
@@ -299,12 +299,12 @@
 
                         </div>
 
-                        <div class="col-12 col-md-6 mt-3 mb-3">
+                        <div id="checkout-total" class="col-12 col-sm-6 mt-3 mb-3" style="width: 100%;margin-left: auto;margin-right: auto;display: block">
 
-                            <div class="row mb-2">
-                                <div class="col-sm-12 col-md-6">
-                                    <fieldset class="ui-grid-b float-right">
-                                        <div>
+                            <div class="row mb-2 ">
+                                <div  class="col-sm-12 col-md-6 ">
+                                    <fieldset class="ui-grid-b">
+                                        <div class="">
                                             <input class="btn-promocode" placeholder="Enter Promo Code" style="border: 1px solid #ec7a23;
     border-radius: 11px;
     border-bottom-right-radius: 45px;
@@ -339,8 +339,8 @@
 
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-12" style="width: 100%">
+                <div class="row mt-3" >
+                    <div class="col-12" id="checkout-btn-div" style="width: 100%;margin-left: auto;margin-right: auto;display: block">
                         <button style="text-shadow: none !important;
             color: white !important;
             background: #ec7a23 !important;
@@ -387,6 +387,25 @@
     $(document).ready(function () {
         $('.btn-promocode').removeClass('ui-btn');
         console.log("cc");
+    });
+
+    $(window).resize(function() {
+        var width = $(window).width();
+        if (width==768){
+            console.log("Done");
+            $("#checkout-delivery-address").addClass("col-md-10");
+            $("#checkout-payment-method").addClass("col-md-10");
+            $("#checkout-cart").addClass("col-md-10");
+            $("#checkout-total").addClass("col-md-10");
+            $("#checkout-btn-div").addClass("col-md-10");
+        }
+        else{
+            $("#checkout-delivery-address").removeClass("col-md-10");
+            $("#checkout-payment-method").removeClass("col-md-10");
+            $("#checkout-cart").removeClass("col-md-10");
+            $("#checkout-total").removeClass("col-md-10");
+            $("#checkout-btn-div").removeClass("col-md-10");
+        }
     });
 </script>
 
