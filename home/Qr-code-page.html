@@ -1,0 +1,33 @@
+<html>
+<head>
+
+    <script src="../js/html5-qrcode.min.js"></script>
+    <title>Web QR</title>
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        .full-height {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<div class="full-height" id="reader"></div>
+</body>
+<script>
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader", {fps:10,qrbox: 300});
+    html5QrcodeScanner.render(onScanSuccess);
+
+    function onScanSuccess(qrCodeMessage) {
+        console.log(qrCodeMessage);
+        alert(qrCodeMessage);
+    }
+
+</script>
+</html>
