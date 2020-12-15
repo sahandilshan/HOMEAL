@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acheivements</title>
+    <link rel="icon" href="../assets/logos/Title.png"
+          type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/custom.css"/>
+    <link rel="stylesheet" href="../css/css-circular-prog-bar.css"/>
+    <link rel="stylesheet" href="../css/css-circular-prog-bar-small.css"/>
+
+    <style>
+        .acheivements-upcoming-card {
+
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+            ), /* bottom, image */ url(../assets/products/margherita-pizza-993274.jpg);
+            background-size: cover;
+            background-position: center !important;
+            height: 150px;
+            width: 280px;
+            margin: 20px;
+            border-radius: 20px;
+            line-height: 125px
+
+        }
+
+        div.acheivement-upcoming {
+            /*background-color: #f19b553d;*/
+            /* background-color: #333;*/
+            overflow: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch !important;
+
+        }
+
+        div.acheivement-upcoming *.acheivements-upcoming-card {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }
+
+        div.acheivemnt-ongoing {
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+        div.acheivemnt-ongoing *.acheivemnt-ongoing-card {
+            display: inline-block;
+            color: white;
+            text-align: center;
+           /* padding: 14px;*/
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+<div data-role="page">
+    <div class="top pl-3 pr-3 pb-2 fixed-top">
+        <div data-role="header" class="mb-1 header">
+            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+            <h1>
+                <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
+            </h1>
+            <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-10">
+                <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
+                   class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select
+                    Your
+                    Location</a>
+            </div>
+        </div>
+        <div class="row mt-n2"> <!--first hr line-->
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row mt-n3"> <!--search by name and filtering row-->
+            <div class="col-10 mr-auto pt-2">
+                <input data-type="search" id="searchForCollapsibleSet" name="search" value=""
+                       placeholder="Search Restaurant by Name"/>
+            </div>
+            <div class="col-auto">
+                <a href="#popupBasic" data-rel="popup" data-transition="pop"
+                   class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext custom-filter-button">Filter</a>
+            </div>
+        </div>
+        <div class="row mt-n3">  <!--second hr line-->
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row mt-n3">
+            <div class="col">Home/Search</div>
+        </div>
+
+        <!--Location Modal-->
+        <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
+             data-overlay-theme="a" data-transition="pop">
+            <div class="row mb-2">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <form>
+                <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+                    <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input"
+                           placeholder="Search by locations..." value="">
+                </div>
+                <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true"
+                     data-input="#pre-rendered-example-input"
+                     class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
+                    <div class="ui-controlgroup-controls">
+                        <a href="#"
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo
+                            10</a>
+                        <a href="#"
+                           class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo
+                            11</a>
+                        <a href="#"
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--Filters Modal-->
+        <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a"
+             data-transition="pop">
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label><strong>Categories </strong> </label>
+                </div>
+                <div class="col-4 custom-close-button">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+
+            <form>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-1">Pizza</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-1" id="flip-1" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-2">Noodles</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-3">Bakery</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-3" id="flip-3" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-4">Chinese</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-4" id="flip-4" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form>
+                <div data-role="rangeslider">
+                    <label for="range-1a" class="mb-3"><strong>Price Range (LKR)</strong></label>
+                    <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
+                    <label for="range-1b">Rangeslider:</label>
+                    <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
+                </div>
+            </form>
+
+            <div class="row mb-3 mt-3">
+                <div class="col-6">
+                    <a href="#" data-rel="back" data-role="button" class="ui-btn">Cancel</a>
+                </div>
+                <div class="col-6">
+                    <button class="ui-btn">Apply</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="main"> <!--content area starts from here-->
+        <div class="mt-n4 container-fluid" style="margin-left: auto;margin-right: auto;display: block">
+            <h5>Ongoing Achievements</h5>
+            <div class="acheivemnt-ongoing">
+                <div class="col-lg-4 col-md-6 col-sm-6 mt-2 acheivemnt-ongoing-card" style="height:200px">
+                    <div class="ml-2 mr-2 pt-5" style="background-color:white;height:200px;border-radius: 20px;">
+                        <div class="container-fluid">
+                            <div class="row" style="margin-left: auto;margin-right: auto;">
+                                <div class="col-4 m-0 p-0">
+                                    <div class="progress-circle  p35">
+                                        <span>35%</span>
+                                        <div class="left-half-clipper">
+                                            <div class="first50-bar"></div>
+                                            <div class="value-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-8 pl-4">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>M</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 ">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>T</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3  ">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>W</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>T</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>F</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 ">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>S</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>S</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6 mt-2 acheivemnt-ongoing-card" style="height:200px">
+                    <div class="ml-2 mr-2 pt-5" style="background-color:white;height:200px;border-radius: 20px;">
+                        <div class="container-fluid">
+                            <div class="row" style="margin-left: auto;margin-right: auto;">
+                                <div class="col-4 m-0 p-0">
+                                    <div class="progress-circle  p35">
+                                        <span>35%</span>
+                                        <div class="left-half-clipper">
+                                            <div class="first50-bar"></div>
+                                            <div class="value-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-8 pl-4">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>M</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 ">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>T</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3  ">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>W</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>T</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>F</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 ">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>S</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>S</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 mt-2 acheivemnt-ongoing-card" style="height:200px">
+                    <div class="ml-2 mr-2 pt-5" style="background-color:white;height:200px;border-radius: 20px;">
+                        <div class="container-fluid">
+                            <div class="row" style="margin-left: auto;margin-right: auto;">
+                                <div class="col-4 m-0 p-0">
+                                    <div class="progress-circle  p35">
+                                        <span>35%</span>
+                                        <div class="left-half-clipper">
+                                            <div class="first50-bar"></div>
+                                            <div class="value-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-8 pl-4">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>M</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 ">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>T</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3  ">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>W</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>T</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>F</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3 ">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>S</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="progress-circle-sm over50-sm p100">
+                                                <span>S</span>
+                                                <div class="left-half-clipper-sm">
+                                                    <div class="first50-bar-sm"></div>
+                                                    <div class="value-bar-sm"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 text-center">
+                <button id='onScanQR' class="col-11 col-sm-8 col-md-8 col-lg-6"style="background-color: #EC7A23;color: white;margin-left: auto;margin-right: auto;display: block">
+                    Scan QR Code
+                </button>
+
+            </div>
+            <div class="mt-3  container-fluid">
+                <h5>Upcoming Achievements</h5>
+                <div class="acheivement-upcoming">
+                    <div class=" acheivements-upcoming-card">
+                        <div class="">
+                            Spend Rs.1500 & Get Rs.500 offer
+                        </div>
+                    </div>
+                    <div class=" acheivements-upcoming-card">
+                        <div class="" >
+                            Spend Rs.1500 & Get Rs.500 offer
+                        </div>
+                    </div>
+                    <div class="acheivements-upcoming-card">
+                        <div class="" >
+                            Spend Rs.1500 & Get Rs.500 offer
+                        </div>
+                    </div>
+                    <div class="acheivements-upcoming-card">
+                        <div class="" >
+                            Spend Rs.1500 & Get Rs.500 offer
+                        </div>
+                    </div>
+                    <div class="acheivements-upcoming-card">
+                        <div class="">
+                            Spend Rs.1500 & Get Rs.500 offer
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Footer-->
+    <div class="footer">
+        <div class="row justify-content-between">
+            <div class="col d-flex justify-content-left ml-3 p-3">
+                <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+            </div>
+            <div class="col mr-3 p-3">
+                <div class="row">
+                    <div class="col font1">Privacy Policy Terms of Use</div>
+                    <div class="w-100"></div>
+                    <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" class="fixed-bottom">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a>
+                </li>
+                <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+                <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+                <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+<script>
+    $('#onScanQR').click(function(){
+        window.location.href='Qr-code-page.html';
+    })
+</script>
+</html>
