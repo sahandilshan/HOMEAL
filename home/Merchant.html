@@ -191,7 +191,7 @@
         </div>
 
         <!--Product Modal-->
-        <div data-role="popup" id="productModel" class="container product-modal" data-position-to="window"
+        <div data-role="popup" data-history="false" id="productModel" class="container product-modal" data-position-to="window"
              data-overlay-theme="a" data-transition="pop">
                 <div class="row prd-modal-header">
                     <div class="col-8 mt-3">
@@ -269,8 +269,8 @@
 
                         </div>
                         <div class="col-6 p-0 m-0">
-                            <button id="addToCart" class="prd-modal-ctrl-btn"><span class="pull-left">Add to Cart</span><span
-                                    class="pull-right">1500.00</span>
+                            <button id="addToCart" class="prd-modal-ctrl-btn"><span class="pull-left">Add to Cart</span>
+                                <span id="addToCartValue" class="pull-right">1500.00</span>
                             </button>
                         </div>
                         <div class="col-3 p-0 m-0">
@@ -278,6 +278,177 @@
                         </div>
                     </div>
                 </div>
+        </div>
+
+        <!--Delivery Modal-->
+        <div data-role="popup" data-history="false" id="delivery_details" class="custom-filter-delivery" data-position-to="window"
+             data-overlay-theme="a"
+             data-transition="pop" style="border-radius: 10px;height: 100%;margin-top: -46%;">
+            <div class="row mb-2">
+
+                <div class="col-2">
+                    <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back-popup custom-back"></button>
+                </div>
+
+
+                <div class="col-10">
+                    <label style="position: relative;text-align: -webkit-center;margin-left: -16%;font-size: 1.2rem;">
+                        <strong>Delivery Details</strong>
+                    </label>
+                </div>
+
+            </div>
+
+
+            <div class="row mb-2">
+                <div class="col-6">
+                    <label style="text-align: -webkit-center;">Saved Address</label>
+                </div>
+                <div class="col-6">
+                    <label style="text-align: -webkit-center;">
+                        New Address
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="row mb-2">
+                <div class="col-6">
+                    <input type='radio' id='radio_1' name='type' value='1' style="margin-left: 37%;margin-top: -17px;"/>
+                </div>
+                <div class="col-6">
+                    <input type='radio' id='radio_2' name='type' value='1' style="margin-left: 37%;margin-top: -17px;"/>
+                </div>
+            </div>
+
+            <div class="row mt-n3">  <!--hr line-->
+                <div class="col" style="margin-top: 2%;">
+                    <hr>
+                </div>
+            </div>
+
+            <!--Selecting current address form-->
+            <form>
+                <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
+                    <div class="col-12">
+                        <div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-bottom-right-radius: 18px;">
+                            <div class="col-10">
+                                <label style="font-size: 1.2rem;margin-top: 10px;"><b>Home</b></label>
+
+                            </div>
+
+                            <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                                 style="margin-top: inherit;
+        margin-bottom: inherit;
+        border-bottom-right-radius: 11px;
+        border-top-right-radius: 11px;
+        border: none;
+        background-color: white;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
+                    <div class="col-12">
+                        <div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-bottom-right-radius: 18px;">
+                            <div class="col-10">
+                                <label style="font-size: 1.2rem;margin-top: 10px;"><b>Office</b></label>
+
+                            </div>
+
+                            <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                                 style="margin-top: inherit;
+        margin-bottom: inherit;
+        border-bottom-right-radius: 11px;
+        border-top-right-radius: 11px;
+        border: none;
+        background-color: white;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <!--New Address form-->
+            <!--<form>-->
+            <!--<div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">-->
+            <!--<div class="col-12">-->
+
+            <!--<div class="row">-->
+            <!--<div class="col-10">-->
+            <!--<a href="#popupBasicLocation" data-rel="popup" data-transition="pop"-->
+            <!--class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Colombo 10</a>-->
+            <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
+            <!--<div class="col-10">-->
+            <!--<label style=" font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+            <!--House Number-->
+            <!--</label>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
+            <!--<div class="col-10">-->
+            <!--<label style=" font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+            <!--Street Name-->
+            <!--</label>-->
+            <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
+            <!--<div class="col-10">-->
+            <!--<label style="font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+            <!--City / Town-->
+            <!--</label>-->
+            <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="row" style="margin-top: 5px;">-->
+            <!--<div class="col-8">-->
+            <!--<label style="font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+            <!--Save this address-->
+            <!--</label>-->
+            <!--</div>-->
+            <!--<div class="col-2 custom-switch" style="margin-top: 5px;margin-left: 6px;">-->
+            <!--<select name="flip-2" id="save" data-role="slider" style="width: 4.0em;">-->
+            <!--<option value="off"></option>-->
+            <!--<option value="on"></option>-->
+            <!--</select>-->
+            <!--</div>-->
+            <!--</div>-->
+
+
+
+            <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
+            <!--<div class="col-10">-->
+            <!--<label style="font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+            <!--Label Name-->
+            <!--</label>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</form>-->
+
+
+            <div class="row mt-n3">  <!--hr line-->
+                <div class="col">
+                    <hr style="margin-top: 15%">
+                </div>
+            </div>
+
+            <div class="row mb-3 mt-3">
+                <div class="col-12">
+                    <a href="/HOMEAL/home/Checkout.html"><button class="ui-btn btn-check-out">
+                        Proceed to Checkout
+                    </button></a>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -304,7 +475,8 @@
                 <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
                 <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
                 <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
-                <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+                <li><a href="#delivery_details" data-rel="popup" data-transition="pop"
+                       class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
             </ul>
         </nav>
     </div>
@@ -317,6 +489,9 @@
     let selected_product_id = '';
     let merchant_json;
     let productsArr;
+    let openDelivery = false;
+
+    $.mobile.ajaxEnabled = false;
     $(document).ready(function () {
         let retrievedProductArr = sessionStorage.getItem('products');
         productsArr = JSON.parse(retrievedProductArr); /*scope down in further steps*/
@@ -449,6 +624,7 @@
         let value = $('#number').val();
         value++;
         $('#number').val(value);
+        changePrice();
     });
 
     $('#minus').unbind('click').bind('click', function () {
@@ -456,8 +632,11 @@
         if (!(value <= 1)) {
             value--;
             $('#number').val(value);
+            changePrice();
         }
     });
+
+
 
     $(document).on('click', '.product-card', function() {
         selected_product_id = $(this).data('pid');
@@ -475,9 +654,9 @@
         } else {
             $("#prdModal-itmDiscount").show();
         }
-        $("#small").text('LKR ' + product.variants[0].price + '.00');
-        $("#medium").text('LKR ' + product.variants[1].price + '.00');
-        $("#large").text('LKR ' + product.variants[2].price + '.00');
+        $("#small").text('LKR ' + product.variants[0].price.toFixed(2));
+        $("#medium").text('LKR ' + product.variants[1].price.toFixed(2));
+        $("#large").text('LKR ' + product.variants[2].price.toFixed(2));
 
         let reviews = '';
         let prdReviews = product.reviews;
@@ -543,6 +722,7 @@
             `;
         })
         $("#prdModal-reviews").html(reviews);
+        changePrice();
         productModel.popup( "open" );
     });
 
@@ -578,10 +758,8 @@
                 break;
             }
         }
-
         let item = `
         {
-            "merchant_id": "${merchant_id}",
             "product_id": "${selected_product_id}",
             "product_name": "${productName}",
             "price": ${price},
@@ -590,18 +768,48 @@
         `;
         let cartItems = sessionStorage.getItem('cartItems');
         if (cartItems == null) {
-            let jsonArr = `{"items":[${item}]}`;
-            console.log(jsonArr);
+            let jsonArr =
+                `
+                {
+                    "merchant_id": "${merchant_id}",
+                    "items":[${item}]
+                }
+                `;
             sessionStorage.setItem('cartItems', jsonArr);
             console.log('cart item initialized.');
         } else {
             cartItems = sessionStorage.getItem('cartItems');
             let itemsArr = JSON.parse(cartItems);
-            itemsArr['items'].push(JSON.parse(item));
-            sessionStorage.setItem('cartItems', JSON.stringify(itemsArr));
-            console.log('cart items updated');
+            if (itemsArr['merchant_id'] !== merchant_id) {
+                let response = confirm('Items from another merchant are available in the cart. This action will remove those ' +
+                    'items from the cart. Do you wish to continue?');
+                if (response) {
+                    let jsonArr =
+                        `
+                {
+                    "merchant_id": "${merchant_id}",
+                    "items":[${item}]
+                }
+                `;
+                    sessionStorage.setItem('cartItems', jsonArr);
+                    console.log('cart item initialized.');
+                }
+            } else {
+                let existingItem = itemsArr['items'].find(x => x['product_id'] === selected_product_id
+                    & x['price'] === price);
+                if (existingItem) {
+                    existingItem.qty = parseInt(qty);
+                } else {
+                    itemsArr['items'].push(JSON.parse(item));
+                }
+                sessionStorage.setItem('cartItems', JSON.stringify(itemsArr));
+                console.log('cart items updated');
+                console.log(itemsArr);
+            }
         }
-        console.log(JSON.parse(sessionStorage.getItem('cartItems')));
+        // console.log(JSON.parse(sessionStorage.getItem('cartItems')));
+        // window.location.href="/HOMEAL/home/Checkout.html";
+
     });
 
     $( "#buyNow" ).click(function() {
@@ -625,7 +833,6 @@
                 break;
             }
         }
-
         let item = `
         {
             "merchant_id": "${merchant_id}",
@@ -637,7 +844,56 @@
         `;
         sessionStorage.setItem('buyNowItem', item);
         console.log(JSON.parse(sessionStorage.getItem('buyNowItem')).price);
+        // window.location.href="/HOMEAL/home/Checkout.html";
+        openDelivery = true;
+        popupDeliveryModal();
     });
+
+    function popupDeliveryModal() {
+        // $("#productModel").popup('close');
+        let productModal = $("#productModel");
+        productModal.popup('close');
+        productModal.on("popupafterclose", function () {
+            //any action you want like opening another popup
+            if (openDelivery) {
+                let productModel = $("#delivery_details");
+                $("#radio_1").prop("checked", true);
+                productModel.popup("open");
+            }
+        });
+
+    }
+
+    $("input[name='size']").change(function(e) {
+        changePrice();
+    });
+
+
+    function changePrice() {
+        let product = getProduct(selected_product_id);
+        let type = $('input[name=size]:checked', '#radioBtn').val();
+        let qty =  $('#number').val();
+        let price = 0;
+        switch (type) {
+            case "small": {
+                price = product.variants[0].price;
+                break;
+            }
+            case "medium": {
+                price = product.variants[1].price;
+                break;
+            }
+            case "large": {
+                price = product.variants[2].price;
+                break;
+            }
+        }
+        price = Number(price);
+        qty = parseInt(qty);
+        let val = (price * qty).toFixed(2);
+        $('#addToCartValue').text(val);
+    }
+
 
 </script>
 

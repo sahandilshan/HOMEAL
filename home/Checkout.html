@@ -130,7 +130,7 @@
 <div data-role="page">
     <div class="top pl-3 pr-3 pb-2 fixed-top">
         <div data-role="header" class="mb-1 header">
-            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back" id="backBtn">Back</button>
             <h1>
                 <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
             </h1>
@@ -206,11 +206,11 @@
                                     <!--</div>-->
 
                                     <label class="ui-radio-btn">Cash</label><input type="radio" name="size"
-                                                                                   id="radio-small">
+                                                                                   id="radio-cash">
 
                                     <label class="ui-radio-btn" style="margin-left: 20%">Card</label><input type="radio"
                                                                                                             name="size"
-                                                                                                            id="radio-small">
+                                                                                                            id="radio-card">
                                 </div>
                             </form>
 
@@ -246,7 +246,7 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="margin-left: inherit">
+                            <!--<div class="row" style="margin-left: inherit">
                                 <div style="width: 100%">
                                     <div class="row"
                                          style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
@@ -270,8 +270,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row" style="margin-left: inherit">
+                            </div>-->
+                            <!--<div class="row" style="margin-left: inherit">
                                 <div style="width: 100%">
                                     <div class="row"
                                          style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
@@ -295,7 +295,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
 
                         </div>
 
@@ -326,10 +326,10 @@
                                     </div>
 
                                     <div class="col-6 float-right p-0">
-                                        <div class="price-list">LKR 1020.00</div>
-                                        <div class="price-list">LKR 80.00</div>
-                                        <div class="price-list">LKR 100.00</div>
-                                        <div class="price-list" style="font-size: 1rem"><b>LKR 1200.00</b></div>
+                                        <div id="subTotal" class="price-list">LKR 1020.00</div>
+                                        <div id="tax" class="price-list">LKR 80.00</div>
+                                        <div id="deliveryFee" class="price-list">LKR 100.00</div>
+                                        <div id="total" class="price-list" style="font-size: 1rem"><b>LKR 1200.00</b></div>
                                     </div>
 
                                 </div>
@@ -386,13 +386,25 @@
 <script>
     $(document).ready(function () {
         $('.btn-promocode').removeClass('ui-btn');
-        console.log("cc");
+        changeIpadScreen(); // if page is load with  the ipad screen.
+
+        let isBuyNow = sessionStorage.getItem('isBuyNow');
+        if (isBuyNow) {
+            console.log('BuyNow');
+            buyNow();
+
+        } else {
+            console.log('here');
+        }
     });
 
     $(window).resize(function() {
-        var width = $(window).width();
-        if (width==768){
-            console.log("Done");
+        changeIpadScreen(); // if page is changed from a difference screen.
+    });
+
+    function changeIpadScreen() {
+        let width = $(window).width();
+        if (width===768){
             $("#checkout-delivery-address").addClass("col-md-10");
             $("#checkout-payment-method").addClass("col-md-10");
             $("#checkout-cart").addClass("col-md-10");
@@ -406,7 +418,57 @@
             $("#checkout-total").removeClass("col-md-10");
             $("#checkout-btn-div").removeClass("col-md-10");
         }
+    }
+
+    $( "#backBtn" ).click(function() {
+        window.history.back();
     });
+
+    function buyNow() {
+        let item = sessionStorage.getItem('buyNowItem');
+        item = JSON.parse(item);
+        console.log(item);
+        let itemName = item.product_name;
+        let qty = item.qty;
+        let price = item.price * qty;
+        let priceWithCents = price.toFixed(2);
+
+        let order = `
+        <div class="row" style="margin-left: inherit">
+            <div style="width: 100%">
+                <div class="row"
+                     style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
+
+                    <div class="col-8"
+                         style="background-color: white;width: 50%;padding: 10px;border-radius: 6px">
+                        <div style="font-size: 1rem"><b>${itemName} (${qty})</b></div>
+                        <div style="font-size: 0.8rem">LKR ${priceWithCents}</div>
+                    </div>
+                    <div class="col-2"
+                         style="background-color: black;padding: 10px; text-align-last: center;">
+                        <img src="../assets/icons/ordersIcon_orange.png"
+                             alt="Logo.png"
+                             style="width:30px ; height: 25px; vertical-align: -webkit-baseline-middle;">
+                    </div>
+                    <div class="col-2"
+                         style="background-color: #f6f6f6;padding: 10px;border-radius: 6px;  text-align-last: center; ">
+                        <img src="../assets/icons/ordersIcon_orange.png"
+                             alt="Logo.png"
+                             style="width:30px ; height: 25px; vertical-align: -webkit-baseline-middle;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+        $("#checkout-cart").append(order);
+        $('#subTotal').text('LKR ' + priceWithCents);
+        $('#total').text('LKR ' + (price + 100 + 80).toFixed(2));
+
+    }
+
+
+
+
 </script>
 
 </html>
