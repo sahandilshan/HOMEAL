@@ -13,17 +13,17 @@
         "variants": [
           {
             "name": "Small",
-            "price": "1050",
+            "price": 1050.00,
             "available_quantity": "14"
           },
           {
             "name": "Medium",
-            "price": "1250",
+            "price": 1250.00,
             "available_quantity": "11"
           },
           {
             "name": "Large",
-            "price": "1650",
+            "price": 1650.00,
             "available_quantity": "15"
           }
         ],
@@ -50,17 +50,17 @@
         "variants": [
           {
             "name": "Small",
-            "price": "1050",
+            "price": 1050.00,
             "available_quantity": "14"
           },
           {
             "name": "Medium",
-            "price": "1250",
+            "price": 1250.00,
             "available_quantity": "11"
           },
           {
             "name": "Large",
-            "price": "1650",
+            "price": 1650.00,
             "available_quantity": "15"
           }
         ],
@@ -91,17 +91,17 @@
       "variants": [
         {
           "name": "Small",
-          "price": "1050",
+          "price": 1050.00,
           "available_quantity": "14"
         },
         {
           "name": "Medium",
-          "price": "1250",
+          "price": 1250.00,
           "available_quantity": "11"
         },
         {
           "name": "Large",
-          "price": "1650",
+          "price": 1650.00,
           "available_quantity": "15"
         }
       ],
@@ -127,17 +127,17 @@
       "variants": [
         {
           "name": "Small",
-          "price": "1050",
+          "price": 1050.00,
           "available_quantity": "14"
         },
         {
           "name": "Medium",
-          "price": "1250",
+          "price": 1250.00,
           "available_quantity": "11"
         },
         {
           "name": "Large",
-          "price": "1650",
+          "price": 1650.00,
           "available_quantity": "15"
         }
       ],
