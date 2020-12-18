@@ -262,10 +262,38 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <button class="prd-modal-ctrl-btn"><span class="pull-left">Email My List</span></button>
+                   <div class="prd-modal-ctrl-btn pt-2 pb-2" style="font-size: 16px !important; text-align: center;" ><a href="#popup-send-email" data-rel="popup" data-transition="pop"><span class="text-white">Email My List</span></a></div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!--Submit ticket modal-->
+    <div data-role="popup" id="popup-send-email" class="custom-location" data-position-to="window"
+         data-overlay-theme="a" data-transition="pop">
+        <div class="row mb-2">
+            <div class="col-8">
+            </div>
+            <div class="col-4 custom-close-button">
+                <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+            </div>
+        </div>
+        <div><h4>Email Me</h4></div>
+        <form>
+            <input type="text" placeholder="To" style="color: #F19B55">
+            <input type="text" placeholder="Subject" style="color: #F19B55">
+            <div class="row mt-2 mb-2" style="align-items: center;">
+                <div class="col-8">
+                    Send my favorites list as an attachment
+                </div>
+                <div class="col-4" style="text-align: -webkit-right;">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-check ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
     </div>
 
     <!--Footer-->
