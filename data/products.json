@@ -55,7 +55,7 @@
           },
           {
             "name": "Medium",
-            "price": 1250.00,
+            "price": 1250.50,
             "available_quantity": "11"
           },
           {
@@ -69,6 +69,15 @@
             "review_id": "",
             "user_name": "Ahamed Muaaz",
             "rating": "5",
+            "review_content": "This is a very good product",
+            "date": "2020/11/10",
+            "sellerComments": [],
+            "otherComments": []
+          },
+          {
+            "review_id": "",
+            "user_name": "Ahamed Muaaz",
+            "rating": "4",
             "review_content": "This is a very good product",
             "date": "2020/11/10",
             "sellerComments": [],
