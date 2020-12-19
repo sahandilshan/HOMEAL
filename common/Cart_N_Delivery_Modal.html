@@ -1,0 +1,363 @@
+<script>
+    $("#cart_popup").enhanceWithin().popup({
+        afterclose: function () {
+            $("#cartBtn").removeClass("ui-btn-active");
+        }
+    }).popup("close");
+
+    $("#delivery_details").enhanceWithin().popup({
+
+    }).popup("close");
+
+    $('#cartBtn').click(function () {
+        let itemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
+        let cartItems = '';
+        if (itemsArr) {
+            itemsArr = itemsArr['items'];
+            console.log(itemsArr);
+            $.each(itemsArr, function (i, item) {
+                let totalPrice = (item['price'] * item['qty']).toFixed(2);
+                let itemHtml = `
+        <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
+                <div class="col-12">
+                    <div class="row" style="box-shadow: 1px 7px 19px -9px #ec7a23;border-bottom-right-radius: 18px;">
+                        <div class="col-8">
+                            <label style="font-size: 1.2rem;"><b>${item['product_name']} (${item['variant']} x ${item['qty']})</b></label>
+                            <label class="label-price">LKR ${totalPrice}</label>
+                        </div>
+                        <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                             style="margin-top: inherit;
+                            margin-bottom: inherit;">
+                        </div>
+
+                        <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                             style="margin-top: inherit;
+                            margin-bottom: inherit;
+                            border-bottom-right-radius: 11px;
+                            border-top-right-radius: 11px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+                cartItems += itemHtml;
+            });
+        } else {
+            cartItems = '<p>No items available </p>';
+        }
+        $('#cartItems').html(cartItems);
+        $("#cart_popup").popup('open');
+    });
+
+    $('#toCheckout').click(function () {
+        sessionStorage.setItem('isBuyNow', '0');
+        openDelivery = true;
+        popupDeliveryModal();
+    })
+
+    function popupDeliveryModal() {
+        let cartModal = $("#cart_popup");
+        cartModal.popup('close');
+        cartModal.on("popupafterclose", function () {
+            //any action you want like opening another popup
+            if (openDelivery) {
+                let productModel = $("#delivery_details");
+                $("#radio_1").prop("checked", true);
+                productModel.popup("open");
+                openDelivery = false;
+            }
+        });
+    }
+
+</script>
+
+<style>
+
+    .btn-check-out {
+        background-color: #EC7A23 !important;
+        color: white !important;
+        border-radius: 5px !important;
+        margin: auto !important;
+        width: 85% !important;
+    }
+    .label-price{
+        margin-top: -3% !important;
+        padding-bottom: 5px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .mt-3, .my-3 {
+        margin-top: 0 !important;
+    }
+</style>
+
+<div data-role="popup" id="cart_popup" class="custom-filter" data-position-to="window" data-overlay-theme="a"
+     data-transition="pop" style="border-bottom-right-radius: 50px;">
+    <div class="row mb-2">
+        <div class="col-8">
+            <label style="position: relative; margin-left: 64%"><strong>Mini Cart </strong> </label>
+        </div>
+        <div class="col-4 custom-close-button">
+            <a href="#" data-rel="back" data-role="button" data-transition="pop"
+               class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+        </div>
+    </div>
+
+    <div class="row mt-n3">  <!--hr line-->
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-6">
+            <label><strong>Your Cart</strong> </label>
+        </div>
+        <div class="col-6">
+            <label style="float: right;
+                          border: 1px solid red;
+                          padding: 3px;
+                          padding-left: 10px;
+                          padding-right: inherit;
+                          border-radius: 6px;
+                          border-bottom-right-radius: 25px;">
+                Delete all
+            </label>
+        </div>
+    </div>
+
+
+    <form>
+        <div id="cartItems">
+            <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
+                <div class="col-12">
+                    <div class="row" style="box-shadow: 1px 7px 19px -9px #ec7a23;border-bottom-right-radius: 18px;">
+                        <div class="col-8">
+                            <label style="font-size: 1.2rem;"><b>Chicken Pizza (1)</b></label>
+                            <label class="label-price">LKR 1050.00</label>
+                        </div>
+                        <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                             style="margin-top: inherit;
+                            margin-bottom: inherit;">
+                        </div>
+
+                        <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                             style="margin-top: inherit;
+                            margin-bottom: inherit;
+                            border-bottom-right-radius: 11px;
+                            border-top-right-radius: 11px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
+                <div class="col-12">
+                    <div class="row" style="box-shadow: 1px 7px 19px -9px #ec7a23;border-bottom-right-radius: 18px;">
+                        <div class="col-8">
+                            <label style="font-size: 1.2rem;"><b>Chicken Pizza (1)</b></label>
+                            <label class="label-price">LKR 1050.00</label>
+                        </div>
+                        <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                             style="margin-top: inherit;
+                            margin-bottom: inherit;">
+                        </div>
+
+                        <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                             style="margin-top: inherit;
+                            margin-bottom: inherit;
+                            border-bottom-right-radius: 11px;
+                            border-top-right-radius: 11px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="row mt-n3">  <!--hr line-->
+        <div class="col">
+            <hr style="margin-top: 15%">
+        </div>
+    </div>
+
+    <div class="row mb-3 mt-3">
+        <div class="col-12">
+            <button id="toCheckout" class="ui-btn btn-check-out">
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+</div>
+
+<!--Delivery Modal-->
+<div data-role="popup"data-history="false" id="delivery_details" class="custom-filter-delivery" data-position-to="window"
+     data-overlay-theme="a"
+     data-transition="pop" style="border-radius: 10px;height: 100%;margin-top: -46%;">
+    <div class="row mb-2">
+
+        <div class="col-2">
+            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back-popup custom-back"></button>
+        </div>
+
+
+        <div class="col-10">
+            <label style="position: relative;text-align: -webkit-center;margin-left: -16%;font-size: 1.2rem;">
+                <strong>Delivery Details</strong>
+            </label>
+        </div>
+
+    </div>
+
+
+    <div class="row mb-2">
+        <div class="col-6">
+            <label style="text-align: -webkit-center;">Saved Address</label>
+        </div>
+        <div class="col-6">
+            <label style="text-align: -webkit-center;">
+                New Address
+            </label>
+        </div>
+    </div>
+
+
+    <div class="row mb-2">
+        <div class="col-6">
+            <input type='radio' id='radio_1' name='type' value='1' style="margin-left: 37%;margin-top: -17px;"/>
+        </div>
+        <div class="col-6">
+            <input type='radio' id='radio_2' name='type' value='1' style="margin-left: 37%;margin-top: -17px;"/>
+        </div>
+    </div>
+
+    <div class="row mt-n3">  <!--hr line-->
+        <div class="col" style="margin-top: 2%;">
+            <hr>
+        </div>
+    </div>
+
+    <!--Selecting current address form-->
+    <form>
+        <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
+            <div class="col-12">
+                <div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-bottom-right-radius: 18px;">
+                    <div class="col-10">
+                        <label style="font-size: 1.2rem;margin-top: 10px;"><b>Home</b></label>
+
+                    </div>
+
+                    <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                         style="margin-top: inherit;
+        margin-bottom: inherit;
+        border-bottom-right-radius: 11px;
+        border-top-right-radius: 11px;
+        border: none;
+        background-color: white;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
+            <div class="col-12">
+                <div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-bottom-right-radius: 18px;">
+                    <div class="col-10">
+                        <label style="font-size: 1.2rem;margin-top: 10px;"><b>Office</b></label>
+
+                    </div>
+
+                    <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                         style="margin-top: inherit;
+        margin-bottom: inherit;
+        border-bottom-right-radius: 11px;
+        border-top-right-radius: 11px;
+        border: none;
+        background-color: white;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!--New Address form-->
+    <!--<form>-->
+    <!--<div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">-->
+    <!--<div class="col-12">-->
+
+    <!--<div class="row">-->
+    <!--<div class="col-10">-->
+    <!--<a href="#popupBasicLocation" data-rel="popup" data-transition="pop"-->
+    <!--class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Colombo 10</a>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
+    <!--<div class="col-10">-->
+    <!--<label style=" font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+    <!--House Number-->
+    <!--</label>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
+    <!--<div class="col-10">-->
+    <!--<label style=" font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+    <!--Street Name-->
+    <!--</label>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
+    <!--<div class="col-10">-->
+    <!--<label style="font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+    <!--City / Town-->
+    <!--</label>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="row" style="margin-top: 5px;">-->
+    <!--<div class="col-8">-->
+    <!--<label style="font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+    <!--Save this address-->
+    <!--</label>-->
+    <!--</div>-->
+    <!--<div class="col-2 custom-switch" style="margin-top: 5px;margin-left: 6px;">-->
+    <!--<select name="flip-2" id="save" data-role="slider" style="width: 4.0em;">-->
+    <!--<option value="off"></option>-->
+    <!--<option value="on"></option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+
+
+
+    <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
+    <!--<div class="col-10">-->
+    <!--<label style="font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
+    <!--Label Name-->
+    <!--</label>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</form>-->
+
+
+    <div class="row mt-n3">  <!--hr line-->
+        <div class="col">
+            <hr style="margin-top: 15%">
+        </div>
+    </div>
+
+    <div class="row mb-3 mt-3">
+        <div class="col-12">
+            <a href="/HOMEAL/home/Checkout.html"><button class="ui-btn btn-check-out">
+                Proceed to Checkout
+            </button></a>
+        </div>
+    </div>
+</div>
