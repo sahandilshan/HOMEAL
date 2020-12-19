@@ -17,6 +17,48 @@
     <link type="text/css" rel="stylesheet" href="../css/css-circular-prog-bar-small.css"/>
 
     <style>
+
+
+        .box2 {
+            font-size: 14px !important;
+            /* width: 300px;*/
+            margin-top: 30px;
+            border: 4px solid #00bfb6;
+            padding: 5px;
+           /* font-weight: 50;*/
+            color: #00bfb6;
+            font-family: arial;
+            position: relative;
+        }
+
+
+        .sb11:before {
+            top: 14px;
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            border-left: 10px solid transparent;
+            border-right: 10px solid #00bfb6;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            left: -23px;
+        }
+
+        .sb11:after {
+            bottom: 20px;
+            content: "";
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            border-left: 10px solid transparent;
+            border-right: 10px solid #fff;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            left: -17px;
+        }
+
+
         .acheivements-upcoming-card {
 
             background: linear-gradient(
@@ -25,11 +67,13 @@
             ), /* bottom, image */ url(../assets/products/margherita-pizza-993274.jpg);
             background-size: cover;
             background-position: center !important;
-            height: 150px;
-            width: 280px;
-            margin: 20px;
-            border-radius: 20px;
-            line-height: 125px
+           /* height: 150px;*/
+           /* width: 280px;*/
+            margin: 10px;
+            border-radius: 15px;
+            line-height: 120px;
+            font-size: 14px;
+
 
         }
 
@@ -59,8 +103,46 @@
             display: inline-block;
             color: white;
             text-align: center;
-           /* padding: 14px;*/
+            /* padding: 14px;*/
             text-decoration: none;
+        }
+        @media only screen and (max-width: 375px) {
+            /*when width is less than iPhone landscape mode(iPhone Portrait Mode) */
+            .box2 {
+                font-size: 12px !important;
+                margin-top: 30px;
+                border: 4px solid #00bfb6;
+                padding: 5px;
+                color: #00bfb6;
+                font-family: arial;
+                position: relative;
+            }
+            .sb11:before {
+                top: 12px;
+                content: "";
+                width: 0px;
+                height: 0px;
+                position: absolute;
+                border-left: 10px solid transparent;
+                border-right: 10px solid #00bfb6;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                left: -23px;
+            }
+
+            .sb11:after {
+                bottom: 16px;
+                content: "";
+                width: 0px;
+                height: 0px;
+                position: absolute;
+                border-left: 10px solid transparent;
+                border-right: 10px solid #fff;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                left: -17px;
+            }
+
         }
 
     </style>
@@ -130,11 +212,11 @@
         <div class="mt-n4 container-fluid" style="margin-left: auto;margin-right: auto;display: block">
             <h5>Ongoing Achievements</h5>
             <div class="acheivemnt-ongoing">
-                <div class="col-lg-4 col-md-6 col-sm-6 mt-2 acheivemnt-ongoing-card" style="height:200px">
-                    <div class="ml-2 mr-2 pt-5" style="background-color:white;height:200px;border-radius: 20px;">
+                <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mt-2 acheivemnt-ongoing-card" style="height:200px">
+                    <div class="ml-2 mr-2 pt-5" style="background-color:white;border-radius: 20px;">
                         <div class="container-fluid">
                             <div class="row" style="margin-left: auto;margin-right: auto;">
-                                <div class="col-4 m-0 p-0">
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-4 m-0 p-0">
                                     <div class="progress-circle  p35">
                                         <span>35%</span>
                                         <div class="left-half-clipper">
@@ -143,7 +225,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-8 pl-4">
+                                <div class="col-8 col-sm-8 col-md-8 col-lg-8 pl-4">
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="progress-circle-sm over50-sm p100">
@@ -213,15 +295,24 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div clas="col-4 col-sm-4 col-md-4 col-lg-4">
+                                    <img src="../assets/gifs/30972-oscar-from-robotic-eyes.gif" width="" height="120px"
+                                         style="margin-left: auto;margin-right: auto;display: block">
+                                </div>
+                                <div clas="col-8 col-sm-8 col-md-8 col-lg-8">
+                                    <div class="box2 sb11">You have 65% more to<br>reach your next acheivement</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 col-sm-6 mt-2 acheivemnt-ongoing-card" style="height:200px">
-                    <div class="ml-2 mr-2 pt-5" style="background-color:white;height:200px;border-radius: 20px;">
+                <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mt-2 acheivemnt-ongoing-card" style="height:200px">
+                    <div class="ml-2 mr-2 pt-5" style="background-color:white;border-radius: 20px;">
                         <div class="container-fluid">
                             <div class="row" style="margin-left: auto;margin-right: auto;">
-                                <div class="col-4 m-0 p-0">
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-4 m-0 p-0">
                                     <div class="progress-circle  p35">
                                         <span>35%</span>
                                         <div class="left-half-clipper">
@@ -230,7 +321,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-8 pl-4">
+                                <div class="col-8 col-sm-8 col-md-8 col-lg-8 pl-4">
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="progress-circle-sm over50-sm p100">
@@ -268,10 +359,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
-
                                     <div class="row mt-3">
                                         <div class="col-3">
                                             <div class="progress-circle-sm over50-sm p100">
@@ -300,22 +388,26 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
-
-
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div clas="col-4">
+                                    <img src="../assets/gifs/30972-oscar-from-robotic-eyes.gif" width="" height="120px"
+                                         style="margin-left: auto;margin-right: auto;display: block">
+                                </div>
+                                <div clas="col-8">
+                                    <div class="box2 sb11">You have 65% more to<br>reach your next acheivement</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 mt-2 acheivemnt-ongoing-card" style="height:200px">
-                    <div class="ml-2 mr-2 pt-5" style="background-color:white;height:200px;border-radius: 20px;">
+                <div class="col-12 col-sm-7 col-md-6 col-lg-5 col-xl-4 mt-2 acheivemnt-ongoing-card" style="height:200px">
+                    <div class="ml-2 mr-2 pt-5" style="background-color:white;border-radius: 20px;">
                         <div class="container-fluid">
                             <div class="row" style="margin-left: auto;margin-right: auto;">
-                                <div class="col-4 m-0 p-0">
+                                <div class="col-4 col-sm-4 col-md-4 col-lg-4 m-0 p-0">
                                     <div class="progress-circle  p35">
                                         <span>35%</span>
                                         <div class="left-half-clipper">
@@ -324,7 +416,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-8 pl-4">
+                                <div class="col-8 col-sm-8 col-md-8 col-lg-8 pl-4">
                                     <div class="row">
                                         <div class="col-3">
                                             <div class="progress-circle-sm over50-sm p100">
@@ -335,7 +427,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-3 ">
+                                        <div class="col-3">
                                             <div class="progress-circle-sm over50-sm p100">
                                                 <span>T</span>
                                                 <div class="left-half-clipper-sm">
@@ -344,7 +436,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-3  ">
+                                        <div class="col-3">
                                             <div class="progress-circle-sm over50-sm p100">
                                                 <span>W</span>
                                                 <div class="left-half-clipper-sm">
@@ -362,10 +454,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
-
                                     <div class="row mt-3">
                                         <div class="col-3">
                                             <div class="progress-circle-sm over50-sm p100">
@@ -394,20 +483,27 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
-
-
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div clas="col-4">
+                                    <img src="../assets/gifs/30972-oscar-from-robotic-eyes.gif"  height="120px"
+                                         style="margin-left: auto;margin-right: auto;display: block">
+                                </div>
+                                <div clas="col-8">
+                                    <div class="box2 sb11">You have 65% more to<br>reach your next acheivement</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
             <div class="mt-4 text-center">
-                <button id='onScanQR' class="col-11 col-sm-8 col-md-8 col-lg-6"style="background-color: #EC7A23;color: white;margin-left: auto;margin-right: auto;display: block">
+                <button id='onScanQR' class="col-11 col-sm-8 col-md-8 col-lg-6"
+                        style="background-color: #EC7A23;color: white;margin-left: auto;margin-right: auto;display: block">
                     Scan QR Code
                 </button>
 
@@ -421,17 +517,17 @@
                         </div>
                     </div>
                     <div class=" acheivements-upcoming-card">
-                        <div class="" >
+                        <div class="">
                             Spend Rs.1500 & Get Rs.500 offer
                         </div>
                     </div>
                     <div class="acheivements-upcoming-card">
-                        <div class="" >
+                        <div class="">
                             Spend Rs.1500 & Get Rs.500 offer
                         </div>
                     </div>
                     <div class="acheivements-upcoming-card">
-                        <div class="" >
+                        <div class="">
                             Spend Rs.1500 & Get Rs.500 offer
                         </div>
                     </div>
@@ -476,8 +572,8 @@
 </div>
 </body>
 <script>
-    $('#onScanQR').click(function(){
-        window.location.href='Qr-code-page.html';
+    $('#onScanQR').click(function () {
+        window.location.href = 'Qr-code-page.html';
     })
 </script>
 </html>
