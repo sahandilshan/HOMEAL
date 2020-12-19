@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Successful</title>
+    <link rel="icon" href="../assets/logos/Title.png"
+          type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/custom.css"/>
+
+</head>
+<body>
+<div data-role="page">
+    <div class="top pl-3 pr-3 pb-2 fixed-top">
+        <div data-role="header" class="mb-1 header">
+            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+            <h1>
+                <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
+            </h1>
+            <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-10">
+                <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
+                   class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select
+                    Your
+                    Location</a>
+            </div>
+        </div>
+        <div class="row mt-n2"> <!--first hr line-->
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row mt-n3"> <!--search by name and filtering row-->
+            <div class="col-10 mr-auto pt-2">
+                <input data-type="search" id="searchForCollapsibleSet" name="search" value=""
+                       placeholder="Search Restaurant by Name"/>
+            </div>
+            <div class="col-auto">
+                <a href="#popupBasic" data-rel="popup" data-transition="pop"
+                   class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext custom-filter-button">Filter</a>
+            </div>
+        </div>
+        <div class="row mt-n3">  <!--second hr line-->
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row mt-n3">
+            <div class="col">Home/Search</div>
+        </div>
+
+    </div>
+
+    <div class="main"> <!--content area starts from here-->
+        <div class="mr-2 ml-2 mt-n3">
+
+            <div class="row center-block mx-auto">
+                <div class="col-12 col-sm-6 col-md-6 colBackground mb-3 mt-3">
+                    <div class="justify-content-center">
+                        <div class="circle justify-content-center">
+                            <img src="../assets/otherImages/order-error.png" class="circleImage"
+                                 alt="logo">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-6 col-md-6" style="align-self: center !important; ">
+                    <div class="row-12  orderStatus" style="color: red">Purchase Order Failure</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!--Footer-->
+    <div class="footer">
+        <div class="row justify-content-between">
+            <div class="col d-flex justify-content-left ml-3 p-3">
+                <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+            </div>
+            <div class="col mr-3 p-3">
+                <div class="row">
+                    <div class="col font1">Privacy Policy Terms of Use</div>
+                    <div class="w-100"></div>
+                    <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" class="fixed-bottom">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+                <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+                <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+</body>
+</html>
