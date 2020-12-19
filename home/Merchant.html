@@ -280,176 +280,8 @@
                 </div>
         </div>
 
-        <!--Delivery Modal-->
-        <div data-role="popup" data-history="false" id="delivery_details" class="custom-filter-delivery" data-position-to="window"
-             data-overlay-theme="a"
-             data-transition="pop" style="border-radius: 10px;height: 100%;margin-top: -46%;">
-            <div class="row mb-2">
-
-                <div class="col-2">
-                    <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back-popup custom-back"></button>
-                </div>
-
-
-                <div class="col-10">
-                    <label style="position: relative;text-align: -webkit-center;margin-left: -16%;font-size: 1.2rem;">
-                        <strong>Delivery Details</strong>
-                    </label>
-                </div>
-
-            </div>
-
-
-            <div class="row mb-2">
-                <div class="col-6">
-                    <label style="text-align: -webkit-center;">Saved Address</label>
-                </div>
-                <div class="col-6">
-                    <label style="text-align: -webkit-center;">
-                        New Address
-                    </label>
-                </div>
-            </div>
-
-
-            <div class="row mb-2">
-                <div class="col-6">
-                    <input type='radio' id='radio_1' name='type' value='1' style="margin-left: 37%;margin-top: -17px;"/>
-                </div>
-                <div class="col-6">
-                    <input type='radio' id='radio_2' name='type' value='1' style="margin-left: 37%;margin-top: -17px;"/>
-                </div>
-            </div>
-
-            <div class="row mt-n3">  <!--hr line-->
-                <div class="col" style="margin-top: 2%;">
-                    <hr>
-                </div>
-            </div>
-
-            <!--Selecting current address form-->
-            <form>
-                <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
-                    <div class="col-12">
-                        <div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-bottom-right-radius: 18px;">
-                            <div class="col-10">
-                                <label style="font-size: 1.2rem;margin-top: 10px;"><b>Home</b></label>
-
-                            </div>
-
-                            <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
-                                 style="margin-top: inherit;
-        margin-bottom: inherit;
-        border-bottom-right-radius: 11px;
-        border-top-right-radius: 11px;
-        border: none;
-        background-color: white;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
-                    <div class="col-12">
-                        <div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-bottom-right-radius: 18px;">
-                            <div class="col-10">
-                                <label style="font-size: 1.2rem;margin-top: 10px;"><b>Office</b></label>
-
-                            </div>
-
-                            <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
-                                 style="margin-top: inherit;
-        margin-bottom: inherit;
-        border-bottom-right-radius: 11px;
-        border-top-right-radius: 11px;
-        border: none;
-        background-color: white;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-            <!--New Address form-->
-            <!--<form>-->
-            <!--<div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">-->
-            <!--<div class="col-12">-->
-
-            <!--<div class="row">-->
-            <!--<div class="col-10">-->
-            <!--<a href="#popupBasicLocation" data-rel="popup" data-transition="pop"-->
-            <!--class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Colombo 10</a>-->
-            <!--</div>-->
-            <!--</div>-->
-
-
-            <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
-            <!--<div class="col-10">-->
-            <!--<label style=" font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
-            <!--House Number-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
-            <!--<div class="col-10">-->
-            <!--<label style=" font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
-            <!--Street Name-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--</div>-->
-
-            <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
-            <!--<div class="col-10">-->
-            <!--<label style="font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
-            <!--City / Town-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--</div>-->
-
-
-            <!--<div class="row" style="margin-top: 5px;">-->
-            <!--<div class="col-8">-->
-            <!--<label style="font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
-            <!--Save this address-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--<div class="col-2 custom-switch" style="margin-top: 5px;margin-left: 6px;">-->
-            <!--<select name="flip-2" id="save" data-role="slider" style="width: 4.0em;">-->
-            <!--<option value="off"></option>-->
-            <!--<option value="on"></option>-->
-            <!--</select>-->
-            <!--</div>-->
-            <!--</div>-->
-
-
-
-            <!--<div class="row" style="box-shadow: 1px 7px 19px -9px #afaead;border-radius: 7px;margin-top: 5px;">-->
-            <!--<div class="col-10">-->
-            <!--<label style="font-size: 0.8rem;margin-top: 10px;margin-bottom: 10px;color: #ec7a23;">-->
-            <!--Label Name-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</div>-->
-            <!--</form>-->
-
-
-            <div class="row mt-n3">  <!--hr line-->
-                <div class="col">
-                    <hr style="margin-top: 15%">
-                </div>
-            </div>
-
-            <div class="row mb-3 mt-3">
-                <div class="col-12">
-                    <a href="/HOMEAL/home/Checkout.html"><button class="ui-btn btn-check-out">
-                        Proceed to Checkout
-                    </button></a>
-                </div>
-            </div>
-        </div>
+        <!--Cart Modal & Delivery Modal-->
+        <div id="cartModal"></div>
 
     </div>
 
@@ -469,12 +301,14 @@
         </div>
     </div>
 
-    <div data-role="footer" class="fixed-bottom">
+    <div data-role="footer" id="bottom-nav" class="fixed-bottom">
         <nav data-role="navbar">
             <ul>
                 <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
                 <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
-                <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+                <!--<li><a href="#cart_popup" data-rel="popup" data-transition="pop"
+                       class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>-->
+                <li><a href="#" id="cartBtn" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
                 <li><a href="#delivery_details" data-rel="popup" data-transition="pop"
                        class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
             </ul>
@@ -636,8 +470,6 @@
         }
     });
 
-
-
     $(document).on('click', '.product-card', function() {
         selected_product_id = $(this).data('pid');
         console.log(selected_product_id);
@@ -743,18 +575,22 @@
         let productName = product.product_name;
         let type = $('input[name=size]:checked', '#radioBtn').val();
         let qty =  $('#number').val();
+        let variant = '';
         let price = 0;
         switch (type) {
             case "small": {
                 price = product.variants[0].price;
+                variant = 'Small';
                 break;
             }
             case "medium": {
                 price = product.variants[1].price;
+                variant = 'Medium';
                 break;
             }
             case "large": {
                 price = product.variants[2].price;
+                variant = 'Large';
                 break;
             }
         }
@@ -762,6 +598,7 @@
         {
             "product_id": "${selected_product_id}",
             "product_name": "${productName}",
+            "variant": "${variant}",
             "price": ${price},
             "qty": ${qty}
         }
@@ -846,28 +683,28 @@
         console.log(JSON.parse(sessionStorage.getItem('buyNowItem')).price);
         // window.location.href="/HOMEAL/home/Checkout.html";
         openDelivery = true;
-        popupDeliveryModal();
+        popupDeliveryModalInBuyNow();
     });
 
-    function popupDeliveryModal() {
-        // $("#productModel").popup('close');
+    function popupDeliveryModalInBuyNow() {
         let productModal = $("#productModel");
         productModal.popup('close');
         productModal.on("popupafterclose", function () {
             //any action you want like opening another popup
             if (openDelivery) {
-                let productModel = $("#delivery_details");
+                let deliveryModal = $("#delivery_details");
                 $("#radio_1").prop("checked", true);
-                productModel.popup("open");
+                deliveryModal.popup("open");
+                deliveryModal.on("popupafterclose", function () {
+                    openDelivery = false;
+                });
             }
         });
-
     }
 
     $("input[name='size']").change(function(e) {
         changePrice();
     });
-
 
     function changePrice() {
         let product = getProduct(selected_product_id);
@@ -893,6 +730,8 @@
         let val = (price * qty).toFixed(2);
         $('#addToCartValue').text(val);
     }
+
+    $( "#cartModal" ).load( "../common/Cart_Popup.html" );
 
 
 </script>
