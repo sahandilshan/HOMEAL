@@ -183,6 +183,9 @@
 
                     </div>
 
+                    <!--Cart Modal-->
+                    <div id="cartModal"></div>
+
 
                     <div id="checkout-payment-method" class="col-12 col-sm-6" style="width: 100%;margin-left: auto;margin-right: auto;display: block">
                         <div style="font-size: 18px"><b>Payment Method</b></div>
@@ -375,7 +378,7 @@
             <ul>
                 <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
                 <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
-                <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+                <li><a href="#" id="cartBtn" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
                 <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
             </ul>
         </nav>
@@ -389,12 +392,13 @@
         changeIpadScreen(); // if page is load with  the ipad screen.
 
         let isBuyNow = sessionStorage.getItem('isBuyNow');
-        if (isBuyNow) {
+        if (isBuyNow == 1) {
             console.log('BuyNow');
             buyNow();
 
         } else {
             console.log('here');
+            cartItem();
         }
     });
 
@@ -463,11 +467,59 @@
         $("#checkout-cart").append(order);
         $('#subTotal').text('LKR ' + priceWithCents);
         $('#total').text('LKR ' + (price + 100 + 80).toFixed(2));
-
     }
 
+    function cartItem() {
+        let itemsArr = sessionStorage.getItem('cartItems');
+        itemsArr = JSON.parse(itemsArr);
+        itemsArr = itemsArr['items'];
+        console.log(itemsArr);
+        let items = '';
+        let subTotal = 0;
+        $.each(itemsArr, function (i, item) {
+            console.log(item);
+            let itemName = item.product_name;
+            let qty = item.qty;
+            let price = item.price * qty;
+            subTotal += price;
+            let priceWithCents = price.toFixed(2);
 
+            let order = `
+                <div class="row" style="margin-left: inherit">
+                    <div style="width: 100%">
+                        <div class="row"
+                             style="margin-top: 20px; width: 100%;border: 0.5px solid #dddddd;border-radius: 6px;">
 
+                            <div class="col-8"
+                                 style="background-color: white;width: 50%;padding: 10px;border-radius: 6px">
+                                <div style="font-size: 1rem"><b>${itemName} (${qty})</b></div>
+                                <div style="font-size: 0.8rem">LKR ${priceWithCents}</div>
+                            </div>
+                            <div class="col-2"
+                                 style="background-color: black;padding: 10px; text-align-last: center;">
+                                <img src="../assets/icons/ordersIcon_orange.png"
+                                     alt="Logo.png"
+                                     style="width:30px ; height: 25px; vertical-align: -webkit-baseline-middle;">
+                            </div>
+                            <div class="col-2"
+                                 style="background-color: #f6f6f6;padding: 10px;border-radius: 6px;  text-align-last: center; ">
+                                <img src="../assets/icons/ordersIcon_orange.png"
+                                     alt="Logo.png"
+                                     style="width:30px ; height: 25px; vertical-align: -webkit-baseline-middle;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        `;
+            items += order;
+        });
+
+        $("#checkout-cart").append(items);
+        $('#subTotal').text('LKR ' + subTotal.toFixed(2));
+        $('#total').text('LKR ' + (subTotal + 100 + 80).toFixed(2));
+    }
+
+    $( "#cartModal" ).load( "../common/Cart_Popup.html" );
 
 </script>
 
