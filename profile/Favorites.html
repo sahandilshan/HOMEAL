@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -194,8 +195,40 @@
     </div>
 
     <div class="main"> <!--content area starts from here-->
-        <div class="mr-2 ml-2 mt-n3">
+        <div class="mr-2 ml-2 mt-n4">
             <div class="container row m-0" style="max-width:100%">
+                <div class="col-sm-12 col-md-6 p-1">
+                    <div class="maintxt" style="height: 150px">
+                        <div class="container overlay-text mt-2" style="position: absolute">
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0" style="text-align: -webkit-right;">
+                                    <img src="../assets/icons/favorite.png"
+                                         style="border-radius: 10px;  height: 25px;width:25px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0 p-0">
+                                <div class="col-12 m-0 p-0" style="text-align: -webkit-center;">
+                                    <img src="../assets/merchants/pizza-1428931.png"
+                                         style="border-radius: 10px;  height: 40px;width:40px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0 mt-2">
+                                    <h5 class="text-white" style="text-align: -webkit-center; font-size: 12px">Pizza
+                                        Zone - Colombo 10</h5>
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0 mt-1">
+                                    <h5 class="text-white" style="text-align: -webkit-center;">Chicken Pizza</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-sm-12 col-md-6 p-1">
                     <div class="maintxt" style="height: 150px">
                         <div class="container overlay-text mt-2" style="position: absolute">
@@ -266,7 +299,11 @@
                 </div>
             </div>
         </div>
+
+<!--        <input type="button" value="Send Email" onclick="sendEmail()">-->
     </div>
+
+
 
     <!--Submit ticket modal-->
     <div data-role="popup" id="popup-send-email" class="custom-location" data-position-to="window"
@@ -292,7 +329,7 @@
                        class="ui-btn ui-icon-check ui-btn-icon-notext ui-corner-all m-0">No text</a>
                 </div>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" onclick="sendEmail()">Submit</button>
         </form>
     </div>
 
@@ -322,6 +359,48 @@
             </ul>
         </nav>
     </div>
+
 </div>
 </body>
+
+<script>
+    function sendEmail() {
+        Email.send({
+            Host : "smtp.mailtrap.io",
+            Username : "**********",
+            Password : "**********",
+            To : 'recipient@example.com',
+            From : "sender@example.com",
+            Subject : "Test email",
+            Body : `
+            <p>Test image</p>
+            <img src="image.png">
+            `,
+            attachments: [{
+                filename: 'image.png',
+                path: 'https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png'
+            }]
+
+            /*Host : "smtp.gmail.com",
+            Username : "",
+            Password : "",
+            To : 'sahandilshan222@gmail.com',
+            From : "",
+            Subject : "Test email",
+            Port: 465,
+            Body : `
+            <p>Test image</p>
+            <img src="image.png">
+            `,
+            attachments: [{
+                filename: 'image.png',
+                path: 'https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png'
+            }]*/
+
+        }).then(
+            message => alert(message)
+        );
+    }
+</script>
+
 </html>
