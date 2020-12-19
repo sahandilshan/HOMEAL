@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="../css/custom.css"/>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
 
     <style>
 
@@ -345,7 +346,7 @@
                 </div>
                 <div class="row mt-3" >
                     <div class="col-12" id="checkout-btn-div" style="width: 100%;margin-left: auto;margin-right: auto;display: block">
-                        <button style="text-shadow: none !important;
+                        <button  id="checkoutButton" style="text-shadow: none !important;
             color: white !important;
             background: #ec7a23 !important;
             border-radius: 8px;
@@ -389,6 +390,7 @@
 </body>
 
 <script>
+    let total = 0;
     $(document).ready(function () {
         $('.btn-promocode').removeClass('ui-btn');
         changeIpadScreen(); // if page is load with  the ipad screen.
@@ -469,6 +471,7 @@
         $("#checkout-cart").append(order);
         $('#subTotal').text('LKR ' + priceWithCents);
         $('#total').text('LKR ' + (price + 100 + 80).toFixed(2));
+        total = price + 100 + 80;
     }
 
     function cartItem() {
@@ -519,8 +522,42 @@
         $("#checkout-cart").append(items);
         $('#subTotal').text('LKR ' + subTotal.toFixed(2));
         $('#total').text('LKR ' + (subTotal + 100 + 80).toFixed(2));
+        total = subTotal;
     }
 
+    jQuery(function($) {
+        var handler = StripeCheckout.configure({
+            key: 'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
+            token: function(token) {
+                // Use the token to create the charge with a server-side script.
+                // You can access the token ID with `token.id`
+
+                //This will be printed when the transaction is successful. To charge, server side scripting is required.
+                if(token.id){
+                    window.location.href="/HOMEAL/home/CheckoutStatusSuccess.html";
+                } else{
+                    window.location.href="/HOMEAL/home/CheckoutStatusError.html";
+                }
+            }
+        });
+
+
+        $('#checkoutButton').on('click', function(e) {
+            // Code Section B  Open Checkout with further options
+            handler.open({
+                name: 'Football Example',//merchant name
+                currency: 'gbp',
+                description: "2 Items",//number of items
+                amount: total * 100
+            });
+            e.preventDefault();
+        });
+
+        // Code Section C  Close Checkout on page navigation
+        $(window).on('popstate', function() {
+            handler.close();
+        });
+    });
     $( "#cartModal" ).load( "../common/Cart_N_Delivery_Modal.html" );
 
 </script>
