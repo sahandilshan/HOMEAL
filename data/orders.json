@@ -1,11 +1,14 @@
 [
   {
-    "order_id" :"#001",
-    "products":[],
+    "order_id" : "#18923231",
+    "order_Status" : "Pending",
     "merchant_id" :"M001",
-    "tax_percentage": "5%",
-    "delivery_amount": "100",
-    "total_amount":"1050",
-    "order_status":"Pending"
+    "items" :[],
+    "subtotal" : 1050.00,
+    "tax_percentage": 5,
+    "delivery_amount": 100,
+    "total" :1200,
+    "payment_type" :"cash",
+    "deliver_details" :[]
   }
 ]
