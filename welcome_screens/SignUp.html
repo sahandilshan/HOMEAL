@@ -19,9 +19,8 @@
             background: #282F33;
         }
 
-
         img {
-            width: 40%;
+            width: 35%;
             position: absolute;
             top: 50%;
             left: 25%;
@@ -41,21 +40,18 @@
             border-radius: 35px;
         }
 
-        @media only screen and (max-width: 375px) {
-            .ui-page {
-                background: #282F33;
-            }
+        .sign-in-text{
+            color:black;text-align: center;
+            font-weight: bold;
+            font-size: 24px
+        }
 
-            html {
+        .font-2{
+            font-size: 16px;
+        }
 
-                background-color: #282F33 !important;
-            }
-
-            body {
-                all: revert;
-                background-color: #282F33 !important;
-            }
-
+        /***********************iphone potrait*************************/
+        @media only screen and (max-width: 376px) {
             img {
                 all: revert;
                 width: 50%;
@@ -70,15 +66,83 @@
                 background-color: #FFFFFF;
                 color: #FFFFFF;
                 width: 85%;
-                padding-top: 5px;
-                height: 500px;
+                padding-top: 4px;
+                height: 450px;
                 margin: auto;
                 border-radius: 35px;
+            }
+            .sign-in-text{
+                font-size:20px;
+            }
+            .font-2{
+                font-size: 14px;
+            }
+
+        }
+
+        /***********************iphone landscape*************************/
+        @media only screen and (max-width: 667px) and (min-width: 376px){
+
+            img {
+                width: 30%;
+                position: absolute;
+                top: 60%;
+                left: 25%;
+                transform: translate(-50%, -50%);
+            }
+            .signupcard  {
+                all: revert;
+                position: absolute;
+                top: 60%;
+                transform: translateY(-50%);
+                color: #EC7A23;
+                width: 40%;
+                background-color: #FFFFFF;
+                height: 400px;
+                left: 50%;
+                margin: auto;
+                border-radius: 35px;
+            }
+            .sign-in-text{
+                font-size:16px !important;
+            }
+            .font-2{
+                font-size: 12px !important;
+            }
+        }
+
+        /***********************ipad potrait*************************/
+        @media only screen and (min-width: 668px) and (max-width: 770px) {
+
+            img {
+                all: revert;
+                width: 45%;
+                margin-top: 120px !important;
+                margin-bottom: 60px !important;
+                display: block;
+                margin: auto;
+            }
+
+            .signupcard  {
+                all: revert;
+                background-color: #FFFFFF;
+                color: #FFFFFF;
+                width: 65%;
+                padding-top: 10px;
+                height: 530px;
+                margin: auto;
+                border-radius: 40px;
+            }
+            .sign-in-text{
+                font-size:28px !important;
             }
 
             hr {
                 opacity: 1 !important;
                 width: 2px !important;
+            }
+            .font-2{
+                font-size: 22px;
             }
 
         }
@@ -91,8 +155,8 @@
 
     </div>
     <div class="signupcard container">
-        <div style="margin-top: 40px">
-            <div class="col-12" style="color:black;text-align: center;font-weight: bold;font-size: 24px">Sign Up</div>
+        <div style="margin-top: 30px">
+            <div class="col-12 sign-in-text">Sign Up</div>
 
 
             <div class="row justify-content-center">
@@ -108,12 +172,12 @@
                 <div class="col-10"><input type="password"></div>
             </div>
             <div class="row justify-content-center">
-                <div style="color: black" class="col-6 pull-left"> <label style="color: black">Merchant
+                <div style="color: black" class="col-6 pull-left"> <label style="color: black" class="font-2">Merchant
                     Acccount</label></div>
-                <div class="col-4  text-right" style="color: black">
+                <div class="col-4  text-right" style="color: black" >
                             <select name="flip-7" id="flip-7" data-role="flipswitch" data-mini="true">
                                 
-                    <option value="off">Off</option>
+                    <option value="off" class="font-2">Off</option>
                                 
                     <option value="on">On</option>
                             </select>
@@ -121,13 +185,13 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <button style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
+                    <button class="font-2" style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
                         Sign Up
                     </button>
                 </div>
             </div>
 
-            <div style="color: black" class="text-center"> Already Have an Account? <span
+            <div style="color: black" class="text-center font-2"> Already Have an Account? <span
                     style="color: #EC7A23">SignIn</span>
             </div>
         </div>
