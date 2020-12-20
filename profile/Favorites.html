@@ -399,12 +399,12 @@
 
             Host : "smtp.gmail.com",
             Username : "lkhomeal@gmail.com",
-            Password : "**********", // change the password to this - 1234@abcd
+            Password : "*****************", // change the password to this - 1234@abcd
             To : $("#emailTo").val(),
             From : "lkhomeal@gmail.com",
             Subject : $("#emailSubject").val(),
             Port: 587,
-            Body : `
+            Body: `
                    <table style="border-collapse: collapse; table-layout: fixed; background: #f6f6f6; margin: 20px 0;" border="0" width="80%" cellspacing="0" cellpadding="20">
                 <tbody>
                 <tr>
@@ -412,34 +412,58 @@
                         <p style="margin-top: 0; font-size: 90%;">Dear Customer,</p>
                            <p style="margin-top: 0; font-size: 90%;">We hope you enjoy using our app as much as we have enjoyed making it four you. <br>
 The below attached is the list of your favorites items from our local restaurants.</p>
-                        <div class="row-12 mb-3">
-                            <div class="col-12">
-                                <div style="border-radius: 20px;"><img src="https://i.postimg.cc/jWHXM5g1/Beef-Pizza.jpg" style="height: 40px;width: 60px;border-radius: 500px;"/>
-                                    <span class="ml-3" style="font-weight: bold">Beef Pizza</span> </div>
-                            </div>
+                 <div>
+                   <table>
+                     <tr>
+                       <td>
+                        <div style="border-radius:20px"><img
+                                src="https://ci5.googleusercontent.com/proxy/uvZ7Q_7A7CaO06XIFA7bC0YbsAOidAmkPQ12ny1-tSGIPM2wltMQGpYa2_-QephoP4sHYb-rpyeX7EOarMIN=s0-d-e1-ft#https://i.postimg.cc/jWHXM5g1/Beef-Pizza.jpg"
+                                style="height:40px;width:60px;border-radius:500px" class="CToWUd">
 
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-12">
-                                <div style="border-radius: 20px;"><img src="https://i.postimg.cc/r0q93k7w/Cheese-Pizza.jpg" style="height: 40px;width: 60px;border-radius: 500px;"/>
-                                    <span class="ml-3" style="font-weight: bold">Cheese Pizza</span> </div>
-                            </div>
+                       </td>
+                       <td>
+                        <div>
+                           <span style="font-weight:bold;padding-left: 10px">Beef Pizza</span>
+                        </div>
+                       </td>
+                     </tr>
+                     <tr>
+                       <td>
+                        <div style="border-radius:20px"><img
+                                src="https://ci4.googleusercontent.com/proxy/3nw8Hd2_kARwmr9K5kINESox07bKhz5moxYxbIHLZZyZ34QWsvWNk_kT4Q-sVn5j2-tqi5-vUV0MdfJ6_7OK_hE=s0-d-e1-ft#https://i.postimg.cc/r0q93k7w/Cheese-Pizza.jpg"
+                                style="height:40px;width:60px;border-radius:500px" class="CToWUd">
 
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-12">
-                                <div style="border-radius: 20px;"><img src="https://i.postimg.cc/7fhKqqhC/Chicken-Pizza.jpg" style="height: 40px;width: 60px;border-radius: 500px;"/>
-                                    <span class="ml-3" style="font-weight: bold">Chicken Pizza</span> </div>
-                            </div>
+                       </td>
+                       <td>
+                        <div>
+                           <span style="font-weight:bold;padding-left: 10px">Cheese Pizza</span>
+                        </div>
+                       </td>
+                     </tr>
+                     <tr>
+                       <td>
+                        <div style="border-radius:20px"><img
+                                src="https://ci4.googleusercontent.com/proxy/7kMEweM-xw5EIeKtIs6ZXVxVHODDTr_EX039DJD__HZjWsULVx-cxc0xPfXb1Mu6oYRErzkbSmGw7Dl3cEh-olQn=s0-d-e1-ft#https://i.postimg.cc/7fhKqqhC/Chicken-Pizza.jpg"
+                                style="height:40px;width:60px;border-radius:500px" class="CToWUd">
 
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-12">
-                                <div style="border-radius: 20px;"><img src="https://i.postimg.cc/DSb5b5qn/Seafood-Pizza.jpg" style="height: 40px;width: 60px;border-radius: 500px;"/>
-                                    <span class="ml-3" style="font-weight: bold">Seafood Pizza</span> </div>
-                            </div>
-
+                       </td>
+                       <td>
+                        <div><span style="font-weight:bold;padding-left: 10px">Chicken Pizza</span></div>
+                       </td>
+                     </tr>
+                     <tr>
+                       <td>
+                        <div style="border-radius:20px"><img src="https://ci5.googleusercontent.com/proxy/HCOLzkVqo8qvcq49BdjDRaCt9JYby06Py5gS9EjMPXBrzFY9hwqnoMdBdtfnWjC_0sok9kWdlHniSCYM65gTp1YO=s0-d-e1-ft#https://i.postimg.cc/DSb5b5qn/Seafood-Pizza.jpg" style="height:40px;width:60px;border-radius:500px" class="CToWUd"/>
                         </div>
+                       </td>
+                       <td>
+                        <div style="font-weight:bold;padding-left: 10px">Seafood Pizza</div></td>
+                     </tr>
+                   </table>
+                 </div>
                         <p style="margin-bottom: 2px; font-size: 90%;">Have a great day!</p>
                         <p style="margin-bottom: 2px; font-size: 90%;">Thank You,</p>
                         <p style="margin-top: 0; font-size: 90%;color:#ec7a23; ">HOMEAL Team</p>

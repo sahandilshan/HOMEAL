@@ -18,55 +18,37 @@
         .ui-page {
             background: #282F33;
         }
-
-        /*   html {
-              !* height: 100%;
-               background-color: #282F33 !important;*!
-           }
-
-           body {
-               !*overflow: hidden;
-               min-height: 100%;
-               position: relative;
-               background-color: #282F33 !important;*!
-           }*/
-
         img {
-            width: 40%;
+            width: 30%;
             position: absolute;
             top: 50%;
-            left: 25%;
+            left: 30%;
             transform: translate(-50%, -50%);
         }
-
         .signincard {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             color: #FFFFFF;
-            width: 35%;
+            width: 30%;
             background-color: #FFFFFF;
-            height: 500px;
-            left: 50%;
+            height: 450px;
+            left: 55%;
             margin: auto;
             border-radius: 35px;
         }
+        .sign-in-text{
+            color:black;text-align: center;
+            font-weight: bold;
+            font-size: 24px
+        }
 
-        @media only screen and (max-width: 680px) {
-            .ui-page {
-                background: #282F33;
-            }
+        .font-2{
+            font-size: 16px;
+        }
 
-            html {
-
-                background-color: #282F33 !important;
-            }
-
-            body {
-                all: revert;
-                background-color: #282F33 !important;
-            }
-
+        /***********************iphone potrait*************************/
+        @media only screen and (max-width: 376px) {
             img {
                 all: revert;
                 width: 50%;
@@ -86,13 +68,83 @@
                 margin: auto;
                 border-radius: 35px;
             }
+            .sign-in-text{
+                font-size:20px;
+            }
+            .font-2{
+                font-size: 14px;
+            }
+
+        }
+
+        /***********************iphone landscape*************************/
+        @media only screen and (max-width: 667px) and (min-width: 376px){
+
+            img {
+                width: 30%;
+                position: absolute;
+                top: 50%;
+                left: 25%;
+                transform: translate(-50%, -50%);
+            }
+            .signincard {
+                all: revert;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #EC7A23;
+                width: 40%;
+                background-color: #FFFFFF;
+                height: 350px;
+                left: 50%;
+                margin: auto;
+                border-radius: 35px;
+            }
+            .sign-in-text{
+                font-size:16px !important;
+            }
+            .font-2{
+                font-size: 12px !important;
+            }
+        }
+
+        /***********************ipad potrait*************************/
+        @media only screen and (min-width: 668px) and (max-width: 770px) {
+
+            img {
+                all: revert;
+                width: 45%;
+                margin-top: 120px !important;
+                margin-bottom: 60px !important;
+                display: block;
+                margin: auto;
+            }
+
+            .signincard {
+                all: revert;
+                background-color: #FFFFFF;
+                color: #FFFFFF;
+                width: 65%;
+                padding-top: 10px;
+                height: 530px;
+                margin: auto;
+                border-radius: 40px;
+            }
+            .sign-in-text{
+                font-size:28px !important;
+            }
 
             hr {
                 opacity: 1 !important;
                 width: 2px !important;
             }
+            .font-2{
+                font-size: 22px;
+            }
 
         }
+
+
     </style>
 </head>
 <body>
@@ -100,9 +152,9 @@
     <div>
         <img src="../assets/logos/MainDark.png">
     </div>
-    <div class="signincard container">
-        <div style="margin-top: 40px">
-            <div class="col-12" style="color:black;text-align: center;font-weight: bold;font-size: 24px">Sign In</div>
+    <div class="signincard container col-6">
+        <div style="margin-top:8%">
+            <div class="col-12 sign-in-text">Sign In</div>
 
 
             <div class="row justify-content-center">
@@ -113,22 +165,22 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <button style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
+                    <button class="font-2" style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
                         Sign In
                     </button>
                 </div>
             </div>
 
-            <div style="color: black" class="text-center">Forgot Password?</div>
+            <div style="color: black" class="text-center font-2">Forgot Password?</div>
             <hr>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <button style="background-color:#282F33 !important;color:white;text-shadow: none!important;border-radius:20px">
+                    <button class="font-2" style="background-color:#282F33 !important;color:white;text-shadow: none!important;border-radius:20px">
                         Sign In with Google
                     </button>
                 </div>
             </div>
-            <div style="color: black" class="text-center"> Dont Have an Account? <span
+            <div style="color: black" class="text-center font-2"> Dont Have an Account? <span
                     style="color: #EC7A23">SignUp</span>
             </div>
         </div>
