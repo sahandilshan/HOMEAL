@@ -305,7 +305,7 @@
 
 
 
-    <!--Submit ticket modal-->
+    <!--Submit Email details modal-->
     <div data-role="popup" id="popup-send-email" class="custom-location" data-position-to="window"
          data-overlay-theme="a" data-transition="pop">
         <div class="row mb-2">
@@ -318,8 +318,8 @@
         </div>
         <div><h4>Email Me</h4></div>
         <form>
-            <input type="text" placeholder="To" style="color: #F19B55">
-            <input type="text" placeholder="Subject" style="color: #F19B55">
+            <input type="email" id="emailTo" placeholder="To" style="color: #F19B55" required>
+            <input type="text" id="emailSubject" placeholder="Subject" style="color: #F19B55">
             <div class="row mt-2 mb-2" style="align-items: center;">
                 <div class="col-8">
                     Send my favorites list as an attachment
@@ -331,6 +331,22 @@
             </div>
             <button type="submit" onclick="sendEmail()">Submit</button>
         </form>
+    </div>
+
+    <!--Success email modal-->
+    <div data-role="popup" id="success-email" class="custom-location" data-position-to="window"
+         data-overlay-theme="a" data-transition="pop" >
+        <div class="row mb-2">
+            <div class="col-8">
+            </div>
+            <div class="col-4 custom-close-button">
+                <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+            </div>
+        </div>
+        <div class="mb-4" style="text-align: center;"><h6>Your Email Sent Successfully</h6></div>
+        <div class="mb-2" style="text-align: center;"><img src="../assets/gifs/40635-quick-success.gif" style="width: 60px; height: 60px;"></div>
+
     </div>
 
     <!--Footer-->
@@ -366,36 +382,73 @@
 <script>
     function sendEmail() {
         Email.send({
-            Host : "smtp.mailtrap.io",
-            Username : "**********",
-            Password : "**********",
-            To : 'recipient@example.com',
-            From : "sender@example.com",
-            Subject : "Test email",
-            Body : `
-            <p>Test image</p>
-            <img src="image.png">
-            `,
-            attachments: [{
-                filename: 'image.png',
-                path: 'https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png'
-            }]
+            // Host : "smtp.mailtrap.io",
+            // Username : "**********",
+            // Password : "**********",
+            // To : 'recipient@example.com',
+            // From : "sender@example.com",
+            // Subject : "Test email",
+            // Body : `
+            // <p>Test image</p>
+            // <img src="image.png">
+            // `,
+            // attachments: [{
+            //     filename: 'image.png',
+            //     path: 'https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png'
+            // }]
 
-            /*Host : "smtp.gmail.com",
-            Username : "",
-            Password : "",
-            To : 'sahandilshan222@gmail.com',
-            From : "",
-            Subject : "Test email",
-            Port: 465,
+            Host : "smtp.gmail.com",
+            Username : "lkhomeal@gmail.com",
+            Password : "**********", // change the password to this - 1234@abcd
+            To : $("#emailTo").val(),
+            From : "lkhomeal@gmail.com",
+            Subject : $("#emailSubject").val(),
+            Port: 587,
             Body : `
-            <p>Test image</p>
-            <img src="image.png">
+                   <table style="border-collapse: collapse; table-layout: fixed; background: #f6f6f6; margin: 20px 0;" border="0" width="80%" cellspacing="0" cellpadding="20">
+                <tbody>
+                <tr>
+                    <td><img style="width: 100px; margin-bottom: 10px;" src="https://i.postimg.cc/ZRhJCYNP/Main-Light.png"/>
+                        <p style="margin-top: 0; font-size: 90%;">Dear Customer,</p>
+                        <div class="row-12 mb-3">
+                            <div class="col-12">
+                                <div style="border-radius: 20px;"><img src="https://i.postimg.cc/jWHXM5g1/Beef-Pizza.jpg" style="height: 40px;width: 60px;border-radius: 500px;"/>
+                                    <span class="ml-3" style="font-weight: bold">Beef Pizza</span> </div>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div style="border-radius: 20px;"><img src="https://i.postimg.cc/r0q93k7w/Cheese-Pizza.jpg" style="height: 40px;width: 60px;border-radius: 500px;"/>
+                                    <span class="ml-3" style="font-weight: bold">Cheese Pizza</span> </div>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div style="border-radius: 20px;"><img src="https://i.postimg.cc/7fhKqqhC/Chicken-Pizza.jpg" style="height: 40px;width: 60px;border-radius: 500px;"/>
+                                    <span class="ml-3" style="font-weight: bold">Chicken Pizza</span> </div>
+                            </div>
+
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <div style="border-radius: 20px;"><img src="https://i.postimg.cc/DSb5b5qn/Seafood-Pizza.jpg" style="height: 40px;width: 60px;border-radius: 500px;"/>
+                                    <span class="ml-3" style="font-weight: bold">Seafood Pizza</span> </div>
+                            </div>
+
+                        </div>
+                        <p style="margin-bottom: 2px; font-size: 90%;">Thank You!</p>
+                        <p style="margin-top: 0; font-size: 90%;color:#ec7a23; ">HOMEAL</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
             `,
-            attachments: [{
-                filename: 'image.png',
-                path: 'https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png'
-            }]*/
+            // Attachments: [{
+            //     name: 'image.png',
+            //     path: 'https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png'
+            // }]
 
         }).then(
             message => alert(message)
