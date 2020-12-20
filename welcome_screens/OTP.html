@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>OTP</title>
+  <link rel="icon" href="../assets/logos/Title.png"
+        type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>OTP</title>
+  <style>
+
+    .ui-input-text, .ui-input-search {
+      margin: .5em 0;
+      border-width: 1px;
+      border-style: solid;
+      width: 40px !important;
+      height: 40px !important;
+      text-align-last: center;
+    }
+
+    .terms_and_condition {
+      margin-bottom: 2%;
+      color: black;
+      text-align: center;
+      font-size: 0.7rem;
+    }
+
+    .tagline {
+      position: absolute;
+      top: 56%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    .ui-page {
+      background: #282F33;
+    }
+
+    /*   html {
+          !* height: 100%;
+           background-color: #282F33 !important;*!
+       }
+
+       body {
+           !*overflow: hidden;
+           min-height: 100%;
+           position: relative;
+           background-color: #282F33 !important;*!
+       }*/
+
+    img {
+      width: 40%;
+      position: absolute;
+      top: 50%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+    }
+
+    .signincard {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #FFFFFF;
+      width: 40%;
+      background-color: #FFFFFF;
+      height: 350px;
+      left: 50%;
+      margin: auto;
+      border-radius: 35px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .tagline {
+        position: absolute;
+        top: 54% !important;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 1rem !important;
+        color: white;
+      }
+
+    }
+
+    @media only screen and (max-width: 680px) {
+
+      .tagline {
+        all: revert;
+        /* width: 50%; */
+        margin-top: 12px !important;
+        margin-bottom: 60px !important;
+        display: block;
+        margin: auto;
+        text-align: center;
+        font-size: 0.8rem !important;
+        color: white;
+      }
+
+      .ui-page {
+        background: #282F33;
+      }
+
+      html {
+
+        background-color: #282F33 !important;
+      }
+
+      body {
+        all: revert;
+        background-color: #282F33 !important;
+      }
+
+      img {
+        all: revert;
+        width: 50%;
+        margin-top: 80px !important;
+        /*margin-bottom: 60px !important;*/
+        display: block;
+        margin: auto;
+      }
+
+      .signincard {
+        all: revert;
+        background-color: #FFFFFF;
+        color: #FFFFFF;
+        width: 85%;
+        padding-top: 10px;
+        height: 350px;
+        margin: auto;
+        border-radius: 35px;
+      }
+
+      hr {
+        opacity: 1 !important;
+        width: 2px !important;
+      }
+
+    }
+  </style>
+</head>
+<body>
+<div data-role="page">
+  <div>
+    <img src="../assets/logos/MainDark.png">
+    <div class="tagline">Relish your taste buds with home-made</div>
+  </div>
+  <div class="signincard container">
+    <div style="margin-top: 40px">
+      <div class="col-12" style="color:black;text-align: center;font-weight: bold;font-size: 24px">OTP Verification
+        Code
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-10 terms_and_condition">
+          Enter the 4-digit code sent to you at
+        </div>
+        <div class="col-10 terms_and_condition" style="margin-bottom: 7%">
+          +94 75845 54654<font color="#EC7A23"> Edit</font>
+        </div>
+
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-2" style="margin-bottom: 2%">
+          <input class="txtbox" type="text" placeholder="0">
+        </div>
+        <div class="col-2" style="margin-bottom: 2%">
+          <input class="txtbox" type="text" placeholder="0">
+        </div>
+        <div class="col-2" style="margin-bottom: 2%">
+          <input class="txtbox" type="text" placeholder="0">
+        </div>
+        <div class="col-2" style="margin-bottom: 2%">
+          <input class="txtbox" type="text" placeholder="0">
+        </div>
+      </div>
+
+      <hr>
+
+
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <button
+              style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
+            Continue
+          </button>
+        </div>
+      </div>
+
+      <div style="color: #ec7a23" class="text-center"><b>Resend code in <font color="red">02:59</font></b></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
