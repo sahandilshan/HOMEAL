@@ -11,8 +11,10 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="../css/custom.css"/>
+    <link rel="stylesheet" href="../css/rating.css"/>
     <style>
         .maintxt {
             background: linear-gradient(
@@ -253,7 +255,7 @@
                                 </div>
                                 <div class="col-6 m-0 p-0">
                                     <div class="text-center border rounded-pill ml-2 mr-2 text-white"
-                                         style="border: 2px solid #ff8600 !important; "><a href="#popupTrack"
+                                         style="border: 2px solid #ff8600 !important; "><a href="#shop-rating-modal"
                                                                                            style="color: white; text-decoration: none; font-weight: normal"
                                                                                            data-rel="popup"
                                                                                            data-transition="pop">Track</a>
@@ -261,7 +263,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -290,6 +291,9 @@
                 </div>
             </div>
         </div>
+
+
+        <!--*******************food preparing modal****************************-->
         <div data-role="popup" id="popupTrack" style=" width: 300px !important;
         height: 350px!important;" data-position-to="window" data-overlay-theme="a"
              data-transition="pop">
@@ -311,6 +315,103 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- *******************Driver Rating modal******************************-->
+        <div data-role="popup" id="driver-rating-modal" style=" width: 300px !important;
+        height: 350px!important;" data-position-to="window" data-overlay-theme="a"
+             data-transition="pop">
+            <div class="row mt-3">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button" style="padding-right: 25px;">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <div style="text-align: -webkit-center;">
+                <img id="gifName" src="./../assets/gifs/21653-delivery-guy-out-for-delivery.gif"
+                     alt="this slowpoke moves"
+                     width=170px style="border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);"/>
+            </div>
+            <div class="row mb-2 mt-3" style="text-align: -webkit-center;">
+                <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
+                    Driver
+                </div>
+                <div class="stars" data-role="none"
+                     style="margin-right: auto;margin-left: auto;display: block">
+                    <input data-role="none" class="star star-5" id="driver-rating-star-5" type="radio" name="star"/>
+                    <label data-role="none" class="star star-5" for="driver-rating-star-5" onClick=""></label>
+                    <input data-role="none" class="star star-4" id="driver-rating-star-4" type="radio" name="star"/>
+                    <label data-role="none" class="star star-4" for="driver-rating-star-4"></label>
+                    <input data-role="none" class="star star-3" id="driver-rating-star-3" type="radio" name="star"/>
+                    <label data-role="none" class="star star-3" for="driver-rating-star-3"></label>
+                    <input data-role="none" class="star star-2" id="driver-rating-star-2" type="radio" name="star"/>
+                    <label data-role="none" class="star star-2" for="driver-rating-star-2"></label>
+                    <input data-role="none" class="star star-1" id="driver-rating-star-1" type="radio" name="star"/>
+                    <label data-role="none" class="star star-1" for="driver-rating-star-1"></label>
+                </div>
+            </div>
+        </div>
+
+
+        <!--**********************************************************shop rating modal***************************************************-->
+        <div data-role="popup" id="shop-rating-modal" style=" width: 300px !important;" data-position-to="window"
+             data-overlay-theme="a"
+             data-transition="pop">
+            <div class="row mt-3">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button" style="padding-right: 25px;">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <div style="text-align: -webkit-center;">
+                <img id="gifName" src="./../assets/gifs/21653-delivery-guy-out-for-delivery.gif"
+                     alt="this slowpoke moves"
+                     width=170px style="border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);"/>
+            </div>
+            <div class="row mt-3" style="text-align: -webkit-center;">
+                <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
+                    Driver
+                </div>
+                <div class="stars" data-role="none"
+                     style="margin-right: auto;margin-left: auto;display: block">
+                    <input data-role="none" class="star star-5" id="shop-rating-modal-star-5" type="radio" name="star"/>
+                    <label data-role="none" class="star star-5" for="shop-rating-modal-star-5"
+                           onClick=""></label>
+                    <input data-role="none" class="star star-4" id="shop-rating-modal-star-4" type="radio" name="star"/>
+                    <label data-role="none" class="star star-4" for="shop-rating-modal-star-4"></label>
+                    <input data-role="none" class="star star-3" id="shop-rating-modal-star-3" type="radio" name="star"/>
+                    <label data-role="none" class="star star-3" for="shop-rating-modal-star-3"></label>
+                    <input data-role="none" class="star star-2" id="shop-rating-modal-star-2" type="radio" name="star"/>
+                    <label data-role="none" class="star star-2" for="shop-rating-modal-star-2"></label>
+                    <input data-role="none" class="star star-1" id="shop-rating-modal-star-1" type="radio" name="star"/>
+                    <label data-role="none" class="star star-1" for="shop-rating-modal-star-1"></label>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row mb-2" style="">
+                    <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
+                        Comments
+                    </div>
+                    <div class="col-12 mb-3">
+                        <form>
+                            <textarea class="mb-3" cols="40" rows="8" name="textarea-1" id="textarea-1"
+                                      placeholder="Some text"></textarea>
+                            <button class="ui-btn" style="background-color: #EC7A23 !important;
+                             color: white !important;
+                             border-radius: 25px !important;
+                             margin: auto !important;
+                             text-shadow: none !important;">Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--*********************************END**********************************-->
 
     </div>
 
@@ -343,4 +444,10 @@
     </div>
 </div>
 </body>
+<script>
+    $(document).ready(function () {
+        $('.star').removeClass('ui-radio');
+
+    });
+</script>
 </html>
