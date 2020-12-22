@@ -225,6 +225,13 @@ div.ui-slider {
     background-color: #EC7A23;
 }
 
+.custom-filter-cart {
+    width: 450px;
+    height: auto;
+    padding: 20px;
+    background-color: #EC7A23;
+}
+
 .custom-filter-delivery {
     width: 450px;
     height: 330px;
@@ -637,6 +644,11 @@ div.scrollmenu-category a {
         min-height: 56.2vh;
     }
 
+    .custom-filter-cart{
+        width: 350px !important;
+        height: auto !important;
+    }
+
     .custom-filter {
         width: 350px !important;
         height: 320px !important;
@@ -682,6 +694,11 @@ div.scrollmenu-category a {
     .custom-filter {
         width: 350px !important;
         height: 320px !important;
+    }
+
+    .custom-filter-cart {
+        width: 350px !important;
+        height: auto !important;
     }
 
     .custom-filter-delivery {
@@ -733,6 +750,11 @@ div.scrollmenu-category a {
         .custom-filter {
             width: 350px !important;
             height: 320px !important;
+        }
+
+        .custom-filter-cart {
+            width: 350px !important;
+            height: auto !important;
         }
 
         .custom-filter-delivery {
