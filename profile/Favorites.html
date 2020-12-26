@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Template - 1</title>
+    <title>My Favourites</title>
     <link rel="icon" href="../assets/logos/Title.png"
           type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
 <div data-role="page">
     <div class="top pl-3 pr-3 pb-2 fixed-top">
         <div data-role="header" class="mb-1 header">
-            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+            <button data-rel="back" id="backBtn" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
             <h1>
                 <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
             </h1>
@@ -293,9 +293,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div id="emailMyList" class="row">
                 <div class="col-12">
-                   <div class="prd-modal-ctrl-btn pt-2 pb-2" style="font-size: 16px !important; text-align: center;" ><a href="#popup-send-email" data-rel="popup" data-transition="pop"><span class="text-white">Email My List</span></a></div>
+                   <div class="prd-modal-ctrl-btn pt-2 pb-2" style="font-size: 16px !important; text-align: center;" >
+                       <a>
+                           <span class="text-white">Email My List</span></a></div>
                 </div>
             </div>
         </div>
@@ -307,7 +309,7 @@
 
     <!--Submit Email details modal-->
     <div data-role="popup" id="popup-send-email" class="custom-location" data-position-to="window"
-         data-overlay-theme="a" data-transition="pop">
+         data-overlay-theme="a" data-transition="pop" data-history="false">
         <div class="row mb-2">
             <div class="col-8">
             </div>
@@ -317,7 +319,7 @@
             </div>
         </div>
         <div><h4>Email Me</h4></div>
-        <form>
+        <div>
             <input type="email" id="emailTo" placeholder="To" style="color: #F19B55" required>
             <input type="text" id="emailSubject" placeholder="Subject" style="color: #F19B55">
             <div class="row mt-2 mb-2" style="align-items: center;">
@@ -329,8 +331,8 @@
                        class="ui-btn ui-icon-check ui-btn-icon-notext ui-corner-all m-0">No text</a>
                 </div>
             </div>
-            <button type="submit" onclick="sendEmail()">Submit</button>
-        </form>
+            <button onclick="sendEmail()">Submit</button>
+        </div>
     </div>
 
     <!--Success email modal-->
@@ -380,31 +382,34 @@
 </body>
 
 <script>
-    function sendEmail() {
-        Email.send({
-            // Host : "smtp.mailtrap.io",
-            // Username : "**********",
-            // Password : "**********",
-            // To : 'recipient@example.com',
-            // From : "sender@example.com",
-            // Subject : "Test email",
-            // Body : `
-            // <p>Test image</p>
-            // <img src="image.png">
-            // `,
-            // attachments: [{
-            //     filename: 'image.png',
-            //     path: 'https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png'
-            // }]
+    let openSuccessEmailModal = false;
+    $.mobile.ajaxEnabled = false;
 
-            Host : "smtp.gmail.com",
-            Username : "lkhomeal@gmail.com",
-            Password : "*****************", // change the password to this - 1234@abcd
-            To : $("#emailTo").val(),
-            From : "lkhomeal@gmail.com",
-            Subject : $("#emailSubject").val(),
-            Port: 587,
-            Body: `
+    $( "#backBtn" ).click(function() {
+        window.history.back();
+    });
+    $( "#emailMyList" ).click(function() {
+        $("#popup-send-email").popup('open');
+    });
+
+    function sendEmail() {
+        let emailAddress = $("#emailTo").val();
+        let emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        let isEmail = emailReg.test(emailAddress) && emailAddress !== '';
+        if (isEmail && emailAddress !== '') {
+            let subject = $("#emailSubject").val();
+            if (subject === '') {
+                subject = 'Hey!, Checkout My Favourite List';
+            }
+            let emailPromise = Email.send({
+                Host: "smtp.gmail.com",
+                Username: "lkhomeal@gmail.com",
+                Password: "1234@abcd",
+                To: emailAddress,
+                From: "lkhomeal@gmail.com",
+                Subject: subject,
+                Port: 587,
+                Body: `
                    <table style="border-collapse: collapse; table-layout: fixed; background: #f6f6f6; margin: 20px 0;" border="0" width="80%" cellspacing="0" cellpadding="20">
                 <tbody>
                 <tr>
@@ -472,14 +477,36 @@ The below attached is the list of your favorites items from our local restaurant
                 </tbody>
             </table>
             `,
-            // Attachments: [{
-            //     name: 'image.png',
-            //     path: 'https://networkprogramming.files.wordpress.com/2017/11/smtpjs.png'
-            // }]
+            });
+            emailPromise.then(function (message) {
+                console.log(message);
+                if (message === 'OK') {
+                    openSuccessEmailModal = true;
+                    popupSuccessEmailModal();
+                    $('#emailTo').val('');
+                    $('#emailSubject').val('');
+                } else {
+                    alert('An error occurred while sending the email. Please resend the email.')
+                }
+            });
+        } else {
+            alert('Invalid email address. Please check whether the given email address is valid.')
+        }
+    }
 
-        }).then(
-            message => alert(message)
-        );
+    function popupSuccessEmailModal() {
+        let sendEmailModal = $("#popup-send-email");
+        sendEmailModal.popup('close');
+        sendEmailModal.on("popupafterclose", function () {
+            //any action you want like opening another popup
+            if (openSuccessEmailModal) {
+                let successEmailModal = $("#success-email");
+                successEmailModal.popup("open");
+                successEmailModal.on("popupafterclose", function () {
+                    openSuccessEmailModal = false;
+                });
+            }
+        });
     }
 </script>
 
