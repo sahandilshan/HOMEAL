@@ -14,19 +14,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="../css/custom.css"/>
-    <style>
-        .maintxt {
-            background: linear-gradient(
-                    rgba(0, 0, 0, 0.45),
-                    rgba(0, 0, 0, 0.45)
-            ), /* bottom, image */ url(../assets/merchants/meal-5590186.jpg);
-            background-size: cover;
-            background-position: center !important;
-            border-radius: 10px;
-
-        }
-
-    </style>
 </head>
 <body>
 <div data-role="page">
@@ -196,8 +183,46 @@
 
     <div class="main"> <!--content area starts from here-->
         <div class="mr-2 ml-2 mt-n4">
-            <div class="container row m-0" style="max-width:100%">
-                <div class="col-sm-12 col-md-6 p-1">
+            <div id="favouriteItems" class="container row m-0" style="max-width:100%">
+                <!--<div class="col-sm-12 col-md-6 p-1">
+                    <div class="maintxt" style="height: 150px; background: linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+            ), /* bottom, image */ url(../assets/merchants/meal-5590186.jpg);
+            background-size: cover;
+            background-position: center !important;
+            border-radius: 10px;">
+                        <div class="container overlay-text mt-2" style="position: absolute">
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0" style="text-align: -webkit-right;">
+                                    <img src="../assets/icons/favorite.png"
+                                         style="border-radius: 10px;  height: 25px;width:25px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0 p-0">
+                                <div class="col-12 m-0 p-0" style="text-align: -webkit-center;">
+                                    <img src="../assets/merchants/pizza-1428931.png"
+                                         style="border-radius: 10px;  height: 40px;width:40px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0 mt-2">
+                                    <h5 class="text-white" style="text-align: -webkit-center; font-size: 12px">Pizza
+                                        Zone - Colombo 10</h5>
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0 mt-1">
+                                    <h5 class="text-white" style="text-align: -webkit-center;">Chicken Pizza</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+
+<!--                <div class="col-sm-12 col-md-6 p-1">
                     <div class="maintxt" style="height: 150px">
                         <div class="container overlay-text mt-2" style="position: absolute">
                             <div class="row col-12 m-0  p-0">
@@ -259,39 +284,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6 p-1">
-                    <div class="maintxt" style="height: 150px">
-                        <div class="container overlay-text mt-2" style="position: absolute">
-                            <div class="row col-12 m-0  p-0">
-                                <div class="col-12 m-0 p-0" style="text-align: -webkit-right;">
-                                    <img src="../assets/icons/favorite.png"
-                                         style="border-radius: 10px;  height: 25px;width:25px;!important; object-fit: cover;"
-                                         alt="Card image">
-                                </div>
-                            </div>
-                            <div class="row col-12 m-0 p-0">
-                                <div class="col-12 m-0 p-0" style="text-align: -webkit-center;">
-                                    <img src="../assets/merchants/pizza-1428931.png"
-                                         style="border-radius: 10px;  height: 40px;width:40px;!important; object-fit: cover;"
-                                         alt="Card image">
-                                </div>
-                            </div>
-                            <div class="row col-12 m-0  p-0">
-                                <div class="col-12 m-0 p-0 mt-2">
-                                    <h5 class="text-white" style="text-align: -webkit-center; font-size: 12px">Pizza
-                                        Zone - Colombo 10</h5>
-                                </div>
-                            </div>
-                            <div class="row col-12 m-0  p-0">
-                                <div class="col-12 m-0 p-0 mt-1">
-                                    <h5 class="text-white" style="text-align: -webkit-center;">Chicken Pizza</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>-->
             </div>
             <div id="emailMyList" class="row">
                 <div class="col-12">
@@ -301,8 +294,6 @@
                 </div>
             </div>
         </div>
-
-<!--        <input type="button" value="Send Email" onclick="sendEmail()">-->
     </div>
 
 
@@ -384,6 +375,137 @@
 <script>
     let openSuccessEmailModal = false;
     $.mobile.ajaxEnabled = false;
+
+    function createTempSession() {
+        let item1 = `
+        {
+            "product_id": "P001",
+            "merchant_id": "M001",
+            "product_name": "Chicken Pizza",
+            "merchant_name": "Pizza Zone",
+            "location": "Colombo - 10",
+            "merchant_bg": "../assets/merchants/meal-5590186.jpg",
+            "merchant_logo": "../assets/merchants/pizza-1428931.png"
+        }
+        `;
+        let item2 = `
+        {
+            "product_id": "P002",
+            "merchant_id": "M001",
+            "product_name": "Chicken Pizza - 2",
+            "merchant_name": "Pizza Zone",
+            "location": "Colombo - 10",
+            "merchant_bg": "../assets/merchants/meal-5590186.jpg",
+            "merchant_logo": "../assets/merchants/pizza-1428931.png"
+        }
+        `;
+        let item3 = `
+        {
+            "product_id": "P001",
+            "merchant_id": "M002",
+            "product_name": "Chicken Pizza - 2",
+            "merchant_name": "Pizza Zone",
+            "location": "Colombo - 10",
+            "merchant_bg": "../assets/merchants/food-2203732.jpg",
+            "merchant_logo": "../assets/merchants/pizza-1428931.png"
+        }
+        `;
+        let item4 = `
+        {
+            "product_id": "P002",
+            "merchant_id": "M002",
+            "product_name": "Chicken Pizza - 2",
+            "merchant_name": "Pizza Zone",
+            "location": "Colombo - 10",
+            "merchant_bg": "../assets/merchants/food-2203732.jpg",
+            "merchant_logo": "../assets/merchants/pizza-1428931.png"
+        }
+        `;
+        let jsonArr =
+            `
+                {
+                   "items":[${item1}, ${item2}, ${item3}, ${item4}]
+                }
+                `;
+        sessionStorage.setItem('favourite_list', jsonArr);
+        console.log('fav item initialized.');
+    }
+
+    $(document).ready(function () {
+        createTempSession();
+        loadFavouriteList();
+    })
+
+    function loadFavouriteList() {
+        $("#favouriteItems").empty(); // to remove previously loaded cards.
+        let favouriteListJson = JSON.parse(sessionStorage.getItem('favourite_list'));
+        favouriteListJson = favouriteListJson['items'];
+        console.log(favouriteListJson);
+        let favoriteCards = '';
+        $.each(favouriteListJson, function (i, item) {
+            let card = `
+        <div class="col-sm-12 col-md-6 p-1">
+                    <div class="maintxt" style="height: 150px;
+                     background: linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+                    ), /* bottom, image */ url(${item['merchant_bg']});
+                    background-size: cover;
+                    background-position: center !important;
+                    border-radius: 10px;">
+                        <div class="container overlay-text mt-2" style="position: absolute">
+                            <div class="row col-12 m-0  p-0 star" data-pid="${item['product_id']}${item['merchant_id']}" >
+                                <div class="col-12 m-0 p-0" style="text-align: -webkit-right;">
+                                    <img src="../assets/icons/favorite.png"
+                                         style="border-radius: 10px;  height: 25px;width:25px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0 p-0">
+                                <div class="col-12 m-0 p-0" style="text-align: -webkit-center;">
+                                    <img src="${item['merchant_logo']}"
+                                         style="border-radius: 10px;  height: 40px;width:40px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0 mt-2">
+                                    <h5 class="text-white" style="text-align: -webkit-center; font-size: 12px">${item['product_name']}
+                                     - ${item['location']}</h5>
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0 mt-1">
+                                    <h5 class="text-white" style="text-align: -webkit-center;">${item['merchant_name']}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        `;
+            favoriteCards += card;
+        });
+        $("#favouriteItems").append(favoriteCards);
+    }
+
+    $(document).on('click', '.star', function() {
+        console.log($(this).data('pid'))
+        let selected_product_id = $(this).data('pid');
+        let favouriteListJson = JSON.parse(sessionStorage.getItem('favourite_list'));
+        favouriteListJson = favouriteListJson['items'];
+        favouriteListJson = $.grep(favouriteListJson, function(item){
+            let id = item['product_id'] + item['merchant_id'];
+            return id !==selected_product_id;
+        });
+        favouriteListJson = JSON.stringify(favouriteListJson);
+        let favItemJson = `
+        {
+            "items": ${favouriteListJson}
+        }
+        `
+        sessionStorage.setItem('favourite_list', favItemJson);
+        loadFavouriteList()
+    });
 
     $( "#backBtn" ).click(function() {
         window.history.back();
