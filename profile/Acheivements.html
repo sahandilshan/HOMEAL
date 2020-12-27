@@ -540,6 +540,22 @@
 
                 </div>
             </div>
+
+            <!--Success scan modal-->
+            <div data-role="popup" id="success-scan" class="custom-location" data-position-to="window"
+                 data-overlay-theme="a" data-transition="pop" >
+                <div class="row mb-2">
+                    <div class="col-8">
+                    </div>
+                    <div class="col-4 custom-close-button">
+                        <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                           class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                    </div>
+                </div>
+                <div class="mb-4" style="text-align: center;"><h6>Qr Code has been successfully Scanned. </h6></div>
+                <div class="mb-2" style="text-align: center;"><img src="../assets/gifs/40635-quick-success.gif" style="width: 60px; height: 60px;"></div>
+
+            </div>
         </div>
     </div>
     <!--Footer-->
@@ -572,8 +588,20 @@
 </div>
 </body>
 <script>
+    $(window).load(function () {
+        console.log('ready');
+        let scanned_qr_code = sessionStorage.getItem('scanned_qr_code');
+        if (scanned_qr_code) {
+            let successEmailModal = $("#success-scan");
+            successEmailModal.popup("open");
+            sessionStorage.removeItem('scanned_qr_code')
+        }
+    });
+
     $('#onScanQR').click(function () {
-        window.location.href = 'Qr-code-page.html';
+        window.location.replace('Qr-code-page.html');
     })
+
+    // todo make scan qr code more responsive(make button more larger), and add a back button
 </script>
 </html>
