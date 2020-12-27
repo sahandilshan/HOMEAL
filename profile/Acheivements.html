@@ -217,8 +217,8 @@
                         <div class="container-fluid">
                             <div class="row" style="margin-left: auto;margin-right: auto;">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 m-0 p-0">
-                                    <div class="progress-circle  p35">
-                                        <span>35%</span>
+                                    <div id="progression" class="progress-circle  p35">
+                                        <span id="text-progression">35%</span>
                                         <div class="left-half-clipper">
                                             <div class="first50-bar"></div>
                                             <div class="value-bar"></div>
@@ -588,12 +588,22 @@
 </div>
 </body>
 <script>
+       let progress = 35;
     $(window).load(function () {
         console.log('ready');
         let scanned_qr_code = sessionStorage.getItem('scanned_qr_code');
         if (scanned_qr_code) {
-            let successEmailModal = $("#success-scan");
-            successEmailModal.popup("open");
+            let successScanModal = $("#success-scan");
+            successScanModal.popup("open");
+            successScanModal.on("popupafterclose", function () {
+                let progression = $("#progression")
+                let text_progression = $("#text-progression")
+                progression.remove("p" + progress);
+                progress += 5;
+                progression.addClass("p" + progress);
+                text_progression.text(progress + "%");
+
+            });
             sessionStorage.removeItem('scanned_qr_code')
         }
     });
