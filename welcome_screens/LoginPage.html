@@ -158,14 +158,14 @@
 
 
             <div class="row justify-content-center">
-                <div class="col-10"><input type="text"></div>
+                <div class="col-10"><input type="text" id="user_name"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10"><input type="password"></div>
+                <div class="col-10"><input type="password" id="user_password"></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <button class="font-2" style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
+                    <button class="font-2" style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px" id="sign_in_btn">
                         Sign In
                     </button>
                 </div>
@@ -187,5 +187,41 @@
     </div>
 
 </div>
+<script>
+    $(document).ready(function () {
+    $.getJSON("../data/user.json", function (result) {
+        sessionStorage.setItem('users', JSON.stringify(result));
+        for(var i in result){
+            console.log(i);
+        console.log(result[i].user_name);
+       }
+    });});
+
+    $( "#sign_in_btn" ).click(function() {
+        var username=$("#user_name").val();
+        var password=$("#user_password").val();
+        $.getJSON("../data/user.json", function (result) {
+            sessionStorage.setItem('users', JSON.stringify(result));
+            for(var i in result){
+                console.log(i);
+                if(result[i].user_name===username){
+                   if(result[i].user_password===password){
+                       if(result[i].user_type==='customer'){
+                           sessionStorage.setItem('user', JSON.stringify(result[i]));
+                           window.location.href="/HOMEAL/home/Search.html"
+                       }
+                       if(result[i].user_type==='merchant'){
+                           /*change this to merchant home page*/
+                           window.location.href="/HOMEAL/home/Search.html"
+                       }
+                   }
+                   else{console.log("password error")}
+                }
+                else{console.log("username error")}
+            }
+        });
+       /* window.location.replace('Acheivements.html');*/
+    });
+</script>
 </body>
 </html>
