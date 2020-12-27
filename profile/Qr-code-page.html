@@ -1,8 +1,17 @@
 <html>
 <head>
-
+    <meta charset="UTF-8">
+    <title>QR Interface</title>
+    <link rel="icon" href="../assets/logos/Title.png"
+          type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="../js/html5-qrcode.min.js"></script>
-    <title>Web QR</title>
+    <link rel="stylesheet" href="../css/custom.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 
     <style>
         html, body {
@@ -17,7 +26,18 @@
 </head>
 
 <body>
-<div class="full-height" id="reader"></div>
+
+<div>
+    <div data-role="header" class="mb-1 header">
+        <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back" id="backBtn">Back</button>
+        <h1>
+            <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
+        </h1>
+        <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
+    </div>
+</div>
+<div class="container">
+<div class="full-height" id="reader"></div></div>
 </body>
 <script>
     var html5QrcodeScanner = new Html5QrcodeScanner(
@@ -28,6 +48,10 @@
         sessionStorage.setItem('scanned_qr_code', qrCodeMessage);
         window.location.replace('Acheivements.html');
     }
+
+    $( "#backBtn" ).click(function() {
+        window.location.replace('Acheivements.html');
+    });
 
 </script>
 </html>
