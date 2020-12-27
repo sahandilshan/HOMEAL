@@ -301,7 +301,7 @@
                                          style="margin-left: auto;margin-right: auto;display: block">
                                 </div>
                                 <div clas="col-8 col-sm-8 col-md-8 col-lg-8">
-                                    <div class="box2 sb11">You have 65% more to<br>reach your next acheivement</div>
+                                    <div class="box2 sb11">You have <span id="remaining-progress">65%</span> more to<br>reach your next acheivement</div>
                                 </div>
                             </div>
                         </div>
@@ -588,7 +588,7 @@
 </div>
 </body>
 <script>
-       let progress = 35;
+    let progress = 35;
     $(window).load(function () {
         console.log('ready');
         let scanned_qr_code = sessionStorage.getItem('scanned_qr_code');
@@ -596,15 +596,17 @@
             let successScanModal = $("#success-scan");
             successScanModal.popup("open");
             successScanModal.on("popupafterclose", function () {
-                let progression = $("#progression")
-                let text_progression = $("#text-progression")
+                let progression = $("#progression");
+                let text_progression = $("#text-progression");
+                let remaining_progress = $("#remaining-progress");
                 progression.remove("p" + progress);
-                progress += 5;
+                progress += 10;
                 progression.addClass("p" + progress);
                 text_progression.text(progress + "%");
+                remaining_progress.text(55 + "%");
 
             });
-            sessionStorage.removeItem('scanned_qr_code')
+            sessionStorage.removeItem('scanned_qr_code');
         }
     });
 
