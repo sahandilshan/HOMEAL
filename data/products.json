@@ -5,7 +5,7 @@
       {
         "product_id": "P001",
         "product_name": "Beef Pizza",
-        "product_price": "Beef Pizza",
+        "filter_text": "Beef Pizza",
         "product_description": "Beef pizza is good",
         "product_img_path": "../assets/products/pizza-814044.jpg",
         "discount": 10,
@@ -19,7 +19,7 @@
           {
             "name": "Medium",
             "price": 1250.00,
-            "available_quantity": "11"
+            "available_quantity": "16"
           },
           {
             "name": "Large",
@@ -41,26 +41,26 @@
       },
       {
         "product_id": "P002",
-        "product_name": "Beef Pizza",
-        "product_price": "Beef Pizza",
-        "product_description": "Beef pizza is good",
+        "filter_text": "Chicken Pizza",
+        "product_price": "Chicken Pizza",
+        "product_description": "Chicken pizza is good",
         "product_img_path": "../assets/products/pizza-814044.jpg",
         "discount": "None",
         "variant_title": "Size",
         "variants": [
           {
             "name": "Small",
-            "price": 1050.00,
-            "available_quantity": "14"
+            "price": 950.00,
+            "available_quantity": "8"
           },
           {
             "name": "Medium",
-            "price": 1250.50,
+            "price": 1070.50,
             "available_quantity": "11"
           },
           {
             "name": "Large",
-            "price": 1650.00,
+            "price": 1140.00,
             "available_quantity": "15"
           }
         ],
@@ -84,7 +84,54 @@
             "otherComments": []
           }
         ]
+      },
+      {
+        "product_id": "P003",
+        "product_name": "Seafood Pizza",
+        "filter_text": "Seafood Pizza",
+        "product_description": "Seafood pizza is good",
+        "product_img_path": "../assets/products/pizza-814044.jpg",
+        "discount": "None",
+        "variant_title": "Size",
+        "variants": [
+          {
+            "name": "Small",
+            "price": 1100.00,
+            "available_quantity": "8"
+          },
+          {
+            "name": "Medium",
+            "price": 1240.50,
+            "available_quantity": "6"
+          },
+          {
+            "name": "Large",
+            "price": 1450.00,
+            "available_quantity": "7"
+          }
+        ],
+        "reviews": [
+          {
+            "review_id": "",
+            "user_name": "Ahamed Muaaz",
+            "rating": "5",
+            "review_content": "This is a very good product",
+            "date": "2020/11/10",
+            "sellerComments": [],
+            "otherComments": []
+          },
+          {
+            "review_id": "",
+            "user_name": "Ahamed Muaaz",
+            "rating": "4",
+            "review_content": "This is a very good product",
+            "date": "2020/11/10",
+            "sellerComments": [],
+            "otherComments": []
+          }
+        ]
       }
+
     ]
   },
   {
@@ -92,26 +139,16 @@
   "products": [
     {
       "product_id": "P001",
-      "product_name": "Beef Pizza",
-      "product_price": "Beef Pizza",
-      "product_description": "Beef pizza is good",
+      "product_name": "Chocolate Doughnut",
+      "filter_text": "Chocolate Doughnut",
+      "product_description": "Chocolate Doughnut is good",
       "product_img_path": "",
       "variant_title": "Size",
       "variants": [
         {
           "name": "Small",
-          "price": 1050.00,
+          "price": 70.00,
           "available_quantity": "14"
-        },
-        {
-          "name": "Medium",
-          "price": 1250.00,
-          "available_quantity": "11"
-        },
-        {
-          "name": "Large",
-          "price": 1650.00,
-          "available_quantity": "15"
         }
       ],
       "reviews": [
@@ -128,26 +165,174 @@
     },
     {
       "product_id": "P002",
-      "product_name": "Beef Pizza",
-      "product_price": "Beef Pizza",
-      "product_description": "Beef pizza is good",
+      "product_name": "Cheese Cake",
+      "filter_text": "Cheese Cake",
+      "product_description": "Cheese Cake is good",
       "product_img_path": "",
       "variant_title": "Size",
       "variants": [
         {
           "name": "Small",
-          "price": 1050.00,
-          "available_quantity": "14"
+          "price": 450.00,
+          "available_quantity": "6"
         },
         {
           "name": "Medium",
-          "price": 1250.00,
-          "available_quantity": "11"
+          "price": 570.00,
+          "available_quantity": "20"
         },
         {
           "name": "Large",
-          "price": 1650.00,
-          "available_quantity": "15"
+          "price": 650.00,
+          "available_quantity": "11"
+        }
+      ],
+      "reviews": [
+        {
+          "review_id": "",
+          "user_name": "Ahamed Muaaz",
+          "rating": "3",
+          "review_content": "This is a very good product",
+          "date": "2020/11/10",
+          "sellerComments": [],
+          "otherComments": []
+        }
+      ]
+    },
+    {
+      "product_id": "P003",
+      "product_name": "Chocolate Cake",
+      "filter_text": "Chocolate Cake",
+      "product_description": "Chocolate Cake is good",
+      "product_img_path": "",
+      "variant_title": "Size",
+      "variants": [
+        {
+          "name": "Small",
+          "price": 350.00,
+          "available_quantity": "45"
+        },
+        {
+          "name": "Medium",
+          "price": 440.00,
+          "available_quantity": "16"
+        },
+        {
+          "name": "Large",
+          "price": 530.00,
+          "available_quantity": "11"
+        }
+      ],
+      "reviews": [
+        {
+          "review_id": "",
+          "user_name": "Ahamed Muaaz",
+          "rating": "3",
+          "review_content": "This is a very good product",
+          "date": "2020/11/10",
+          "sellerComments": [],
+          "otherComments": []
+        }
+      ]
+    }
+  ]
+},  {
+  "merchant_id": "M003",
+  "products": [
+    {
+      "product_id": "P001",
+      "product_name": "Chicken Pizza",
+      "filter_text": "Chicken Pizza",
+      "product_description": "Chicken Pizza is good",
+      "product_img_path": "",
+      "variant_title": "Size",
+      "variants": [
+        {
+          "name": "Small",
+          "price": 850.00,
+          "available_quantity": "45"
+        },
+        {
+          "name": "Medium",
+          "price": 970.00,
+          "available_quantity": "16"
+        },
+        {
+          "name": "Large",
+          "price": 1100.00,
+          "available_quantity": "11"
+        }
+      ],
+      "reviews": [
+        {
+          "review_id": "",
+          "user_name": "Ahamed Muaaz",
+          "rating": "3",
+          "review_content": "This is a very good product",
+          "date": "2020/11/10",
+          "sellerComments": [],
+          "otherComments": []
+        }
+      ]
+    },
+    {
+      "product_id": "P002",
+      "product_name": "Chicken Burger",
+      "filter_text": "Chicken Burger",
+      "product_description": "Chicken Burger is good",
+      "product_img_path": "",
+      "variant_title": "Size",
+      "variants": [
+        {
+          "name": "Small",
+          "price": 250.00,
+          "available_quantity": "6"
+        },
+        {
+          "name": "Medium",
+          "price": 340.00,
+          "available_quantity": "20"
+        },
+        {
+          "name": "Large",
+          "price": 420.00,
+          "available_quantity": "11"
+        }
+      ],
+      "reviews": [
+        {
+          "review_id": "",
+          "user_name": "Ahamed Muaaz",
+          "rating": "3",
+          "review_content": "This is a very good product",
+          "date": "2020/11/10",
+          "sellerComments": [],
+          "otherComments": []
+        }
+      ]
+    },
+    {
+      "product_id": "P003",
+      "product_name": "Beef Burger",
+      "filter_text": "Beef Burger",
+      "product_description": "Beef Burger is good",
+      "product_img_path": "",
+      "variant_title": "Size",
+      "variants": [
+        {
+          "name": "Small",
+          "price": 330.00,
+          "available_quantity": "45"
+        },
+        {
+          "name": "Medium",
+          "price": 440.00,
+          "available_quantity": "16"
+        },
+        {
+          "name": "Large",
+          "price": 530.00,
+          "available_quantity": "11"
         }
       ],
       "reviews": [

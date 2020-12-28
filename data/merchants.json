@@ -6,20 +6,20 @@
 		"merchantLocation": "Colombo 10",
 		"sellerDetails": {
 			"seller_id": "S8574",
-			"seller_name": "Sahan Dilshan"
+			"seller_name": "Kasun Lakmal"
 		},
 		"merchant_background_img_path": "../assets/merchants/pizza-3007395.jpg",
 		"merchant_logo_img_path": "../assets/merchants/pizza-1428931.png",
-		"merchant_category": "Asian",
+		"merchant_category": "Pizza",
 		"product_categories": [
 			{
-				"category_name": "Noodles"
+				"category_name": "Chicken"
 			},
 			{
-				"category_name": "Salads"
+				"category_name": "Beef"
 			},
 			{
-				"category_name": "Rice"
+				"category_name": "Seafood"
 			}
 		],
 		"tax_percentage": "5%",
@@ -27,54 +27,54 @@
 	},
 	{
 		"merchant_id": "M002",
-		"merchant_name": "Pizza",
-		"filter_text": "Pizza",
-		"merchantLocation": "Colombo 10",
+		"merchant_name": "Bakery House",
+		"filter_text": "Bakery House",
+		"merchantLocation": "Colombo 8",
 		"sellerDetails": {
-			"seller_id": "S8574",
-			"seller_name": "Sahan Dilshan"
+			"seller_id": "S6585",
+			"seller_name": "Nimal Siri"
 		},
 		"merchant_background_img_path": "../assets/merchants/food-2203732.jpg",
 		"merchant_logo_img_path": "",
-		"merchant_category": "Asian",
+		"merchant_category": "Bakery",
 		"product_categories": [
 			{
-				"category_name": "Noodles"
+				"category_name": "Cake"
 			},
 			{
-				"category_name": "Salads"
+				"category_name": "Bread"
 			},
 			{
-				"category_name": "Rice"
+				"category_name": "Doughnut"
 			}
 		],
-		"tax_percentage": "5%",
-		"delivery_amount": "100"
+		"tax_percentage": "4%",
+		"delivery_amount": "80"
 	},
 	{
 		"merchant_id": "M003",
-		"merchant_name": "Burger House",
-		"filter_text": "Burger House",
+		"merchant_name": "Burger Hut",
+		"filter_text": "Burger Hut",
 		"merchantLocation": "Colombo 10",
 		"sellerDetails": {
-			"seller_id": "S8574",
-			"seller_name": "Sahan Dilshan"
+			"seller_id": "S8877",
+			"seller_name": "Pasindu Jaye"
 		},
 		"merchant_background_img_path": "../assets/merchants/meal-5590186.jpg",
 		"merchant_logo_img_path": "",
-		"merchant_category": "Asian",
+		"merchant_category": "Pizza",
 		"product_categories": [
 			{
-				"category_name": "Noodles"
+				"category_name": "Pizza"
 			},
 			{
-				"category_name": "Salads"
+				"category_name": "Burger"
 			},
 			{
-				"category_name": "Rice"
+				"category_name": "submarine"
 			}
 		],
-		"tax_percentage": "5%",
+		"tax_percentage": "3%",
 		"delivery_amount": "100"
 	}
 ]
