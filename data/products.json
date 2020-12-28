@@ -130,6 +130,52 @@
             "otherComments": []
           }
         ]
+      },
+      {
+        "product_id": "P004",
+        "product_name": "Margherita Pizza",
+        "filter_text": "Margherita Pizza",
+        "product_description": "Margherita pizza is good",
+        "product_img_path": "../assets/products/margherita-pizza-993274.jpg",
+        "discount": "None",
+        "variant_title": "Size",
+        "variants": [
+          {
+            "name": "Small",
+            "price": 1120.00,
+            "available_quantity": "8"
+          },
+          {
+            "name": "Medium",
+            "price": 1200.50,
+            "available_quantity": "6"
+          },
+          {
+            "name": "Large",
+            "price": 1380.00,
+            "available_quantity": "7"
+          }
+        ],
+        "reviews": [
+          {
+            "review_id": "",
+            "user_name": "Ahamed Muaaz",
+            "rating": "5",
+            "review_content": "This is a very good product",
+            "date": "2020/11/10",
+            "sellerComments": [],
+            "otherComments": []
+          },
+          {
+            "review_id": "",
+            "user_name": "Ahamed Muaaz",
+            "rating": "4",
+            "review_content": "This is a very good product",
+            "date": "2020/11/10",
+            "sellerComments": [],
+            "otherComments": []
+          }
+        ]
       }
 
     ]
@@ -165,9 +211,9 @@
     },
     {
       "product_id": "P002",
-      "product_name": "Cheese Cake",
-      "filter_text": "Cheese Cake",
-      "product_description": "Cheese Cake is good",
+      "product_name": "Pudding Cake",
+      "filter_text": "Pudding Cake",
+      "product_description": "Pudding Cake is good",
       "product_img_path": "../assets/products/bakeryHouse/cheesecake-1578694_640.jpg",
       "variant_title": "Size",
       "variants": [
@@ -220,6 +266,42 @@
         {
           "name": "Large",
           "price": 530.00,
+          "available_quantity": "11"
+        }
+      ],
+      "reviews": [
+        {
+          "review_id": "",
+          "user_name": "Ahamed Muaaz",
+          "rating": "3",
+          "review_content": "This is a very good product",
+          "date": "2020/11/10",
+          "sellerComments": [],
+          "otherComments": []
+        }
+      ]
+    },
+    {
+      "product_id": "P004",
+      "product_name": "Multigrain Bread",
+      "filter_text": "Multigrain Bread",
+      "product_description": "Multigrain Bread is good",
+      "product_img_path": "../assets/products/bakeryHouse/bread-399286_640.jpg",
+      "variant_title": "Size",
+      "variants": [
+        {
+          "name": "Small",
+          "price": 90.00,
+          "available_quantity": "45"
+        },
+        {
+          "name": "Medium",
+          "price": 130.00,
+          "available_quantity": "16"
+        },
+        {
+          "name": "Large",
+          "price": 150.00,
           "available_quantity": "11"
         }
       ],
@@ -332,6 +414,42 @@
         {
           "name": "Large",
           "price": 530.00,
+          "available_quantity": "11"
+        }
+      ],
+      "reviews": [
+        {
+          "review_id": "",
+          "user_name": "Ahamed Muaaz",
+          "rating": "3",
+          "review_content": "This is a very good product",
+          "date": "2020/11/10",
+          "sellerComments": [],
+          "otherComments": []
+        }
+      ]
+    },
+    {
+      "product_id": "P004",
+      "product_name": "Chicken Submarine",
+      "filter_text": "Chicken Submarine",
+      "product_description": "Chicken Submarine is good",
+      "product_img_path": "../assets/products/burgerHut/sandwich-451403_640.jpg",
+      "variant_title": "Size",
+      "variants": [
+        {
+          "name": "Small",
+          "price": 340.00,
+          "available_quantity": "45"
+        },
+        {
+          "name": "Medium",
+          "price": 410.00,
+          "available_quantity": "16"
+        },
+        {
+          "name": "Large",
+          "price": 480.00,
           "available_quantity": "11"
         }
       ],
