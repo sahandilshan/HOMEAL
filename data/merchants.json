@@ -35,7 +35,7 @@
 			"seller_name": "Nimal Siri"
 		},
 		"merchant_background_img_path": "../assets/merchants/food-2203732.jpg",
-		"merchant_logo_img_path": "",
+		"merchant_logo_img_path": "../assets/merchants/BakeryHouse.jpg",
 		"merchant_category": "Bakery",
 		"product_categories": [
 			{
@@ -61,7 +61,7 @@
 			"seller_name": "Pasindu Jaye"
 		},
 		"merchant_background_img_path": "../assets/merchants/meal-5590186.jpg",
-		"merchant_logo_img_path": "",
+		"merchant_logo_img_path": "../assets/merchants/burgerhut.png",
 		"merchant_category": "Pizza",
 		"product_categories": [
 			{
