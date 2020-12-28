@@ -1,19 +1,31 @@
 [
   {
     "user_id" : "#1",
-    "user_name" : "Muaaz",
+    "user_name" : "Rahal",
     "user_password" :"#1234",
-    "email" :"mma@gmail.com",
-    "mobile_no" : "0777659541",
+    "email" :"rahal@gmail.com",
+    "image":"../assets/otherImages/user1.jpg",
+    "mobile_no" : "0777123456",
     "user_type": "customer",
     "favorites_list":[]
   },
   {
     "user_id" : "#2",
+    "user_name" : "Chaveen Kalubowila",
+    "user_password" :"#1234",
+    "email" :"Chaveen@gmail.com",
+    "image":"../assets/otherImages/user2.jpg",
+    "mobile_no" : "0777123456",
+    "user_type": "customer",
+    "favorites_list":[]
+  },
+  {
+    "user_id" : "#3",
     "user_name" : "Sahan",
     "user_password" :"#4321",
     "email" :"sdd@gmail.com",
-    "mobile_no" : "0777659541",
+    "image":"../assets/otherImages/user2.jpg",
+    "mobile_no" : "0777123456",
     "user_type": "merchant",
     "favorites_list":[]
   }
