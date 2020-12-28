@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="icon" href="../assets/logos/Title.png"
+          type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/custom.css"/>
+
+
+    <style>
+        .maintxt {
+            background: linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+            ), /* bottom, image */ url(../assets/merchants/meal-5590186.jpg);
+            background-size: cover;
+            background-position: center !important;
+            border-radius: 5px;
+
+        }
+
+    </style>
+</head>
+<body>
+<div data-role="page">
+    <div class="top pb-2 fixed-top" style="position: absolute">
+        <iframe width="100%" height="200"
+                src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
+        </iframe>
+        <div class="centered-top-home">
+            <div data-role="header" class="mb-1 header m-0">
+                <h1>
+                    <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png" style="margin-top: 10px">
+                </h1>
+                <!--<button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>-->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="main"> <!--content area starts from here-->
+
+        <div class="ml-2 mr-2 mt-5">
+            <div class="row-12  mainTitle mb-2">
+                Existing Restaurants
+            </div>
+            <div class="container row m-0 p-0" style="max-width:100%">
+                <div class="col-12 col-md-6 col-sm-6 p-1">
+                    <div class="maintxt" style="height: 150px">
+                        <div class="container overlay-text mt-4" style="position: absolute">
+                            <div class="row col-12 m-0 p-0">
+                                <div class="col-12 m-0 p-0" style="text-align: -webkit-center;">
+                                    <img src="../assets/merchants/pizza-1428931.png"
+                                         style="border-radius: 10px;  height: 50px;width:50px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0 mt-2">
+                                    <h5 class="text-white" style="text-align: -webkit-center; font-size: 16px">Pizza
+                                        Zone - Colombo 10</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-12 col-md-6 col-sm-6 p-1">
+                    <div class="maintxt" style="height: 150px">
+                        <div class="container overlay-text mt-4" style="position: absolute">
+                            <div class="row col-12 m-0 p-0">
+                                <div class="col-12 m-0 p-0" style="text-align: -webkit-center;">
+                                    <img src="../assets/merchants/pizza-1428931.png"
+                                         style="border-radius: 10px;  height: 50px;width:50px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                </div>
+                            </div>
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-12 m-0 p-0 mt-2">
+                                    <h5 class="text-white" style="text-align: -webkit-center; font-size: 16px">Pizza
+                                        Zone - Colombo 10</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Footer-->
+    <div class="footer">
+        <div class="row justify-content-between">
+            <div class="col d-flex justify-content-left ml-3 p-3">
+                <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+            </div>
+            <div class="col mr-3 p-3">
+                <div class="row">
+                    <div class="col font1">Privacy Policy Terms of Use</div>
+                    <div class="w-100"></div>
+                    <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" class="fixed-bottom">
+        <nav data-role="navbar">
+            <ul>
+                <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
+                <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+                <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+                <li><a href="#side-drawer" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="side-drawer"
+         style="z-index: 1400">
+                
+        <div><img src="../assets/logos/MainLight.png" class="side-drawer-logo"></div>
+        <ul data-role="listview">
+            <li data-icon="false"><a href="Home.html" class="side-drawer-option">My Account</a></li>
+            <li data-icon="false"><a href="#" class="side-drawer-option">Location</a></li>
+            <li data-icon="false"><a href="Merchant.html" class="side-drawer-option"> Payment</a></li>
+            <li data-icon="false"><a href="Help-about.html" class="side-drawer-option">Help/About</a></li>
+            <li data-icon="false"><a href="" class="side-drawer-option"> Favorites</a></li>
+            <li data-icon="false"><a href="Acheivements.html" class="side-drawer-option">Acheivements</a></li>
+            <li data-icon="false"><a href="#" class="side-drawer-option">Logout</a></li>
+        </ul>
+            
+    </div><!-- /panel -->
+</div>
+</body>
+</html>
