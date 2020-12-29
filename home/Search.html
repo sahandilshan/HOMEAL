@@ -280,12 +280,12 @@
     $.mobile.ajaxEnabled = false;
     console.log('ajax disabled.')
     $(document).ready(function () {
-        $.getJSON("../data/merchants.json", function (result) {
-            console.log(result);
-            let merchants = "";
-            $.each(result, function (i, merchant) {
-                console.log("i: ", i, "merchant: ", merchant);
-                merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
+        let merchantJsonArray = JSON.parse(sessionStorage.getItem('merchants'));
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        let merchants = "";
+        $.each(merchantJsonArray, function (i, merchant) {
+           if (merchant['merchantLocation'] === user['location']) {
+               merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
                             <a class="card" href="/HOMEAL/home/Merchant.html?merchant_id=${merchant.merchant_id}">
                                 <div class="card-image">
                                     <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
@@ -298,20 +298,14 @@
                                 </div>
                             </a>
                         </div>`;
-            });
-            $("#collapsiblesetForFilter").append(merchants);
+           }
         });
-
-        $.getJSON("../data/products.json", function (result) {
-            sessionStorage.setItem('products', JSON.stringify(result));
-        });
-
+        $("#collapsiblesetForFilter").append(merchants);
     });
 
     $( "#backBtn" ).click(function() {
         window.history.back();
     });
-
 
     /* ******************* Do not remove this part till 2021/01/13 *****************
     $(document).on('click', '.card', function () {
