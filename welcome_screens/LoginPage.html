@@ -158,10 +158,10 @@
 
 
             <div class="row justify-content-center">
-                <div class="col-10"><input type="text" id="user_name"></div>
+                <div class="col-10"><input type="text" id="user_name" onchange="msg()"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10"><input type="password" id="user_password"></div>
+                <div class="col-10"><input type="password" id="user_password" onchange="msg()"></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-10">
@@ -170,7 +170,11 @@
                     </button>
                 </div>
             </div>
+            <div class="row justify-content-center">
 
+
+            <div style="color: red" id="login-err-message"class="col-10 d-none text-center font-2">You have entered an invalid username or password</div>
+            </div>
             <div style="color: black" class="text-center font-2">Forgot Password?</div>
             <hr>
             <div class="row justify-content-center">
@@ -191,10 +195,6 @@
     $(document).ready(function () {
     $.getJSON("../data/user.json", function (result) {
         sessionStorage.setItem('users', JSON.stringify(result));
-        for(var i in result){
-            console.log(i);
-        console.log(result[i].user_name);
-       }
     });});
 
     $( "#sign_in_btn" ).click(function() {
@@ -215,13 +215,23 @@
                            window.location.href="/HOMEAL/home/Search.html"
                        }
                    }
-                   else{console.log("password error")}
+                   else{
+                       $('#login-err-message').removeClass('d-none')
+                       $('#login-err-message').addClass('d-block');
+                   }
                 }
-                else{console.log("username error")}
+                else{$('#login-err-message').removeClass('d-none')
+                    $('#login-err-message').addClass('d-block');
+                }
             }
         });
        /* window.location.replace('Acheivements.html');*/
     });
+
+    function msg() {
+        $('#login-err-message').removeClass('d-block')
+        $('#login-err-message').addClass('d-none');
+    }
 </script>
 </body>
 </html>
