@@ -715,9 +715,8 @@
                 console.log(itemsArr);
             }
         }
-        // console.log(JSON.parse(sessionStorage.getItem('cartItems')));
-        // window.location.href="/HOMEAL/home/Checkout.html";
-
+        $( "#cartBtn" ).removeClass('ui-icon-cart');
+        $( "#cartBtn" ).addClass('ui-icon-cart-with-items');
     });
 
     $( "#buyNow" ).click(function() {

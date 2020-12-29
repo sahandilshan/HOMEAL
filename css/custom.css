@@ -99,6 +99,14 @@
     /*background-color: transparent;*/
 }
 
+.ui-icon-cart-with-items:after {
+    background-image: url("../assets/icons/notifications_black.png");
+    background-size: 18px 18px;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+}
+
 .ui-icon-cart.ui-btn-active:after {
     background-image: url("../assets/icons/cartIcon_orange.png") !important;
     background-size: 18px 18px;
