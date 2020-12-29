@@ -213,7 +213,7 @@
                          </div>
                        </div>
                         <div class="col-6" style="text-align: -webkit-right;">
-                            <img src="../assets/icons/favorite_border.png"
+                            <img id="productModal_fav" src="../assets/icons/favorite_border.png"
                                  style="border-radius: 10px;  height:30px;width:30px;!important; object-fit: cover;"
                                  alt="Card image">
                           </div>
@@ -316,7 +316,9 @@
                 <!--<li><a href="#cart_popup" data-rel="popup" data-transition="pop"
                        class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>-->
                 <li><a href="#" id="cartBtn" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
-                <li><a href="#delivery_details" data-rel="popup" data-transition="pop"
+                <!--<li><a href="#delivery_details" data-rel="popup" data-transition="pop"
+                       class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>-->
+                <li><a href="/HOMEAL/profile/Favorites.html" data-rel="popup" data-transition="pop"
                        class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
             </ul>
         </nav>
@@ -330,6 +332,7 @@
     let selected_product_id = '';
     let merchant_json;
     let productsArr;
+    let user;
     let openDelivery = false;
 
     $.mobile.ajaxEnabled = false;
@@ -337,20 +340,20 @@
         let retrievedProductArr = sessionStorage.getItem('products');
         productsArr = JSON.parse(retrievedProductArr); /*scope down in further steps*/
         let searchParams = new URLSearchParams(window.location.search);
+        user = JSON.parse(sessionStorage.getItem('user'));
         if (searchParams.has('merchant_id')) {
             merchant_id = searchParams.get('merchant_id');
             console.log("Merchant id: ", merchant_id);
         } else {
             console.log("merchant id could not extract from the url.");
         }
-
-        $.getJSON("../data/merchants.json", function (result) {
-            $.each(result, function (i, merchant) {
-                if (merchant_id === merchant.merchant_id) {
-                    merchant_json = merchant;
-                    console.log('merchant_json: ', merchant_json);
-                    let container =
-                        `
+        let merchantJsonArray = JSON.parse(sessionStorage.getItem('merchants'));
+        $.each(merchantJsonArray, function (i, merchant) {
+            if (merchant_id === merchant.merchant_id) {
+                merchant_json = merchant;
+                console.log('merchant_json: ', merchant_json);
+                let container =
+                    `
              <div class="container p-0" style=" max-width: 100% !important;">
                 <div id="merchantBanner" id="prd-1-normal" style="height: 150px">
                     <div class="container overlay-text mt-2 pt-2 pb-2">
@@ -361,7 +364,7 @@
                         </div>
                         <div class="row m-0 mb-3">
                             <div class="col-12 m-0 p-0" style="text-align: -webkit-center;">
-                                <span class="pb-3 text-white" style="font-size: 16px">${merchant_json.filter_text}</span>
+                                <span class="pb-3 text-white" style="font-size: 16px">${merchant_json.merchant_name}</span>
                             </div>
                         </div>
                         <div class="row col-12 m-0 p-0">
@@ -391,75 +394,86 @@
                                 </div>
 
                             </div>`
-                    $("#collapsiblesetForFilter").append(container);
-                    // binding css to the merchantBanner
-                    $("#merchantBanner").css({
-                        "background": `linear-gradient(
+                $("#collapsiblesetForFilter").append(container);
+                // binding css to the merchantBanner
+                $("#merchantBanner").css({
+                    "background": `linear-gradient(
                     rgba(0, 0, 0, 0.45),
                     rgba(0, 0, 0, 0.45)
             ), url(${merchant_json.merchant_background_img_path})`,
-                        "background-size": "cover",
+                    "background-size": "cover",
                     "background-position": "center !important",
                     "border-radius": "10px"
-                    })
+                })
 
-                    // loading products
-                    let products = '<div class="row mt-4 ml-2 mr-2">';
-                    $.each(productsArr, function (i, merchant) {
-                        if (merchant_id === merchant.merchant_id) {
-                            productsArr = merchant.products;
-                            console.log('productsArr: ', productsArr);
-                            productsArr.forEach(function (product) {
-                                console.log('product: ', product);
-                                products +=
-                                    `
+                // loading products
+                let products = '<div class="row mt-4 ml-2 mr-2">';
+                $.each(productsArr, function (i, merchant) {
+                    if (merchant_id === merchant.merchant_id) {
+                        productsArr = merchant.products;
+                        console.log('productsArr: ', productsArr);
+                        productsArr.forEach(function (product) {
+                            products +=
+                                `
                             <div class="col-6 col-sm-3 col-md-3" data-filtertext="${product.filter_text}">
                                 <div class="product-card" data-pid=${product.product_id}>
                                     <div class="product-card-image">
                                         <img alt="home" src="${product.product_img_path}" style="width: 100%;"/>
 
                             `;
-                                let discount = product.discount;
-                                discount = Number(discount);
-                                if (Number.isNaN(discount)) {
-                                    discount = 0;
-                                }
-                                if (discount > 0) {
-                                    products += `
+                            let discount = product.discount;
+                            discount = Number(discount);
+                            if (Number.isNaN(discount)) {
+                                discount = 0;
+                            }
+                            if (discount > 0) {
+                                products += `
                                         <div class="bottom-right-saving-tag mr-3">
                                             <div class="deliveryTimeContainer pr-3 savingText">Save up to ${discount}%</div>
                                         </div>
                             `;
-                                }
-                                products += `
+                            }
+                            products += `
                               </div>
                                     <div class="col pl-2 pb-1">
                                         <div class="row">
                                             <div class="col-8 product-name">
-                                            ${product.product_name}
+                                            ${product['product_name']}
                                             </div>
-                                             <div class="col-4" style="padding-right: 5px;text-align: -webkit-right;">
+                                            `;
+                            let existingItem = user['favorites_list'].find(x =>
+                                x['product_id'] === product['product_id'] && x['merchant_id'] === merchant_id);
+                            if (existingItem) {
+                                products += `<div class="col-4 favorite_icon" data-pid=${product['product_id']}
+                                              data-fav="1" style="padding-right: 5px;text-align: -webkit-right;">
+                                             <img src="../assets/icons/favorite.png"
+                                         style="border-radius: 10px;  height: 20px;width:20px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                            </div>`
+                            } else {
+                                products += `<div class="col-4 favorite_icon" data-pid=${product['product_id']}
+                                              data-fav="0" style="padding-right: 5px;text-align: -webkit-right;">
                                              <img src="../assets/icons/favorite_border.png"
                                          style="border-radius: 10px;  height: 20px;width:20px;!important; object-fit: cover;"
                                          alt="Card image">
-                                            </div>
-                                        </div>
+                                            </div>`;
+                            }
+
+                             products +=`</div>
                                         <div class="row-12 product-price">LKR ${product.variants[0].price}.00</div>
                                     </div>
 
                                 </div>
                               </div>
                         `
-                            });
-                            return false; /*to break from the loop*/
-                        }
-                    });
-                    products += '</div>'
-                    $("#collapsiblesetForFilter").append(products);
-
-                    return false; /*to break from the loop*/
-                }
-            });
+                        });
+                        return false; /*to break from the loop*/
+                    }
+                });
+                products += '</div>'
+                $("#collapsiblesetForFilter").append(products);
+                return false; /*to break from the loop*/
+            }
         });
 
 
@@ -487,12 +501,52 @@
         }
     });
 
+    // Add remove favourite items
+    $(document).on('click', '.favorite_icon', function () {
+        let pid = $(this).data('pid');
+        let product = getProduct(pid);
+        let isFavourite = $(this).data('fav');
+        if (isFavourite === 1) {
+            $(this).data('fav', 0); // set as not favorite
+            user['favorites_list'] = $.grep(user['favorites_list'], function(item){
+                let id = item['product_id'] + item['merchant_id'];
+                return id !== pid + merchant_id;
+            });
+            $(this).children('img').attr('src', '../assets/icons/favorite_border.png');
+        } else {
+            $(this).data('fav', 1);
+            let item = `
+                    {
+                        "product_id": "${product['product_id']}",
+                        "merchant_id": "${merchant_id}",
+                        "product_name": "${product['product_name']}",
+                        "merchant_name": "${merchant_json['merchant_name']}",
+                        "location": "${user['location']}",
+                        "merchant_bg": "${merchant_json['merchant_background_img_path']}",
+                        "merchant_logo": "${merchant_json['merchant_logo_img_path']}"
+                    }`
+            user['favorites_list'].push(JSON.parse(item));
+            $(this).children('img').attr('src', '../assets/icons/favorite.png');
+        }
+        sessionStorage.setItem('user', JSON.stringify(user));
+        return false; // to disable outer div being fired (Prevent Event Propagation).
+    });
+
+    // Loading product modal
     $(document).on('click', '.product-card', function() {
         selected_product_id = $(this).data('pid');
         console.log(selected_product_id);
         let product = getProduct(selected_product_id);
         let productModel = $("#productModel");
-        $("#prdModal-productName").text(product.product_name);
+        $("#prdModal-productName").text(product['product_name']);
+        let existingItem = user['favorites_list'].find(x =>  // find if selected item is existing in favorite list
+            x['product_id'] === product['product_id'] && x['merchant_id'] === merchant_id);
+        if (existingItem) {
+            $("#productModal_fav").attr('src', '../assets/icons/favorite.png');
+        } else {
+            $("#productModal_fav").attr('src', '../assets/icons/favorite_border.png');
+        }
+
         let discount = product.discount;
         discount = Number(discount);
         if (Number.isNaN(discount)) {
