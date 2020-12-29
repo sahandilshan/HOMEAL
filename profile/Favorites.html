@@ -195,7 +195,7 @@
 
     <div class="main"> <!--content area starts from here-->
         <div class="mr-2 ml-2 mt-n4">
-           <!-- <div id="favouriteItems" class="container row m-0" style="max-width:100%">
+            <div id="favouriteItems" class="container row m-0" style="max-width:100%">
 
             </div>
             <div id="emailMyList" class="row">
@@ -204,7 +204,7 @@
                        <a>
                            <span class="text-white">Email My List</span></a></div>
                 </div>
-            </div>-->
+            </div>
 
             <div id="outer-div" >
                 <div id="inner-div" style="font-weight: bold;font-variant: all-small-caps;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">No favorites items  available to display.</div>
@@ -291,6 +291,7 @@
 <script>
     let openSuccessEmailModal = false;
     $.mobile.ajaxEnabled = false;
+    let user;
 
     function createTempSession() {
         let item1 = `
@@ -353,13 +354,18 @@
     })
 
     function loadFavouriteList() {
-        $("#favouriteItems").empty(); // to remove previously loaded cards.
-        let favouriteListJson = JSON.parse(sessionStorage.getItem('favourite_list'));
-        favouriteListJson = favouriteListJson['items'];
+        let favouriteItems = $("#favouriteItems");
+        favouriteItems.empty(); // to remove previously loaded cards.
+        user = JSON.parse(sessionStorage.getItem('user'));
+        let favouriteListJson = user['favorites_list'];
         console.log(favouriteListJson);
-        let favoriteCards = '';
-        $.each(favouriteListJson, function (i, item) {
-            let card = `
+        $("#outer-div").hide();
+        $("#emailMyList").show();
+        favouriteItems.show();
+        if (favouriteListJson.length !== 0) {
+            let favoriteCards = '';
+            $.each(favouriteListJson, function (i, item) {
+                let card = `
         <div class="col-sm-12 col-md-6 p-1">
                     <div class="maintxt" style="height: 150px;
                      background: linear-gradient(
@@ -399,27 +405,25 @@
                     </div>
                 </div>
         `;
-            favoriteCards += card;
-        });
-        $("#favouriteItems").append(favoriteCards);
+                favoriteCards += card;
+            });
+            favouriteItems.append(favoriteCards);
+        } else {
+            favouriteItems.hide();
+            $("#emailMyList").hide();
+            $("#outer-div").show();
+        }
     }
 
     $(document).on('click', '.star', function() {
         console.log($(this).data('pid'))
         let selected_product_id = $(this).data('pid');
-        let favouriteListJson = JSON.parse(sessionStorage.getItem('favourite_list'));
-        favouriteListJson = favouriteListJson['items'];
-        favouriteListJson = $.grep(favouriteListJson, function(item){
+        let favouriteListJson = user['favorites_list'];
+        user['favorites_list'] = $.grep(favouriteListJson, function(item){
             let id = item['product_id'] + item['merchant_id'];
-            return id !==selected_product_id;
+            return id !== selected_product_id;
         });
-        favouriteListJson = JSON.stringify(favouriteListJson);
-        let favItemJson = `
-        {
-            "items": ${favouriteListJson}
-        }
-        `
-        sessionStorage.setItem('favourite_list', favItemJson);
+        sessionStorage.setItem('user', JSON.stringify(user));
         loadFavouriteList()
     });
 
