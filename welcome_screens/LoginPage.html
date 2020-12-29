@@ -196,36 +196,29 @@
     $.getJSON("../data/user.json", function (result) {
         sessionStorage.setItem('users', JSON.stringify(result));
     });});
+    $.getJSON("../data/merchants.json", function (result) {
+        sessionStorage.setItem('merchants', JSON.stringify(result));
+    });
+    $.getJSON("../data/products.json", function (result) {
+        sessionStorage.setItem('products', JSON.stringify(result));
+    });
+
 
     $( "#sign_in_btn" ).click(function() {
-        var username=$("#user_name").val();
-        var password=$("#user_password").val();
-        $.getJSON("../data/user.json", function (result) {
-            sessionStorage.setItem('users', JSON.stringify(result));
-            for(var i in result){
-                console.log(i);
-                if(result[i].user_name===username){
-                   if(result[i].user_password===password){
-                       if(result[i].user_type==='customer'){
-                           sessionStorage.setItem('user', JSON.stringify(result[i]));
-                           window.location.href="/HOMEAL/home/Search.html"
-                       }
-                       if(result[i].user_type==='merchant'){
-                           /*change this to merchant home page*/
-                           window.location.href="/HOMEAL/home/Search.html"
-                       }
-                   }
-                   else{
-                       $('#login-err-message').removeClass('d-none')
-                       $('#login-err-message').addClass('d-block');
-                   }
-                }
-                else{$('#login-err-message').removeClass('d-none')
-                    $('#login-err-message').addClass('d-block');
-                }
+        let username = $("#user_name").val();
+        let password = $("#user_password").val();
+        let usersJsonArray = JSON.parse(sessionStorage.getItem('users'));
+        console.log(usersJsonArray);
+        $.each(usersJsonArray, function (i, user) {
+            if ((user['user_name'] === username) && (user['user_password'] === password)) {
+                sessionStorage.setItem('user', JSON.stringify(user));
+                window.location.href = (user['user_type'] === 'customer') ?
+                    '/HOMEAL/home/Search.html' : '/HOMEAL/home/Merchant.html';
+            } else{
+                $('#login-err-message').removeClass('d-none');
+                $('#login-err-message').addClass('d-block');
             }
         });
-       /* window.location.replace('Acheivements.html');*/
     });
 
     function msg() {
