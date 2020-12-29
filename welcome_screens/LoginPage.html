@@ -208,17 +208,29 @@
         let username = $("#user_name").val();
         let password = $("#user_password").val();
         let usersJsonArray = JSON.parse(sessionStorage.getItem('users'));
+        let foundUser = false;
         console.log(usersJsonArray);
         $.each(usersJsonArray, function (i, user) {
             if ((user['user_name'] === username) && (user['user_password'] === password)) {
+                foundUser = true;
                 sessionStorage.setItem('user', JSON.stringify(user));
-                window.location.href = (user['user_type'] === 'customer') ?
-                    '/HOMEAL/home/Search.html' : '/HOMEAL/home/Merchant.html';
-            } else{
-                $('#login-err-message').removeClass('d-none');
-                $('#login-err-message').addClass('d-block');
+                let url = '';
+                if (user['user_type'] === 'customer') {
+                    if (user['location'] !== "") {
+                        url = '/HOMEAL/home/Search.html';
+                    } else {
+                        url = '/HOMEAL/home/Home.html';
+                    }
+                } else {
+                    url = '/HOMEAL/home/Merchant.html';
+                }
+                window.location.href = url;
             }
         });
+        if (!foundUser) {
+            $('#login-err-message').removeClass('d-none');
+            $('#login-err-message').addClass('d-block');
+        }
     });
 
     function msg() {
