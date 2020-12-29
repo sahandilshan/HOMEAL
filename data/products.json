@@ -42,7 +42,7 @@
       {
         "product_id": "P002",
         "filter_text": "Chicken Pizza",
-        "product_price": "Chicken Pizza",
+        "product_name": "Chicken Pizza",
         "product_description": "Chicken pizza is good",
         "product_img_path": "../assets/products/pizza-2000600.jpg",
         "discount": "None",

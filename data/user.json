@@ -30,7 +30,17 @@
     "mobile_no" : "0777123456",
     "user_type": "customer",
     "location": "Colombo 10",
-    "favorites_list":[]
+    "favorites_list":[
+      {
+        "product_id": "P001",
+        "merchant_id": "M001",
+        "product_name": "Chicken Pizza",
+        "merchant_name": "Pizza Zone",
+        "location": "Colombo - 10",
+        "merchant_bg": "../assets/merchants/meal-5590186.jpg",
+        "merchant_logo": "../assets/merchants/pizza-1428931.png"
+      }
+    ]
   },
   {
     "user_id" : "#3",
