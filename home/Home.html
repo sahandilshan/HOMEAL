@@ -86,49 +86,7 @@
     <div class="main"> <!--content area starts from here-->
         <div class="mt-n4 w-100">
             <div class="w-100">
-                <div class="scrollmenu-category">
-                    <a href="#" style=" text-align: -webkit-center;">
-                        <div class="row-12 categoryContainer" style=" text-align: -webkit-center;">
-                            <img alt="home" src="../assets/merchants/pizza-3007395.jpg" class="categoryImage"/>
-                        </div>
-                        <div class="row-12 mt-2" style="  text-align: -webkit-center;">Text</div>
-                    </a>
-
-                    <a href="#" style=" text-align: -webkit-center;">
-                        <div class="row-12 categoryContainer" style=" text-align: -webkit-center;">
-                            <img alt="home" src="../assets/merchants/pizza-3007395.jpg" class="categoryImage"/>
-                        </div>
-                        <div class="row-12 mt-2" style="  text-align: -webkit-center;">Text</div>
-                    </a>
-
-                    <a href="#" style=" text-align: -webkit-center;">
-                        <div class="row-12 categoryContainer" style=" text-align: -webkit-center;">
-                            <img alt="home" src="../assets/merchants/pizza-3007395.jpg" class="categoryImage"/>
-                        </div>
-                        <div class="row-12 mt-2" style="  text-align: -webkit-center;">Text</div>
-                    </a>
-
-                    <a href="#" style=" text-align: -webkit-center;">
-                        <div class="row-12 categoryContainer" style=" text-align: -webkit-center;">
-                            <img alt="home" src="../assets/merchants/pizza-3007395.jpg" class="categoryImage"/>
-                        </div>
-                        <div class="row-12 mt-2" style="  text-align: -webkit-center;">Text</div>
-                    </a>
-
-                    <a href="#" style=" text-align: -webkit-center;">
-                        <div class="row-12 categoryContainer" style=" text-align: -webkit-center;"></div>
-                        <div class="row-12 mt-2" style="  text-align: -webkit-center;">Text</div>
-                    </a>
-
-                    <a href="#" style=" text-align: -webkit-center;">
-                        <div class="row-12 categoryContainer" style=" text-align: -webkit-center;"></div>
-                        <div class="row-12 mt-2" style="  text-align: -webkit-center;">Text</div>
-                    </a>
-
-                    <a href="#" style=" text-align: -webkit-center;">
-                        <div class="row-12 categoryContainer" style=" text-align: -webkit-center;"></div>
-                        <div class="row-12 mt-2" style="  text-align: -webkit-center;">Text</div>
-                    </a>
+                <div id="product-category" class="scrollmenu-category">
 
                 </div>
             </div>
@@ -191,8 +149,14 @@
 
 <script>
     $.support.cors = true
+    let productCategoryImgs = {
+        'pizza' : '../assets/merchants/pizza-3007395.jpg' ,
+        'bakery' : '../assets/merchants/pizza-3007395.jpg'
+        // todo: add more items if adds a new merchant category
+    };
     $(document).ready(function () {
             let merchants = "";
+            let productCategory = [];
             let merchantJsonArr = JSON.parse(sessionStorage.getItem('merchants'));
             $.each(merchantJsonArr, function (i, merchant) {
                 merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
@@ -209,9 +173,31 @@
                                 </div>
                             </div>
                         </div>`;
+                productCategory.push(merchant['merchant_category']);
             });
             $("#collapsiblesetForFilter").append(merchants);
+            let categoryList = '';
+            $.each(productCategory, function (i, category) {
+                console.log(category)
+                categoryList += `
+                <a href="#" class="merchantCategory" style=" text-align: -webkit-center;">
+                        <div class="row-12 categoryContainer" style=" text-align: -webkit-center;">
+                            <img alt="home" src="${productCategoryImgs[category.toLowerCase()]}" class="categoryImage"/>
+                        </div>
+                        <div class="row-12 mt-2" style="  text-align: -webkit-center;">${category}</div>
+                    </a>
+                `;
+            });
+            $("#product-category").append(categoryList);
         });
+    let locationModal = $('#popupBasicLocation');
+    $(document).on('click', '.merchantCategory', function () {
+        locationModal.popup('open');
+    });
+    $(document).on('click', '.card', function () {
+        locationModal.popup('open');
+    });
+
 
 </script>
 <script src="../js/location.js"></script>
