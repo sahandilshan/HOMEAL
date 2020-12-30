@@ -14,34 +14,6 @@
 
     <link rel="stylesheet" href="../css/custom.css"/>
 
-    <script>
-        $.support.cors = true
-        $(document).ready(function () {
-            $.getJSON("../data/merchants.json", function (result) {
-                console.log(result);
-                let merchants = "";
-                $.each(result, function (i, merchant) {
-                    console.log("i: ", i, "merchant: ", merchant);
-                    merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
-                                </div>
-                                <div class="ui-grid-a">
-                                    <span class="card-title">${merchant.merchant_name}</span>
-                                    <span class="row card-rating">  <img alt="home"
-                                                                         src="../assets/icons/star_orange_18dp.png"
-                                                                         class="custom-star"/>50+ Rating</span>
-
-                                </div>
-                            </div>
-                        </div>`;
-                });
-                $("#collapsiblesetForFilter").append(merchants);
-            });
-        });
-    </script>
-
     <style>
         .side-drawer-logo {
             margin-right: auto;
@@ -75,7 +47,7 @@
 
         <!--Location Modal-->
         <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
-             data-overlay-theme="a" data-transition="pop">
+             data-overlay-theme="a" data-transition="pop" data-history="false">
             <div class="row mb-2">
                 <div class="col-8">
                 </div>
@@ -92,15 +64,18 @@
                 <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true"
                      data-input="#pre-rendered-example-input"
                      class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
-                    <div class="ui-controlgroup-controls">
+                    <div class="ui-controlgroup-controls" id="test">
                         <a href="#"
-                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left
+                           ui-icon-location location" data-filtertext = "Colombo 10">Colombo
                             10</a>
                         <a href="#"
-                           class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo
+                           class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left
+                            ui-icon-location location" data-filtertext = "Colombo 11">Colombo
                             11</a>
                         <a href="#"
-                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left
+                           ui-icon-location location" data-filtertext = "Maradhana">Maradana</a>
                     </div>
                 </div>
             </form>
@@ -109,7 +84,7 @@
     </div>
 
     <div class="main"> <!--content area starts from here-->
-        <div class="mt-n3 w-100">
+        <div class="mt-n4 w-100">
             <div class="w-100">
                 <div class="scrollmenu-category">
                     <a href="#" style=" text-align: -webkit-center;">
@@ -213,4 +188,32 @@
     </div><!-- /panel -->
 </div>
 </body>
+
+<script>
+    $.support.cors = true
+    $(document).ready(function () {
+            let merchants = "";
+            let merchantJsonArr = JSON.parse(sessionStorage.getItem('merchants'));
+            $.each(merchantJsonArr, function (i, merchant) {
+                merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
+                                </div>
+                                <div class="ui-grid-a">
+                                    <span class="card-title">${merchant.merchant_name}</span>
+                                    <span class="row card-rating">  <img alt="home"
+                                                                         src="../assets/icons/star_orange_18dp.png"
+                                                                         class="custom-star"/>50+ Rating</span>
+
+                                </div>
+                            </div>
+                        </div>`;
+            });
+            $("#collapsiblesetForFilter").append(merchants);
+        });
+
+</script>
+<script src="../js/location.js"></script>
+
 </html>
