@@ -167,5 +167,18 @@
         window.location.href ='SignIn.html'
     });
 
+    $(document).ready(function () {
+        sessionStorage.removeItem('user'); // remove previously logged user
+        $.getJSON("../data/user.json", function (result) {
+            sessionStorage.setItem('users', JSON.stringify(result));
+        });
+        $.getJSON("../data/merchants.json", function (result) {
+            sessionStorage.setItem('merchants', JSON.stringify(result));
+        });
+        $.getJSON("../data/products.json", function (result) {
+            sessionStorage.setItem('products', JSON.stringify(result));
+        });
+    });
+
 </script>
 </html>
