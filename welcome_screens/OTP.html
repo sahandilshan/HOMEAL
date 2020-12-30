@@ -19,7 +19,7 @@
       background: #282F33;
     }
     .ui-input-text, .ui-input-search {
-      margin: .5em 0;
+      margin: 0.6em 0;
       border-width: 1px;
       border-style: solid;
       width: 40px !important;
@@ -31,16 +31,16 @@
       margin-bottom: 2%;
       color: black;
       text-align: center;
-      font-size: 0.7rem;
+      font-size: 1.35rem !important;
     }
 
     .tagline {
       position: absolute;
-      top: 56%;
+      top:55.5%;
       left: 25%;
       transform: translate(-50%, -50%);
       text-align: center;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: white;
       text-shadow: none !important;
     }
@@ -59,44 +59,31 @@
       top: 50%;
       transform: translateY(-50%);
       color: #FFFFFF;
-      width: 40%;
+      width: 45%;
       background-color: #FFFFFF;
-      height: 350px;
-      left: 50%;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      left: 48%;
       margin: auto;
       border-radius: 35px;
     }
     .sign-in-text{
       color:black;text-align: center;
       font-weight: bold;
-      font-size: 24px
+      font-size: 26px !important;
     }
 
     .font-2{
-      font-size: 16px;
+      font-size: 22px !important;
     }
 
-   /* @media only screen and (max-width: 768px) {
-      .tagline {
-        position: absolute;
-        top: 54% !important;
-        left: 25%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        font-size: 1rem !important;
-        color: white;
-      }
-
-    }
-
-*/
       /***********************iphone potrait*************************/
       @media only screen and (max-width: 376px) {
         img {
           all: revert;
-          width: 50%;
-          margin-top: 70px !important;
-          margin-bottom: 5px !important;
+          width: 60%;
+          margin-top: 80px !important;
+          margin-bottom: 0px !important;
           display: block;
           margin: auto;
         }
@@ -105,9 +92,9 @@
           all: revert;
           background-color: #FFFFFF;
           color: #FFFFFF;
-          width: 78%;
-          padding-top: 10px;
-          height: 350px;
+          width: 85%;
+          padding-top: 20px;
+          padding-bottom:20px;
           margin: auto;
           border-radius: 35px;
         }
@@ -115,20 +102,23 @@
         .tagline{
           all: revert;
           /* width: 50%; */
-          margin-top: 6px !important;
+          margin-top: -3px !important;
           margin-bottom: 30px !important;
           display: block;
           margin: auto;
           text-align: center ;
-          font-size: 0.7rem !important;
+          font-size: 0.8rem !important;
           color: white;
           text-shadow: none !important;
         }
+        .terms_and_condition {
+          font-size: 0.85rem !important;
+        }
         .sign-in-text{
-          font-size:20px;
+          font-size:20px !important;
         }
         .font-2{
-          font-size: 14px;
+          font-size: 15px !important;
         }
 
       }
@@ -137,7 +127,7 @@
       @media only screen and (max-width: 667px) and (min-width: 376px){
 
         img {
-          width: 30%;
+          width: 33%;
           position: absolute;
           top: 50%;
           left: 25%;
@@ -151,20 +141,24 @@
           color: #EC7A23;
           width: 40%;
           background-color: #FFFFFF;
-          height: 310px;
+          padding-top: 20px;
+          padding-bottom: 20px;
           left: 50%;
           margin: auto;
           border-radius: 35px;
         }
         .tagline{
           position: absolute;
-          top: 58%;
+          top: 56%;
           left: 25%;
           transform: translate(-50%, -50%);
           text-align: center ;
-          font-size: 0.7rem;
+          font-size: 0.8rem;
           color: white;
           text-shadow: none;
+        }
+        .terms_and_condition {
+          font-size: 0.8rem !important;
         }
         .sign-in-text{
           font-size:16px !important;
@@ -179,9 +173,9 @@
 
         img {
           all: revert;
-          width: 45%;
+          width: 50%;
           margin-top: 120px !important;
-          margin-bottom: 5px !important;
+          margin-bottom: 0px !important;
           display: block;
           margin: auto;
         }
@@ -190,21 +184,20 @@
           all: revert;
           background-color: #FFFFFF;
           color: #FFFFFF;
-          width: 55%;
-          padding-top: 10px;
-          height: 450px;
+          width: 65%;
+          padding-top: 40px;
+          padding-bottom: 40px;
           margin: auto;
           border-radius: 40px;
         }
         .tagline{
           all: revert;
-          /* width: 50%; */
-          margin-top: 8px !important;
+          margin-top: -5px !important;
           margin-bottom: 30px !important;
           display: block;
           margin: auto;
           text-align: center ;
-          font-size:1.2rem !important;
+          font-size:1.4rem !important;
           color: white;
           text-shadow: none !important;
         }
@@ -214,14 +207,22 @@
         .terms_and_condition {
           font-size: 1.1rem;
         }
-
-
         hr {
           opacity: 1 !important;
           width: 2px !important;
         }
         .font-2{
-          font-size: 20px;
+          font-size: 22px;
+        }
+        .ui-input-text, .ui-input-search {
+          margin-right: 1rem;
+          border-width: 1px;
+          border-style: solid;
+          width: 75px !important;
+          height: 75px !important;
+          text-align-last: center;
+          font-size: 26px !important;
+          line-height: 120px !important;
         }
 
       }
@@ -235,7 +236,7 @@
     <div class="tagline">Relish your taste buds with home-made</div>
   </div>
   <div class="signincard container">
-    <div style="margin-top: 40px">
+    <div>
       <div class="col-12 sign-in-text">OTP Verification
         Code
       </div>
