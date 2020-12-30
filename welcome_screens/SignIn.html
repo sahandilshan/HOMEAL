@@ -254,17 +254,6 @@
 
 </div>
 <script>
-    $(document).ready(function () {
-    $.getJSON("../data/user.json", function (result) {
-        sessionStorage.setItem('users', JSON.stringify(result));
-    });});
-    $.getJSON("../data/merchants.json", function (result) {
-        sessionStorage.setItem('merchants', JSON.stringify(result));
-    });
-    $.getJSON("../data/products.json", function (result) {
-        sessionStorage.setItem('products', JSON.stringify(result));
-    });
-
 
     $( "#sign_in_btn" ).click(function() {
         let username = $("#user_name").val();
