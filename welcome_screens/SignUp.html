@@ -26,16 +26,27 @@
             left: 25%;
             transform: translate(-50%, -50%);
         }
+        .tagline{
+            position: absolute;
+            top: 55.5%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            text-align: center ;
+            font-size: 1.3rem;
+            color: white;
+            text-shadow: none !important;
+        }
 
         .signupcard {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             color: #FFFFFF;
-            width: 35%;
+            width: 45%;
             background-color: #FFFFFF;
-            height: 500px;
-            left: 50%;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            left: 48%;
             margin: auto;
             border-radius: 35px;
         }
@@ -47,18 +58,34 @@
         }
 
         .font-2{
-            font-size: 16px;
+            font-size: 22px !important;
+
+        }
+        .font-3{
+            font-size: 22px !important;
         }
 
         /***********************iphone potrait*************************/
         @media only screen and (max-width: 376px) {
             img {
                 all: revert;
-                width: 50%;
-                margin-top: 60px !important;
-                margin-bottom: 40px !important;
+                width: 60%;
+                margin-top: 80px !important;
+                margin-bottom: 0px !important;
                 display: block;
                 margin: auto;
+            }
+            .tagline{
+                all: revert;
+                /* width: 50%; */
+                margin-top: -3px !important;
+                margin-bottom: 30px !important;
+                display: block;
+                margin: auto;
+                text-align: center ;
+                font-size: 0.8rem !important;
+                color: white;
+                text-shadow: none !important;
             }
 
             .signupcard {
@@ -66,17 +93,21 @@
                 background-color: #FFFFFF;
                 color: #FFFFFF;
                 width: 85%;
-                padding-top: 4px;
-                height: 450px;
+                padding-top: 20px;
+                padding-bottom: 20px;
                 margin: auto;
                 border-radius: 35px;
             }
             .sign-in-text{
-                font-size:20px;
+                font-size:20px !important;
             }
             .font-2{
-                font-size: 14px;
+                font-size: 15px !important;
             }
+            .font-3{
+                font-size: 14px !important;
+            }
+
 
         }
 
@@ -84,21 +115,32 @@
         @media only screen and (max-width: 667px) and (min-width: 376px){
 
             img {
-                width: 30%;
+                width: 33%;
                 position: absolute;
-                top: 60%;
+                top: 50%;
                 left: 25%;
                 transform: translate(-50%, -50%);
+            }
+            .tagline{
+                position: absolute;
+                top: 56%;
+                left: 25%;
+                transform: translate(-50%, -50%);
+                text-align: center ;
+                font-size: 0.8rem;
+                color: white;
+                text-shadow: none;
             }
             .signupcard  {
                 all: revert;
                 position: absolute;
-                top: 60%;
+                top: 50%;
                 transform: translateY(-50%);
                 color: #EC7A23;
                 width: 40%;
                 background-color: #FFFFFF;
-                height: 400px;
+                padding-top: 10px;
+                padding-bottom: 10px;
                 left: 50%;
                 margin: auto;
                 border-radius: 35px;
@@ -109,6 +151,9 @@
             .font-2{
                 font-size: 12px !important;
             }
+            .font-3{
+                font-size: 13px !important;
+            }
         }
 
         /***********************ipad potrait*************************/
@@ -116,11 +161,23 @@
 
             img {
                 all: revert;
-                width: 45%;
+                width: 50%;
                 margin-top: 120px !important;
-                margin-bottom: 60px !important;
+                margin-bottom: 0px !important;
                 display: block;
                 margin: auto;
+            }
+            .tagline{
+                all: revert;
+                /* width: 50%; */
+                margin-top:-5px !important;
+                margin-bottom: 30px !important;
+                display: block;
+                margin: auto;
+                text-align: center ;
+                font-size:1.4rem !important;
+                color: white;
+                text-shadow: none !important;
             }
 
             .signupcard  {
@@ -128,8 +185,8 @@
                 background-color: #FFFFFF;
                 color: #FFFFFF;
                 width: 65%;
-                padding-top: 10px;
-                height: 530px;
+                padding-top: 40px;
+                padding-bottom: 40px;
                 margin: auto;
                 border-radius: 40px;
             }
@@ -142,7 +199,10 @@
                 width: 2px !important;
             }
             .font-2{
-                font-size: 22px;
+                font-size: 22px !important;
+            }
+            .font-3{
+                font-size: 24px !important;
             }
 
         }
@@ -152,24 +212,25 @@
 <div data-role="page">
     <div>
         <img src="../assets/logos/MainDark.png">
+        <div class="tagline">Relish your taste buds with home-made</div>
 
     </div>
     <div class="signupcard container">
-        <div style="margin-top: 30px">
+        <div >
             <div class="col-12 sign-in-text">Sign Up</div>
 
 
             <div class="row justify-content-center">
-                <div class="col-10"><input type="text"></div>
+                <div class="col-10"><input class="font-3" type="text" placeholder="Name"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10"><input type="text"></div>
+                <div class="col-10"><input class="font-3" type="email" placeholder="Email"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10"><input type="password"></div>
+                <div class="col-10"><input class="font-3" type="password" placeholder="Password"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10"><input type="password"></div>
+                <div class="col-10"><input class="font-3" type="password" placeholder="Confirm Password"></div>
             </div>
             <div class="row justify-content-center">
                 <div style="color: black" class="col-6 pull-left"> <label style="color: black" class="font-2">Merchant
@@ -192,7 +253,7 @@
             </div>
 
             <div style="color: black" class="text-center font-2"> Already Have an Account? <span
-                    style="color: #EC7A23">SignIn</span>
+                    style="color: #EC7A23;cursor:pointer;" onclick='window.location.href="SignIn.html"'>SignIn</span>
             </div>
         </div>
     </div>

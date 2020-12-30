@@ -109,6 +109,28 @@
                 width: 80%;
             }
         }
+        /***********************iphone landscape*************************/
+        @media only screen and (max-width: 667px) and (min-width: 376px){
+            img {
+                width: 40%;
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: translate( -50%);
+            }
+        }
+
+        /***********************ipad landscape*************************/
+        @media only screen and (max-width: 1024px) and (min-width: 768px)  {
+            img {
+                width: 50% !important;
+                position: absolute;
+                top: 10%;
+                left: 50%;
+                transform: translate( -50%);
+            }
+        }
+
 
     </style>
 
@@ -122,7 +144,7 @@
     <div class="w3-row absolute1">
         <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
         <div class="w3-col w3-container content">
-            <a href="#" data-role="button" data-theme="a" class="btn-main"><span>Sign In</span></a>
+            <button id="sign-in-btn" data-role="button" data-theme="a" class="btn-main"><span>Sign In</span></button>
         </div>
         <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
     </div>
@@ -130,11 +152,20 @@
     <div class="w3-row absolute2">
         <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
         <div class="w3-col w3-container content">
-            <a href="#" data-role="button" data-theme="a" class="btn-sec"><span>Get Started</span></a>
+            <button id="getstarter-btn" data-role="button" data-theme="a" class="btn-sec"><span>Get Started</span></button>
         </div>
         <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
     </div>
 
 </div>
 </body>
+<script>
+    $( "#getstarter-btn" ).click(function() {
+        window.location.href ='../home/Home.html'
+    });
+    $( "#sign-in-btn" ).click(function() {
+        window.location.href ='SignIn.html'
+    });
+
+</script>
 </html>
