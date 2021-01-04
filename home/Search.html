@@ -97,7 +97,7 @@
                        placeholder="Search Restaurant by Name"/>
             </div>
             <div class="col-auto">
-                <a href="#popupBasic" data-rel="popup" data-transition="pop"
+                <a href="#popupBasic" data-rel="popup" data-transition="pop" id="merchantFilter"
                    class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext custom-filter-button">Filter</a>
             </div>
         </div>
@@ -229,7 +229,7 @@
                     <a href="#" data-rel="back" data-role="button" class="ui-btn">Cancel</a>
                 </div>
                 <div class="col-6">
-                    <button class="ui-btn">Apply</button>
+                    <button id="filterApply" class="ui-btn">Apply</button>
                 </div>
             </div>
         </div>
@@ -280,9 +280,10 @@
 <script>
 
     $.mobile.ajaxEnabled = false;
-    console.log('ajax disabled.')
+    console.log('ajax disabled.');
+    let merchantJsonArray;
     $(document).ready(function () {
-        let merchantJsonArray = JSON.parse(sessionStorage.getItem('merchants'));
+        merchantJsonArray = JSON.parse(sessionStorage.getItem('merchants'));
         let user = JSON.parse(sessionStorage.getItem('user'));
         let merchants = "";
         let location = '';
@@ -318,6 +319,83 @@
     $( "#backBtn" ).click(function() {
         window.history.back();
     });
+
+    // save the values of the filtering modal
+    let filterValuesSet = new Set();
+
+    $( "#flip-1" ).on( 'slidestop', function( event ) {
+        if ($( "#flip-1" ).val() === 'on') {
+            filterValuesSet.add('pizza');
+        } else {
+            filterValuesSet.delete('pizza');
+        }
+    });
+    $( "#flip-2" ).on( 'slidestop', function( event ) {
+        if ($( "#flip-2" ).val() === 'on') {
+            filterValuesSet.add('noodles');
+        } else {
+            filterValuesSet.delete('noodles');
+        }
+    });
+    $( "#flip-3" ).on( 'slidestop', function( event ) {
+        if ($( "#flip-3" ).val() === 'on') {
+            filterValuesSet.add('bakery');
+        } else {
+            filterValuesSet.delete('bakery');
+        }
+    });
+    $( "#flip-4" ).on( 'slidestop', function( event ) {
+        if ($( "#flip-4" ).val() === 'on') {
+            filterValuesSet.add('chinese');
+        } else {
+            filterValuesSet.delete('chinese');
+        }
+    });
+
+    $('#filterApply').click(function () {
+        $("#collapsiblesetForFilter").empty();
+        // let minPriceRange = $('#range-1a').val();
+        // let maxPriceRange = $('#range-2a').val();
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        let merchants = "";
+        let location = '';
+        if (user) {
+            location = user['location'];
+        } else {
+            location = sessionStorage.getItem('location');
+        }
+        $.each(merchantJsonArray, function (i, merchant) {
+            let merchant_category = merchant['merchant_category'].toLowerCase();
+            if (!filterValuesSet.has(merchant_category)) {
+                return true; // continue
+            }
+            // todo implement price range filter
+            if (merchant['merchantLocation'].toLowerCase() === location.toLowerCase()) {
+                let href = '/HOMEAL/welcome_screens/SignIn.html'
+                if (user) {
+                    href = "/HOMEAL/home/Merchant.html?merchant_id=" + merchant['merchant_id'];
+                }
+                merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
+                            <a class="card" href="${href}">
+                                <div class="card-image">
+                                    <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
+                                </div>
+                                <div class="ui-grid-a">
+                                    <span class="card-title">${merchant.merchant_name}</span>
+                                    <span class="row card-rating">  <img alt="home"
+                                                                         src="../assets/icons/star_orange_18dp.png"
+                                                                         class="custom-star"/>50+ Rating</span>
+                                </div>
+                            </a>
+                        </div>`;
+            }
+        });
+        if(merchants === '') {
+            merchants = '<p> No items </p>'
+        }
+        $("#collapsiblesetForFilter").append(merchants);
+
+    })
 
     /* ******************* Do not remove this part till 2021/01/13 *****************
     $(document).on('click', '.card', function () {
