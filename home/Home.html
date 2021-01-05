@@ -122,10 +122,10 @@
     <div data-role="footer" class="fixed-bottom">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
-                <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
-                <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
-                <li><a href="#side-drawer" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+                <li><a id="nav_bar_home" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
+                <li><a id="nav_bar_orders" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+                <li><a id="nav_bar_cart" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+                <li><a href="#side-drawer"  class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
             </ul>
         </nav>
     </div>
@@ -202,6 +202,35 @@
         locationModal.popup('open');
     });
 
+    $( "#nav_bar_home" ).click(function() {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        console.log(user);
+        if(!!user) {
+            window.location.href ='./Search.html'
+        } else {
+            window.location.href ='./../welcome_screens/SignIn.html'
+        }
+    });
+
+    $( "#nav_bar_orders" ).click(function() {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        console.log(user);
+        if(!!user) {
+            window.location.href ='./../orders/Orders.html'
+        } else {
+            window.location.href ='./../welcome_screens/SignIn.html'
+        }
+    });
+
+    $( "#nav_bar_cart" ).click(function() {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        console.log(user);
+        if(!!user) {
+            //todo add the cart model to pop up
+        } else {
+            window.location.href ='./../welcome_screens/SignIn.html'
+        }
+    });
 
 </script>
 <script src="../js/location.js"></script>
