@@ -488,7 +488,9 @@
             }
         });
         if(merchants === '') {
-            merchants = '<p> No items </p>'
+            merchants = ' <div id="outer-div" >\\n\' +\n' +
+                '                \'                <div id="inner-div" style="font-weight: bold;font-variant: all-small-caps;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">No merchants items <br>available to display for <br>selected location.</div>\\n\' +\n' +
+                '                \'            </div>'
         }
         $("#collapsiblesetForFilter").append(merchants);
 
