@@ -50,6 +50,20 @@
     border: none;
 }
 
+.ui-icon-delete-popup:after {
+    background-image: url("../assets/icons/cartIcon_orange_with_items.png");
+    /* Make your icon fit */
+    background-size: 25px 25px;
+    background-color: transparent;
+    margin-top: -22%;
+}
+
+.ui-icon-delete-popup {
+    background-color: transparent !important;
+    border: none;
+}
+
+
 .ui-icon-filter:after {
     background-image: url("../assets/icons/slider.png");
     /* Make your icon fit */
