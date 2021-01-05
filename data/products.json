@@ -466,5 +466,154 @@
       ]
     }
   ]
-}
+},
+  {
+    "merchant_id": "M004",
+    "products": [
+      {
+        "product_id": "P001",
+        "product_name": "Chicken Salad",
+        "filter_text": "Chicken Salad",
+        "product_description": "Chicken Salad is good",
+        "product_img_path": "../assets/products/burgerHut/spinach-791629_1920.jpg",
+        "variant_title": "Size",
+        "variants": [
+          {
+            "name": "Small",
+            "price": 660.00,
+            "available_quantity": "45"
+          },
+          {
+            "name": "Medium",
+            "price": 720.00,
+            "available_quantity": "16"
+          },
+          {
+            "name": "Large",
+            "price": 790.00,
+            "available_quantity": "11"
+          }
+        ],
+        "reviews": [
+          {
+            "review_id": "",
+            "user_name": "Ahamed Muaaz",
+            "rating": "3",
+            "review_content": "This is a very good product",
+            "date": "2020/11/10",
+            "sellerComments": [],
+            "otherComments": []
+          }
+        ]
+      },
+      {
+        "product_id": "P002",
+        "product_name": "Egg Salad",
+        "filter_text": "Egg Salad",
+        "product_description": "Egg Salad is good",
+        "product_img_path": "../assets/products/burgerHut/flat-lay-2583212_1920.jpg",
+        "variant_title": "Size",
+        "variants": [
+          {
+            "name": "Small",
+            "price": 250.00,
+            "available_quantity": "6"
+          },
+          {
+            "name": "Medium",
+            "price": 340.00,
+            "available_quantity": "20"
+          },
+          {
+            "name": "Large",
+            "price": 420.00,
+            "available_quantity": "11"
+          }
+        ],
+        "reviews": [
+          {
+            "review_id": "",
+            "user_name": "Ahamed Muaaz",
+            "rating": "3",
+            "review_content": "This is a very good product",
+            "date": "2020/11/10",
+            "sellerComments": [],
+            "otherComments": []
+          }
+        ]
+      },
+      {
+        "product_id": "P003",
+        "product_name": "Pasta Salad",
+        "filter_text": "Pasta Salad",
+        "product_description": "Pasta Salad is good",
+        "product_img_path": "../assets/products/burgerHut/close-up-1854245_1920.jpg",
+        "variant_title": "Size",
+        "variants": [
+          {
+            "name": "Small",
+            "price": 330.00,
+            "available_quantity": "45"
+          },
+          {
+            "name": "Medium",
+            "price": 440.00,
+            "available_quantity": "16"
+          },
+          {
+            "name": "Large",
+            "price": 530.00,
+            "available_quantity": "11"
+          }
+        ],
+        "reviews": [
+          {
+            "review_id": "",
+            "user_name": "Ahamed Muaaz",
+            "rating": "3",
+            "review_content": "This is a very good product",
+            "date": "2020/11/10",
+            "sellerComments": [],
+            "otherComments": []
+          }
+        ]
+      },
+      {
+        "product_id": "P004",
+        "product_name": "Vegetable Salad",
+        "filter_text": "Vegetable Salad",
+        "product_description": "Vegetable Salad is good",
+        "product_img_path": "../assets/products/burgerHut/salad-498203_1280.jpg",
+        "variant_title": "Size",
+        "variants": [
+          {
+            "name": "Small",
+            "price": 340.00,
+            "available_quantity": "45"
+          },
+          {
+            "name": "Medium",
+            "price": 410.00,
+            "available_quantity": "16"
+          },
+          {
+            "name": "Large",
+            "price": 480.00,
+            "available_quantity": "11"
+          }
+        ],
+        "reviews": [
+          {
+            "review_id": "",
+            "user_name": "Ahamed Muaaz",
+            "rating": "3",
+            "review_content": "This is a very good product",
+            "date": "2020/11/10",
+            "sellerComments": [],
+            "otherComments": []
+          }
+        ]
+      }
+    ]
+  }
 ]
