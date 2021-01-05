@@ -29,7 +29,7 @@
 		"merchant_id": "M002",
 		"merchant_name": "Bakery House",
 		"filter_text": "Bakery House",
-		"merchantLocation": "Colombo 8",
+		"merchantLocation": "Colombo 11",
 		"sellerDetails": {
 			"seller_id": "S6585",
 			"seller_name": "Nimal Siri"
@@ -75,6 +75,32 @@
 			}
 		],
 		"tax_percentage": "3%",
+		"delivery_amount": "100"
+	},
+	{
+		"merchant_id": "M004",
+		"merchant_name": "Salads Corner",
+		"filter_text": "Salads Corner",
+		"merchantLocation": "Colombo 11",
+		"sellerDetails": {
+			"seller_id": "S8877",
+			"seller_name": "Pasindu Jaye"
+		},
+		"merchant_background_img_path": "../assets/merchants/salad-2756467.jpg",
+		"merchant_logo_img_path": "../assets/merchants/58-586387_salad-icon-hd-png-download.png",
+		"merchant_category": "Salads",
+		"product_categories": [
+			{
+				"category_name": "Pizza"
+			},
+			{
+				"category_name": "Burger"
+			},
+			{
+				"category_name": "submarine"
+			}
+		],
+		"tax_percentage": "2%",
 		"delivery_amount": "100"
 	}
 ]
