@@ -254,12 +254,19 @@ div.ui-slider {
     background-color: #EC7A23;
 }
 
-.custom-filter-delivery {
-    width: 450px;
+.update-resturant-modal {
+    width: 585px !important;
     height: 330px;
     padding: 20px;
     background-color: #EC7A23;
 }
+.custom-filter-delivery {
+    width: 350px;
+    height: 330px;
+    padding: 20px;
+    background-color: #EC7A23;
+}
+
 
 .custom-switch {
     text-align: end;
@@ -698,6 +705,11 @@ div.scrollmenu-category a {
         width: 350px !important;
         height: 100% !important;
     }
+    .update-resturant-modal {
+        width: 700px !important;
+        height: 100% !important;
+        top:30px !important;
+    }
 
     .custom-location {
         width: 350px !important;
@@ -742,6 +754,11 @@ div.scrollmenu-category a {
     }
 
     .custom-filter-delivery {
+        width: 350px !important;
+        height: 100% !important;
+    }
+
+    .update-resturant-modal{
         width: 350px !important;
         height: 100% !important;
     }
@@ -798,6 +815,12 @@ div.scrollmenu-category a {
         }
 
         .custom-filter-delivery {
+            width: 350px !important;
+            height: 100% !important;
+            margin-top: 0% !important;
+        }
+
+        .update-resturant-modal{
             width: 350px !important;
             height: 100% !important;
             margin-top: 0% !important;
