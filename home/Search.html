@@ -110,9 +110,6 @@
             <div class="col"><span id="home-nav-text">Home</span> / <span style="color: #F19B55; font-weight: bold">Search</span></div>
         </div>
 
-        <!--Cart Modal & Delivery Modal-->
-        <div id="cartModal"></div>
-
         <!--Location Modal-->
         <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
              data-overlay-theme="a" data-transition="pop">
@@ -178,7 +175,7 @@
                     <div class="col-6">
                         <div class="row">
                             <div class="col-4">
-                                <label for="flip-2">Noodles</label>
+                                <label for="flip-2">Salad</label>
                             </div>
                             <div class="col-8 custom-switch">
                                 <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
@@ -218,14 +215,14 @@
                     </div>
                 </div>
             </form>
-            <form>
+            <!--<form>
                 <div data-role="rangeslider">
                     <label for="range-1a" class="mb-3"><strong>Price Range (LKR)</strong></label>
                     <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
                     <label for="range-1b">Rangeslider:</label>
                     <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
                 </div>
-            </form>
+            </form>-->
 
             <div class="row mb-3 mt-3">
                 <div class="col-6">
@@ -305,6 +302,9 @@
 
         </div>
 
+        <!--Cart Modal & Delivery Modal
+        <div id="cartModal"></div>-->
+
         <div class="container">
             <div class="row mb-2" style="">
                 <div class="col-12 text-center" style="font-size: 14px; font-weight: bold;">
@@ -327,6 +327,8 @@
             </div>
         </div>
     </div>
+    <div id="cartModal"></div>
+
      <!--side drawer for profile section-->
     <div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="side-drawer"
          style="z-index: 1400">
@@ -429,9 +431,9 @@
     });
     $( "#flip-2" ).on( 'slidestop', function( event ) {
         if ($( "#flip-2" ).val() === 'on') {
-            filterValuesSet.add('noodles');
+            filterValuesSet.add('salads');
         } else {
-            filterValuesSet.delete('noodles');
+            filterValuesSet.delete('salads');
         }
     });
     $( "#flip-3" ).on( 'slidestop', function( event ) {
@@ -450,7 +452,8 @@
     });
 
     $('#filterApply').click(function () {
-        $("#collapsiblesetForFilter").empty();
+        let collapsiblesetForFilter = $("#collapsiblesetForFilter")
+        collapsiblesetForFilter.empty();
         // let minPriceRange = $('#range-1a').val();
         // let maxPriceRange = $('#range-2a').val();
         let user = JSON.parse(sessionStorage.getItem('user'));
@@ -466,7 +469,7 @@
             if (!filterValuesSet.has(merchant_category)) {
                 return true; // continue
             }
-            // todo implement price range filter
+            // todo close, no filter
             if (merchant['merchantLocation'].toLowerCase() === location.toLowerCase()) {
                 let href = '/HOMEAL/welcome_screens/SignIn.html'
                 if (user) {
@@ -490,7 +493,7 @@
         if(merchants === '') {
             merchants = ' <div id="outer-div" ><div id="inner-div" style="font-weight: bold;font-variant: all-small-caps;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">No merchants items <br>available to display for <br>selected location.</div></div>'
         }
-        $("#collapsiblesetForFilter").append(merchants);
+        collapsiblesetForFilter.append(merchants);
 
     })
 
@@ -517,8 +520,7 @@
             }
 
         } else {
-            let locationModal = $('#signin-required-modal');
-            locationModal.popup('open');
+            $('#signin-required-modal').popup('open');
         }
     });
 
@@ -527,8 +529,7 @@
         if(!!user) {
             window.location.href ='./../orders/Orders.html'
         } else {
-            let locationModal = $('#signin-required-modal');
-            locationModal.popup('open');
+            $('#signin-required-modal').popup('open');
         }
     });
 
@@ -537,20 +538,11 @@
         if(!!user) {
             $("#nav_bar_profile").prop("href", "#side-drawer");
         } else {
-            let locationModal = $('#signin-required-modal');
-            locationModal.popup('open');
+            $('#signin-required-modal').popup('open');
         }
     });
 
-    $( "#nav_bar_cart" ).click(function() {
-        let user = JSON.parse(sessionStorage.getItem('user'));
-        if(!!user) {
-            $( "#cartModal" ).load( "../common/Cart_N_Delivery_Modal.html" );
-        } else {
-            let locationModal = $('#signin-required-modal');
-            locationModal.popup('open');
-        }
-    });
+    $( "#cartModal" ).load( "../common/Cart_N_Delivery_Modal.html" );
 
     /* ******************* Do not remove this part till 2021/01/13 *****************
     $(document).on('click', '.card', function () {

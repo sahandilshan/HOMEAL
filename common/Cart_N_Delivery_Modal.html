@@ -1,28 +1,28 @@
 <script>
     $(document).ready(function () {
         let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
-        let cartBtn = $( "#cartBtn" );
+        let nav_bar_cart = $( "#nav_bar_cart" );
         if (cartItemsArr) {
-            cartBtn.removeClass('ui-icon-cart');
-            cartBtn.addClass('ui-icon-cart-with-items');
+            nav_bar_cart.removeClass('ui-icon-cart');
+            nav_bar_cart.addClass('ui-icon-cart-with-items');
         } else {
-            cartBtn.addClass('ui-icon-cart');
-            cartBtn.removeClass('ui-icon-cart-with-items');
+            nav_bar_cart.addClass('ui-icon-cart');
+            nav_bar_cart.removeClass('ui-icon-cart-with-items');
         }
     });
 
     $("#cart_popup").enhanceWithin().popup({
         afterclose: function () {
             let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
-            let cartBtn = $( "#cartBtn" );
+            let nav_bar_cart = $( "#nav_bar_cart" );
             if (cartItemsArr) {
-                cartBtn.removeClass('ui-icon-cart');
-                cartBtn.addClass('ui-icon-cart-with-items');
+                nav_bar_cart.removeClass('ui-icon-cart');
+                nav_bar_cart.addClass('ui-icon-cart-with-items');
             } else {
-                cartBtn.addClass('ui-icon-cart');
-                cartBtn.removeClass('ui-icon-cart-with-items');
+                nav_bar_cart.addClass('ui-icon-cart');
+                nav_bar_cart.removeClass('ui-icon-cart-with-items');
             }
-            cartBtn.removeClass("ui-btn-active");
+            nav_bar_cart.removeClass("ui-btn-active");
         }
     }).popup("close");
 
@@ -30,17 +30,19 @@
 
     }).popup("close");
 
-    $('#cartBtn').click(function () {
-        let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
-        let cartItems = '';
-        if (cartItemsArr) {
-            $( "#cartBtn" ).addClass('ui-icon-cart');
-            $( "#cartBtn" ).removeClass('ui-icon-cart-with-items');
-            cartItemsArr = cartItemsArr['items'];
-            console.log(cartItemsArr);
-            $.each(cartItemsArr, function (i, item) {
-                let totalPrice = (item['price'] * item['qty']).toFixed(2);
-                let itemHtml = `
+    $('#nav_bar_cart').click(function () {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        if(!!user) {
+            let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
+            let cartItems = '';
+            if (cartItemsArr) {
+                $( "#nav_bar_cart" ).addClass('ui-icon-cart');
+                $( "#nav_bar_cart" ).removeClass('ui-icon-cart-with-items');
+                cartItemsArr = cartItemsArr['items'];
+                console.log(cartItemsArr);
+                $.each(cartItemsArr, function (i, item) {
+                    let totalPrice = (item['price'] * item['qty']).toFixed(2);
+                    let itemHtml = `
         <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
                 <div class="col-12">
                     <div class="row" style="box-shadow: 1px 7px 19px -9px #ec7a23;border-bottom-right-radius: 18px;">
@@ -63,13 +65,16 @@
                 </div>
             </div>
         `;
-                cartItems += itemHtml;
-            });
+                    cartItems += itemHtml;
+                });
+            } else {
+                cartItems = '<p>No items available </p>';
+            }
+            $('#cartItems').html(cartItems);
+            $("#cart_popup").popup('open');
         } else {
-            cartItems = '<p>No items available </p>';
+            $('#signin-required-modal').popup('open');
         }
-        $('#cartItems').html(cartItems);
-        $("#cart_popup").popup('open');
     });
 
     $('#toCheckout').click(function () {
