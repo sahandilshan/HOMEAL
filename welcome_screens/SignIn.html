@@ -255,6 +255,12 @@
 </div>
 <script>
 
+    $(document).ready(function () {
+       sessionStorage.removeItem('user');
+       sessionStorage.removeItem('cartItems');
+       sessionStorage.removeItem('isBuyNow');
+    });
+
     $( "#sign_in_btn" ).click(function() {
         let username = $("#user_name").val();
         let password = $("#user_password").val();
