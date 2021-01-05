@@ -101,7 +101,50 @@
             </div>
         </div>
 
+        <!--Cart Modal & Delivery Modal-->
+        <div id="cartModal"></div>
+
+        <!--sig-in confirmation modal-->
+        <div data-role="popup" id="signin-required-modal" style=" width: 300px !important;" data-position-to="window"
+             data-overlay-theme="a"
+             data-transition="pop">
+            <div class="row mt-3">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button" style="padding-right: 25px;">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <div style="text-align: -webkit-center;">
+
+            </div>
+
+            <div class="container">
+                <div class="row mb-2" style="">
+                    <div class="col-12 text-center" style="font-size: 14px; font-weight: bold;">
+                        You need to login to buy something!
+                        Please click proceed to login.
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="row col-12 m-0 p-0 mt-3">
+                            <div class="col-6 m-0 p-0">
+                                <button class="border  rounded-pill mr-1 text-white" style="background-color:#282F33;color: white; text-decoration: none; font-size:14px;font-weight: normal">Cancel</button>
+
+                            </div>
+                            <div class="col-6 m-0 p-0">
+                                <button class="border rounded-pill ml-1 text-white" style="background-color:#EC7A23;color: white; font-size:14px;text-decoration: none; font-weight: normal"
+                                                                                onclick='window.location.href="../welcome_screens/SignIn.html"'>Proceed</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
+
 
     <!--Footer-->
     <div class="footer">
@@ -125,7 +168,7 @@
                 <li><a id="nav_bar_home" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
                 <li><a id="nav_bar_orders" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
                 <li><a id="nav_bar_cart" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
-                <li><a href="#side-drawer"  class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+                <li><a id="nav_bar_profile"  class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
             </ul>
         </nav>
     </div>
@@ -204,7 +247,6 @@
 
     $( "#nav_bar_home" ).click(function() {
         let user = JSON.parse(sessionStorage.getItem('user'));
-        console.log(user);
         if(!!user) {
             let location = '';
             location = user['location'];
@@ -216,27 +258,38 @@
             }
 
         } else {
-            window.location.href ='./../welcome_screens/SignIn.html'
+            let locationModal = $('#signin-required-modal');
+            locationModal.popup('open');
         }
     });
 
     $( "#nav_bar_orders" ).click(function() {
         let user = JSON.parse(sessionStorage.getItem('user'));
-        console.log(user);
         if(!!user) {
             window.location.href ='./../orders/Orders.html'
         } else {
-            window.location.href ='./../welcome_screens/SignIn.html'
+            let locationModal = $('#signin-required-modal');
+            locationModal.popup('open');
         }
     });
 
     $( "#nav_bar_cart" ).click(function() {
         let user = JSON.parse(sessionStorage.getItem('user'));
-        console.log(user);
         if(!!user) {
-            //todo add the cart model to pop up
+            $( "#cartModal" ).load( "../common/Cart_N_Delivery_Modal.html" );
         } else {
-            window.location.href ='./../welcome_screens/SignIn.html'
+            let locationModal = $('#signin-required-modal');
+            locationModal.popup('open');
+        }
+    });
+
+    $( "#nav_bar_profile" ).click(function() {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        if(!!user) {
+            $("#nav_bar_profile").prop("href", "#side-drawer");
+        } else {
+            let locationModal = $('#signin-required-modal');
+            locationModal.popup('open');
         }
     });
 
