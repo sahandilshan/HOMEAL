@@ -318,7 +318,8 @@
       ]
     }
   ]
-},  {
+},
+  {
   "merchant_id": "M003",
   "products": [
     {
@@ -475,7 +476,7 @@
         "product_name": "Chicken Salad",
         "filter_text": "Chicken Salad",
         "product_description": "Chicken Salad is good",
-        "product_img_path": "../assets/products/burgerHut/spinach-791629_1920.jpg",
+        "product_img_path": "../assets/products/saladsCorner/spinach-791629_1920.jpg",
         "variant_title": "Size",
         "variants": [
           {
@@ -511,7 +512,7 @@
         "product_name": "Egg Salad",
         "filter_text": "Egg Salad",
         "product_description": "Egg Salad is good",
-        "product_img_path": "../assets/products/burgerHut/flat-lay-2583212_1920.jpg",
+        "product_img_path": "../assets/products/saladsCorner/flat-lay-2583212_1920.jpg",
         "variant_title": "Size",
         "variants": [
           {
@@ -547,7 +548,7 @@
         "product_name": "Pasta Salad",
         "filter_text": "Pasta Salad",
         "product_description": "Pasta Salad is good",
-        "product_img_path": "../assets/products/burgerHut/close-up-1854245_1920.jpg",
+        "product_img_path": "../assets/products/saladsCorner/close-up-1854245_1920.jpg",
         "variant_title": "Size",
         "variants": [
           {
@@ -583,7 +584,7 @@
         "product_name": "Vegetable Salad",
         "filter_text": "Vegetable Salad",
         "product_description": "Vegetable Salad is good",
-        "product_img_path": "../assets/products/burgerHut/salad-498203_1280.jpg",
+        "product_img_path": "../assets/products/saladsCorner/salad-498203_1280.jpg",
         "variant_title": "Size",
         "variants": [
           {
