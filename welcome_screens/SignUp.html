@@ -15,6 +15,66 @@
 
     <title>SignUp</title>
     <style>
+        .switch {
+            top: 32px;
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #EC7A23;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #EC7A23;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 20px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
         .ui-page {
             background: #282F33;
         }
@@ -107,6 +167,26 @@
             .font-3{
                 font-size: 14px !important;
             }
+            .switch {
+                top: 30px;
+
+                width: 48px;
+                height: 19px;
+            }
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 16px;
+                width: 20px;
+                left: 3px;
+                bottom: 2px;
+
+            }
+            input:checked + .slider:before {
+                -webkit-transform: translateX(22px);
+                -ms-transform: translateX(22px);
+                transform: translateX(22px);
+            }
 
 
         }
@@ -153,6 +233,24 @@
             }
             .font-3{
                 font-size: 13px !important;
+            }
+            .switch {
+                top: 27px;
+                width: 48px;
+                height: 18px;
+            }
+            .slider:before {
+
+                height: 15px;
+                width: 20px;
+                left: 3px;
+                bottom: 2px;
+
+            }
+            input:checked + .slider:before {
+                -webkit-transform: translateX(22px);
+                -ms-transform: translateX(22px);
+                transform: translateX(22px);
             }
         }
 
@@ -217,39 +315,48 @@
     </div>
     <div class="signupcard container">
         <div >
+
             <div class="col-12 sign-in-text">Sign Up</div>
 
 
             <div class="row justify-content-center">
-                <div class="col-10"><input class="font-3" type="text" placeholder="Name"></div>
+                <div class="col-10"><input class="font-3" id="signup-name" type="text" placeholder="Name" onkeypress="remove_err()"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10"><input class="font-3" type="email" placeholder="Email"></div>
+                <div class="col-10"><input class="font-3" id="signup-email" type="email" placeholder="Email" onkeypress="remove_err()"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10"><input class="font-3" type="password" placeholder="Password"></div>
+                <div class="col-10"><input class="font-3" id="signup-password" type="password" placeholder="Password" onkeypress="remove_err()"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10"><input class="font-3" type="password" placeholder="Confirm Password"></div>
+                <div class="col-10"><input class="font-3" id="signup-confirm-password" type="password" placeholder="Confirm Password" onkeypress="remove_err()"></div>
             </div>
             <div class="row justify-content-center">
-                <div style="color: black" class="col-6 pull-left"> <label style="color: black" class="font-2">Merchant
-                    Acccount</label></div>
-                <div class="col-4  text-right" style="color: black" >
-                            <select name="flip-7" id="flip-7" data-role="flipswitch" data-mini="true">
-                                
-                    <option value="off" class="font-2">Off</option>
-                                
-                    <option value="on">On</option>
-                            </select>
-                </div>
+                <div style="color: red" id="login-err-message"class="col-10 text-center font-2"></div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <button class="font-2" style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
+                    <div class="row">
+                <div style="color: black" class="col-8"> <label style="color: black" class="font-2">Merchant
+                    Acccount</label>
+                </div>
+                    <div class="col-4 ">
+                <label class="switch pull-right" data-role="none">
+                    <input type="checkbox" id="merchant_acc" data-role="none">
+                    <span class="slider round"></span>
+                </label>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <button class="font-2" id="sign_up_btn" style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
                         Sign Up
                     </button>
                 </div>
+
             </div>
 
             <div style="color: black" class="text-center font-2"> Already Have an Account? <span
@@ -259,4 +366,58 @@
     </div>
 </div>
 </body>
+<script>
+    //function to validate email
+    function validateEmail($email) {
+        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+        return emailReg.test( $email );
+    }
+
+    //function to remove error message
+    function remove_err() {
+        $('#login-err-message').text('');
+    }
+
+    //on submit function and validation checks
+    $( "#sign_up_btn" ).click(function() {
+        let name=$.trim($('#signup-name').val());
+        let email=$.trim($('#signup-email').val());
+        let password=$.trim($('#signup-password').val());
+        let confirmPassword=$.trim($('#signup-confirm-password').val());
+
+        console.log( $('#merchant_acc').is(":checked"));
+        if(name!=''){
+           remove_err();
+            if(email!=''){
+                if(validateEmail(email)){
+                   remove_err();
+                    if(password!=''&& confirmPassword!=''){
+                        remove_err();
+                        if(password==confirmPassword){
+                            $('#login-err-message').text('');
+
+                            var new_user = {}
+                            new_user ["user_id"] = '';
+                            new_user ["user_name"] = name;
+                            new_user["user_password"]=password;
+                            new_user ["email"] = email;
+                            new_user ["image"] = 'src';
+                            new_user ["mobile_no"] = '077';
+                            if($('#merchant_acc').is(":checked")){
+                                new_user ["user_type"] = 'merchant';}
+                            else{new_user ["user_type"] = 'customer'}
+                            new_user ["location"] = '';
+                            new_user ["favorites_list"] = [];
+                            sessionStorage.setItem('new_user', JSON.stringify(new_user));
+                            window.location.href='MobileNumberVerification.html';
+
+                        } else { $('#login-err-message').text("Please enter matching passwords");}
+                    } else { $('#login-err-message').text("Please fill password fields");}
+                } else{$('#login-err-message').text('Please enter a valid Email');}
+            } else{$('#login-err-message').text('Please enter a valid Email');}
+        } else{
+            $('#login-err-message').text('Please enter your name');
+        }});
+
+</script>
 </html>

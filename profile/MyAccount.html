@@ -269,7 +269,11 @@
             $('#user_name').text(user.user_name);
             $('#email').text(user.email);
             $('#mobile_number').text(user.mobile_no);
+            if(user['image']=='src'){
+                $("#user_image").attr("src","../assets/otherImages/Men-Profile-Image.png");
+            }else{
             $("#user_image").attr("src",user.image);
+            }
         }
         catch(err) {
             console.log("Failed to get user details")

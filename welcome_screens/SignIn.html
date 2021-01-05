@@ -220,10 +220,15 @@
 
 
             <div class="row justify-content-center">
-                <div class="col-10"><input class="font-3" type="text" placeholder="User Name" id="user_name" onchange="msg()"></div>
+                <div class="col-10"><input class="font-3" type="text" placeholder="User Name" id="user_name" onkeypress="msg()"></div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-10"><input class="font-3" type="password" placeholder="Password" id="user_password" onchange="msg()"></div>
+                <div class="col-10"><input class="font-3" type="password" placeholder="Password" id="user_password" onkeypress="msg()"></div>
+            </div>
+            <div class="row justify-content-center">
+
+
+                <div style="color: red" id="login-err-message"class="col-10 d-none text-center font-2">You have entered an invalid username or password</div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-10">
@@ -232,11 +237,7 @@
                     </button>
                 </div>
             </div>
-            <div class="row justify-content-center">
 
-
-            <div style="color: red" id="login-err-message"class="col-10 d-none text-center font-2">You have entered an invalid username or password</div>
-            </div>
             <div style="color: black;cursor: pointer" class="text-center font-2" onclick='window.location.href="ResetPassword.html"'>Forgot Password?</div>
             <hr>
             <div class="row justify-content-center">
@@ -289,8 +290,6 @@
             $('#login-err-message').addClass('d-block');
         }
     });
-
-
     function msg() {
         $('#login-err-message').removeClass('d-block')
         $('#login-err-message').addClass('d-none');

@@ -239,9 +239,11 @@
 
 
             <div class="row justify-content-center">
-                <div class="col-10" style="margin-bottom: 2%"><input class="font-3" style="box-shadow: 0px 5px 9px 4px #80808024" type="text" placeholder="0778462575"></div>
+                <div class="col-10" style="margin-bottom: 2%"><input class="font-3" id="mobile_number"style="box-shadow: 0px 5px 9px 4px #80808024" type="number" placeholder="0778462575" onkeypress="remove_err()"></div>
             </div>
-
+            <div class="row justify-content-center">
+                <div style="color: red" id="err-message"class="col-10 text-center font-2"></div>
+            </div>
             <hr>
 
 
@@ -253,11 +255,12 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <button class="font-2" style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
+                    <button class="font-2" id="mobile_verify"style="background-color:#EC7A23 !important;color:white;text-shadow: none!important;border-radius:20px">
                         Continue
                     </button>
                 </div>
             </div>
+
 
             <div style="color: #ec7a23" class="text-center font-2" onclick='window.location.href="SignIn.html"'><b>Back to Log In</b></div>
         </div>
@@ -265,4 +268,21 @@
 
 </div>
 </body>
+<script>
+    function remove_err() {
+        $('#err-message').text('');
+    }
+    $( "#mobile_verify" ).click(function() {
+        let mobile_number=$.trim($('#mobile_number').val());
+        if(mobile_number!=''){
+            remove_err();
+            var new_user = JSON.parse(sessionStorage.getItem("new_user"));
+            new_user['mobile_no']=mobile_number;
+            sessionStorage.setItem('new_user', JSON.stringify(new_user));
+            window.location.href='OTP.html';
+        }
+        else {$('#err-message').text('Please Enter a Valid Mobile Number');}
+    });
+
+</script>
 </html>
