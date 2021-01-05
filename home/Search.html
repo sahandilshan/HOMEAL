@@ -286,47 +286,8 @@
         </div>
     </div>
 
-    <!--sig-in confirmation modal-->
-    <div data-role="popup" id="signin-required-modal" style=" width: 300px !important;" data-position-to="window"
-         data-overlay-theme="a"
-         data-transition="pop">
-        <div class="row mt-3">
-            <div class="col-8">
-            </div>
-            <div class="col-4 custom-close-button" style="padding-right: 25px;">
-                <a href="#" data-rel="back" data-role="button" data-transition="pop"
-                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
-            </div>
-        </div>
-        <div style="text-align: -webkit-center;">
-
-        </div>
-
-        <!--Cart Modal & Delivery Modal
+    <!--Cart Modal & Delivery Modal
         <div id="cartModal"></div>-->
-
-        <div class="container">
-            <div class="row mb-2" style="">
-                <div class="col-12 text-center" style="font-size: 14px; font-weight: bold;">
-                    You need to login to buy something!
-                    Please click proceed to login.
-                </div>
-                <div class="col-12 mb-3">
-                    <div class="row col-12 m-0 p-0 mt-3">
-                        <div class="col-6 m-0 p-0">
-                            <button class="border  rounded-pill mr-1 text-white" style="background-color:#282F33;color: white; text-decoration: none; font-size:14px;font-weight: normal">Cancel</button>
-
-                        </div>
-                        <div class="col-6 m-0 p-0">
-                            <button class="border rounded-pill ml-1 text-white" style="background-color:#EC7A23;color: white; font-size:14px;text-decoration: none; font-weight: normal"
-                                    onclick='window.location.href="../welcome_screens/SignIn.html"'>Proceed</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="cartModal"></div>
 
      <!--side drawer for profile section-->
@@ -452,10 +413,13 @@
     });
 
     $('#filterApply').click(function () {
+        let isTemp = false;
+        if (filterValuesSet.size === 0) {
+            filterValuesSet.add('chinese').add('pizza').add('bakery').add('salads'); // add all available categories
+            isTemp = true;
+        }
         let collapsiblesetForFilter = $("#collapsiblesetForFilter")
         collapsiblesetForFilter.empty();
-        // let minPriceRange = $('#range-1a').val();
-        // let maxPriceRange = $('#range-2a').val();
         let user = JSON.parse(sessionStorage.getItem('user'));
         let merchants = "";
         let location = '';
@@ -469,7 +433,6 @@
             if (!filterValuesSet.has(merchant_category)) {
                 return true; // continue
             }
-            // todo close, no filter
             if (merchant['merchantLocation'].toLowerCase() === location.toLowerCase()) {
                 let href = '/HOMEAL/welcome_screens/SignIn.html'
                 if (user) {
@@ -494,8 +457,11 @@
             merchants = ' <div id="outer-div" ><div id="inner-div" style="font-weight: bold;font-variant: all-small-caps;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">No merchants items <br>available to display for <br>selected location.</div></div>'
         }
         collapsiblesetForFilter.append(merchants);
-
-    })
+        if (isTemp) {
+            filterValuesSet.clear();
+        }
+        $('#popupBasic').popup('close');
+    });
 
     $( "#home-nav-text" ).click(function() {
         let user = JSON.parse(sessionStorage.getItem('user'));
@@ -515,8 +481,7 @@
             if (!!location) {
                 window.location.href ='./Search.html'
             }else{
-                let locationModal = $('#popupBasicLocation');
-                locationModal.popup('open');
+                $('#popupBasicLocation').popup('open');
             }
 
         } else {
