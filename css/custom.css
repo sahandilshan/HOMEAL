@@ -228,7 +228,7 @@ div.ui-slider {
 
 .custom-filter {
     width: 450px;
-    height: 330px;
+    height: 245px;
     padding: 20px;
     background-color: #EC7A23;
 }
@@ -251,6 +251,9 @@ div.ui-slider {
     text-align: end;
 }
 
+.ui-slider-track .ui-btn-active {
+    background-color: #F19B55 !important;
+}
 .favorite-container {
     text-align: -webkit-right !important;
 }
@@ -674,7 +677,7 @@ div.scrollmenu-category a {
 
     .custom-filter {
         width: 350px !important;
-        height: 320px !important;
+        height: 245px !important;
     }
 
     .custom-filter-delivery {
@@ -716,7 +719,7 @@ div.scrollmenu-category a {
 
     .custom-filter {
         width: 350px !important;
-        height: 320px !important;
+        height: 245px !important;
     }
 
     .custom-filter-cart {
@@ -772,7 +775,7 @@ div.scrollmenu-category a {
 
         .custom-filter {
             width: 350px !important;
-            height: 320px !important;
+            height: 245px !important;
         }
 
         .custom-filter-cart {
