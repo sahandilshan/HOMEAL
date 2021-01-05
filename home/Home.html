@@ -206,7 +206,15 @@
         let user = JSON.parse(sessionStorage.getItem('user'));
         console.log(user);
         if(!!user) {
-            window.location.href ='./Search.html'
+            let location = '';
+            location = user['location'];
+            if (!!location) {
+                window.location.href ='./Search.html'
+            }else{
+                let locationModal = $('#popupBasicLocation');
+                locationModal.popup('open');
+            }
+
         } else {
             window.location.href ='./../welcome_screens/SignIn.html'
         }
