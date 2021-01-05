@@ -107,7 +107,7 @@
             </div>
         </div>
         <div class="row mt-n3">
-            <div class="col">Home/Search</div>
+            <div class="col"><span id="home-nav-text">Home</span> / <span style="color: #F19B55; font-weight: bold">Search</span></div>
         </div>
 
         <!--Location Modal-->
@@ -396,6 +396,16 @@
         $("#collapsiblesetForFilter").append(merchants);
 
     })
+
+    $( "#home-nav-text" ).click(function() {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        console.log(user);
+        if(!!user) {
+
+        } else {
+            window.location.href ='./Home.html'
+        }
+    });
 
     /* ******************* Do not remove this part till 2021/01/13 *****************
     $(document).on('click', '.card', function () {

@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="row mt-n3">
-            <div class="col">Home/Search</div>
+            <div class="col"><span id="home-nav-text">Home</span> / <span id="search-nav-text"> Search </span> / <span style="color: #F19B55; font-weight: bold">Merchant</span></div>
         </div>
 
         <!--Location Modal-->
@@ -382,7 +382,6 @@
 
                             <div class="container" style=" max-width: 100% !important;">
                                 <div class="scrollmenu">
-                                    <a href="#home">All</a>
                                     <a href="#news">Sri Lankan</a>
                                     <a href="#contact">Asian</a>
                                     <a href="#about">Indian</a>
@@ -803,7 +802,17 @@
 
     $( "#cartModal" ).load( "../common/Cart_N_Delivery_Modal.html" );
 
+    $( "#home-nav-text" ).click(function() {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        if(!!user) {
 
+        } else {
+            window.location.href ='./Home.html'
+        }
+    });
+    $( "#search-nav-text" ).click(function() {
+        window.location.href ='./Search.html'
+    });
 </script>
 
 </html>
