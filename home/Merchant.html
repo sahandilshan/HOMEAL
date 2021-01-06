@@ -538,7 +538,10 @@
         console.log(selected_product_id);
         let product = getProduct(selected_product_id);
         //set header image;
-        $('#prd-modal-header').css('background-image', 'url(' + product['product_img_path'] + ')');
+        $('#prd-modal-header').css('background-image', ' linear-gradient(\n' +
+            '            rgba(0, 0, 0, 0.45),\n' +
+            '            rgba(0, 0, 0, 0.45)\n' +
+            '    ), url(' + product['product_img_path'] + ')');
         let productModel = $("#productModel");
         $("#prdModal-productName").text(product['product_name']);
         $("#prdModal-productDescription").text(product['product_description']);
