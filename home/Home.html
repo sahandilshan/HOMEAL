@@ -129,7 +129,7 @@
                     <div class="col-12 mb-3">
                         <div class="row col-12 m-0 p-0 mt-3">
                             <div class="col-6 m-0 p-0">
-                                <button class="border  rounded-pill mr-1 text-white" style="background-color:#282F33;color: white; text-decoration: none; font-size:14px;font-weight: normal">Cancel</button>
+                                <button class="border  rounded-pill mr-1 text-white" id="btnCancel" style="background-color:#282F33;color: white; text-decoration: none; font-size:14px;font-weight: normal">Cancel</button>
 
                             </div>
                             <div class="col-6 m-0 p-0">
@@ -291,6 +291,10 @@
             let locationModal = $('#signin-required-modal');
             locationModal.popup('open');
         }
+    });
+
+    $('#btnCancel').click(function () {
+        $('#signin-required-modal').popup('close');
     });
 
 </script>
