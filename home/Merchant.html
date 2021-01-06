@@ -16,6 +16,48 @@
     <link rel="stylesheet" href="../css/custom.css"/>
 </head>
 <style>
+    #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #ff8600;
+        color: #ffffff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 6px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 70px;
+        font-size: 14px;
+    }
+
+    #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
     .radio-item {
         position: relative;
         padding: 0 6px;
@@ -375,6 +417,7 @@
             </ul>
         </nav>
     </div>
+    <div id="snackbar">Product Added to the cart.</div>
 </div>
 </body>
 
@@ -778,6 +821,13 @@
         }
         $( "#nav_bar_cart" ).removeClass('ui-icon-cart');
         $( "#nav_bar_cart" ).addClass('ui-icon-cart-with-items');
+        let productModel = $("#productModel");
+        productModel.popup( "close" );
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+
+
     });
 
     $( "#buyNow" ).click(function() {
