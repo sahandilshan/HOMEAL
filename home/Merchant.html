@@ -405,22 +405,33 @@
     <div data-role="footer" id="bottom-nav" class="fixed-bottom">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
-                <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
-                <!--<li><a href="#cart_popup" data-rel="popup" data-transition="pop"
-                       class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>-->
-                <li><a href="#" id="nav_bar_cart" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
-                <!--<li><a href="#delivery_details" data-rel="popup" data-transition="pop"
-                       class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>-->
-                <li><a href="/HOMEAL/profile/Favorites.html" data-rel="popup" data-transition="pop"
-                       class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+                <li><a id="nav_bar_home" class="ui-btn ui-icon-home ui-btn-icon-top ui-state-persist">Home</a></li>
+                <li><a id="nav_bar_orders" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+                <li><a id="nav_bar_cart" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+                <li><a id="nav_bar_profile" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
             </ul>
         </nav>
+    </div>
+
+    <div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="side-drawer"
+         style="z-index: 1400">
+                
+        <div><img src="../assets/logos/MainLight.png" class="side-drawer-logo"></div>
+        <ul data-role="listview">
+            <li data-icon="false"><a onclick='window.location.href="../profile/MyAccount.html"' class="side-drawer-option">My Account</a></li>
+            <li data-icon="false"><a href="#" class="side-drawer-option">Location</a></li>
+            <li data-icon="false"><a href="Merchant.html" class="side-drawer-option"> Payment</a></li>
+            <li data-icon="false"><a  onclick='window.location.href="../profile/Help-about.html"' class="side-drawer-option">Help/About</a></li>
+            <li data-icon="false"><a  onclick='window.location.href="../profile/Favorites.html"' class="side-drawer-option"> Favorites</a></li>
+            <li data-icon="false"><a  onclick='window.location.href="../profile/Acheivements.html"' class="side-drawer-option">Acheivements</a></li>
+            <li data-icon="false"><a href="#" class="side-drawer-option">Logout</a></li>
+        </ul>
+            
     </div>
     <div id="snackbar">Product Added to the cart.</div>
 </div>
 </body>
-
+<script src="../js/common.js"></script>
 <script>
 
     let merchant_id = '';
