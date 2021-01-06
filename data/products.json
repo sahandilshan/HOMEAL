@@ -509,8 +509,8 @@
       },
       {
         "product_id": "P002",
-        "product_name": "Egg Salad",
-        "filter_text": "Egg Salad",
+        "product_name": "Egg Vegi Salad",
+        "filter_text": "Egg Vegi Salad",
         "product_description": "Egg Salad is good",
         "product_img_path": "../assets/products/saladsCorner/flat-lay-2583212_1920.jpg",
         "variant_title": "Size",
@@ -545,8 +545,8 @@
       },
       {
         "product_id": "P003",
-        "product_name": "Pasta Salad",
-        "filter_text": "Pasta Salad",
+        "product_name": "Pasta Vegi Salad",
+        "filter_text": "Egg Vegi Salad",
         "product_description": "Pasta Salad is good",
         "product_img_path": "../assets/products/saladsCorner/close-up-1854245_1920.jpg",
         "variant_title": "Size",

@@ -579,7 +579,9 @@ div.scrollmenu-category a {
     margin-right: -16px !important;
     margin-left: -16px !important;
     margin-top: -2px !important;
-
+    padding-top: 10px !important;
+    border-top-left-radius: 10px ;
+    border-top-right-radius: 10px ;
 }
 
 .prd-modal-discount-card {
@@ -735,7 +737,7 @@ div.scrollmenu-category a {
 @media only screen and (max-height: 680px) {
     /*when height is less than ipad landscape(iPhone Landscape Mode)*/
     .img-fluid {
-        height: 22px !important;
+        height: 25px !important;
     }
 
     .main {
