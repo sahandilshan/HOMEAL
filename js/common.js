@@ -6,8 +6,7 @@ $( "#nav_bar_home" ).click(function() {
         if (!!location) {
             window.location.href ='../home/Search.html'
         }else{
-            let locationModal = $('#popupBasicLocation');
-            locationModal.popup('open');
+            window.location.href ='../home/Home.html'
         }
 
     } else {
@@ -44,4 +43,8 @@ $( "#nav_bar_profile" ).click(function() {
         let locationModal = $('#signin-required-modal');
         locationModal.popup('open');
     }
+});
+$( "#profile_logout" ).click(function() {
+    sessionStorage.removeItem('user');
+    window.location.replace('../welcome_screens/SignIn.html');
 });
