@@ -7,10 +7,31 @@
         border-radius: 5px !important;
         margin: auto !important;
         width: 85% !important;
+        text-shadow: none !important;
+    }
+    .btn-edit{
+        background-color: #282F33 !important;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        background-image: url(../assets/icons/edit_icon.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 28px 28px;
+    }
+    .btn-delete{
+        border-bottom-right-radius: 11px;
+        border-top-right-radius: 11px;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        background-image: url(../assets/icons/delete_icon.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 28px 28px;
     }
     .label-price{
         margin-top: -3% !important;
         padding-bottom: 5px !important;
+        padding-left:15px !important;
         font-size: 1.1rem !important;
     }
 
@@ -18,11 +39,14 @@
         margin-top: 0 !important;
     }
     .font2 {
-     font-size: 1.3rem !important;
+     font-size: 1.15rem !important;
+    }
+    .font1 {
+     font-size: 1.5rem !important;
     }
 
     .cart-card{
-        width: 425px !important;
+        width: 430px !important;
         padding-bottom: 20px !important;
     }
 
@@ -30,15 +54,15 @@
     /***********************iphone potrait*************************/
     @media only screen and (max-width: 376px) {
         .cart-card{
-            width: 320px !important;
+            width: 340px !important;
             padding-bottom: 0px !important;
         }
         .font2{
-         font-size: 0.9rem !important;
+         font-size: 0.85rem !important;
         }
         .label-price{
             padding-top: 3px !important;
-            font-size: 0.9rem !important;
+            font-size: 0.85rem !important;
         }
         .btn-check-out {
             background-color: #EC7A23 !important;
@@ -47,7 +71,16 @@
             margin: auto !important;
             text-shadow: none !important;
             width: 90% !important;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+        }
+        .btn-edit{
+            background-size: 22px 22px;
+        }
+        .btn-delete{
+            background-size: 22px 22px;
+        }
+        .font1 {
+            font-size: 1.1rem !important;
         }
     }
 
@@ -55,7 +88,7 @@
     @media only screen and (max-width: 667px) and (min-width: 376px) {
 
         .cart-card{
-            width: 320px !important;
+            width: 325px !important;
             padding-bottom: 0px !important;
         }
         .font2 {
@@ -74,6 +107,15 @@
             text-shadow: none !important;
             font-size: 0.8rem;
         }
+        .btn-edit{
+            background-size: 22px 22px;
+        }
+        .btn-delete{
+            background-size: 22px 22px;
+        }
+        .font1 {
+            font-size: 1.1rem !important;
+        }
     }
 
 </style>
@@ -82,7 +124,7 @@
      data-transition="pop" style="border-bottom-right-radius: 50px;padding:20px">
     <div class="row mb-2">
         <div class="col-9 text-center">
-            <label style="position: relative;padding-left:70px;" class=""><strong>Mini Cart</strong> </label>
+            <label style="position: relative;padding-left:70px;" ><strong class="font1">Mini Cart</strong> </label>
         </div>
         <div class="col-3 custom-close-button">
             <a href="#" data-rel="back" data-role="button" data-transition="pop"
@@ -98,7 +140,7 @@
 
     <div class="row mb-2">
         <div class="col-sm-6 col-6">
-            <label><strong>Your Cart</strong> </label>
+            <label><strong class="font2" style=" padding-left:15px !important;">Your Cart</strong> </label>
         </div>
         <div class="col-sm-6 col-6">
             <label class="font2" style="float: right;
@@ -399,20 +441,14 @@
                     <div class="row" style="box-shadow: 1px 7px 19px -9px #ec7a23;border-bottom-right-radius: 18px;">
                         <div class="col-lg-8 col-md-8 col-sm-8 col-8">
                             <div class="row">
-                            <label class="font2 text-left"><b>${item['product_name']}</b> (${item['variant']} x ${item['qty']})</label>
+                            <label class="font2 text-left" style=" padding-left:15px !important;"><b>${item['product_name']}</b> (${item['variant']} x ${item['qty']})</label>
                             </div><div class="row">
                             <label class="label-price ">LKR ${totalPrice}</label></div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 ui-btn ui-icon-cart ui-btn-icon-top"
-                             style="margin-top: inherit;
-                            margin-bottom: inherit;">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 btn-edit ui-btn">
                         </div>
 
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 ui-btn ui-icon-cart ui-btn-icon-top"
-                             style="margin-top: inherit;
-                            margin-bottom: inherit;
-                            border-bottom-right-radius: 11px;
-                            border-top-right-radius: 11px;">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 ui-btn btn-delete">
                         </div>
                     </div>
                 </div>
