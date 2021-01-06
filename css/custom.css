@@ -417,6 +417,19 @@ div.ui-slider {
     color: white;
 }*/
 
+::placeholder {
+    color: #ffa45a;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #ffa45a;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #ffa45a;
+}
+
 .merchantLogo {
     width: 65px;
     height: 65px;
