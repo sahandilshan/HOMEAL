@@ -200,14 +200,46 @@
         <div class="mr-2 ml-2 mt-n4">
             <div class="row m-0 pl-3 pr-3 mb-4">
                 <div class="col-12 m-0 p-0">
-                    <span class="pb-2 text-black order-type-tab-bar" style="border-bottom: 3px solid #ec7a23;">Ongoing Orders (3)</span>
-                    <span class="ml-3 pb-2 text-black order-type-tab-bar" style="border-bottom: 3px solid #bebbb7;">Past Orders (2)</span>
+                    <span class="pb-2 text-black order-type-tab-bar" id="ongoingOrdersTab"
+                          style="border-bottom: 3px solid #ec7a23;">Ongoing Orders (3)</span>
+                    <span class="ml-3 pb-2 text-black order-type-tab-bar" id="pastOrdersTab"
+                          style="border-bottom: 3px solid #bebbb7;">Past Orders (2)</span>
                 </div>
             </div>
         </div>
-        <div class="container row m-0" style="max-width:100%">
+        <!--Ongoing Orders-->
+        <div class="container row m-0" id="onGoingOrders" style="max-width:100%">
+
+            <!--<div class="col-sm-12 col-md-6 p-1">
+                <div class="maintxt prd-1-normal">
+                    <div class="container overlay-text mt-2 pt-2 pb-2">
+                        <div class="row col-12 m-0  p-0">
+                            <div class="col-12 m-0 p-0">
+                                <h5 class="text-white">Order #2121</h5>
+                            </div>
+                        </div>
+                        <div class="row m-0">
+                            <div class="col-6 m-0 p-0">
+                                <span class="pb-3 text-white" style="font-size: 14px">Total LKR1050.00</span>
+                            </div>
+                            <div class="col-6 m-0 p-0" style="text-align: end !important ">
+                                <span class="pb-3 text-white prd-1-normal-down">^</span>
+                            </div>
+                        </div>
+                        <div class="row col-12 m-0 p-0 pb-1">
+                            <div class="col-12 m-0 p-0">
+                                <span class="text-white pl-1 pr-2 order-status-container">COMPLETED</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+
+        <!--Past orders-->
+        <div class="container row m-0" id="pastOrders" style="max-width:100%">
             <div class="col-sm-12 col-md-6 p-1">
-                <div id="prd-1-extended">
+                <div class="prd-1-extended">
                     <div class="maintxt" style="height: 240px">
 
                         <div class="container overlay-text mt-2 pt-2">
@@ -267,7 +299,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-6 p-1">
-                <div class="maintxt" id="prd-1-normal">
+                <div class="maintxt prd-1-normal">
                     <div class="container overlay-text mt-2 pt-2 pb-2">
                         <div class="row col-12 m-0  p-0">
                             <div class="col-12 m-0 p-0">
@@ -279,7 +311,7 @@
                                 <span class="pb-3 text-white" style="font-size: 14px">Total LKR1050.00</span>
                             </div>
                             <div class="col-6 m-0 p-0" style="text-align: end !important ">
-                                <span class="pb-3 text-white" id="prd-1-normal-down">^</span>
+                                <span class="pb-3 text-white prd-1-normal-down">^</span>
                             </div>
                         </div>
                         <div class="row col-12 m-0 p-0 pb-1">
@@ -296,7 +328,7 @@
         <!--*******************food preparing modal****************************-->
         <div data-role="popup" id="popupTrack" style=" width: 300px !important;
         height: 350px!important;" data-position-to="window" data-overlay-theme="a"
-             data-transition="pop">
+             data-history="false" data-transition="pop">
             <div class="row mt-3">
                 <div class="col-8">
                 </div>
@@ -306,11 +338,11 @@
                 </div>
             </div>
             <div style="text-align: -webkit-center;">
-                <img id="gifName" src="./../assets/gifs/31454-food-prepared-food-app.gif" alt="this slowpoke moves"
+                <img alt="this slowpoke moves" id="popupTrackImg" src="./../assets/gifs/31454-food-prepared-food-app.gif"
                      width=200/>
             </div>
             <div class="row mb-2" style="text-align: -webkit-center;">
-                <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
+                <div class="col-12 text-black" id="popupTrackText" style="font-size: 18px; font-weight: bold;">
                     Food is Preparing
                 </div>
             </div>
@@ -330,7 +362,7 @@
                 </div>
             </div>
             <div style="text-align: -webkit-center;">
-                <img id="gifName" src="./../assets/gifs/21653-delivery-guy-out-for-delivery.gif"
+                <img  src="./../assets/gifs/21653-delivery-guy-out-for-delivery.gif"
                      alt="this slowpoke moves"
                      width=170px style="border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);"/>
             </div>
@@ -353,6 +385,7 @@
                 </div>
             </div>
         </div>
+        <!--*********************************END**********************************-->
 
 
         <!--**********************************************************shop rating modal***************************************************-->
@@ -368,7 +401,7 @@
                 </div>
             </div>
             <div style="text-align: -webkit-center;">
-                <img id="gifName" src="./../assets/gifs/21653-delivery-guy-out-for-delivery.gif"
+                <img src="./../assets/gifs/21653-delivery-guy-out-for-delivery.gif"
                      alt="this slowpoke moves"
                      width=170px style="border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);"/>
             </div>
@@ -447,7 +480,201 @@
 <script>
     $(document).ready(function () {
         $('.star').removeClass('ui-radio');
+        $('#onGoingOrders').show();
+        $('#pastOrders').hide();
+        let onGoingOrdersJsonArr = sessionStorage.getItem('onGoingOrders');
+        if (onGoingOrdersJsonArr) {
+            onGoingOrdersJsonArr = JSON.parse(onGoingOrdersJsonArr);
+            let onGoingOrdersCards = '';
+            $.each(onGoingOrdersJsonArr, function (i, order) {
+                let card = `
+               <div class="col-sm-12 col-md-6 p-1">
+                <div class="prd-1-extended">
+                    <div class="maintxt" style="height: 240px">
+
+                        <div class="container overlay-text mt-2 pt-2">
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-8 m-0 p-0">
+                                    <h5 class="pb-3 text-white">Order #${order['order_id']}</h5>
+                                </div>
+                                <div class="col-4 m-0 p-0" style="text-align: end !important ">
+                                    <span class="pb-3 text-white">^</span>
+                                </div>
+                            </div>`;
+                $.each(order['items'], function (i, item) {
+                    card += `<div class="row m-0">
+                                <div class="col-6 m-0 p-0">
+                                    <h5 class="pb-3 text-white" style="font-size: 16px">${item['name']}(${item['qty']})</h5>
+                                </div>
+                                <div class="col-6 m-0 p-0" style="text-align: end !important ">
+                                    <span class="pb-3 text-white" style="font-size: 14px">${item['variant']} LKR ${item['price']}</span>
+                                </div>
+                            </div>
+                            `;
+                });
+                card += `<div class="row m-0">
+                    <div class="col-12 m-0 p-0" style="text-align: end !important ">
+                        <span class="pb-3 text-white" style="font-size: 14px">Tax LKR ${order['tax']}</span>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-12 m-0 p-0" style="text-align: end !important ">
+                        <span class="pb-3 text-white" style="font-size: 14px">Delivery LKR ${order['delivery']}</span>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-6 m-0 p-0">
+                        <span class="text-white pl-1 pr-2 order-status-container">PENDING</span>
+                    </div>
+                    <div class="col-6 m-0 p-0" style="text-align: end !important ">
+                        <span class="pb-3 text-white" style="font-size: 14px">Total LKR ${order['total']}</span>
+                    </div>
+                </div>
+
+                <div class="row col-12 m-0 p-0 mt-3">
+                    <div class="col-6 m-0 p-0">
+                        <!--<div class="text-center border rounded-pill ml-2 mr-2 text-white"-->
+                        <!--style="border: 2px solid #ff8600 !important;">Re-order-->
+                        <!--</div>-->
+                    </div>
+                    <div class="col-6 m-0 p-0 btnTrack">
+                        <div class="text-center border rounded-pill ml-2 mr-2 text-white"
+                             style="border: 2px solid #ff8600 !important; ">
+                            <a  href="#" style="color: white; text-decoration: none; font-weight: normal"
+                               data-rel="popup"
+                               data-transition="pop">Track</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>`;
+                onGoingOrdersCards += card;
+            });
+            $('#onGoingOrders').append(onGoingOrdersCards);
+        }
+    });
+
+    let setTimeOut1, setTimeOut2, setTimeOut3;
+    $(document).on('click', '.btnTrack', function () {
+        let popupTrack = $('#popupTrack');
+        popupTrack.popup('open');
+        setTimeOut1 = setTimeout(function() {
+            $('#popupTrackImg').attr("src","./../assets/gifs/21653-delivery-guy-out-for-delivery.gif");
+            $('#popupTrackText').text('Food is on the way');
+        }, 5000);
+        setTimeOut2 = setTimeout(function() {
+            $('#popupTrackImg').attr("src","./../assets/gifs/21653-delivery-guy-out-for-delivery.gif");
+            $('#popupTrackText').text('Food Arrived');
+        }, 10000);
+        setTimeOut3 = setTimeout(function() {
+            popupTrack.popup('close');
+        }, 15000);
 
     });
+
+    $('#popupTrack').on("popupafterclose", function () {
+        //any action you want like opening another popup
+        clearTimeout(setTimeOut1);
+        clearTimeout(setTimeOut2);
+        $('#popupTrackImg').attr("src","./../assets/gifs/31454-food-prepared-food-app.gif");
+        $('#popupTrackText').text('Food is preparing');
+    });
+
+
+    $('#ongoingOrdersTab').click(function () {
+        $('#ongoingOrdersTab').css("border-bottom", "3px solid #ec7a23");
+        $('#pastOrdersTab').css("border-bottom", "3px solid #bebbb7");
+        $('#onGoingOrders').show();
+        $('#pastOrders').hide();
+    });
+    $('#pastOrdersTab').click(function () {
+        $('#ongoingOrdersTab').css("border-bottom", "3px solid #bebbb7");
+        $('#pastOrdersTab').css("border-bottom", "3px solid #ec7a23");
+        $('#onGoingOrders').hide();
+        $('#pastOrders').show();
+    });
+   /* $(document).ready(function () {
+        $('.star').removeClass('ui-radio');
+        $('#onGoingOrders').show();
+        $('#pastOrders').hide();
+        let onGoingOrdersJsonArr = sessionStorage.getItem('onGoingOrders');
+        if (onGoingOrdersJsonArr) {
+            onGoingOrdersJsonArr = JSON.parse(onGoingOrdersJsonArr);
+            let onGoingOrdersCards = '';
+            $.each(onGoingOrdersJsonArr, function (i, order) {
+                let card = `
+               <div class="col-sm-12 col-md-6 p-1">
+                <div class="prd-1-extended">
+                    <div class="maintxt" style="height: 240px">
+
+                        <div class="container overlay-text mt-2 pt-2">
+                            <div class="row col-12 m-0  p-0">
+                                <div class="col-8 m-0 p-0">
+                                    <h5 class="pb-3 text-white">Order #${order['order_id']}</h5>
+                                </div>
+                                <div class="col-4 m-0 p-0" style="text-align: end !important ">
+                                    <span class="pb-3 text-white">^</span>
+                                </div>
+                            </div>`;
+                /!*$.each(onGoingOrdersJsonArr['items'], function (i, item) {
+                    card += `<div class="row m-0">
+                                <div class="col-6 m-0 p-0">
+                                    <h5 class="pb-3 text-white" style="font-size: 16px">${item['name']}(${item['qty']})</h5>
+                                </div>
+                                <div class="col-6 m-0 p-0" style="text-align: end !important ">
+                                    <span class="pb-3 text-white" style="font-size: 14px">${item['variant']} LKR ${item['price']}</span>
+                                </div>
+                            </div>
+                            `;
+                });*!/
+                card += `<div class="row m-0">
+                                <div class="col-12 m-0 p-0" style="text-align: end !important ">
+                                    <span class="pb-3 text-white" style="font-size: 14px">Tax LKR ${order['tax']}</span>
+                                </div>
+                            </div>
+                            <div class="row m-0">
+                                <div class="col-12 m-0 p-0" style="text-align: end !important ">
+                                    <span class="pb-3 text-white" style="font-size: 14px">Delivery LKR ${order['delivery']}</span>
+                                </div>
+                            </div>
+                            <div class="row m-0">
+                                <div class="col-6 m-0 p-0">
+                                    <span class="text-white pl-1 pr-2 order-status-container">COMPLETED</span>
+                                </div>
+                                <div class="col-6 m-0 p-0" style="text-align: end !important ">
+                                    <span class="pb-3 text-white" style="font-size: 14px">Total LKR ${order['total']}</span>
+                                </div>
+                            </div>
+
+                            <div class="row col-12 m-0 p-0 mt-3">
+                                <div class="col-6 m-0 p-0">
+                                    <!--<div class="text-center border rounded-pill ml-2 mr-2 text-white"-->
+                                    <!--style="border: 2px solid #ff8600 !important;">Re-order-->
+                                    <!--</div>-->
+                                </div>
+                                <div class="col-6 m-0 p-0">
+                                    <div class="text-center border rounded-pill ml-2 mr-2 text-white"
+                                         style="border: 2px solid #ff8600 !important; ">
+                                         <a href="#shop-rating-modal" style="color: white; text-decoration: none; font-weight: normal"
+                                                                                           data-rel="popup"
+                                                                                           data-transition="pop">Track</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+               `;
+                onGoingOrdersCards += card;
+            });
+            $('#onGoingOrders').append(onGoingOrdersCards);
+        }
+    });
+*/
+
+
 </script>
 </html>
