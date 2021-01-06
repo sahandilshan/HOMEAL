@@ -14,6 +14,12 @@
 
     <link rel="stylesheet" href="../css/custom.css"/>
     <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script>
+        let isBuyNow = sessionStorage.getItem('isBuyNow');
+        if (!isBuyNow) { // navigate to the search page from the back navigation
+            window.location.href = '../home/Search.html';
+        }
+    </script>
 
     <style>
 
@@ -389,11 +395,10 @@
 
 <script>
     let total = 0;
+    let orderJson;
     $(document).ready(function () {
         $('.btn-promocode').removeClass('ui-btn');
         changeIpadScreen(); // if page is load with  the ipad screen.
-
-        let isBuyNow = sessionStorage.getItem('isBuyNow');
         if (isBuyNow == 1) {
             console.log('BuyNow');
             buyNow();
@@ -430,8 +435,21 @@
         window.history.back();
     });
 
+    function getOrderId() {
+        let orderId = sessionStorage.getItem('orderId');
+        if (!orderId) { // first order id
+            orderId = 1000;
+            sessionStorage.setItem('orderId', orderId.toString());
+        }
+        orderId = parseInt(orderId);
+        orderId++;
+        sessionStorage.setItem('orderId', orderId.toString());
+        return orderId;
+    }
+
     function buyNow() {
         let item = sessionStorage.getItem('buyNowItem');
+        let orderId = getOrderId();
         item = JSON.parse(item);
         console.log(item);
         let itemName = item.product_name;
@@ -466,19 +484,40 @@
             </div>
         </div>
         `;
+
         $("#checkout-cart").append(order);
         $('#subTotal').text('LKR ' + priceWithCents);
         $('#total').text('LKR ' + (price + 100 + 80).toFixed(2));
         total = price + 100 + 80;
+        orderJson = `
+        {
+            "order_id": "${orderId}",
+            "bg_img": "${item['merchant_bgImg']}",
+            "items": [
+                {
+                    "name": "${itemName}",
+                    "qty": ${qty},
+                    "variant": "${item['variant']}",
+                    "price": "${priceWithCents}"
+                }
+            ],
+            "tax": "80.00",
+            "delivery": "100.00",
+            "total": "${total.toFixed(2)}"
+        }
+        `
     }
 
     function cartItem() {
+        let orderId = getOrderId();
         let itemsArr = sessionStorage.getItem('cartItems');
         itemsArr = JSON.parse(itemsArr);
+        let bgImg = itemsArr['merchant_bgImg'];
         itemsArr = itemsArr['items'];
         console.log(itemsArr);
         let items = '';
         let subTotal = 0;
+        let orderItemJsonArr = [];
         $.each(itemsArr, function (i, item) {
             console.log(item);
             let itemName = item.product_name;
@@ -486,7 +525,6 @@
             let price = item.price * qty;
             subTotal += price;
             let priceWithCents = price.toFixed(2);
-
             let order = `
                 <div class="row" style="margin-left: inherit">
                     <div style="width: 100%">
@@ -515,13 +553,31 @@
                 </div>
         `;
             items += order;
+            let orderJson = `
+            {
+                    "name": "${itemName}",
+                    "qty": ${qty},
+                    "variant": "${item['variant']}",
+                    "price": "${priceWithCents}"
+            }
+            `;
+            orderItemJsonArr.push(orderJson);
         });
 
         $("#checkout-cart").append(items);
         $('#subTotal').text('LKR ' + subTotal.toFixed(2));
         $('#total').text('LKR ' + (subTotal + 100 + 80).toFixed(2));
         total = subTotal + 100 + 80;
-        sessionStorage.setItem('total', total.toFixed(2));
+        orderJson = `
+        {
+            "order_id": "${orderId}",
+            "bg_img": "${bgImg}",
+            "items": [${orderItemJsonArr}],
+            "tax": "80.00",
+            "delivery": "100.00",
+            "total": "${total.toFixed(2)}"
+        }
+        `
     }
 
     jQuery(function($) {
@@ -533,7 +589,7 @@
 
                 //This will be printed when the transaction is successful. To charge, server side scripting is required.
                 if(token.id){
-                    window.location.href="/HOMEAL/home/CheckoutStatusSuccess.html";
+                    orderSuccess();
                 } else{
                     window.location.href="/HOMEAL/home/CheckoutStatusError.html";
                 }
@@ -554,7 +610,7 @@
                 });
                 e.preventDefault();
             } else {
-                window.location.href="/HOMEAL/home/CheckoutStatusSuccess.html";
+                orderSuccess();
             }
         });
 
@@ -572,6 +628,17 @@
         window.history.back();
     });
 
+    function orderSuccess() {
+        sessionStorage.setItem('total', total.toFixed(2));
+        let onGoingOrders = sessionStorage.getItem('onGoingOrders');
+        if (!onGoingOrders) {
+            onGoingOrders = "[]";
+        }
+        onGoingOrders = JSON.parse(onGoingOrders);
+        onGoingOrders.push(JSON.parse(orderJson));
+        sessionStorage.setItem('onGoingOrders', JSON.stringify(onGoingOrders));
+        window.location.href="/HOMEAL/home/CheckoutStatusSuccess.html";
+    }
 </script>
 
 </html>
