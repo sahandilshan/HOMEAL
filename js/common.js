@@ -15,6 +15,23 @@ $( "#nav_bar_home" ).click(function() {
     }
 });
 
+$( "#nav_bar_home_2" ).click(function() {
+    let user = JSON.parse(sessionStorage.getItem('user'));
+    if(!!user) {
+        let location = '';
+        location = user['location'];
+        if (!!location) {
+            window.location.href ='../home/Search.html'
+        }else{
+            window.location.href ='../home/Home.html'
+        }
+
+    } else {
+        let locationModal = $('#signin-required-modal');
+        locationModal.popup('open');
+    }
+});
+
 $( "#nav_bar_orders" ).click(function() {
     let user = JSON.parse(sessionStorage.getItem('user'));
     if(!!user) {
