@@ -837,17 +837,21 @@
         let type = $('input[name=size]:checked', '#radioBtn').val();
         let qty =  $('#number').val();
         let price = 0;
+        let variant;
         switch (type) {
             case "small": {
                 price = product.variants[0].price;
+                variant = 'Small';
                 break;
             }
             case "medium": {
                 price = product.variants[1].price;
+                variant = 'Medium';
                 break;
             }
             case "large": {
                 price = product.variants[2].price;
+                variant = 'Large';
                 break;
             }
         }
@@ -857,6 +861,7 @@
             "product_id": "${selected_product_id}",
             "product_name": "${productName}",
             "price": ${price},
+            "variant": ${variant},
             "qty": ${qty}
         }
         `;
