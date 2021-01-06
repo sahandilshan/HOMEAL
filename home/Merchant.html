@@ -784,6 +784,7 @@
                 `
                 {
                     "merchant_id": "${merchant_id}",
+                    "merchant_bgImg": "${merchant_json['merchant_background_img_path']}",
                     "items":[${item}]
                 }
                 `;
@@ -859,9 +860,10 @@
         {
             "merchant_id": "${merchant_id}",
             "product_id": "${selected_product_id}",
+            "merchant_bgImg": "${merchant_json['merchant_background_img_path']}",
             "product_name": "${productName}",
             "price": ${price},
-            "variant": ${variant},
+            "variant": "${variant}",
             "qty": ${qty}
         }
         `;
