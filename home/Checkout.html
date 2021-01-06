@@ -151,12 +151,12 @@
         </div>
 
         <div class="row mt-n3 navigation">
-            <div class="col">Home / Search / Merchant<font color="#ec7a23"> / Checkout</font></div>
+            <div class="col"><span id="search-nav-text">Search</span> / <span id="merchant-nav-text">Merchant</span>  / <span style="color: #F19B55; font-weight: bold">Checkout</span></div>
         </div>
 
     </div>
 
-    <div class="main"> <!--content area starts from here-->
+    <div class="main" style="margin-top:11rem !important;"> <!--content area starts from here-->
         <div class="mt-n4">
             <div class="container">
                 <div class="row">
@@ -168,7 +168,7 @@
                         </div>
 
                         <div>
-                            <div style="margin-top: 3%;margin-bottom: 3%">
+                            <div style="margin-top: 3%;margin-bottom: 5%">
                                 <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
                                    class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Colombo
                                     10</a>
@@ -177,7 +177,7 @@
 
                         <div class="row mt-n2"> <!--first hr line-->
                             <div class="half-hr ml-3 mr-3">
-                                <hr>
+                                <hr class="m-1">
                             </div>
                         </div>
 
@@ -222,7 +222,7 @@
 
                         <div class="row mt-n2"> <!--first hr line-->
                             <div class="half-hr ml-3 mr-3">
-                                <hr>
+                                <hr style="margin-bottom: 7px !important;">
                             </div>
                         </div>
 
@@ -311,8 +311,7 @@
                                     <fieldset class="ui-grid-b">
                                         <div class="">
                                             <input class="btn-promocode" placeholder="Enter Promo Code" style="border: 1px solid #ec7a23;
-    border-radius: 11px;
-    border-bottom-right-radius: 45px;
+
     padding-right: 0;
     text-align-last: center;"/>
                                         </div>
@@ -334,7 +333,7 @@
                                         <div id="subTotal" class="price-list">LKR 1020.00</div>
                                         <div id="tax" class="price-list">LKR 80.00</div>
                                         <div id="deliveryFee" class="price-list">LKR 100.00</div>
-                                        <div id="total" class="price-list" style="font-size: 1rem"><b>LKR 1200.00</b></div>
+                                        <div id="total" class="price-list" style="font-size: 1rem;font-weight: bold"><b>LKR 1200.00</b></div>
                                     </div>
 
                                 </div>
@@ -454,13 +453,13 @@
                     </div>
                     <div class="col-2"
                          style="background-color: black;padding: 10px; text-align-last: center;">
-                        <img src="../assets/icons/ordersIcon_orange.png"
+                        <img src="../assets/icons/edit_icon.png"
                              alt="Logo.png"
                              style="width:30px ; height: 25px; vertical-align: -webkit-baseline-middle;">
                     </div>
                     <div class="col-2"
                          style="background-color: #f6f6f6;padding: 10px;border-radius: 6px;  text-align-last: center; ">
-                        <img src="../assets/icons/ordersIcon_orange.png"
+                        <img src="../assets/icons/delete_icon.png"
                              alt="Logo.png"
                              style="width:30px ; height: 25px; vertical-align: -webkit-baseline-middle;">
                     </div>
@@ -502,13 +501,13 @@
                             </div>
                             <div class="col-2"
                                  style="background-color: black;padding: 10px; text-align-last: center;">
-                                <img src="../assets/icons/ordersIcon_orange.png"
+                                <img src="../assets/icons/edit_icon.png"
                                      alt="Logo.png"
                                      style="width:30px ; height: 25px; vertical-align: -webkit-baseline-middle;">
                             </div>
                             <div class="col-2"
                                  style="background-color: #f6f6f6;padding: 10px;border-radius: 6px;  text-align-last: center; ">
-                                <img src="../assets/icons/ordersIcon_orange.png"
+                                <img src="../assets/icons/delete_icon.png"
                                      alt="Logo.png"
                                      style="width:30px ; height: 25px; vertical-align: -webkit-baseline-middle;">
                             </div>
@@ -559,6 +558,13 @@
         });
     });
     $( "#cartModal" ).load( "../common/Cart_N_Delivery_Modal.html" );
+
+    $( "#search-nav-text" ).click(function() {
+            window.location.href ='./Search.html'
+    });
+    $( "#merchant-nav-text" ).click(function() {
+        window.history.back();
+    });
 
 </script>
 
