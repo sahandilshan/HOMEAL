@@ -292,65 +292,14 @@
     let openSuccessEmailModal = false;
     $.mobile.ajaxEnabled = false;
     let user;
-
-    function createTempSession() {
-        let item1 = `
-        {
-            "product_id": "P001",
-            "merchant_id": "M001",
-            "product_name": "Chicken Pizza",
-            "merchant_name": "Pizza Zone",
-            "location": "Colombo - 10",
-            "merchant_bg": "../assets/merchants/meal-5590186.jpg",
-            "merchant_logo": "../assets/merchants/pizza-1428931.png"
-        }
-        `;
-        let item2 = `
-        {
-            "product_id": "P002",
-            "merchant_id": "M001",
-            "product_name": "Chicken Pizza - 2",
-            "merchant_name": "Pizza Zone",
-            "location": "Colombo - 10",
-            "merchant_bg": "../assets/merchants/meal-5590186.jpg",
-            "merchant_logo": "../assets/merchants/pizza-1428931.png"
-        }
-        `;
-        let item3 = `
-        {
-            "product_id": "P001",
-            "merchant_id": "M002",
-            "product_name": "Chicken Pizza - 2",
-            "merchant_name": "Pizza Zone",
-            "location": "Colombo - 10",
-            "merchant_bg": "../assets/merchants/food-2203732.jpg",
-            "merchant_logo": "../assets/merchants/pizza-1428931.png"
-        }
-        `;
-        let item4 = `
-        {
-            "product_id": "P002",
-            "merchant_id": "M002",
-            "product_name": "Chicken Pizza - 2",
-            "merchant_name": "Pizza Zone",
-            "location": "Colombo - 10",
-            "merchant_bg": "../assets/merchants/food-2203732.jpg",
-            "merchant_logo": "../assets/merchants/pizza-1428931.png"
-        }
-        `;
-        let jsonArr =
-            `
-                {
-                   "items":[${item1}, ${item2}, ${item3}, ${item4}]
-                }
-                `;
-        sessionStorage.setItem('favourite_list', jsonArr);
-        console.log('fav item initialized.');
-    }
+    let imgJsonArr;
 
     $(document).ready(function () {
-        createTempSession();
         loadFavouriteList();
+        imgJsonArr = [];
+        $.getJSON("../data/FavoritesImagesMap.json", function (result) {
+            imgJsonArr = result;
+        });
     })
 
     function loadFavouriteList() {
@@ -443,16 +392,9 @@
             if (subject === '') {
                 subject = 'Hey!, Checkout My Favourite List';
             }
-            let emailPromise = Email.send({
-                Host: "smtp.gmail.com",
-                Username: "lkhomeal@gmail.com",
-                Password: "1234@abcd",
-                To: emailAddress,
-                From: "lkhomeal@gmail.com",
-                Subject: subject,
-                Port: 587,
-                Body: `
-                   <table style="border-collapse: collapse; table-layout: fixed; background: #f6f6f6; margin: 20px 0;" border="0" width="80%" cellspacing="0" cellpadding="20">
+            let msgBody = `
+            <table style="border-collapse: collapse; table-layout: fixed; background: #f6f6f6; margin: 20px 0;"
+            border="0" width="80%" cellspacing="0" cellpadding="20">
                 <tbody>
                 <tr>
                     <td><img style="width: 100px; margin-bottom: 10px;" src="https://i.postimg.cc/ZRhJCYNP/Main-Light.png"/>
@@ -461,55 +403,32 @@
 The below attached is the list of your favorites items from our local restaurants.</p>
                  <div>
                    <table>
-                     <tr>
-                       <td>
-                        <div style="border-radius:20px"><img
-                                src="https://ci5.googleusercontent.com/proxy/uvZ7Q_7A7CaO06XIFA7bC0YbsAOidAmkPQ12ny1-tSGIPM2wltMQGpYa2_-QephoP4sHYb-rpyeX7EOarMIN=s0-d-e1-ft#https://i.postimg.cc/jWHXM5g1/Beef-Pizza.jpg"
+            `;
+            let favouriteListJson = user['favorites_list'];
+            $.each(favouriteListJson, function (i, item) {
+                let imgJson = imgJsonArr.find(x => x['product_id'] === item['product_id']
+                    & x['merchant_id'] === item['merchant_id']);
+                let imgPath = '';
+                if (imgJson) {
+                    imgPath = imgJson['product_url'];
+                }
+                msgBody += `
+                <tr>
+                   <td>
+                        <div style="border-radius:20px"><img src="${imgPath}"
                                 style="height:40px;width:60px;border-radius:500px" class="CToWUd">
 
                         </div>
-                       </td>
-                       <td>
+                   </td>
+                   <td>
                         <div>
-                           <span style="font-weight:bold;padding-left: 10px">Beef Pizza</span>
+                           <span style="font-weight:bold;padding-left: 10px">${item['product_name']}</span>
                         </div>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>
-                        <div style="border-radius:20px"><img
-                                src="https://ci4.googleusercontent.com/proxy/3nw8Hd2_kARwmr9K5kINESox07bKhz5moxYxbIHLZZyZ34QWsvWNk_kT4Q-sVn5j2-tqi5-vUV0MdfJ6_7OK_hE=s0-d-e1-ft#https://i.postimg.cc/r0q93k7w/Cheese-Pizza.jpg"
-                                style="height:40px;width:60px;border-radius:500px" class="CToWUd">
-
-                        </div>
-                       </td>
-                       <td>
-                        <div>
-                           <span style="font-weight:bold;padding-left: 10px">Cheese Pizza</span>
-                        </div>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>
-                        <div style="border-radius:20px"><img
-                                src="https://ci4.googleusercontent.com/proxy/7kMEweM-xw5EIeKtIs6ZXVxVHODDTr_EX039DJD__HZjWsULVx-cxc0xPfXb1Mu6oYRErzkbSmGw7Dl3cEh-olQn=s0-d-e1-ft#https://i.postimg.cc/7fhKqqhC/Chicken-Pizza.jpg"
-                                style="height:40px;width:60px;border-radius:500px" class="CToWUd">
-
-                        </div>
-                       </td>
-                       <td>
-                        <div><span style="font-weight:bold;padding-left: 10px">Chicken Pizza</span></div>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>
-                        <div style="border-radius:20px"><img src="https://ci5.googleusercontent.com/proxy/HCOLzkVqo8qvcq49BdjDRaCt9JYby06Py5gS9EjMPXBrzFY9hwqnoMdBdtfnWjC_0sok9kWdlHniSCYM65gTp1YO=s0-d-e1-ft#https://i.postimg.cc/DSb5b5qn/Seafood-Pizza.jpg" style="height:40px;width:60px;border-radius:500px" class="CToWUd"/>
-                        </div>
-                       </td>
-                       <td>
-                        <div style="font-weight:bold;padding-left: 10px">Seafood Pizza</div></td>
-                     </tr>
-                   </table>
+                   </td>
+                </tr>
+                `;
+            });
+            msgBody += `</table>
                  </div>
                         <p style="margin-bottom: 2px; font-size: 90%;">Have a great day!</p>
                         <p style="margin-bottom: 2px; font-size: 90%;">Thank You,</p>
@@ -517,8 +436,16 @@ The below attached is the list of your favorites items from our local restaurant
                     </td>
                 </tr>
                 </tbody>
-            </table>
-            `,
+            </table>`;
+            let emailPromise = Email.send({
+                Host: "smtp.gmail.com",
+                Username: "lkhomeal@gmail.com",
+                Password: "1234@abcd",
+                To: emailAddress,
+                From: "lkhomeal@gmail.com",
+                Subject: subject,
+                Port: 587,
+                Body: msgBody,
             });
             emailPromise.then(function (message) {
                 console.log(message);
