@@ -193,7 +193,7 @@
 
                         <div>
 
-                            <form>
+                            <form id="paymentForm">
                                 <div class="row" style="margin-left: auto;margin-top: 3.8%;">
                                     <!--<div >-->
                                     <!--<label  class="ui-radio-btn" style="border: none;background-color: #f9f9f9">-->
@@ -209,12 +209,11 @@
                                     <!--<input type="radio" name="size" id="radio-small">-->
                                     <!--</div>-->
 
-                                    <label class="ui-radio-btn">Cash</label><input type="radio" name="size"
-                                                                                   id="radio-cash">
+                                    <label class="ui-radio-btn">Cash</label>
+                                    <input checked id="radio-cash" name="payment" type="radio" value="cash">
 
-                                    <label class="ui-radio-btn" style="margin-left: 20%">Card</label><input type="radio"
-                                                                                                            name="size"
-                                                                                                            id="radio-card">
+                                    <label class="ui-radio-btn" style="margin-left: 20%">Card</label>
+                                    <input id="radio-card" name="payment" type="radio" value="card">
                                 </div>
                             </form>
 
@@ -521,7 +520,8 @@
         $("#checkout-cart").append(items);
         $('#subTotal').text('LKR ' + subTotal.toFixed(2));
         $('#total').text('LKR ' + (subTotal + 100 + 80).toFixed(2));
-        total = subTotal;
+        total = subTotal + 100 + 80;
+        sessionStorage.setItem('total', total.toFixed(2));
     }
 
     jQuery(function($) {
@@ -543,13 +543,19 @@
 
         $('#checkoutButton').on('click', function(e) {
             // Code Section B  Open Checkout with further options
-            handler.open({
-                name: 'Football Example',//merchant name
-                currency: 'gbp',
-                description: "2 Items",//number of items
-                amount: total * 100
-            });
-            e.preventDefault();
+            let paymentMethod = $('input[name=payment]:checked', '#paymentForm').val();
+            console.log(paymentMethod)
+            if (paymentMethod === 'card') {
+                handler.open({
+                    name: 'Football Example',//merchant name
+                    currency: 'gbp',
+                    description: "2 Items",//number of items
+                    amount: total * 100
+                });
+                e.preventDefault();
+            } else {
+                window.location.href="/HOMEAL/home/CheckoutStatusSuccess.html";
+            }
         });
 
         // Code Section C  Close Checkout on page navigation

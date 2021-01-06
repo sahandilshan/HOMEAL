@@ -74,8 +74,8 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-6" style="align-self: center !important; ">
                     <div class="row-12  orderStatus">Order Successful</div>
-                    <div class="row-12  orderDetails">Order Number : 001</div>
-                    <div class="row-12 orderDetails mb-3">Total Amount : LKR 1050.00</div>
+                    <div class="row-12  orderDetails" id="orderId">Order Number : 001</div>
+                    <div class="row-12 orderDetails mb-3" id="totalAmount">Total Amount : LKR 1050.00</div>
                     <div class="ml-5 mr-5">
                         <button class="row-12 ui-btn">Continue</button>
                     </div>
@@ -115,4 +115,23 @@
     </div>
 </div>
 </body>
+
+<script>
+    const zeroPad = (num, places) => String(num).padStart(places, '0');
+    $(document).ready(function () {
+        let orderId = sessionStorage.getItem('orderId');
+        if (!orderId) { // first order id
+            orderId = 0;
+            sessionStorage.setItem('orderId', orderId.toString());
+        }
+        orderId = parseInt(orderId);
+        orderId++;
+        sessionStorage.setItem('orderId', orderId.toString());
+        orderId = zeroPad(orderId, 3);
+        $('#orderId').text('Order Number : ' + orderId);
+        $('#totalAmount').text('Total Amount : LKR ' + sessionStorage.getItem('total'));
+    });
+</script>
+
 </html>
+
