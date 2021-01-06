@@ -1,0 +1,87 @@
+[
+  {
+    "merchant_id":"M001",
+    "product_id":"P001",
+    "product_url":"https://i.postimg.cc/bd3ZShqd/pizza-814044"
+  },
+  {
+    "merchant_id":"M001",
+    "product_id":"P002",
+    "product_url":"https://i.postimg.cc/F19fKR52/pizza-2000600.jpg"
+  },
+  {
+    "merchant_id":"M001",
+    "product_id":"P003",
+    "product_url":"https://i.postimg.cc/sQzM7fBG/pizza-3000274.jpg"
+  },
+  {
+    "merchant_id":"M001",
+    "product_id":"P004",
+    "product_url":"https://i.postimg.cc/67n784QN/margherita-pizza-993274.jpg"
+  },
+
+  {
+    "merchant_id":"M002",
+    "product_id":"P001",
+    "product_url":"https://i.postimg.cc/TLkT1Tn6/donuts-5815746-640.jpg"
+  },
+  {
+    "merchant_id":"M002",
+    "product_id":"P002",
+    "product_url":"https://i.postimg.cc/k6Mn726s/cheesecake-1578694-640.jpg"
+  },
+  {
+    "merchant_id":"M002",
+    "product_id":"P003",
+    "product_url":"https://i.postimg.cc/5j0xGFMN/cake-4502270-640.jpg"
+  },
+  {
+    "merchant_id":"M002",
+    "product_id":"P004",
+    "product_url":"https://i.postimg.cc/30dYDzZD/bread-399286-640.jpg"
+  },
+
+  {
+    "merchant_id":"M003",
+    "product_id":"P001",
+    "product_url":"https://i.postimg.cc/k2dPn2LS/pizza-chikcen-1949183-640.jpg"
+  },
+  {
+    "merchant_id":"M003",
+    "product_id":"P002",
+    "product_url":"https://i.postimg.cc/HVMCDwvH/chicken-burger-2953388-640.jpg"
+  },
+  {
+    "merchant_id":"M003",
+    "product_id":"P003",
+    "product_url":"https://i.postimg.cc/yWtzbQPv/burger-beef-3962997-640.jpg"
+  },
+  {
+    "merchant_id":"M003",
+    "product_id":"P004",
+    "product_url":"https://i.postimg.cc/grnW4Fvx/sandwich-451403-640.jpg"
+  },
+
+
+  {
+    "merchant_id":"M004",
+    "product_id":"P001",
+    "product_url":"https://i.postimg.cc/SJHNcQ3Q/spinach-791629-1920.jpg"
+  },
+  {
+    "merchant_id":"M004",
+    "product_id":"P002",
+    "product_url":"https://i.postimg.cc/svMgBGn0/flat-lay-2583212-1920.jpg"
+  },
+  {
+    "merchant_id":"M004",
+    "product_id":"P003",
+    "product_url":"https://i.postimg.cc/s162D4Jh/close-up-1854245-1920.jpg"
+  },
+  {
+    "merchant_id":"M004",
+    "product_id":"P004",
+    "product_url":"https://i.postimg.cc/K4vz2Htb/salad-498203-1280.jpg"
+  }
+
+]
