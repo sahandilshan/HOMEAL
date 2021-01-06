@@ -12,12 +12,12 @@
   },
   {
     "user_id" : "#2",
-    "user_name" : "Chaveen Kalubowila",
+    "user_name" : "Chaveen",
     "user_password" :"#1234",
     "email" :"Chaveen@gmail.com",
     "image":"../assets/otherImages/user2.jpg",
     "mobile_no" : "0777123456",
-    "user_type": "customer",
+    "user_type": "seller",
     "location": "",
     "favorites_list":[]
   },
