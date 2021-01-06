@@ -565,7 +565,7 @@ div.scrollmenu-category a {
 
 */
 
-.prd-modal-header {
+#prd-modal-header {
     color: white;
     text-shadow: none !important;
     background: linear-gradient(

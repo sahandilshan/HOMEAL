@@ -194,7 +194,7 @@
         <div data-role="popup" data-history="false" id="productModel" class="container product-modal" data-position-to="window"
              data-overlay-theme="a" data-transition="pop" style="    border-top-left-radius: 10px ;
     border-top-right-radius: 10px ;">
-                <div class="row prd-modal-header">
+                <div class="row" id="prd-modal-header">
                     <div class="col-8 mt-3">
                         <label><strong id="prdModal-productName">Chicken Pizza</strong></label>
                     </div>
@@ -537,6 +537,8 @@
         selected_product_id = $(this).data('pid');
         console.log(selected_product_id);
         let product = getProduct(selected_product_id);
+        //set header image;
+        $('#prd-modal-header').css('background-image', 'url(' + product['product_img_path'] + ')');
         let productModel = $("#productModel");
         $("#prdModal-productName").text(product['product_name']);
         $("#prdModal-productDescription").text(product['product_description']);
