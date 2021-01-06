@@ -48,7 +48,7 @@
         </div>
 
         <div class="row mt-0">
-            <div class="col-12">Profile/Help-About</div>
+            <div class="col-12">Profile / <span style="color: #F19B55">Help-About</span></div>
         </div>
     </div>
 
@@ -84,28 +84,11 @@
             </div>
         </form>
     </div>
-    <!--Submit ticket modal-->
-    <div data-role="popup" id="popup-submit-ticket" class="custom-location" data-position-to="window"
-         data-overlay-theme="a" data-transition="pop">
-        <div class="row mb-2">
-            <div class="col-8">
-            </div>
-            <div class="col-4 custom-close-button">
-                <a href="#" data-rel="back" data-role="button" data-transition="pop"
-                   class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
-            </div>
-        </div>
-        <div><h4>Submit Ticket</h4></div>
-        <form>
-            <input type="text" placeholder="issue">
-            <textarea rows="4" cols="50" name="comment" placeholder="Description"></textarea>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+
 
     <div class="main container-fluid" data-role="main" style="margin-right: auto;margin-left: auto;display: block">
         <!--content area starts from here-->
-        <div class="mt-n4">
+        <div class="mt-n3">
         <div class="row">
             <div class="col-lg-6  col-sm-6 col-md-12 .col-12">
             <div class="col-12 mb-2"><h3>Help</h3></div>
@@ -115,14 +98,11 @@
             <div class="col-12 "><p>How to check past orders</p>
                 <hr>
             </div>
-            <div class="col-12 "><p>How to update my payment method</p>
-                <hr>
-            </div>
             <div class="col-12 "><p>How to update my location details</p>
                 <hr>
             </div>
-            <div class="col-12"><p><a href="#popup-submit-ticket" data-rel="popup" data-transition="pop">Submit a
-                ticket</a></p>
+            <div class="col-12"><p><p id="submit-issue-text" style="color: #EC7A23;font-weight: bold">Submit a
+                ticket</p>
                 <hr>
             </div>
             </div>
@@ -157,6 +137,39 @@
             </div>
             </div>
         </div>
+        </div>
+
+        <!--Submit ticket modal-->
+        <div data-role="popup" id="popup-submit-ticket" class="custom-location" data-position-to="window"
+             data-overlay-theme="a" data-transition="pop" data-history="false">
+            <div class="row mb-2">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <div><h4>Submit Ticket</h4></div>
+            <input type="text" placeholder="issue" style="color: #F19B55">
+            <textarea rows="4" cols="50" name="comment" placeholder="Description" style="color: #F19B55"></textarea>
+            <button id="sendIssue" style="background-color: #EC7A23;color: #FFFFFF;text-shadow:none !important;">Submit</button>
+        </div>
+
+        <!--Success email modal-->
+        <div data-role="popup" id="success-issue" class="custom-location" data-position-to="window"
+             data-overlay-theme="a" data-transition="pop" >
+            <div class="row mb-2">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <div class="mb-4" style="text-align: center;"><h6>Your Issue Submit Successfully</h6></div>
+            <div class="mb-2" style="text-align: center;"><img src="../assets/gifs/40635-quick-success.gif" style="width: 60px; height: 60px;"></div>
+
         </div>
     </div>
 
@@ -202,5 +215,25 @@
     </div>
 </div>
 </body>
-<script src="../js/common.js"></script>
+<script src="../js/common.js">
+
+</script>
+<script>
+    $( "#sendIssue" ).click(function() {
+        let sendIssueModal = $("#popup-submit-ticket");
+        sendIssueModal.popup('close');
+        sendIssueModal.on("popupafterclose", function () {
+            //any action you want like opening another popup
+            if (openSuccessEmailModal) {
+                let successIssueModal = $("#success-issue");
+                successIssueModal.popup("open");
+            }
+        });
+    });
+
+    $( "#submit-issue-text" ).click(function() {
+        let sendIssueModal = $("#popup-submit-ticket");
+        sendIssueModal.popup('open');
+    });
+</script>
 </html>
