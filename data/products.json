@@ -4,9 +4,9 @@
     "products": [
       {
         "product_id": "P001",
-        "product_name": "Beef Pizza",
-        "filter_text": "Beef Pizza",
-        "product_description": "Beef pizza is good",
+        "product_name": "Roast Beef Pizza",
+        "filter_text": " RoastBeef Pizza",
+        "product_description": "Roast Beef pizza is good",
         "product_img_path": "../assets/products/pizza-814044.jpg",
         "discount": 10,
         "variant_title": "Size",
@@ -195,6 +195,16 @@
           "name": "Small",
           "price": 70.00,
           "available_quantity": "14"
+        },
+        {
+          "name": "Medium",
+          "price": 100.00,
+          "available_quantity": "20"
+        },
+        {
+          "name": "Large",
+          "price": 130.00,
+          "available_quantity": "11"
         }
       ],
       "reviews": [

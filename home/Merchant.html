@@ -15,6 +15,89 @@
 
     <link rel="stylesheet" href="../css/custom.css"/>
 </head>
+<style>
+    #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #ff8600;
+        color: #ffffff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 6px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 70px;
+        font-size: 14px;
+    }
+
+    #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    .radio-item {
+        position: relative;
+        padding: 0 6px;
+        margin: 10px 0 0;
+    }
+
+    .radio-item input[type='radio'] {
+        display: none;
+    }
+
+    .radio-item label {
+        color: #000000;
+        font-weight: normal;
+    }
+
+    .radio-item label:before {
+        content: " ";
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        margin: 0 5px 0 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 11px;
+        border: 2px solid #cacaca;
+        background-color: transparent;
+    }
+
+    .radio-item input[type=radio]:checked + label:after {
+        border-radius: 11px;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 9px;
+        left: 10px;
+        content: " ";
+        display: block;
+        background: #EC7A23;
+    }
+</style>
 <body>
 <div data-role="page">
     <div class="top pl-3 pr-3 pb-2 fixed-top">
@@ -226,15 +309,25 @@
                     <hr class="m-0">
                     <div class="row mb-2" id="test">
                         <div class="col-12">
-                            <label  for="radio-small" class="ui-radio-btn">Small<span
-                                    class="pull-right" id="small">LKR 1300.00</span></label><input type="radio" name="size"
-                                                                                        id="radio-small" value="small" checked>
-                            <label for="radio-medium" class="ui-radio-btn">Medium<span
-                                    class="pull-right" id="medium">LKR 1300.00</span></label><input type="radio" name="size"
-                                                                                        id="radio-medium" value="medium">
-                            <label for="radio-large" class="ui-radio-btn">Large<span
-                                    class="pull-right" id="large">LKR 1300.00</span></label><input type="radio" name="size"
-                                                                                        id="radio-large" value="large"></div>
+                            <div class="radio-item" data-role="none">
+                                <input data-role="none" type="radio" name="size"
+                                       id="radio-small" value="small" checked>
+                                <label  for="radio-small" data-role="none" class="">Small<span
+                                        class="pull-right" id="small" style="margin-top: 3px;">LKR 1300.00</span></label>
+                            </div>
+                            <div class="radio-item" data-role="none">
+                                <input type="radio" data-role="none" name="size" id="radio-medium" value="medium">
+                                <label for="radio-medium" class="ui-radio-btn">Medium<span
+                                        class="pull-right" id="medium" style="margin-top: 4px;">LKR 1300.00</span></label>
+                            </div>
+                            <div class="radio-item" data-role="none">
+                                <input type="radio" data-role="none" name="size"
+                                       id="radio-large" value="large">
+                                <label for="radio-large" class="ui-radio-btn">Large<span
+                                        class="pull-right" id="large" style="margin-top: 7px;">LKR 1300.00</span></label>
+                            </div>
+
+                        </div>
                     </div>
                 </form>
 
@@ -324,6 +417,7 @@
             </ul>
         </nav>
     </div>
+    <div id="snackbar">Product Added to the cart.</div>
 </div>
 </body>
 
@@ -727,6 +821,13 @@
         }
         $( "#nav_bar_cart" ).removeClass('ui-icon-cart');
         $( "#nav_bar_cart" ).addClass('ui-icon-cart-with-items');
+        let productModel = $("#productModel");
+        productModel.popup( "close" );
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+
+
     });
 
     $( "#buyNow" ).click(function() {
