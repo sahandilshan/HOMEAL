@@ -1,103 +1,3 @@
-<script>
-    $(document).ready(function () {
-        let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
-        let nav_bar_cart = $( "#nav_bar_cart" );
-        if (cartItemsArr) {
-            nav_bar_cart.removeClass('ui-icon-cart');
-            nav_bar_cart.addClass('ui-icon-cart-with-items');
-        } else {
-            nav_bar_cart.addClass('ui-icon-cart');
-            nav_bar_cart.removeClass('ui-icon-cart-with-items');
-        }
-    });
-
-    $("#cart_popup").enhanceWithin().popup({
-        afterclose: function () {
-            let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
-            let nav_bar_cart = $( "#nav_bar_cart" );
-            if (cartItemsArr) {
-                nav_bar_cart.removeClass('ui-icon-cart');
-                nav_bar_cart.addClass('ui-icon-cart-with-items');
-            } else {
-                nav_bar_cart.addClass('ui-icon-cart');
-                nav_bar_cart.removeClass('ui-icon-cart-with-items');
-            }
-            nav_bar_cart.removeClass("ui-btn-active");
-        }
-    }).popup("close");
-
-    $("#delivery_details").enhanceWithin().popup({
-
-    }).popup("close");
-
-    $('#nav_bar_cart').click(function () {
-        let user = JSON.parse(sessionStorage.getItem('user'));
-        if(!!user) {
-            let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
-            let cartItems = '';
-            if (cartItemsArr) {
-                $( "#nav_bar_cart" ).addClass('ui-icon-cart');
-                $( "#nav_bar_cart" ).removeClass('ui-icon-cart-with-items');
-                cartItemsArr = cartItemsArr['items'];
-                console.log(cartItemsArr);
-                $.each(cartItemsArr, function (i, item) {
-                    let totalPrice = (item['price'] * item['qty']).toFixed(2);
-                    let itemHtml = `
-        <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
-                <div class="col-12">
-                    <div class="row" style="box-shadow: 1px 7px 19px -9px #ec7a23;border-bottom-right-radius: 18px;">
-                        <div class="col-8">
-                            <label style="font-size: 1.2rem;"><b>${item['product_name']} (${item['variant']} x ${item['qty']})</b></label>
-                            <label class="label-price">LKR ${totalPrice}</label>
-                        </div>
-                        <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
-                             style="margin-top: inherit;
-                            margin-bottom: inherit;">
-                        </div>
-
-                        <div class="col-2 ui-btn ui-icon-cart ui-btn-icon-top"
-                             style="margin-top: inherit;
-                            margin-bottom: inherit;
-                            border-bottom-right-radius: 11px;
-                            border-top-right-radius: 11px;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-                    cartItems += itemHtml;
-                });
-            } else {
-                cartItems = '<p>No items available </p>';
-            }
-            $('#cartItems').html(cartItems);
-            $("#cart_popup").popup('open');
-        } else {
-            $('#signin-required-modal').popup('open');
-        }
-    });
-
-    $('#toCheckout').click(function () {
-        sessionStorage.setItem('isBuyNow', '0');
-        openDelivery = true;
-        popupDeliveryModal();
-    })
-
-    function popupDeliveryModal() {
-        let cartModal = $("#cart_popup");
-        cartModal.popup('close');
-        cartModal.on("popupafterclose", function () {
-            //any action you want like opening another popup
-            if (openDelivery) {
-                let productModel = $("#delivery_details");
-                $("#radio_1").prop("checked", true);
-                productModel.popup("open");
-                openDelivery = false;
-            }
-        });
-    }
-
-</script>
 
 <style>
 
@@ -111,21 +11,80 @@
     .label-price{
         margin-top: -3% !important;
         padding-bottom: 5px !important;
-        font-size: 0.9rem !important;
+        font-size: 1.1rem !important;
     }
 
     .mt-3, .my-3 {
         margin-top: 0 !important;
     }
+    .font2 {
+     font-size: 1.3rem !important;
+    }
+
+    .cart-card{
+        width: 425px !important;
+        padding-bottom: 20px !important;
+    }
+
+
+    /***********************iphone potrait*************************/
+    @media only screen and (max-width: 376px) {
+        .cart-card{
+            width: 320px !important;
+            padding-bottom: 0px !important;
+        }
+        .font2{
+         font-size: 0.9rem !important;
+        }
+        .label-price{
+            padding-top: 3px !important;
+            font-size: 0.9rem !important;
+        }
+        .btn-check-out {
+            background-color: #EC7A23 !important;
+            color: white !important;
+            border-radius: 5px !important;
+            margin: auto !important;
+            text-shadow: none !important;
+            width: 90% !important;
+            font-size: 0.9rem;
+        }
+    }
+
+    /***********************iphone landscape*************************/
+    @media only screen and (max-width: 667px) and (min-width: 376px) {
+
+        .cart-card{
+            width: 320px !important;
+            padding-bottom: 0px !important;
+        }
+        .font2 {
+            font-size:0.8rem !important;
+        }
+        .label-price{
+            font-size: 0.8rem !important;
+            padding-top: 2px !important;
+        }
+        .btn-check-out {
+            background-color: #EC7A23 !important;
+            color: white !important;
+            border-radius: 5px !important;
+            margin: auto !important;
+            width: 90% !important;
+            text-shadow: none !important;
+            font-size: 0.8rem;
+        }
+    }
+
 </style>
 
-<div data-role="popup" id="cart_popup" class="custom-filter" data-position-to="window" data-overlay-theme="a"
-     data-transition="pop" style="border-bottom-right-radius: 50px;">
+<div data-role="popup" id="cart_popup"  class="cart-card" ata-position-to="window" data-overlay-theme="a"
+     data-transition="pop" style="border-bottom-right-radius: 50px;padding:20px">
     <div class="row mb-2">
-        <div class="col-8">
-            <label style="position: relative; margin-left: 64%"><strong>Mini Cart </strong> </label>
+        <div class="col-9 text-center">
+            <label style="position: relative;padding-left:70px;" class=""><strong>Mini Cart</strong> </label>
         </div>
-        <div class="col-4 custom-close-button">
+        <div class="col-3 custom-close-button">
             <a href="#" data-rel="back" data-role="button" data-transition="pop"
                class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
         </div>
@@ -138,11 +97,11 @@
     </div>
 
     <div class="row mb-2">
-        <div class="col-6">
+        <div class="col-sm-6 col-6">
             <label><strong>Your Cart</strong> </label>
         </div>
-        <div class="col-6">
-            <label style="float: right;
+        <div class="col-sm-6 col-6">
+            <label class="font2" style="float: right;
                           border: 1px solid red;
                           padding: 3px;
                           padding-left: 10px;
@@ -389,3 +348,106 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
+        let nav_bar_cart = $( "#nav_bar_cart" );
+        if (cartItemsArr) {
+            nav_bar_cart.removeClass('ui-icon-cart');
+            nav_bar_cart.addClass('ui-icon-cart-with-items');
+        } else {
+            nav_bar_cart.addClass('ui-icon-cart');
+            nav_bar_cart.removeClass('ui-icon-cart-with-items');
+        }
+    });
+
+    $("#cart_popup").enhanceWithin().popup({
+        afterclose: function () {
+            let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
+            let nav_bar_cart = $( "#nav_bar_cart" );
+            if (cartItemsArr) {
+                nav_bar_cart.removeClass('ui-icon-cart');
+                nav_bar_cart.addClass('ui-icon-cart-with-items');
+            } else {
+                nav_bar_cart.addClass('ui-icon-cart');
+                nav_bar_cart.removeClass('ui-icon-cart-with-items');
+            }
+            nav_bar_cart.removeClass("ui-btn-active");
+        }
+    }).popup("close");
+
+    $("#delivery_details").enhanceWithin().popup({
+
+    }).popup("close");
+
+    $('#nav_bar_cart').click(function () {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        if(!!user) {
+            let cartItemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
+            let cartItems = '';
+            if (cartItemsArr) {
+                $( "#nav_bar_cart" ).addClass('ui-icon-cart');
+                $( "#nav_bar_cart" ).removeClass('ui-icon-cart-with-items');
+                cartItemsArr = cartItemsArr['items'];
+                console.log(cartItemsArr);
+                $.each(cartItemsArr, function (i, item) {
+                    let totalPrice = (item['price'] * item['qty']).toFixed(2);
+                    let itemHtml = `
+        <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="row" style="box-shadow: 1px 7px 19px -9px #ec7a23;border-bottom-right-radius: 18px;">
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                            <div class="row">
+                            <label class="font2 text-left"><b>${item['product_name']}</b> (${item['variant']} x ${item['qty']})</label>
+                            </div><div class="row">
+                            <label class="label-price ">LKR ${totalPrice}</label></div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                             style="margin-top: inherit;
+                            margin-bottom: inherit;">
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 ui-btn ui-icon-cart ui-btn-icon-top"
+                             style="margin-top: inherit;
+                            margin-bottom: inherit;
+                            border-bottom-right-radius: 11px;
+                            border-top-right-radius: 11px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+                    cartItems += itemHtml;
+                });
+            } else {
+                cartItems = '<p>No items available </p>';
+            }
+            $('#cartItems').html(cartItems);
+            $("#cart_popup").popup('open');
+        } else {
+            $('#signin-required-modal').popup('open');
+        }
+    });
+
+    $('#toCheckout').click(function () {
+        sessionStorage.setItem('isBuyNow', '0');
+        openDelivery = true;
+        popupDeliveryModal();
+    })
+
+    function popupDeliveryModal() {
+        let cartModal = $("#cart_popup");
+        cartModal.popup('close');
+        cartModal.on("popupafterclose", function () {
+            //any action you want like opening another popup
+            if (openDelivery) {
+                let productModel = $("#delivery_details");
+                $("#radio_1").prop("checked", true);
+                productModel.popup("open");
+                openDelivery = false;
+            }
+        });
+    }
+
+</script>
