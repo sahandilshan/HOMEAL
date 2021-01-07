@@ -24,7 +24,7 @@
     <style>
 
         .btn-promocode {
-            border: 1px solid red;
+            border: 2px solid #EC7A23;
             border-radius: 11px;
             border-bottom-right-radius: 45px;
             padding-right: 15px;
@@ -63,15 +63,15 @@
         }
 
         .add-more-items {
-            border: 1px solid red;
-            padding-right: 15px;
+            border: 2px solid #EC7A23;
+            padding-right: 12px;
             padding-top: 5px;
             padding-bottom: 5px;
-            padding-left: 15px;
+            padding-left: 12px;
             border-radius: 11px;
             border-bottom-right-radius: 45px;
-            font-size: 0.8rem;
             font-size: 12px;
+            width: 160px !important;
         }
 
         .ui-checkbox .ui-btn, .ui-radio .ui-btn {
@@ -129,6 +129,46 @@
         .custom-star {
             height: 23px;
             width: 23px;
+        }
+
+        .radio-item {
+            position: relative;
+            padding: 0 6px;
+
+        }
+
+        .radio-item input[type='radio'] {
+            display: none;
+        }
+
+        .radio-item label {
+            color: #000000;
+            font-weight: normal;
+        }
+
+        .radio-item label:before {
+            content: " ";
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            margin: 0 5px 0 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 11px;
+            border: 2px solid #cacaca;
+            background-color: transparent;
+        }
+
+        .radio-item input[type=radio]:checked + label:after {
+            border-radius: 11px;
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: 9px;
+            left: 10px;
+            content: " ";
+            display: block;
+            background: #EC7A23;
         }
     </style>
 
@@ -214,12 +254,17 @@
                                     <!--</label>-->
                                     <!--<input type="radio" name="size" id="radio-small">-->
                                     <!--</div>-->
+                                    <div class="radio-item" data-role="none">
+                                        <input checked id="radio-cash" data-role="none" name="payment" type="radio" value="cash">
+                                        <label for="radio-cash" data-role="none">Cash</label>
+                                    </div>
 
-                                    <label class="ui-radio-btn">Cash</label>
-                                    <input checked id="radio-cash" name="payment" type="radio" value="cash">
+                                    <div class="radio-item" data-role="none" style="margin-left: 10%">
 
-                                    <label class="ui-radio-btn" style="margin-left: 20%">Card</label>
-                                    <input id="radio-card" name="payment" type="radio" value="card">
+                                        <input id="radio-card" data-role="none" name="payment" type="radio" value="card">
+                                        <label  for="radio-card"data-role="none" >Card</label>
+                                    </div>
+
                                 </div>
                             </form>
 
@@ -248,9 +293,8 @@
                                 <div class="col-6" style="font-size: 18px;margin-left: inherit">
                                     <b>Your Order</b>
                                 </div>
-                                <div class="col-6 float-right p-0" style="">
-                                    <div class="add-more-items">
-                                        + Add More Items
+                                <div class="col-6 p-0 m-0 row justify-content-end">
+                                    <div class="add-more-items"> + Add More Items
                                     </div>
                                 </div>
                             </div>
