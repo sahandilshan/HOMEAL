@@ -306,7 +306,6 @@
         favouriteItems.empty(); // to remove previously loaded cards.
         user = JSON.parse(sessionStorage.getItem('user'));
         let favouriteListJson = user['favorites_list'];
-        console.log(favouriteListJson);
         $("#outer-div").hide();
         $("#emailMyList").show();
         favouriteItems.show();
@@ -364,7 +363,6 @@
     }
 
     $(document).on('click', '.star', function() {
-        console.log($(this).data('pid'))
         let selected_product_id = $(this).data('pid');
         let favouriteListJson = user['favorites_list'];
         user['favorites_list'] = $.grep(favouriteListJson, function(item){
