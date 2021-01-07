@@ -269,46 +269,7 @@
         <!-- *******************Driver Rating modal******************************-->
         <div data-role="popup" id="driver-rating-modal" style=" width: 300px !important;
         height: 350px!important;" data-position-to="window" data-overlay-theme="a"
-             data-transition="pop">
-            <div class="row mt-3">
-                <div class="col-8">
-                </div>
-                <div class="col-4 custom-close-button" style="padding-right: 25px;">
-                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
-                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
-                </div>
-            </div>
-            <div style="text-align: -webkit-center;">
-                <img  src="./../assets/gifs/21653-delivery-guy-out-for-delivery.gif"
-                     alt="this slowpoke moves"
-                     width=170px style="border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);"/>
-            </div>
-            <div class="row mb-2 mt-3" style="text-align: -webkit-center;">
-                <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
-                    Driver
-                </div>
-                <div class="stars" data-role="none"
-                     style="margin-right: auto;margin-left: auto;display: block">
-                    <input data-role="none" class="star star-5" id="driver-rating-star-5" type="radio" name="star"/>
-                    <label data-role="none" class="star star-5" for="driver-rating-star-5" onClick=""></label>
-                    <input data-role="none" class="star star-4" id="driver-rating-star-4" type="radio" name="star"/>
-                    <label data-role="none" class="star star-4" for="driver-rating-star-4"></label>
-                    <input data-role="none" class="star star-3" id="driver-rating-star-3" type="radio" name="star"/>
-                    <label data-role="none" class="star star-3" for="driver-rating-star-3"></label>
-                    <input data-role="none" class="star star-2" id="driver-rating-star-2" type="radio" name="star"/>
-                    <label data-role="none" class="star star-2" for="driver-rating-star-2"></label>
-                    <input data-role="none" class="star star-1" id="driver-rating-star-1" type="radio" name="star"/>
-                    <label data-role="none" class="star star-1" for="driver-rating-star-1"></label>
-                </div>
-            </div>
-        </div>
-        <!--*********************************END**********************************-->
-
-
-        <!--**********************************************************shop rating modal***************************************************-->
-        <div data-role="popup" id="shop-rating-modal" style=" width: 300px !important;" data-position-to="window"
-             data-overlay-theme="a"
-             data-transition="pop">
+             data-history="false" data-transition="pop">
             <div class="row mt-3">
                 <div class="col-8">
                 </div>
@@ -322,22 +283,115 @@
                      alt="this slowpoke moves"
                      width=170px style="border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);"/>
             </div>
+            <div class="row mb-2 mt-3" style="text-align: -webkit-center;">
+                <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
+                    Driver
+                </div>
+                <div class="stars" data-role="none"
+                     style="margin-right: auto;margin-left: auto;display: block">
+                    <input class="star star-5" data-role="none" id="driver-rating-star-5" name="star1" type="radio"/>
+                    <label data-role="none" class="star star-5" for="driver-rating-star-5" onClick=""></label>
+                    <input class="star star-4" data-role="none" id="driver-rating-star-4" name="star1" type="radio"/>
+                    <label data-role="none" class="star star-4" for="driver-rating-star-4"></label>
+                    <input class="star star-3" data-role="none" id="driver-rating-star-3" name="star1" type="radio"/>
+                    <label data-role="none" class="star star-3" for="driver-rating-star-3"></label>
+                    <input class="star star-2" data-role="none" id="driver-rating-star-2" name="star1" type="radio"/>
+                    <label data-role="none" class="star star-2" for="driver-rating-star-2"></label>
+                    <input checked class="star star-1" data-role="none" id="driver-rating-star-1" name="star1" type="radio"/>
+                    <label data-role="none" class="star star-1" for="driver-rating-star-1"></label>
+                </div>
+            </div>
+            <div>
+                <button class="ui-btn" id="btnDriverRatingNext" style="background-color: #EC7A23 !important;
+                             color: white !important;
+                             border-radius: 25px !important;
+                             margin: auto !important;
+                             text-shadow: none !important;">Next
+                </button>
+            </div>
+        </div>
+        <!--*********************************END**********************************-->
+
+        <!-- *******************Merchant Rating modal******************************-->
+        <div data-history="false" data-overlay-theme="a" data-position-to="window" data-role="popup" data-transition="pop"
+             id="merchant-rating-modal" style=" width: 300px !important;
+        height: 350px!important;">
+            <div class="row mt-3">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button" style="padding-right: 25px;">
+                    <a class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0" data-rel="back" data-role="button" data-transition="pop"
+                       href="#">No text</a>
+                </div>
+            </div>
+            <div style="text-align: -webkit-center;">
+                <img alt="this slowpoke moves" id="merchantRatingImg"
+                     src="./../assets/gifs/21652-delivery-guy-waiting.gif"
+                     style="border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);" width=170px/>
+            </div>
+            <div class="row mb-2 mt-3" style="text-align: -webkit-center;">
+                <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
+                    Merchant
+                </div>
+                <div class="stars" data-role="none"
+                     style="margin-right: auto;margin-left: auto;display: block">
+                    <input class="star star-5" data-role="none" id="merchant-rating-star-5" name="star" type="radio"/>
+                    <label class="star star-5" data-role="none" for="merchant-rating-star-5" onClick=""></label>
+                    <input class="star star-4" data-role="none" id="merchant-rating-star-4" name="star" type="radio"/>
+                    <label class="star star-4" data-role="none" for="merchant-rating-star-4"></label>
+                    <input class="star star-3" data-role="none" id="merchant-rating-star-3" name="star" type="radio"/>
+                    <label class="star star-3" data-role="none" for="merchant-rating-star-3"></label>
+                    <input class="star star-2" data-role="none" id="merchant-rating-star-2" name="star" type="radio"/>
+                    <label class="star star-2" data-role="none" for="merchant-rating-star-2"></label>
+                    <input checked class="star star-1" data-role="none" id="merchant-rating-star-1" name="star" type="radio"/>
+                    <label class="star star-1" data-role="none" for="merchant-rating-star-1"></label>
+                </div>
+            </div>
+            <div>
+                <button class="ui-btn" id="btnMerchantRatingNext" style="background-color: #EC7A23 !important;
+                             color: white !important;
+                             border-radius: 25px !important;
+                             margin: auto !important;
+                             text-shadow: none !important;">Next
+                </button>
+            </div>
+        </div>
+        <!--*********************************END**********************************-->
+
+
+        <!--**********************************************************shop rating modal***************************************************-->
+        <div data-history="false" data-position-to="window" data-role="popup" id="product-rating-modal" style=" width: 300px !important;"
+             data-overlay-theme="a"
+             data-transition="pop">
+            <div class="row mt-3">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button" style="padding-right: 25px;">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <div style="text-align: -webkit-center;">
+                <img id="productModalRatingImg" src=""
+                     alt="this slowpoke moves"
+                     width=170px style="border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);"/>
+            </div>
             <div class="row mt-3" style="text-align: -webkit-center;">
                 <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
                     Driver
                 </div>
                 <div class="stars" data-role="none"
                      style="margin-right: auto;margin-left: auto;display: block">
-                    <input data-role="none" class="star star-5" id="shop-rating-modal-star-5" type="radio" name="star"/>
+                    <input class="star star-5" data-role="none" id="shop-rating-modal-star-5" name="productStar" type="radio"/>
                     <label data-role="none" class="star star-5" for="shop-rating-modal-star-5"
                            onClick=""></label>
-                    <input data-role="none" class="star star-4" id="shop-rating-modal-star-4" type="radio" name="star"/>
+                    <input class="star star-4" data-role="none" id="shop-rating-modal-star-4" name="productStar" type="radio"/>
                     <label data-role="none" class="star star-4" for="shop-rating-modal-star-4"></label>
-                    <input data-role="none" class="star star-3" id="shop-rating-modal-star-3" type="radio" name="star"/>
+                    <input class="star star-3" data-role="none" id="shop-rating-modal-star-3" name="productStar" type="radio"/>
                     <label data-role="none" class="star star-3" for="shop-rating-modal-star-3"></label>
-                    <input data-role="none" class="star star-2" id="shop-rating-modal-star-2" type="radio" name="star"/>
+                    <input class="star star-2" data-role="none" id="shop-rating-modal-star-2" name="productStar" type="radio"/>
                     <label data-role="none" class="star star-2" for="shop-rating-modal-star-2"></label>
-                    <input data-role="none" class="star star-1" id="shop-rating-modal-star-1" type="radio" name="star"/>
+                    <input checked class="star star-1" data-role="none" id="shop-rating-modal-star-1" name="productStar" type="radio"/>
                     <label data-role="none" class="star star-1" for="shop-rating-modal-star-1"></label>
                 </div>
             </div>
@@ -347,16 +401,16 @@
                         Comments
                     </div>
                     <div class="col-12 mb-3">
-                        <form>
-                            <textarea class="mb-3" cols="40" rows="8" name="textarea-1" id="textarea-1"
+
+                            <textarea class="mb-3" cols="40" id="commentTextarea" name="textarea-1" rows="8"
                                       placeholder="Some text"></textarea>
-                            <button class="ui-btn" style="background-color: #EC7A23 !important;
+                            <button class="ui-btn" id="productRatingSubmit" style="background-color: #EC7A23 !important;
                              color: white !important;
                              border-radius: 25px !important;
                              margin: auto !important;
                              text-shadow: none !important;">Submit
                             </button>
-                        </form>
+
                     </div>
                 </div>
             </div>
@@ -556,6 +610,7 @@
             sessionStorage.setItem('pastOrders', JSON.stringify(pastOrdersJsonArr));
             sessionStorage.setItem('onGoingOrders', JSON.stringify(onGoingOrdersJsonArr));
             loadOnGoingOrders();
+            loadPasOrders();
         }, 15000);
     });
 
@@ -606,11 +661,6 @@
         pastOrdersTab.text('Past Orders (' + pastOrdersJsonArr.length + ')')
         pastOrdersTab.css("border-bottom", "3px solid #ec7a23");
         $('#onGoingOrders').hide();
-        $.each(pastOrdersJsonArr, function (i, order) {
-            let orderId = order['order_id'];
-            $('#' + orderId +'-shrink-past').show();
-            $('#' + orderId +'-extend-past').hide();
-        });
         $('#pastOrders').show();
     }
 
@@ -665,7 +715,7 @@
                 </div>
                 <div class="row m-0">
                     <div class="col-6 m-0 p-0">
-                        <span class="text-white pl-1 pr-2 order-status-container">PENDING</span>
+                        <span class="text-white pl-1 pr-2 order-status-container">COMPLETED</span>
                     </div>
                     <div class="col-6 m-0 p-0" style="text-align: end !important ">
                         <span class="pb-3 text-white" style="font-size: 14px">Total LKR ${order['total']}</span>
@@ -678,12 +728,12 @@
                             style="border: 2px solid #ff8600 !important;">Re-order
                         </div>
                     </div>
-                    <div class="col-6 m-0 p-0 btnTrack" data-order-id="${order['order_id']}">
+                    <div class="col-6 m-0 p-0 btnRate" data-order-id="${order['order_id']}" data-rate-status="0">
                         <div class="text-center border rounded-pill ml-2 mr-2 text-white"
                              style="border: 2px solid #ff8600 !important; ">
                             <a  href="#" style="color: white; text-decoration: none; font-weight: normal"
                                data-rel="popup"
-                               data-transition="pop">Track</a>
+                               data-transition="pop">Rate</a>
                         </div>
                     </div>
                 </div>
@@ -726,6 +776,11 @@
             pastOrdersCards += card;
         });
         pastOrdersTab.append(pastOrdersCards);
+        $.each(pastOrdersJsonArr, function (i, order) {
+            let orderId = order['order_id'];
+            $('#' + orderId +'-shrink-past').show();
+            $('#' + orderId +'-extend-past').hide();
+        });
     }
 
     $(document).on('click', '.pastOrdersCardSwitch', function () {
@@ -739,6 +794,84 @@
         $('#' + orderId +'-shrink-past').hide();
         $('#' + orderId +'-extend-past').show();
     });
+
+    let selectedPastOrderCard;
+    let btnDriverRatingNextClicked = false; //to check whether user has clicked the next button so that next modal will open
+    let btnMerchantRatingNextClicked = false;
+
+    $(document).on('click', '.btnRate', function () {
+        // rateStatus: 0 (driver modal), rateStatus: 1 (merchant modal), anyOther(product modal
+        selectedPastOrderCard = $(this);
+        let rateStatus = parseInt(selectedPastOrderCard.data('rate-status'));
+        let orderId= selectedPastOrderCard.data('order-id').toString();
+        console.log(typeof(rateStatus), rateStatus);
+        if (rateStatus === 0) {
+            $("#driver-rating-star-1").prop("checked", true);
+            $('#driver-rating-modal').popup('open');
+        } else if (rateStatus === 1) {
+            openMerchantRatingModal();
+        } else {
+            openProductRatingModal(orderId);
+        }
+    });
+
+    $('#btnDriverRatingNext').click(function () {
+        btnDriverRatingNextClicked = true;
+       selectedPastOrderCard.data('rate-status', 1);
+       $('#driver-rating-modal').popup('close');
+    });
+
+    $('#btnMerchantRatingNext').click(function () {
+        btnMerchantRatingNextClicked = true;
+        selectedPastOrderCard.data('rate-status', 2);
+        $('#merchant-rating-modal').popup('close');
+    });
+
+    $('#productRatingSubmit').click(function () {
+        $('#product-rating-modal').popup('close');
+    })
+
+    $('#driver-rating-modal').on("popupafterclose", function () {
+        if (btnDriverRatingNextClicked) {
+            openMerchantRatingModal();
+            btnDriverRatingNextClicked = false;
+        }
+    });
+    $('#merchant-rating-modal').on("popupafterclose", function () {
+        if (btnMerchantRatingNextClicked) {
+            let orderId= selectedPastOrderCard.data('order-id').toString();
+            openProductRatingModal(orderId);
+            btnMerchantRatingNextClicked = false;
+        }
+    });
+
+    function openMerchantRatingModal() {
+        let orderId= selectedPastOrderCard.data('order-id').toString();
+        let order = pastOrdersJsonArr.find(x => x['order_id'] === orderId);
+        $('#merchantRatingImg').attr('src', order['bg_img']);
+        $("#merchant-rating-star-1").prop("checked", true);
+        $('#merchant-rating-modal').popup('open');
+    }
+
+    function openProductRatingModal(orderId) {
+        $('#commentTextarea').val('');
+        let order = pastOrdersJsonArr.find(x => x['order_id'] === orderId);
+        let merchant_id = order['merchant_id'];
+        let productId = order['items'][0]['product_id'];
+        let merchantJsonArr = JSON.parse(sessionStorage.getItem('products'));
+        let merchant = merchantJsonArr.find(x => x['merchant_id'] === merchant_id);
+        let productsArr = merchant['products'];
+        let product = productsArr.find(x => x['product_id'] === productId);
+        $('#productModalRatingImg').attr('src', product['product_img_path']);
+        $('#product-rating-modal').popup('open');
+        console.log(productId);
+        // $('#productModalRatingImg').
+    }
+
+
+
+
+
 
 </script>
 </html>

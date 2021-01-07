@@ -550,10 +550,12 @@
         orderJson = `
         {
             "order_id": "${orderId}",
+            "merchant_id": "${item['merchant_id']}",
             "bg_img": "${item['merchant_bgImg']}",
             "items": [
                 {
                     "name": "${itemName}",
+                    "product_id": "${item['product_id']}",
                     "qty": ${qty},
                     "variant": "${item['variant']}",
                     "price": "${priceWithCents}"
@@ -570,6 +572,7 @@
         let orderId = getOrderId();
         let itemsArr = sessionStorage.getItem('cartItems');
         itemsArr = JSON.parse(itemsArr);
+        let merchantId = itemsArr['merchant_id'];
         let bgImg = itemsArr['merchant_bgImg'];
         itemsArr = itemsArr['items'];
         console.log(itemsArr);
@@ -614,6 +617,7 @@
             let orderJson = `
             {
                     "name": "${itemName}",
+                    "product_id": "${item['product_id']}",
                     "qty": ${qty},
                     "variant": "${item['variant']}",
                     "price": "${priceWithCents}"
@@ -629,6 +633,7 @@
         orderJson = `
         {
             "order_id": "${orderId}",
+            "merchant_id": "${merchantId}",
             "bg_img": "${bgImg}",
             "items": [${orderItemJsonArr}],
             "tax": "80.00",
@@ -663,7 +668,7 @@
                 handler.open({
                     name: 'Football Example',//merchant name
                     currency: 'gbp',
-                    description: "2 Items",//number of items
+                    description: "2 Items",//number of items or products with qty
                     amount: total * 100
                 });
                 e.preventDefault();
