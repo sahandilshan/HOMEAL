@@ -626,7 +626,7 @@
             let card = `
                <div id="${order['order_id']}" class="col-sm-12 col-md-6 p-1">
                 <div id="${order['order_id']}-extend">
-                    <div style="height: 240px;background: linear-gradient(
+                    <div style="padding-bottom:1em;background: linear-gradient(
                     rgba(0, 0, 0, 0.45),
                     rgba(0, 0, 0, 0.45)
                     ), /* bottom, image */ url(${order['bg_img']});
@@ -742,13 +742,13 @@
         let popupTrack = $('#popupTrack');
         popupTrack.popup('open');
         setTimeOut1 = setTimeout(function() {
-            $('#popupTrackImg').attr("src","./../assets/gifs/21653-delivery-guy-out-for-delivery.gif");
-            $('#popupTrackText').text('Food is on the way');
-        }, 1000);
+            $('#popupTrackImg').attr("src","./../assets/gifs/21652-delivery-guy-waiting.gif");
+            $('#popupTrackText').text('Driver is Picking up');
+        }, 5000);
         setTimeOut2 = setTimeout(function() {
             $('#popupTrackImg').attr("src","./../assets/gifs/21653-delivery-guy-out-for-delivery.gif");
-            $('#popupTrackText').text('Food Arrived');
-        }, 2000);
+            $('#popupTrackText').text('Food is on the way');
+        }, 10000);
         setTimeOut3 = setTimeout(function() {
             popupTrack.popup('close');
             orderId = orderId.toString();
@@ -762,7 +762,7 @@
             sessionStorage.setItem('pastOrders', JSON.stringify(pastOrdersJsonArr));
             sessionStorage.setItem('onGoingOrders', JSON.stringify(onGoingOrdersJsonArr));
             loadOnGoingOrders();
-        }, 3000);
+        }, 15000);
     });
 
     $('#popupTrack').on("popupafterclose", function () {
@@ -785,6 +785,9 @@
         $('#' + orderId +'-shrink').hide();
         $('#' + orderId +'-extend').show();
     });
+
+    // Past orders starts from here
+
 
     $('#ongoingOrdersTab').click(function () {
         showOngoingOrders();
@@ -814,6 +817,7 @@
         $('#onGoingOrders').hide();
         $('#pastOrders').show();
     }
+
 
 </script>
 </html>
