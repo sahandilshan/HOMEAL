@@ -32,14 +32,14 @@
         margin-top: -3% !important;
         padding-bottom: 5px !important;
         padding-left:15px !important;
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
     }
 
     .mt-3, .my-3 {
         margin-top: 0 !important;
     }
     .cart-md-font2 {
-     font-size: 1.15rem !important;
+     font-size: 1rem !important;
     }
     .cart-md-font1 {
      font-size: 1.5rem !important;
@@ -48,6 +48,46 @@
     .cart-card{
         width: 430px !important;
         padding-bottom: 20px !important;
+    }
+
+    .radio-item {
+        position: relative;
+        padding: 0 6px;
+        margin: 10px 0 0;
+    }
+
+    .radio-item input[type='radio'] {
+        display: none;
+    }
+
+    .radio-item label {
+        color: #000000;
+        font-weight: normal;
+    }
+
+    .radio-item label:before {
+        content: " ";
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        margin: 0 5px 0 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 11px;
+        border: 2px solid #cacaca;
+        background-color: transparent;
+    }
+
+    .radio-item input[type=radio]:checked + label:after {
+        border-radius: 11px;
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 9px;
+        left: 10px;
+        content: " ";
+        display: block;
+        background: #EC7A23;
     }
 
 
@@ -121,7 +161,7 @@
 </style>
 
 <div data-role="popup" id="cart_popup"  class="cart-card" ata-position-to="window" data-overlay-theme="a"
-     data-transition="pop" style="border-bottom-right-radius: 50px;padding:20px">
+     data-transition="pop" style="border-bottom-right-radius: 50px;padding:15px">
     <div class="row mb-2">
         <div class="col-9 text-center">
             <label style="position: relative;padding-left:70px;" ><strong class="cart-md-font1">Mini Cart</strong> </label>
@@ -253,11 +293,13 @@
 
 
     <div class="row mb-2">
-        <div class="col-6">
-            <input type='radio' id='radio_1' name='type' value='1' style="margin-left: 37%;margin-top: -17px;"/>
+        <div class=" radio-item" style="margin-left:20% !important;margin-top: -17px;">
+            <input type='radio' data-role="none" id='radio_1' name='type' value='1' />
+            <label for="radio_1"></label>
         </div>
-        <div class="col-6">
-            <input type='radio' id='radio_2' name='type' value='1' style="margin-left: 37%;margin-top: -17px;"/>
+        <div class=" radio-item" style="margin-left: 40%;margin-top: -17px;">
+            <input type='radio' data-role="none" id='radio_2' name='type' value='1' />
+            <label for="radio_2"></label>
         </div>
     </div>
 

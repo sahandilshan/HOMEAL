@@ -130,6 +130,46 @@
             height: 23px;
             width: 23px;
         }
+
+        .radio-item {
+            position: relative;
+            padding: 0 6px;
+
+        }
+
+        .radio-item input[type='radio'] {
+            display: none;
+        }
+
+        .radio-item label {
+            color: #000000;
+            font-weight: normal;
+        }
+
+        .radio-item label:before {
+            content: " ";
+            display: inline-block;
+            position: relative;
+            top: 5px;
+            margin: 0 5px 0 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 11px;
+            border: 2px solid #cacaca;
+            background-color: transparent;
+        }
+
+        .radio-item input[type=radio]:checked + label:after {
+            border-radius: 11px;
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: 9px;
+            left: 10px;
+            content: " ";
+            display: block;
+            background: #EC7A23;
+        }
     </style>
 
 </head>
@@ -214,12 +254,17 @@
                                     <!--</label>-->
                                     <!--<input type="radio" name="size" id="radio-small">-->
                                     <!--</div>-->
+                                    <div class="radio-item" data-role="none">
+                                        <input checked id="radio-cash" data-role="none" name="payment" type="radio" value="cash">
+                                        <label for="radio-cash" data-role="none">Cash</label>
+                                    </div>
 
-                                    <label class="ui-radio-btn">Cash</label>
-                                    <input checked id="radio-cash" name="payment" type="radio" value="cash">
+                                    <div class="radio-item" data-role="none" style="margin-left: 10%">
 
-                                    <label class="ui-radio-btn" style="margin-left: 20%">Card</label>
-                                    <input id="radio-card" name="payment" type="radio" value="card">
+                                        <input id="radio-card" data-role="none" name="payment" type="radio" value="card">
+                                        <label  for="radio-card"data-role="none" >Card</label>
+                                    </div>
+
                                 </div>
                             </form>
 
