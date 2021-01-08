@@ -27,6 +27,18 @@
 
         }
 
+         #outer-div {
+             width: 100%;
+             text-align: center;
+         }
+
+        #inner-div {
+            display: inline-block;
+            margin: 0 auto;
+            padding: 3px;
+        }
+
+
     </style>
 
 </head>
@@ -210,35 +222,15 @@
         <!--Ongoing Orders-->
         <div class="container row m-0" id="onGoingOrders" style="max-width:100%">
 
-            <!--<div class="col-sm-12 col-md-6 p-1">
-                <div class="maintxt prd-1-normal">
-                    <div class="container overlay-text mt-2 pt-2 pb-2">
-                        <div class="row col-12 m-0  p-0">
-                            <div class="col-12 m-0 p-0">
-                                <h5 class="text-white">Order #2121</h5>
-                            </div>
-                        </div>
-                        <div class="row m-0">
-                            <div class="col-6 m-0 p-0">
-                                <span class="pb-3 text-white" style="font-size: 14px">Total LKR1050.00</span>
-                            </div>
-                            <div class="col-6 m-0 p-0" style="text-align: end !important ">
-                                <span class="pb-3 text-white prd-1-normal-down">^</span>
-                            </div>
-                        </div>
-                        <div class="row col-12 m-0 p-0 pb-1">
-                            <div class="col-12 m-0 p-0">
-                                <span class="text-white pl-1 pr-2 order-status-container">COMPLETED</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </div>
 
         <!--Past orders-->
         <div class="container row m-0" id="pastOrders" style="max-width:100%">
 
+        </div>
+        <div id="outer-div" >
+            <div id="inner-div" style="font-weight: bold;font-variant: all-small-caps;position: absolute;top: 50%;
+            left: 50%;transform: translate(-50%, -50%);"></div>
         </div>
 
 
@@ -377,21 +369,25 @@
                      width=170px style="border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);"/>
             </div>
             <div class="row mt-3" style="text-align: -webkit-center;">
-                <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
-                    Driver
+                <div class="col-12 text-black" id="productName" style="font-size: 18px; font-weight: bold;">
+                    Driver (Product Name)
                 </div>
                 <div class="stars" data-role="none"
                      style="margin-right: auto;margin-left: auto;display: block">
-                    <input class="star star-5" data-role="none" id="shop-rating-modal-star-5" name="productStar" type="radio"/>
-                    <label data-role="none" class="star star-5" for="shop-rating-modal-star-5"
-                           onClick=""></label>
-                    <input class="star star-4" data-role="none" id="shop-rating-modal-star-4" name="productStar" type="radio"/>
+                    <input class="star star-5" data-role="none" id="shop-rating-modal-star-5" name="productStar"
+                           type="radio" value="star-5"/>
+                    <label class="star star-5" data-role="none" for="shop-rating-modal-star-5"></label>
+                    <input class="star star-4" data-role="none" id="shop-rating-modal-star-4" name="productStar"
+                           type="radio" value="star-4"/>
                     <label data-role="none" class="star star-4" for="shop-rating-modal-star-4"></label>
-                    <input class="star star-3" data-role="none" id="shop-rating-modal-star-3" name="productStar" type="radio"/>
+                    <input class="star star-3" data-role="none" id="shop-rating-modal-star-3" name="productStar"
+                           type="radio" value="star-3"/>
                     <label data-role="none" class="star star-3" for="shop-rating-modal-star-3"></label>
-                    <input class="star star-2" data-role="none" id="shop-rating-modal-star-2" name="productStar" type="radio"/>
+                    <input class="star star-2" data-role="none" id="shop-rating-modal-star-2" name="productStar"
+                           type="radio" value="star-2"/>
                     <label data-role="none" class="star star-2" for="shop-rating-modal-star-2"></label>
-                    <input checked class="star star-1" data-role="none" id="shop-rating-modal-star-1" name="productStar" type="radio"/>
+                    <input checked class="star star-1" data-role="none" id="shop-rating-modal-star-1" name="productStar"
+                           type="radio" value="star-1"/>
                     <label data-role="none" class="star star-1" for="shop-rating-modal-star-1"></label>
                 </div>
             </div>
@@ -451,7 +447,9 @@
 <script>
     let pastOrdersJsonArr, onGoingOrdersJsonArr;
     let setTimeOut1, setTimeOut2, setTimeOut3;
+    let productJsonArr;
     $(document).ready(function () {
+        productJsonArr = JSON.parse(sessionStorage.getItem('products'));
         $('.star').removeClass('ui-radio');
         let pastOrders = sessionStorage.getItem('pastOrders');
         if (!pastOrders) {
@@ -592,11 +590,11 @@
         setTimeOut1 = setTimeout(function() {
             $('#popupTrackImg').attr("src","./../assets/gifs/21652-delivery-guy-waiting.gif");
             $('#popupTrackText').text('Driver is Picking up');
-        }, 5000);
+        }, 3000);
         setTimeOut2 = setTimeout(function() {
             $('#popupTrackImg').attr("src","./../assets/gifs/21653-delivery-guy-out-for-delivery.gif");
             $('#popupTrackText').text('Food is on the way');
-        }, 10000);
+        }, 6000);
         setTimeOut3 = setTimeout(function() {
             popupTrack.popup('close');
             orderId = orderId.toString();
@@ -611,7 +609,7 @@
             sessionStorage.setItem('onGoingOrders', JSON.stringify(onGoingOrdersJsonArr));
             loadOnGoingOrders();
             loadPasOrders();
-        }, 15000);
+        }, 9000);
     });
 
     $('#popupTrack').on("popupafterclose", function () {
@@ -645,10 +643,18 @@
     function showOngoingOrders() {
         let onGoingOrdersTab = $('#ongoingOrdersTab');
         let pastOrdersTab = $('#pastOrdersTab');
-        onGoingOrdersTab.text('Ongoing Orders (' + onGoingOrdersJsonArr.length + ')');
+        let onGoingOrdersLength = onGoingOrdersJsonArr.length
+        onGoingOrdersTab.text('Ongoing Orders (' + onGoingOrdersLength + ')');
         onGoingOrdersTab.css("border-bottom", "3px solid #ec7a23");
         pastOrdersTab.text('Past Orders (' + pastOrdersJsonArr.length + ')')
         pastOrdersTab.css("border-bottom", "3px solid #bebbb7");
+        let innerDiv = $('#inner-div');
+        if (onGoingOrdersLength === 0) {
+            innerDiv.show();
+            innerDiv.text('No any ongoing orders to display.')
+        } else {
+            innerDiv.hide();
+        }
         $('#onGoingOrders').show();
         $('#pastOrders').hide();
     }
@@ -656,10 +662,18 @@
     function showPastOrders() {
         let onGoingOrdersTab = $('#ongoingOrdersTab');
         let pastOrdersTab = $('#pastOrdersTab');
+        let pastOrdersLength = pastOrdersJsonArr.length;
         onGoingOrdersTab.text('Ongoing Orders (' + onGoingOrdersJsonArr.length + ')');
         onGoingOrdersTab.css("border-bottom", "3px solid #bebbb7");
-        pastOrdersTab.text('Past Orders (' + pastOrdersJsonArr.length + ')')
+        pastOrdersTab.text('Past Orders (' + pastOrdersLength + ')')
         pastOrdersTab.css("border-bottom", "3px solid #ec7a23");
+        let innerDiv = $('#inner-div');
+        if (pastOrdersLength === 0) {
+            innerDiv.show();
+            innerDiv.text('No any past orders to display.')
+        } else {
+            innerDiv.hide();
+        }
         $('#onGoingOrders').hide();
         $('#pastOrders').show();
     }
@@ -728,12 +742,20 @@
                             style="border: 2px solid #ff8600 !important;">Re-order
                         </div>
                     </div>
-                    <div class="col-6 m-0 p-0 btnRate" data-order-id="${order['order_id']}" data-rate-status="0">
+                    <div class="col-6 m-0 p-0 btnRate" id="${order['order_id']}-rate" data-order-id="${order['order_id']}" data-rate-status="0">
                         <div class="text-center border rounded-pill ml-2 mr-2 text-white"
                              style="border: 2px solid #ff8600 !important; ">
                             <a  href="#" style="color: white; text-decoration: none; font-weight: normal"
                                data-rel="popup"
                                data-transition="pop">Rate</a>
+                        </div>
+                    </div>
+                    <div class="col-6 m-0 p-0" id="${order['order_id']}-rated">
+                        <div class="text-center border rounded-pill ml-2 mr-2 text-white"
+                             style="border: none !important; ">
+                            <a  href="#" style="color: white; text-decoration: none; font-weight: normal"
+                               data-rel="popup"
+                               data-transition="pop">Rated</a>
                         </div>
                     </div>
                 </div>
@@ -778,8 +800,9 @@
         pastOrdersTab.append(pastOrdersCards);
         $.each(pastOrdersJsonArr, function (i, order) {
             let orderId = order['order_id'];
-            $('#' + orderId +'-shrink-past').show();
-            $('#' + orderId +'-extend-past').hide();
+            $('#' + orderId + '-shrink-past').show();
+            $('#' + orderId + '-extend-past').hide();
+            $('#'+ orderId + '-rated').hide();
         });
     }
 
@@ -827,10 +850,6 @@
         $('#merchant-rating-modal').popup('close');
     });
 
-    $('#productRatingSubmit').click(function () {
-        $('#product-rating-modal').popup('close');
-    })
-
     $('#driver-rating-modal').on("popupafterclose", function () {
         if (btnDriverRatingNextClicked) {
             openMerchantRatingModal();
@@ -853,25 +872,93 @@
         $('#merchant-rating-modal').popup('open');
     }
 
+
+
     function openProductRatingModal(orderId) {
         $('#commentTextarea').val('');
         let order = pastOrdersJsonArr.find(x => x['order_id'] === orderId);
         let merchant_id = order['merchant_id'];
         let productId = order['items'][0]['product_id'];
-        let merchantJsonArr = JSON.parse(sessionStorage.getItem('products'));
-        let merchant = merchantJsonArr.find(x => x['merchant_id'] === merchant_id);
+        let merchant = productJsonArr.find(x => x['merchant_id'] === merchant_id);
         let productsArr = merchant['products'];
-        let product = productsArr.find(x => x['product_id'] === productId);
-        $('#productModalRatingImg').attr('src', product['product_img_path']);
+        let ratingProduct = productsArr.find(x => x['product_id'] === productId);
+        $('#productModalRatingImg').attr('src', ratingProduct['product_img_path']);
+        $('#productName').text(ratingProduct['product_name']);
         $('#product-rating-modal').popup('open');
-        console.log(productId);
-        // $('#productModalRatingImg').
     }
 
+    $('#productRatingSubmit').click(function () {
+        // let star = $("input[name='productStar']:checked").val()
+        // console.log(star)
+        let orderId= selectedPastOrderCard.data('order-id').toString();
+        let order = pastOrdersJsonArr.find(x => x['order_id'] === orderId);
+        let merchant_id = order['merchant_id'];
+        let productId = order['items'][0]['product_id'];
+        let comment = $('#commentTextarea').val();
+        let star = $("input[name=productStar]").filter(":checked").val();
+        switch (star){
+            case "star-1": {
+                star = "1";
+                break;
+            }
+            case "star-2": {
+                star = "2";
+                break;
+            }
+            case "star-3": {
+                star = "3";
+                break;
+            }
+            case "star-4": {
+                star = "4";
+                break;
+            }
+            case "star-5": {
+                star = "5";
+                break;
+            }
+        }
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        let review = `
+        {
+            "review_id": "${orderId}",
+            "date": "${getDate()}",
+            "rating": "${star}",
+            "review_content": "${comment}",
+            "sellerComments": [],
+            "user_id": "${user['user_id']}",
+            "user_name": "${user['user_name']}"
+        }
+        `
+        let merchant = productJsonArr.find(x => x['merchant_id'] === merchant_id);
+        let productsArr = merchant['products'];
+        let ratingProduct = productsArr.find(x => x['product_id'] === productId);
+        review = JSON.parse(review);
+        ratingProduct['reviews'].push(review);
+        sessionStorage.setItem('products', JSON.stringify(productJsonArr));
+        $('#'+ orderId + '-rated').show();
+        $('#'+ orderId + '-rate').remove();
+        $('#product-rating-modal').popup('close');
+    });
 
+    function getDate() {
+        let today = new Date();
+        let dd = today.getDate();
 
+        let mm = today.getMonth()+1;
+        const yyyy = today.getFullYear();
+        if(dd<10)
+        {
+            dd=`0${dd}`;
+        }
 
-
+        if(mm<10)
+        {
+            mm=`0${mm}`;
+        }
+        today = `${yyyy}/${mm}/${dd}`;
+        return today;
+    }
 
 </script>
 </html>
