@@ -454,6 +454,7 @@
 <script>
     let total = 0;
     let orderJson;
+    let merchantId, itemsQty
     $(document).ready(function () {
         $('.btn-promocode').removeClass('ui-btn');
         changeIpadScreen(); // if page is load with  the ipad screen.
@@ -509,10 +510,10 @@
         let item = sessionStorage.getItem('buyNowItem');
         let orderId = getOrderId();
         item = JSON.parse(item);
-        console.log(item);
+        merchantId = item['merchant_id'];
         let itemName = item.product_name;
-        let qty = item.qty;
-        let price = item.price * qty;
+        itemsQty = item.qty;
+        let price = item.price * itemsQty;
         let priceWithCents = price.toFixed(2);
 
         let order = `
@@ -523,7 +524,7 @@
 
                     <div class="col-8"
                          style="background-color: white;width: 50%;padding: 10px;border-radius: 6px">
-                        <div style="font-size: 1rem"><b>${itemName} (${qty})</b></div>
+                        <div style="font-size: 1rem"><b>${itemName} (${itemsQty})</b></div>
                         <div style="font-size: 0.8rem">LKR ${priceWithCents}</div>
                     </div>
                     <div class="col-2"
@@ -550,13 +551,13 @@
         orderJson = `
         {
             "order_id": "${orderId}",
-            "merchant_id": "${item['merchant_id']}",
+            "merchant_id": "${merchantId}",
             "bg_img": "${item['merchant_bgImg']}",
             "items": [
                 {
                     "name": "${itemName}",
                     "product_id": "${item['product_id']}",
-                    "qty": ${qty},
+                    "qty": ${itemsQty},
                     "variant": "${item['variant']}",
                     "price": "${priceWithCents}"
                 }
@@ -572,7 +573,7 @@
         let orderId = getOrderId();
         let itemsArr = sessionStorage.getItem('cartItems');
         itemsArr = JSON.parse(itemsArr);
-        let merchantId = itemsArr['merchant_id'];
+        merchantId = itemsArr['merchant_id'];
         let bgImg = itemsArr['merchant_bgImg'];
         itemsArr = itemsArr['items'];
         console.log(itemsArr);
@@ -583,6 +584,7 @@
             console.log(item);
             let itemName = item.product_name;
             let qty = item.qty;
+            itemsQty += qty;
             let price = item.price * qty;
             subTotal += price;
             let priceWithCents = price.toFixed(2);
@@ -665,10 +667,12 @@
             let paymentMethod = $('input[name=payment]:checked', '#paymentForm').val();
             console.log(paymentMethod)
             if (paymentMethod === 'card') {
+                let merchantJsonArr = JSON.parse(sessionStorage.getItem('merchants'))
+                let merchant = merchantJsonArr.find(x => x['merchant_id'] === merchantId);
                 handler.open({
-                    name: 'Football Example',//merchant name
+                    name: merchant['merchant_name'],//merchant name
                     currency: 'gbp',
-                    description: "2 Items",//number of items or products with qty
+                    description: itemsQty + " Item(s)",//number of items or products with qty
                     amount: total * 100
                 });
                 e.preventDefault();
