@@ -27,17 +27,7 @@
             "available_quantity": "15"
           }
         ],
-        "reviews": [
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "3",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          }
-        ]
+        "reviews": []
       },
       {
         "product_id": "P002",
@@ -64,26 +54,7 @@
             "available_quantity": "15"
           }
         ],
-        "reviews": [
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "5",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          },
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "4",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          }
-        ]
+        "reviews": []
       },
       {
         "product_id": "P003",
@@ -110,26 +81,7 @@
             "available_quantity": "7"
           }
         ],
-        "reviews": [
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "5",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          },
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "4",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          }
-        ]
+        "reviews": []
       },
       {
         "product_id": "P004",
@@ -156,26 +108,7 @@
             "available_quantity": "7"
           }
         ],
-        "reviews": [
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "5",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          },
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "4",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          }
-        ]
+        "reviews": []
       }
 
     ]
@@ -207,17 +140,7 @@
           "available_quantity": "11"
         }
       ],
-      "reviews": [
-        {
-          "review_id": "",
-          "user_name": "Ahamed Muaaz",
-          "rating": "3",
-          "review_content": "This is a very good product",
-          "date": "2020/11/10",
-          "sellerComments": [],
-          "otherComments": []
-        }
-      ]
+      "reviews": []
     },
     {
       "product_id": "P002",
@@ -243,17 +166,7 @@
           "available_quantity": "11"
         }
       ],
-      "reviews": [
-        {
-          "review_id": "",
-          "user_name": "Ahamed Muaaz",
-          "rating": "3",
-          "review_content": "This is a very good product",
-          "date": "2020/11/10",
-          "sellerComments": [],
-          "otherComments": []
-        }
-      ]
+      "reviews": []
     },
     {
       "product_id": "P003",
@@ -279,17 +192,7 @@
           "available_quantity": "11"
         }
       ],
-      "reviews": [
-        {
-          "review_id": "",
-          "user_name": "Ahamed Muaaz",
-          "rating": "3",
-          "review_content": "This is a very good product",
-          "date": "2020/11/10",
-          "sellerComments": [],
-          "otherComments": []
-        }
-      ]
+      "reviews": []
     },
     {
       "product_id": "P004",
@@ -315,17 +218,7 @@
           "available_quantity": "11"
         }
       ],
-      "reviews": [
-        {
-          "review_id": "",
-          "user_name": "Ahamed Muaaz",
-          "rating": "3",
-          "review_content": "This is a very good product",
-          "date": "2020/11/10",
-          "sellerComments": [],
-          "otherComments": []
-        }
-      ]
+      "reviews": []
     }
   ]
 },
@@ -356,17 +249,7 @@
           "available_quantity": "11"
         }
       ],
-      "reviews": [
-        {
-          "review_id": "",
-          "user_name": "Ahamed Muaaz",
-          "rating": "3",
-          "review_content": "This is a very good product",
-          "date": "2020/11/10",
-          "sellerComments": [],
-          "otherComments": []
-        }
-      ]
+      "reviews": []
     },
     {
       "product_id": "P002",
@@ -392,17 +275,7 @@
           "available_quantity": "11"
         }
       ],
-      "reviews": [
-        {
-          "review_id": "",
-          "user_name": "Ahamed Muaaz",
-          "rating": "3",
-          "review_content": "This is a very good product",
-          "date": "2020/11/10",
-          "sellerComments": [],
-          "otherComments": []
-        }
-      ]
+      "reviews": []
     },
     {
       "product_id": "P003",
@@ -428,17 +301,7 @@
           "available_quantity": "11"
         }
       ],
-      "reviews": [
-        {
-          "review_id": "",
-          "user_name": "Ahamed Muaaz",
-          "rating": "3",
-          "review_content": "This is a very good product",
-          "date": "2020/11/10",
-          "sellerComments": [],
-          "otherComments": []
-        }
-      ]
+      "reviews": []
     },
     {
       "product_id": "P004",
@@ -464,17 +327,7 @@
           "available_quantity": "11"
         }
       ],
-      "reviews": [
-        {
-          "review_id": "",
-          "user_name": "Ahamed Muaaz",
-          "rating": "3",
-          "review_content": "This is a very good product",
-          "date": "2020/11/10",
-          "sellerComments": [],
-          "otherComments": []
-        }
-      ]
+      "reviews": []
     }
   ]
 },
@@ -505,17 +358,7 @@
             "available_quantity": "11"
           }
         ],
-        "reviews": [
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "3",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          }
-        ]
+        "reviews": []
       },
       {
         "product_id": "P002",
@@ -541,17 +384,7 @@
             "available_quantity": "11"
           }
         ],
-        "reviews": [
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "3",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          }
-        ]
+        "reviews": []
       },
       {
         "product_id": "P003",
@@ -577,17 +410,7 @@
             "available_quantity": "11"
           }
         ],
-        "reviews": [
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "3",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          }
-        ]
+        "reviews": []
       },
       {
         "product_id": "P004",
@@ -613,17 +436,7 @@
             "available_quantity": "11"
           }
         ],
-        "reviews": [
-          {
-            "review_id": "",
-            "user_name": "Ahamed Muaaz",
-            "rating": "3",
-            "review_content": "This is a very good product",
-            "date": "2020/11/10",
-            "sellerComments": [],
-            "otherComments": []
-          }
-        ]
+        "reviews": []
       }
     ]
   }
