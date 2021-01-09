@@ -11,12 +11,19 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <!--NOTE: IMPORTANT-->
+    <!--uncomment this to use google maps but pls comment it after using it-->
+    <!--**********************************************************************-->
+    <!-- <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoRQTz2rOB_8SE_-n-UqRZc-kJ2Iuxds0&callback=initMap&libraries=&v=weekly"
+            defer>
+         </script>-->
     <link rel="stylesheet" href="../css/custom.css"/>
+
     <style>
+        #map {
+            height: 100%;
+        }
         .ui-page {
             background: white;
         }
@@ -109,7 +116,7 @@
             <div class="col-lg-6 col-sm-6 col-md-12 .col-12">
             <div class="col-12 mb-3"><h3>About Us</h3></div>
             <div class="col-12">
-                <div class="mapouter">
+               <!-- <div class="mapouter">
                     <div class="gmap_canvas">
                         <iframe width="100%" height="500" id="gmap_canvas"
                                 src="https://maps.google.com/maps?q=iit&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -128,7 +135,11 @@
                         height: 250px;
                         width: 100%;
                     }</style>
-                </div>
+                </div>-->
+                <div id="map" style=" position: relative;
+                        text-align: right;
+                        height: 250px;
+                        width: 100%;"></div>
             </div>
             <div class="col-12 mt-3 text-center"><p>A page is one side of a leaf of paper, parchment or other material
                 in a book, magazine, newspaper, or other collection of sheets, on which text or illustrations can be
@@ -150,7 +161,7 @@
                        class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
                 </div>
             </div>
-            <div><h4>Submit Ticket</h4></div>
+            <div id="div-submit"><h4>Submit Ticket</h4></div>
             <input type="text" placeholder="issue" style="color: #F19B55">
             <textarea rows="4" cols="50" name="comment" placeholder="Description" style="color: #F19B55"></textarea>
             <button id="sendIssue" style="background-color: #EC7A23;color: #FFFFFF;text-shadow:none !important;">Submit</button>
@@ -215,19 +226,36 @@
     </div>
 </div>
 </body>
-<script src="../js/common.js">
 
-</script>
+
+
 <script>
+    let map;
+
+    function initMap() {
+        // The location of Uluru
+        const uluru = { lat: 6.865134213921374, lng: 79.85984849546443 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 17,
+            center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+        });
+    }
+
     $( "#sendIssue" ).click(function() {
         let sendIssueModal = $("#popup-submit-ticket");
         sendIssueModal.popup('close');
         sendIssueModal.on("popupafterclose", function () {
             //any action you want like opening another popup
-            if (openSuccessEmailModal) {
+
                 let successIssueModal = $("#success-issue");
                 successIssueModal.popup("open");
-            }
+
         });
     });
 
@@ -236,4 +264,6 @@
         sendIssueModal.popup('open');
     });
 </script>
+<script src="../js/common.js"></script>
+
 </html>
