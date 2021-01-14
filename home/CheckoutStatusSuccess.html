@@ -60,9 +60,6 @@
                 <hr>
             </div>
         </div>
-        <div class="row mt-n3">
-            <div class="col">Home/Search</div>
-        </div>
 
     </div>
 
@@ -80,13 +77,12 @@
 
                 </div>
                 <div class="col-12 col-sm-6 col-md-6" style="align-self: center !important; ">
-                    <div class="row-12  orderStatus">Order Successful</div>
-                    <div class="row-12  orderDetails" id="orderId">Order Number : 001</div>
-                    <div class="row-12 orderDetails mb-3" id="totalAmount">Total Amount : LKR 1050.00</div>
+                    <div class="row-12  orderStatus">Order Successful !</div>
+                    <div class="row-12  orderDetails" >Order Number :<span id="orderId" style="font-weight: bold">001</span></div>
+                    <div class="row-12 orderDetails mb-3">Total Amount :<span id="totalAmount" style="font-weight: bold">LKR 1050.00</span></div>
                     <div class="ml-5 mr-5">
-                        <button class="row-12 ui-btn" id="continue">Continue</button>
+                        <button id="continue" class="border rounded-pill ml-1 text-white" style="background-color:#EC7A23;color: white; font-size:14px;text-decoration: none; font-weight: normal">Continue</button>
                     </div>
-
                 </div>
 
             </div>
@@ -128,8 +124,8 @@
     $(document).ready(function () {
         let orderId = sessionStorage.getItem('orderId');
         orderId = zeroPad(orderId, 4);
-        $('#orderId').text('Order Number : #' + orderId);
-        $('#totalAmount').text('Total Amount : LKR ' + sessionStorage.getItem('total'));
+        $('#orderId').text(' #' + orderId);
+        $('#totalAmount').text(' LKR ' + sessionStorage.getItem('total'));
         sessionStorage.removeItem('cartItems');
         sessionStorage.removeItem('buyNowItem');
         sessionStorage.removeItem('isBuyNow');
