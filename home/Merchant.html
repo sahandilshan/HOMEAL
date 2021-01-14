@@ -384,8 +384,48 @@
                 </div>
         </div>
 
+        <!--differnt merchant cart switch confirm modal-->
+        <div data-role="popup" id="cart-switch-modal" style=" width: 300px !important;" data-position-to="window"
+             data-overlay-theme="a"
+             data-transition="pop">
+            <div class="row mt-3">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button" style="padding-right: 25px;">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <div style="text-align: -webkit-center;">
+            </div>
+
+            <div class="container">
+                <div class="row mb-2" style="">
+                    <div class="col-12 text-center" style="font-size: 14px; font-weight: bold;">
+                        Items from another merchant are available in the cart. This action will remove those ' +
+                        'items from the cart. Do you wish to continue?
+                    </div>
+                    <div class="col-12 mb-3">
+                        <div class="row col-12 m-0 p-0 mt-3">
+                            <div class="col-6 m-0 p-0">
+                                <button class="border  rounded-pill mr-1 text-white" id="cart-switch-modal-cancel" style="background-color:#282F33;color: white; text-decoration: none; font-size:14px;font-weight: normal">Cancel</button>
+
+                            </div>
+                            <div class="col-6 m-0 p-0">
+                                <button class="border rounded-pill ml-1 text-white" style="background-color:#EC7A23;color: white; font-size:14px;text-decoration: none; font-weight: normal"
+                                        id="cart-switch-modal-add">Proceed</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!--Cart Modal & Delivery Modal-->
         <div id="cartModal"></div>
+
+
 
     </div>
 
@@ -408,7 +448,7 @@
     <div data-role="footer" id="bottom-nav" class="fixed-bottom">
         <nav data-role="navbar">
             <ul>
-                <li><a id="nav_bar_home" class="ui-btn ui-icon-home ui-btn-icon-top ui-state-persist">Home</a></li>
+                <li><a id="nav_bar_home" class="ui-btn ui-icon-home ui-btn-icon-top">Home</a></li>
                 <li><a id="nav_bar_orders" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
                 <li><a id="nav_bar_cart" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
                 <li><a id="nav_bar_profile" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
@@ -441,6 +481,7 @@
     let productsArr;
     let user;
     let openDelivery = false;
+    let switch_cart=false;
 
     $.mobile.ajaxEnabled = false;
     $(document).ready(function () {
@@ -802,23 +843,31 @@
                 `;
             sessionStorage.setItem('cartItems', jsonArr);
             console.log('cart item initialized.');
+            $( "#nav_bar_cart" ).removeClass('ui-icon-cart');
+            $( "#nav_bar_cart" ).addClass('ui-icon-cart-with-items');
+            let productModel = $("#productModel");
+            productModel.popup( "close" );
+            let x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
         } else {
             cartItems = sessionStorage.getItem('cartItems');
             let itemsArr = JSON.parse(cartItems);
             if (itemsArr['merchant_id'] !== merchant_id) {
-                let response = confirm('Items from another merchant are available in the cart. This action will remove those ' +
-                    'items from the cart. Do you wish to continue?');
-                if (response) {
-                    let jsonArr =
-                        `
+                /*let response = confirm('Items from another merchant are available in the cart. This action will remove those ' +
+                    'items from the cart. Do you wish to continue?');*/
+               /* if (response) {
+
+                }*/
+                let jsonArr =
+                    `
                 {
                     "merchant_id": "${merchant_id}",
                     "items":[${item}]
                 }
                 `;
-                    sessionStorage.setItem('cartItems', jsonArr);
-                    console.log('cart item initialized.');
-                }
+                switch_cart=true;
+                openconfirmation(jsonArr);
             } else {
                 let existingItem = itemsArr['items'].find(x => x['product_id'] === selected_product_id
                     & x['price'] === price);
@@ -830,16 +879,15 @@
                 sessionStorage.setItem('cartItems', JSON.stringify(itemsArr));
                 console.log('cart items updated');
                 console.log(itemsArr);
+                $( "#nav_bar_cart" ).removeClass('ui-icon-cart');
+                $( "#nav_bar_cart" ).addClass('ui-icon-cart-with-items');
+                let productModel = $("#productModel");
+                productModel.popup( "close" );
+                let x = document.getElementById("snackbar");
+                x.className = "show";
+                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
             }
         }
-        $( "#nav_bar_cart" ).removeClass('ui-icon-cart');
-        $( "#nav_bar_cart" ).addClass('ui-icon-cart-with-items');
-        let productModel = $("#productModel");
-        productModel.popup( "close" );
-        let x = document.getElementById("snackbar");
-        x.className = "show";
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-
 
     });
 
@@ -944,6 +992,36 @@
     $( "#search-nav-text" ).click(function() {
         window.location.href ='./Search.html'
     });
+
+    function openconfirmation(jsonArr) {
+        let productModal = $("#productModel");
+        productModal.popup('close');
+        productModal.on("popupafterclose", function () {
+            //any action you want like opening another popup
+            if (switch_cart) {
+                $('#cart-switch-modal').popup('open');
+                $('#cart-switch-modal-add').click(
+                    function () {
+                        sessionStorage.setItem('cartItems', jsonArr);
+                        console.log('cart item initialized.');
+                        $( "#nav_bar_cart" ).removeClass('ui-icon-cart');
+                        $( "#nav_bar_cart" ).addClass('ui-icon-cart-with-items');
+                        let x = document.getElementById("snackbar");
+                        x.className = "show";
+                        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                        $('#cart-switch-modal').popup('close');
+                    }
+                );
+                $('#cart-switch-modal-cancel').click(
+                    function () {
+                        $('#cart-switch-modal').popup('close');
+                    }
+                );
+            }
+
+            switch_cart=false;
+        });
+    }
 </script>
 <script src="../js/location.js"></script>
 
