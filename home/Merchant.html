@@ -773,15 +773,22 @@
             }
             reviews +=
                                `</div>
-                                <div class="col-5 p-0 m-0 text-right">${review.date}</div>
+                                <div class="col-5 p-0 m-0 text-right">${review['date']}</div>
 
                             </div>
-                            <div class="row">${review.user_name}</div>
+                            <div class="row">${review['user_name']}</div>
                             <div class="row">
-                                <p>${review.review_content}</p>
+                                ${review['review_content']}
                             </div>
-                        </div>
-            `;
+`;
+            if (review['reply']) {
+                reviews += `
+                <div class="row" style="color: dimgrey">
+                    Merchant Reply: ${review['reply']}
+                </div>
+                `;
+            }
+            reviews += "</div>";
         })
         $("#prdModal-reviews").html(reviews);
         changePrice();
