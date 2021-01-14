@@ -18,6 +18,27 @@
 
     <style>
 
+        #snackbar-acheivement {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #209c2d;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 6px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 70px;
+            font-size: 14px;
+        }
+
+        #snackbar-acheivement.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
 
         .box2 {
             font-size: 14px !important;
@@ -620,6 +641,7 @@
         </ul>
             
     </div>
+    <div id="snackbar-acheivement">Qr Code has been successfully Scanned.</div>
 </div>
 </body>
 <script src="../js/common.js"></script>
@@ -627,12 +649,14 @@
 
     let progress = 14;
     $(window).load(function () {
-        console.log('ready');
+
         let scanned_qr_code = sessionStorage.getItem('scanned_qr_code');
         if (scanned_qr_code) {
-            let successScanModal = $("#success-scan");
-            successScanModal.popup("open");
-            successScanModal.on("popupafterclose", function () {
+
+            let x = document.getElementById("snackbar-acheivement");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+
                 let progression = $("#progression");
                 let text_progression = $("#text-progression");
                 let remaining_progress = $("#remaining-progress");
@@ -646,7 +670,6 @@
                 text_progression.text(progress + "%");
                 remaining_progress.text((100 - progress) + "%");
 
-            });
             sessionStorage.removeItem('scanned_qr_code');
         }
     });
