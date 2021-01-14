@@ -826,7 +826,12 @@
             let orderId = order['order_id'];
             $('#' + orderId + '-shrink-past').show();
             $('#' + orderId + '-extend-past').hide();
-            $('#'+ orderId + '-rated').hide();
+            let rated = $('#'+ orderId + '-rated');
+            rated.hide();
+            if (order['rated']) { // if already rate item remove rating button
+                $('#'+ orderId + '-rate').remove();
+                rated.show();
+            }
         });
     }
 
@@ -847,7 +852,7 @@
     let btnMerchantRatingNextClicked = false;
 
     $(document).on('click', '.btnRate', function () {
-        // rateStatus: 0 (driver modal), rateStatus: 1 (merchant modal), anyOther(product modal
+        // rateStatus: 0 (driver modal), rateStatus: 1 (merchant modal), anyOther(product modal)
         selectedPastOrderCard = $(this);
         let rateStatus = parseInt(selectedPastOrderCard.data('rate-status'));
         let orderId= selectedPastOrderCard.data('order-id').toString();
@@ -912,8 +917,6 @@
     }
 
     $('#productRatingSubmit').click(function () {
-        // let star = $("input[name='productStar']:checked").val()
-        // console.log(star)
         let orderId= selectedPastOrderCard.data('order-id').toString();
         let order = pastOrdersJsonArr.find(x => x['order_id'] === orderId);
         let merchant_id = order['merchant_id'];
@@ -960,6 +963,9 @@
         review = JSON.parse(review);
         ratingProduct['reviews'].push(review);
         sessionStorage.setItem('products', JSON.stringify(productJsonArr));
+        order['rated'] = true;
+        console.log(pastOrdersJsonArr)
+        sessionStorage.setItem('pastOrders', JSON.stringify(pastOrdersJsonArr));
         $('#'+ orderId + '-rated').show();
         $('#'+ orderId + '-rate').remove();
         $('#product-rating-modal').popup('close');
