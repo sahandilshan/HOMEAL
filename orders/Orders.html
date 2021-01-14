@@ -46,7 +46,7 @@
 <div data-role="page">
     <div class="top pl-3 pr-3 pb-2 fixed-top">
         <div data-role="header" class="mb-1 header">
-            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+            <button data-rel="back" id="backBtn" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
             <h1>
                 <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
             </h1>
@@ -65,7 +65,7 @@
                 <hr>
             </div>
         </div>
-        <div class="row mt-n3"> <!--search by name and filtering row-->
+      <!--  <div class="row mt-n3"> &lt;!&ndash;search by name and filtering row&ndash;&gt;
             <div class="col-10 mr-auto pt-2">
                 <input data-type="search" id="searchForCollapsibleSet" name="search" value=""
                        placeholder="Search Restaurant by Name"/>
@@ -75,13 +75,13 @@
                    class="ui-btn ui-corner-all ui-icon-filter ui-btn-icon-notext custom-filter-button">Filter</a>
             </div>
         </div>
-        <div class="row mt-n3">  <!--second hr line-->
+        <div class="row mt-n3">  &lt;!&ndash;second hr line&ndash;&gt;
             <div class="col">
                 <hr>
             </div>
-        </div>
-        <div class="row mt-n3">
-            <div class="col">Home/Search</div>
+        </div>-->
+        <div class="row mt-n2">
+            <div class="col"><span style="color: #F19B55; font-weight: bold">Orders</span></div>
         </div>
 
         <!--Location Modal-->
@@ -116,7 +116,7 @@
                 </div>
             </form>
         </div>
-        <!--Filters Modal-->
+        <!--&lt;!&ndash;Filters Modal&ndash;&gt;
         <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a"
              data-transition="pop">
             <div class="row mb-2">
@@ -204,7 +204,7 @@
                     <button class="ui-btn">Apply</button>
                 </div>
             </div>
-        </div>
+        </div>-->
 
     </div>
 
@@ -432,22 +432,43 @@
         </div>
     </div>
 
+
+    <!--side drawer for profile section-->
+    <div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="side-drawer"
+         style="z-index: 1400">
+                
+        <div><img src="../assets/logos/MainLight.png" class="side-drawer-logo"></div>
+        <ul data-role="listview">
+            <li data-icon="false"><a onclick='window.location.href="../profile/MyAccount.html"' class="side-drawer-option">My Account</a></li>
+            <li data-icon="false"><a  onclick='window.location.href="../profile/Help-about.html"' class="side-drawer-option">Help/About</a></li>
+            <li data-icon="false"><a  onclick='window.location.href="../profile/Favorites.html"' class="side-drawer-option"> Favorites</a></li>
+            <li data-icon="false"><a  onclick='window.location.href="../profile/Acheivements.html"' class="side-drawer-option">Acheivements</a></li>
+            <li data-icon="false"><a  id="profile_logout" class="side-drawer-option">Logout</a></li>
+        </ul>
+            
+    </div><!-- /panel -->
+
     <div data-role="footer" class="fixed-bottom">
         <nav data-role="navbar">
             <ul>
-                <li><a href="#" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
-                <li><a href="#" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
-                <li><a href="#" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
-                <li><a href="#" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
+                <li><a id="nav_bar_home" class="ui-btn ui-icon-home ui-btn-icon-top ui-btn-active ui-state-persist">Home</a></li>
+                <li><a id="nav_bar_orders" class="ui-btn ui-icon-orders ui-btn-icon-top">Orders</a></li>
+                <li><a id="nav_bar_cart" class="ui-btn ui-icon-cart ui-btn-icon-top">Cart</a></li>
+                <li><a id="nav_bar_profile" class="ui-btn ui-icon-profile ui-btn-icon-top">Profile</a></li>
             </ul>
         </nav>
     </div>
 </div>
 </body>
+<script src="../js/common.js"></script>
 <script>
     let pastOrdersJsonArr, onGoingOrdersJsonArr;
     let setTimeOut1, setTimeOut2, setTimeOut3;
     let productJsonArr;
+
+    $( "#backBtn" ).click(function() {
+        window.location.href='../home/Search.html';
+    });
     $(document).ready(function () {
         productJsonArr = JSON.parse(sessionStorage.getItem('products'));
         $('.star').removeClass('ui-radio');

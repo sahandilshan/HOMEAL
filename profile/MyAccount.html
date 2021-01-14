@@ -19,7 +19,7 @@
 <div data-role="page">
     <div class="top pl-3 pr-3 pb-2 fixed-top">
         <div data-role="header" class="mb-1 header">
-            <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+            <button data-rel="back" id="backBtn" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
             <h1>
                 <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
             </h1>
@@ -262,6 +262,9 @@
 </body>
 <script src="../js/common.js"></script>
 <script>
+    $( "#backBtn" ).click(function() {
+        window.location.href='../home/Search.html';
+    });
     $(document).ready(function () {
         try {
             var x = sessionStorage.getItem("user");
