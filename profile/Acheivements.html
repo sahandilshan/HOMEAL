@@ -182,7 +182,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-sm-10">
-                <a href="#popupBasicLocation" data-rel="popup" data-transition="pop"
+                <a href="#popupBasicLocation" data-rel="popup" data-transition="pop" id="selectLocation"
                    class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select
                     Your
                     Location</a>
@@ -218,13 +218,16 @@
                      class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
                     <div class="ui-controlgroup-controls">
                         <a href="#"
-                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Colombo
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left
+                           ui-icon-location location" data-filtertext = "Colombo 10">Colombo
                             10</a>
                         <a href="#"
-                           class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left ui-icon-location">Colombo
+                           class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left
+                            ui-icon-location location" data-filtertext = "Colombo 11">Colombo
                             11</a>
                         <a href="#"
-                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left ui-icon-location">Maradana</a>
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left
+                           ui-icon-location location" data-filtertext = "Maradhana">Maradana</a>
                     </div>
                 </div>
             </form>
@@ -681,4 +684,5 @@
         window.location.href='../home/Search.html';
     });
 </script>
+<script src="../js/location.js"></script>
 </html>
