@@ -107,19 +107,20 @@
 
             <div class="row justify-content-center" >
                 <div class="col-10" style="margin-top: 20px">
-                    <input style="box-shadow: 0px 5px 9px 4px #80808024" type="password" placeholder="Stone Street Pizza">
+                    <input style="box-shadow: 0px 5px 9px 4px #80808024" type="text"  id="merchantName" placeholder="Stone Street Pizza">
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <input style="box-shadow: 0px 5px 9px 4px #80808024" type="password" placeholder="Fast Food, Pizzeria">
+                    <input style="box-shadow: 0px 5px 9px 4px #80808024" type="text" id="merchantCategory" placeholder="Fast Food, Pizzeria">
                 </div>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <a href="#popupBasicLocation" data-rel="popup" data-transition="pop" style="box-shadow: 0px 5px 9px 4px #80808024"
+                    <a href="#popupBasicLocation" id="selectLocation" data-rel="popup" data-transition="pop"
+                       style="box-shadow: 0px 5px 9px 4px #80808024"
                        class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">
                         Colombo 10
                     </a>
@@ -394,10 +395,11 @@
     let productsArr;
     let user;
 
+
     $.mobile.ajaxEnabled = false;
     $(document).ready(function () {
-        let retrievedProductArr = sessionStorage.getItem('products');
-        productsArr = JSON.parse(retrievedProductArr);
+        let merchantJsonArray = JSON.parse(sessionStorage.getItem('merchants'));
+        productsArr = JSON.parse(sessionStorage.getItem('products'));
         let searchParams = new URLSearchParams(window.location.search);
         user = JSON.parse(sessionStorage.getItem('user'));
         if (searchParams.has('merchant_id')) {
@@ -407,6 +409,14 @@
             console.log("merchant id could not extract from the url.");
         }
 
+        $.each(merchantJsonArray, function (i, merchant) {
+            if (merchant['merchant_id'] === merchant_id) {
+                $('#merchantName').attr("placeholder", merchant['merchant_name']);
+                $('#merchantCategory').attr("placeholder", merchant['merchant_category']);
+                $('#selectLocation').text(merchant['merchantLocation']);
+                return false;
+            }
+        });
         // loading products
         let products = '<div class="row mt-1 ml-2 mr-2">';
         $.each(productsArr, function (i, merchant) {
