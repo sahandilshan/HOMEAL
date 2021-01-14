@@ -14,92 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/custom.css"/>
 
-    <script>
-
-        let merchant_id = '';
-        let selected_product_id = '';
-        let merchant_json;
-        let productsArr;
-        let user;
-        let openDelivery = false;
-        let merhchatName=''
-
-        $.mobile.ajaxEnabled = false;
-        $(document).ready(function () {
-            let retrievedProductArr = sessionStorage.getItem('products');
-            productsArr = JSON.parse(retrievedProductArr);
-            /*scope down in further steps*/
-            console.log("chavee", productsArr)
-            let searchParams = new URLSearchParams(window.location.search);
-            user = JSON.parse(sessionStorage.getItem('user'));
-            if (searchParams.has('merchant_id')) {
-                merchant_id = searchParams.get('merchant_id');
-                console.log("Merchant id: ", merchant_id);
-            } else {
-                console.log("merchant id could not extract from the url.");
-            }
-
-            // loading products
-            let products = '<div class="row mt-1 ml-2 mr-2">';
-            $.each(productsArr, function (i, merchant) {
-                if (merchant_id === merchant.merchant_id) {
-                    productsArr = merchant.products;
-                    console.log('productsArr: ', productsArr);
-                    productsArr.forEach(function (product) {
-                        products +=
-                            `
-                            <div class="col-6 col-sm-3 col-md-3" data-filtertext="${product.filter_text}">
-                                <div class="product-card" data-pid=${product.product_id}>
-                                    <div class="product-card-image">
-                                        <img alt="home" src="${product.product_img_path}" style="width: 100%;"/>
-
-                            `;
-                        let discount = product.discount;
-                        discount = Number(discount);
-                        if (Number.isNaN(discount)) {
-                            discount = 0;
-                        }
-                        products += `
-                              </div>
-                                    <div class="col pl-2 pb-1">
-                                        <div class="row">
-                                            <div class="col-8 product-name">
-                                            ${product['product_name']}
-                                            </div>
-                                            `;
-
-                            products += `<div class="col-4 favorite_icon" data-pid=${product['product_id']}
-                                              data-fav="1" style="padding-right: 5px;text-align: -webkit-right;">
-                                             <img src="../assets/icons/delete_icon.png"
-                                         style="border-radius: 10px;  height: 20px;width:20px;!important; object-fit: cover;"
-                                         alt="Card image">
-                                            </div>`
-
-
-                        products += `</div>
-                                        <div class="row-12 product-price">LKR ${product.variants[0].price}.00</div>
-                                    </div>
-
-                                </div>
-                              </div>
-                        `
-                    });
-                    return false;
-                    /*to break from the loop*/
-                }
-            });
-            products += '</div>'
-            $("#collapsiblesetForFilter").append(products);
-            return false;
-            /*to break from the loop*/
-
-
-            $('.ui-radio-btn').removeClass('ui-btn');
-            console.log("cc"); // for the model/popup
-        });
-
-    </script>
-
     <style>
         .side-drawer-logo {
             margin-right: auto;
@@ -473,4 +387,74 @@
     </div><!-- /panel -->
 </div>
 </body>
+
+<script>
+
+    let merchant_id = '';
+    let productsArr;
+    let user;
+
+    $.mobile.ajaxEnabled = false;
+    $(document).ready(function () {
+        let retrievedProductArr = sessionStorage.getItem('products');
+        productsArr = JSON.parse(retrievedProductArr);
+        let searchParams = new URLSearchParams(window.location.search);
+        user = JSON.parse(sessionStorage.getItem('user'));
+        if (searchParams.has('merchant_id')) {
+            merchant_id = searchParams.get('merchant_id');
+            console.log("Merchant id: ", merchant_id);
+        } else {
+            console.log("merchant id could not extract from the url.");
+        }
+
+        // loading products
+        let products = '<div class="row mt-1 ml-2 mr-2">';
+        $.each(productsArr, function (i, merchant) {
+            if (merchant_id === merchant['merchant_id']) {
+                productsArr = merchant['products'];
+                productsArr.forEach(function (product) {
+                    products +=
+                        `
+                            <div class="col-6 col-sm-3 col-md-3" data-filtertext="${product['filter_text']}">
+                                <div class="product-card" data-pid=${product['product_id']}>
+                                    <div class="product-card-image">
+                                        <img alt="home" src="${product['product_img_path']}" style="width: 100%;"/>
+
+                            `;
+                    products += `
+                              </div>
+                                    <div class="col pl-2 pb-1">
+                                        <div class="row">
+                                            <div class="col-8 product-name">
+                                            ${product['product_name']}
+                                            </div>
+                                            `;
+
+                    products += `<div class="col-4 favorite_icon" data-pid=${product['product_id']}
+                                              data-fav="1" style="padding-right: 5px;text-align: -webkit-right;">
+                                             <img src="../assets/icons/delete_icon.png"
+                                         style="border-radius: 10px;  height: 20px;width:20px;!important; object-fit: cover;"
+                                         alt="Card image">
+                                            </div>`
+
+
+                    products += `</div>
+                                        <div class="row-12 product-price">LKR ${product.variants[0].price}.00</div>
+                                    </div>
+
+                                </div>
+                              </div>
+                        `
+                });
+                return false;
+                /*to break from the loop*/
+            }
+        });
+        products += '</div>';
+        $("#collapsiblesetForFilter").append(products);
+        /*to break from the loop*/
+    });
+
+</script>
+
 </html>
