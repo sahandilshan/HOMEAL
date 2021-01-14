@@ -945,7 +945,7 @@
         let user = JSON.parse(sessionStorage.getItem('user'));
         let review = `
         {
-            "review_id": "${orderId}",
+            "review_id": "${orderId}_${user['user_id']}",
             "date": "${getDate()}",
             "rating": "${star}",
             "review_content": "${comment}",

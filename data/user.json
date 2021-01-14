@@ -1,6 +1,6 @@
 [
   {
-    "user_id" : "#1",
+    "user_id" : "001",
     "user_name" : "Rahal",
     "user_password" :"#1234",
     "email" :"rahal@gmail.com",
@@ -11,7 +11,7 @@
     "favorites_list":[]
   },
   {
-    "user_id" : "#2",
+    "user_id" : "002",
     "user_name" : "Chaveen",
     "user_password" :"#1234",
     "email" :"Chaveen@gmail.com",
@@ -22,7 +22,7 @@
     "favorites_list":[]
   },
   {
-    "user_id" : "#3",
+    "user_id" : "003",
     "user_name" : "Sahan",
     "user_password" :"#4321",
     "email" :"sdd@gmail.com",
@@ -43,7 +43,7 @@
     ]
   },
   {
-    "user_id" : "#3",
+    "user_id" : "004",
     "user_name" : "Ahamed",
     "user_password" :"#1234",
     "email" :"muaaz@gmail.com",
