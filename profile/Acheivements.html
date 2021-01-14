@@ -219,8 +219,8 @@
                         <div class="container-fluid">
                             <div class="row" style="margin-left: auto;margin-right: auto;">
                                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 m-0 p-0">
-                                    <div id="progression" class="progress-circle  p42">
-                                        <span id="text-progression">42%</span>
+                                    <div class="progress-circle  p14" id="progression">
+                                        <span id="text-progression">14%</span>
                                         <div class="left-half-clipper">
                                             <div class="first50-bar"></div>
                                             <div class="value-bar"></div>
@@ -239,7 +239,7 @@
                                             </div>
                                         </div>
                                         <div class="col-3 ">
-                                            <div class="progress-circle-sm over50-sm p100">
+                                            <div class="progress-circle-sm p0" id="tuesday">
                                                 <span>T</span>
                                                 <div class="left-half-clipper-sm">
                                                     <div class="first50-bar-sm"></div>
@@ -248,7 +248,7 @@
                                             </div>
                                         </div>
                                         <div class="col-3  ">
-                                            <div class="progress-circle-sm over50-sm p100">
+                                            <div class="progress-circle-sm p0">
                                                 <span>W</span>
                                                 <div class="left-half-clipper-sm">
                                                     <div class="first50-bar-sm"></div>
@@ -399,7 +399,7 @@
                                          style="margin-left: auto;margin-right: auto;display: block">
                                 </div>
                                 <div clas="col-8">
-                                    <div class="box2 sb11">You have 65% more to<br>reach your next acheivement</div>
+                                    <div class="box2 sb11">Scan your QR code to <br> start the achievement</div>
                                 </div>
                             </div>
                         </div>
@@ -625,7 +625,7 @@
 <script src="../js/common.js"></script>
 <script>
 
-    let progress = 35;
+    let progress = 14;
     $(window).load(function () {
         console.log('ready');
         let scanned_qr_code = sessionStorage.getItem('scanned_qr_code');
@@ -639,8 +639,12 @@
                 progression.remove("p" + progress);
                 progress += 14;
                 progression.addClass("p" + progress);
+                let tuesday = $('#tuesday');
+                tuesday.removeClass('p0');
+                tuesday.addClass('over50-sm');
+                tuesday.addClass('p100');
                 text_progression.text(progress + "%");
-                remaining_progress.text(44 + "%");
+                remaining_progress.text((100 - progress) + "%");
 
             });
             sessionStorage.removeItem('scanned_qr_code');
