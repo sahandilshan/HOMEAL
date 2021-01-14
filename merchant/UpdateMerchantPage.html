@@ -151,59 +151,62 @@
         </div>
 
 
-        <div data-role="popup" id="Update_Product" class="update-resturant-modal" data-position-to="window"
-             data-overlay-theme="a"
-             data-transition="pop" style="border-radius: 10px;height: 100%;">
-            <div class="row mb-2">
+            <div data-role="popup" id="Update_Product" class="update-resturant-modal" data-position-to="window"
+                 data-overlay-theme="a"
+                 data-transition="pop" style="border-radius: 10px;height: 100%;">
+                <div class="row mb-2">
 
-                <div class="col-2">
-                    <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back-popup custom-back"></button>
+                    <div class="col-2">
+                        <button data-rel="back" class="ui-btn ui-btn-icon-left ui-icon-back-popup custom-back"></button>
+                    </div>
+
+
+                    <div class="col-10">
+                        <label style="position: relative;text-align: -webkit-center;margin-left: -16%;font-size: 1.2rem;">
+                            <strong>Update Product</strong>
+                        </label>
+                    </div>
+
                 </div>
 
-
-                <div class="col-10">
-                    <label style="position: relative;text-align: -webkit-center;margin-left: -16%;font-size: 1.2rem;">
-                        <strong>Update Product</strong>
-                    </label>
+                <div class="row justify-content-start">
+                    <div class="col-12">
+                        <label style="position: relative;font-size: 1rem;">
+                            <strong>Product Details</strong>
+                        </label>
+                    </div>
                 </div>
 
-            </div>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <input style="box-shadow: 0px 5px 9px 4px #80808024;font-size: 12px" type="text"
+                               id="productName" placeholder="Chicken Pizza">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <textarea style="box-shadow: 0px 5px 9px 4px #80808024 ;font-size: 12px" id="productDescription"
+                                  rows="2" placeholder="Delicious Pizza with extra chicken"></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <input style="box-shadow: 0px 5px 9px 4px #80808024 ;font-size: 12px" type="text"
+                               placeholder="Fast Food">
+                    </div>
+                </div>
 
-            <div class="row justify-content-start">
-                <div class="col-12">
-                <label style="position: relative;font-size: 1rem;">
-                    <strong>Product Details</strong>
-                </label>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <input style="box-shadow: 0px 5px 9px 4px #80808024;font-size: 12px" type="text" placeholder="Chicken Pizza">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <textarea style="box-shadow: 0px 5px 9px 4px #80808024 ;font-size: 12px" type="text" rows="2" placeholder="Delicious Pizza with extra chicken"></textarea>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <input style="box-shadow: 0px 5px 9px 4px #80808024 ;font-size: 12px" type="text" placeholder="Fast Food">
-                </div>
-            </div>
-
-            <!--<div class="row mt-n3">  &lt;!&ndash;hr line&ndash;&gt;-->
+                <!--<div class="row mt-n3">  &lt;!&ndash;hr line&ndash;&gt;-->
                 <!--<div class="col">-->
-                    <!--<hr style="margin-top: 10px">-->
+                <!--<hr style="margin-top: 10px">-->
                 <!--</div>-->
-            <!--</div>-->
-            <div class="row mb-2 mt-1">
-                <div class="col-6">
-                    <label><strong>Variants</strong> </label>
-                </div>
-                <div class="col-6">
-                    <label style="float: right;
+                <!--</div>-->
+                <div class="row mb-2 mt-1">
+                    <div class="col-6">
+                        <label><strong>Variants</strong> </label>
+                    </div>
+                    <div class="col-6">
+                        <label style="float: right;
                           border: 1px solid #EC7A23;
                           padding: 2px;
                           font-size: 12px;
@@ -213,135 +216,209 @@
                           border-radius: 6px;
                           color: #f9f9f9;
                           border-bottom-right-radius: 25px;">
-                        + Add Variant
-                    </label>
+                            + Add Variant
+                        </label>
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="row mt-n3">  <!--hr line-->
-                <div class="col">
-                    <hr>
+                <div class="row mt-n3">  <!--hr line-->
+                    <div class="col">
+                        <hr>
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="row">
-                <div class="col-4">
-                    <button style="border-radius: 10px;border: 1px solid #80808030;padding: 5px; font-size: 12px">
-                        Large
-                    </button>
+                <div class="row">
+                    <div class="col-4">
+                        <button style="border-radius: 10px;border: 1px solid #80808030;padding: 5px; font-size: 12px">
+                            Large
+                        </button>
+                    </div>
+                    <div class="col-5">
+                        <button style="border-radius: 10px;border: 1px solid #80808030;padding: 5px; font-size: 12px">
+                            LKR 550
+                        </button>
+                    </div>
+                    <div class="col-2">
+                        <button class="ui-btn ui-icon-back-popup custom-back"></button>
+                    </div>
                 </div>
-                <div class="col-5">
-                    <button style="border-radius: 10px;border: 1px solid #80808030;padding: 5px; font-size: 12px">LKR 550</button>
-                </div>
-                <div class="col-2">
-                    <button  class="ui-btn ui-icon-back-popup custom-back"></button>
-                </div>
-            </div>
 
 
-            <div class="row">
-                <div class="col-4">
-                    <button style="border-radius: 10px;border: 1px solid #80808030;padding: 5px; font-size: 12px">
-                        Medium
-                    </button>
+                <div class="row">
+                    <div class="col-4">
+                        <button style="border-radius: 10px;border: 1px solid #80808030;padding: 5px; font-size: 12px">
+                            Medium
+                        </button>
+                    </div>
+                    <div class="col-5">
+                        <button style="border-radius: 10px;border: 1px solid #80808030;padding: 5px; font-size: 12px">
+                            LKR 450
+                        </button>
+                    </div>
+                    <div class="col-2">
+                        <button class="ui-btn ui-icon-back-popup custom-back"></button>
+                    </div>
                 </div>
-                <div class="col-5">
-                    <button style="border-radius: 10px;border: 1px solid #80808030;padding: 5px; font-size: 12px">LKR 450</button>
-                </div>
-                <div class="col-2">
-                    <button  class="ui-btn ui-icon-back-popup custom-back"></button>
-                </div>
-            </div>
 
 
-            <!--<div class="row justify-content-start">-->
+                <!--<div class="row justify-content-start">-->
                 <!--<div class="col-12">-->
-                    <!--<label style="position: relative;font-size: 1rem;">-->
-                        <!--<strong>Product Image</strong>-->
-                    <!--</label>-->
-                    <!--<img id="usser_image" src="../assets/otherImages/Men-Profile-Image.png"-->
-                         <!--style="width: 60px; height: 60px;border-radius: 50px;background-color: #a9a9a95e;"-->
-                         <!--alt="logo" >-->
+                <!--<label style="position: relative;font-size: 1rem;">-->
+                <!--<strong>Product Image</strong>-->
+                <!--</label>-->
+                <!--<img id="usser_image" src="../assets/otherImages/Men-Profile-Image.png"-->
+                <!--style="width: 60px; height: 60px;border-radius: 50px;background-color: #a9a9a95e;"-->
+                <!--alt="logo" >-->
                 <!--</div>-->
-            <!--</div>-->
+                <!--</div>-->
 
-            <div class="row justify-content-start">
-                <div class="col-12">
-                    <label style="position: relative;font-size: 1rem;">
-                        <strong>Reviews</strong>
-                    </label>
+                <div class="row justify-content-start">
+                    <div class="col-12">
+                        <label style="position: relative;font-size: 1rem;">
+                            <strong>Reviews</strong>
+                        </label>
 
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-2 " >
-                    <img id="user_image" src="../assets/otherImages/Men-Profile-Image.png"
-                         style="width: 60px; height: 60px;border-radius: 50px;background-color: #a9a9a95e;"
-                         alt="logo" >
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-6" style="margin-top: -5px;margin-left: 15px;">
-                            <span class="fa fa-star prd-modal-start-checked"></span>
-                            <span class="fa fa-star prd-modal-start-checked"></span>
-                            <span class="fa fa-star prd-modal-start-checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <div class="col-5 text-right">2020/11/10</div>
-                    </div>
-                    <div class="row" style="margin-top: -8px;margin-left: 15px;">John Doe</div>
-                    <div class="row" style="margin-left: 15px;">
-                        <p>This is a very good product</p>
                     </div>
                 </div>
-            </div>
 
-
-            <div class="row mt-n3">  <!--hr line-->
-                <div class="col">
-                    <hr>
+                <div id="prdModal-reviews">
+<!--                    <div class="row">-->
+<!--                        <div class="col-2 ">-->
+<!--                            <img id="user_image" src="../assets/otherImages/Men-Profile-Image.png"-->
+<!--                                 style="width: 60px; height: 60px;border-radius: 50px;background-color: #a9a9a95e;"-->
+<!--                                 alt="logo">-->
+<!--                        </div>-->
+<!--                        <div class="col-10">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-6" style="margin-top: -5px;margin-left: 15px;">-->
+<!--                                    <span class="fa fa-star prd-modal-start-checked"></span>-->
+<!--                                    <span class="fa fa-star prd-modal-start-checked"></span>-->
+<!--                                    <span class="fa fa-star prd-modal-start-checked"></span>-->
+<!--                                    <span class="fa fa-star"></span>-->
+<!--                                    <span class="fa fa-star"></span>-->
+<!--                                </div>-->
+<!--                                <div class="col-5 text-right">2020/11/10</div>-->
+<!--                            </div>-->
+<!--                            <div class="row" style="margin-top: -8px;margin-left: 15px;">John Doe</div>-->
+<!--                            <div class="row" style="margin-left: 15px;">-->
+<!--                                <p>This is a very good product</p>-->
+<!--                            </div>-->
+<!--                            <div class="row" style="margin-left: 15px;">-->
+<!--                                <button style="background-color:transparent !important;-->
+<!--                        color:gray;-->
+<!--                        text-shadow: none!important;-->
+<!--                        border: none;-->
+<!--                        margin: 0;-->
+<!--                        padding: 3px;-->
+<!--                        width: fit-content;-->
+<!--                        font-size: 1rem;">-->
+<!--                                    Reply-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                            <div class="row" style="margin-left: 15px;">-->
+<!--                                <div class="col-11" style="margin-left: 15px">-->
+<!--                                    <input type="text" placeholder="Write a comment...">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="row" style="margin-left: 15px;">-->
+<!--                                <div class="col-2" style="margin-left: 15px">-->
+<!--                                    <button style="background-color:#EC7A23 !important;-->
+<!--                        color:white;-->
+<!--                        text-shadow: none!important;-->
+<!--                        border-radius: 8px;-->
+<!--                        margin: 0;-->
+<!--                        padding: 3px;-->
+<!--                        width: fit-content;-->
+<!--                        font-size: 0.8rem;">-->
+<!--                                        Reply-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                                <div class="col-2" style="margin-left: 15px">-->
+<!--                                    <button style="background-color:#EC7A23 !important;-->
+<!--                        color:white;-->
+<!--                        text-shadow: none!important;-->
+<!--                        border-radius: 8px;-->
+<!--                        margin: 0;-->
+<!--                        padding: 3px;-->
+<!--                        width: fit-content;-->
+<!--                        font-size: 0.8rem;">-->
+<!--                                        Cancel-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-2 ">-->
+<!--                            <img id="user_image" src="../assets/otherImages/Men-Profile-Image.png"-->
+<!--                                 style="width: 60px; height: 60px;border-radius: 50px;background-color: #a9a9a95e;"-->
+<!--                                 alt="logo">-->
+<!--                        </div>-->
+<!--                        <div class="col-10">-->
+<!--                            <div class="row">-->
+<!--                                <div class="col-6" style="margin-top: -5px;margin-left: 15px;">-->
+<!--                                    <span class="fa fa-star prd-modal-start-checked"></span>-->
+<!--                                    <span class="fa fa-star prd-modal-start-checked"></span>-->
+<!--                                    <span class="fa fa-star prd-modal-start-checked"></span>-->
+<!--                                    <span class="fa fa-star"></span>-->
+<!--                                    <span class="fa fa-star"></span>-->
+<!--                                </div>-->
+<!--                                <div class="col-5 text-right">2020/11/10</div>-->
+<!--                            </div>-->
+<!--                            <div class="row" style="margin-top: -8px;margin-left: 15px;">John Doe</div>-->
+<!--                            <div class="row" style="margin-left: 15px;">-->
+<!--                                <p>This is a very good product</p>-->
+<!--                            </div>-->
+<!--                            <div class="row" style="margin-left: 15px;">-->
+<!--                                <button style="background-color:transparent !important;-->
+<!--                        color:gray;-->
+<!--                        text-shadow: none!important;-->
+<!--                        border: none;-->
+<!--                        margin: 0;-->
+<!--                        padding: 3px;-->
+<!--                        width: fit-content;-->
+<!--                        font-size: 1rem;">-->
+<!--                                    Reply-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                            <div class="row" style="margin-left: 15px;">-->
+<!--                                <div class="col-11" style="margin-left: 15px">-->
+<!--                                    <input type="text" placeholder="Write a comment...">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="row" style="margin-left: 15px;">-->
+<!--                                <div class="col-2" style="margin-left: 15px">-->
+<!--                                    <button style="background-color:#EC7A23 !important;-->
+<!--                        color:white;-->
+<!--                        text-shadow: none!important;-->
+<!--                        border-radius: 8px;-->
+<!--                        margin: 0;-->
+<!--                        padding: 3px;-->
+<!--                        width: fit-content;-->
+<!--                        font-size: 0.8rem;">-->
+<!--                                        Reply-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                                <div class="col-2" style="margin-left: 15px">-->
+<!--                                    <button style="background-color:#EC7A23 !important;-->
+<!--                        color:white;-->
+<!--                        text-shadow: none!important;-->
+<!--                        border-radius: 8px;-->
+<!--                        margin: 0;-->
+<!--                        padding: 3px;-->
+<!--                        width: fit-content;-->
+<!--                        font-size: 0.8rem;">-->
+<!--                                        Cancel-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
-
-
-            <div class="row">
-                <div class="col-2 " >
-                    <button  style="background-color:#EC7A23 !important;
-                    color:white;
-                    text-shadow: none!important;
-                    border-radius: 8px;
-                    margin: 0;
-                    padding: 3px;
-                    width: fit-content;
-                    font-size: 0.8rem;" >
-                        Submit
-                    </button>
-                </div>
-                <div class="col-10">
-                    <div class="row">
-                        <div class="col-5" style="margin-top: -8px;margin-left: 15px;">John Doe</div>
-                        <div class="col-6 text-right" style="margin-top: -8px">2020/11/10</div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-11" style="margin-left: 15px">
-                           <input  type="text" placeholder="Write a comment...">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
-        </div>
-
-
-
     </div>
 
     <!--Footer-->
@@ -393,13 +470,15 @@
 
     let merchant_id = '';
     let productsArr;
+    let productsJsonArr; // array with merchants id
     let user;
 
 
     $.mobile.ajaxEnabled = false;
     $(document).ready(function () {
         let merchantJsonArray = JSON.parse(sessionStorage.getItem('merchants'));
-        productsArr = JSON.parse(sessionStorage.getItem('products'));
+        productsJsonArr = JSON.parse(sessionStorage.getItem('products'));
+        console.log(productsJsonArr)
         let searchParams = new URLSearchParams(window.location.search);
         user = JSON.parse(sessionStorage.getItem('user'));
         if (searchParams.has('merchant_id')) {
@@ -419,9 +498,9 @@
         });
         // loading products
         let products = '<div class="row mt-1 ml-2 mr-2">';
-        $.each(productsArr, function (i, merchant) {
-            if (merchant_id === merchant['merchant_id']) {
-                productsArr = merchant['products'];
+        $.each(productsJsonArr, function (i, product) {
+            if (merchant_id === product['merchant_id']) {
+                productsArr = product['products'];
                 productsArr.forEach(function (product) {
                     products +=
                         `
@@ -464,6 +543,216 @@
         $("#collapsiblesetForFilter").append(products);
         /*to break from the loop*/
     });
+
+    let selected_product;
+
+    // Loading product update modal
+    $(document).on('click', '.product-card', function() {
+        let selected_product_id = $(this).data('pid');
+        $.each(productsArr, function (i, product) {
+            if (product['product_id'] === selected_product_id) {
+                selected_product = product;
+                return false;
+            }
+        });
+        $('#productName').attr('placeholder', selected_product['product_name']);
+        $('#productDescription').attr('placeholder', selected_product['product_description']);
+        loadReviews(selected_product['reviews']);
+        $('#Update_Product').popup('open');
+    });
+
+    function loadReviews(prdReviews) {
+        let reviews = '';
+        prdReviews.forEach(function (review) {
+            reviews += `
+            <div class="row">
+                    <div class="col-2 ">
+                        <img src="../assets/otherImages/Men-Profile-Image.png"
+                             style="width: 60px; height: 60px;border-radius: 50px;background-color: #a9a9a95e;"
+                             alt="logo">
+                    </div>
+                    <div class="col-10">
+                        <div class="row">
+                            <div class="col-6" style="margin-top: -5px;margin-left: 15px;">`;
+            switch (review['rating']) {
+                case '1': {
+                    reviews += `<span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>`;
+                    break;
+                }
+                case '2': {
+                    reviews += `<span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>`;
+                    break;
+                }
+                case '3': {
+                    reviews += `<span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>`;
+                    break;
+                }
+                case '4': {
+                    reviews += `<span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star"></span>`;
+                    break;
+                }
+                case '5': {
+                    reviews += `<span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>
+                            <span class="fa fa-star prd-modal-start-checked"></span>`;
+                    break;
+                }
+            }
+            reviews +=
+                `</div>
+                            <div class="col-5 text-right">${review['date']}</div>
+                        </div>
+                        <div class="row" style="margin-top: -8px;margin-left: 15px;">${review['user_name']}</div>
+                        <div class="row" style="margin-left: 15px;">
+                            <p>${review['review_content']}</p>
+                        </div>
+                        <div class="row" style="margin-left: 15px;">
+                            <button class="reply1" data-review-id="${review['review_id']}" style="background-color:transparent !important;
+                    color:gray;
+                    text-shadow: none!important;
+                    border: none;
+                    margin: 0;
+                    padding: 3px;
+                    width: fit-content;
+                    font-size: 1rem;">
+                                Reply
+                            </button>
+                        </div>
+
+                        <div id="reply_${review['review_id']}" class="row" style="margin-left: 15px;">
+                            <div class="col-11" style="margin-left: 15px">
+                                <input id="reply_text_${review['review_id']}" type="text">
+                            </div>
+                        </div>
+                        <div id="btns_${review['review_id']}" class="row" style="margin-left: 15px;">
+                            <div id="reply2_${review['review_id']}" class="col-2 reply2"
+                            data-review-id="${review['review_id']}" style="margin-left: 15px">
+                                <button id="reply_btn_${review['review_id']}" style="background-color:#EC7A23 !important;
+                    color:white;
+                    text-shadow: none!important;
+                    border-radius: 8px;
+                    margin: 0;
+                    padding: 3px;
+                    width: fit-content;
+                    font-size: 0.8rem;">
+                                    Reply
+                                </button>
+                            </div>
+                            <div id="cancel_${review['review_id']}"  data-review-id="${review['review_id']}"
+                             class="col-2 cancel" style="margin-left: 15px">
+                                <button style="background-color:#EC7A23 !important;
+                    color:white;
+                    text-shadow: none!important;
+                    border-radius: 8px;
+                    margin: 0;
+                    padding: 3px;
+                    width: fit-content;
+                    font-size: 0.8rem;">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        })
+        $("#prdModal-reviews").html(reviews);
+        prdReviews.forEach(function (review) {
+            $('#btns_' + review['review_id']).hide();
+            $('#reply_' + review['review_id']).hide();
+        });
+    }
+
+    $(document).on('click', '.reply1', function () {
+        let review_id = $(this).data('review-id').toString();
+        let btns = $('#btns_' + review_id);
+        let reply = $('#reply_' + review_id);
+        if (btns.is(":hidden")) {
+            let reviews = selected_product['reviews'];
+            reviews.forEach(function (review) {
+               if (review['review_id'] === review_id) {
+                   let reviewReply = review['reply'];
+                   let placeholderText = 'Write a reply';
+                   let btn_reply_text = 'Reply';
+                   if (reviewReply) {
+                       placeholderText = reviewReply;
+                       btn_reply_text = 'Edit';
+                   }
+                   $('#reply_text_' + review_id).attr('placeholder', placeholderText);
+                   $('#reply_btn_' + review_id).text(btn_reply_text);
+                   return false;
+               }
+            });
+            btns.show();
+            reply.show();
+        } else {
+            btns.hide();
+            reply.hide();
+            $('#reply_text_' + review_id).val('');
+        }
+
+    });
+
+    $(document).on('click', '.reply2', function () {
+        let review_id = $(this).data('review-id').toString();
+        let replyText = $('#reply_text_' + review_id).val();
+        selected_product['reviews'].forEach(function (review) {
+            if (review['review_id'] === review_id) {
+                review['reply'] = replyText;
+                $('#reply_' + review_id).hide(); //clearing
+                $('#btns_' + review_id).hide();
+                $('#reply_text_' + review_id).val('');
+                // todo add a toast;
+                return false;
+            }
+        });
+        console.log(selected_product)
+        console.log(productsArr);
+        sessionStorage.setItem('products', JSON.stringify(productsJsonArr));
+    });
+
+    $(document).on('click', '.cancel', function () {
+        /*let x = `
+        {
+            "user": "Sahan",
+            "test": "1234"
+        }
+        `
+        let json = JSON.parse(x);
+        console.log(json);
+        json['test'] = '4321';
+        console.log(json)
+
+        json['test1'] = "test"
+        console.log(json)*/
+        let review_id = $(this).data('review-id');
+        $('#reply_' + review_id).hide();
+        $('#btns_' + review_id).hide();
+        $('#reply_text_' + review_id).val('');
+
+    });
+
+    function clearProductUpdateModal() {
+        // $('#productName').attr('placeholder', '');
+    }
 
 </script>
 
