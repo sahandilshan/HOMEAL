@@ -15,6 +15,29 @@
     <link rel="stylesheet" href="../css/custom.css"/>
 
     <style>
+        #snackbar {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #209c2d;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 6px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 70px;
+            font-size: 14px;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            z-index: 100;
+        }
+
         .side-drawer-logo {
             margin-right: auto;
             margin-left: auto;
@@ -417,6 +440,7 @@
 <!--                        </div>-->
 <!--                    </div>-->
                 </div>
+                <div id="snackbar">Reply Added.</div>
             </div>
         </div>
     </div>
@@ -720,7 +744,9 @@
                 $('#reply_' + review_id).hide(); //clearing
                 $('#btns_' + review_id).hide();
                 $('#reply_text_' + review_id).val('');
-                // todo add a toast;
+                let x = document.getElementById("snackbar");
+                x.className = "show";
+                setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
                 return false;
             }
         });
@@ -749,10 +775,6 @@
         $('#reply_text_' + review_id).val('');
 
     });
-
-    function clearProductUpdateModal() {
-        // $('#productName').attr('placeholder', '');
-    }
 
 </script>
 
