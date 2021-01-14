@@ -681,6 +681,8 @@
 
     // Loading product modal
     $(document).on('click', '.product-card', function() {
+        $('#number').val('1');
+        $("#radio-small").prop("checked", true);
         selected_product_id = $(this).data('pid');
         console.log(selected_product_id);
         let product = getProduct(selected_product_id);
