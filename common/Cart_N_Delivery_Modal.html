@@ -468,7 +468,7 @@
                 $.each(cartItemsArr, function (i, item) {
                     let totalPrice = (item['price'] * item['qty']).toFixed(2);
                     let itemHtml = `
-        <div class="row mb-3" style="margin-left: inherit;margin-right: inherit;">
+        <div class="row mb-3" id="${item['product_id']}"style="margin-left: inherit;margin-right: inherit;">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="row" style="box-shadow: 1px 7px 19px -9px #ec7a23;border-bottom-right-radius: 18px;">
                         <div class="col-lg-8 col-md-8 col-sm-8 col-8">
@@ -480,7 +480,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-2 btn-edit ui-btn">
                         </div>
 
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 ui-btn btn-delete">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-2 ui-btn btn-delete" onclick="cart_item_remove('${item['product_id']}')">
                         </div>
                     </div>
                 </div>
@@ -516,6 +516,28 @@
                 openDelivery = false;
             }
         });
+    }
+
+    function cart_item_remove(id){
+        let cartItemsArrMain = JSON.parse(sessionStorage.getItem('cartItems'));
+        let cartItemsArr = cartItemsArrMain['items'];
+        $.each(cartItemsArr, function (i, item) {
+            if(item['product_id']===id){
+             cartItemsArr = $.grep(cartItemsArr, function(found) {
+                 return found != item;
+             });
+         }
+        });
+        cartItemsArrMain['items']=cartItemsArr;
+        if(cartItemsArr.length==0){
+            sessionStorage.removeItem('cartItems');
+            $('#'+id).addClass('d-none');
+            $('#cartItems').html('<p class="text-center">No items available </p>');
+        }
+        else{
+        sessionStorage.setItem('cartItems', JSON.stringify(cartItemsArrMain));
+        $('#'+id).addClass('d-none');
+        }
     }
 
 </script>
