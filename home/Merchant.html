@@ -491,7 +491,6 @@
         user = JSON.parse(sessionStorage.getItem('user'));
         if (searchParams.has('merchant_id')) {
             merchant_id = searchParams.get('merchant_id');
-            console.log("Merchant id: ", merchant_id);
         } else {
             console.log("merchant id could not extract from the url.");
         }
@@ -500,7 +499,6 @@
         $.each(merchantJsonArray, function (i, merchant) {
             if (merchant_id === merchant['merchant_id']) {
                 merchant_json = merchant;
-                console.log('merchant_json: ', merchant_json);
                 let container =
                     `
              <div class="container p-0" style=" max-width: 100% !important;">
@@ -561,7 +559,6 @@
         $.each(productsArr, function (i, merchant) {
             if (merchant_id === merchant['merchant_id']) {
                 productsArr = merchant['products'];
-                console.log('productsArr: ', productsArr);
                 productsArr.forEach(function (product) {
                     products +=
                         `
@@ -624,7 +621,7 @@
         $("#collapsiblesetForFilter").append(products);
 
         $('.ui-radio-btn').removeClass('ui-btn');
-        console.log("cc"); // for the model/popup
+         // for the model/popup
     });
 
     $( "#backBtn" ).click(function() {
@@ -683,7 +680,6 @@
         $('#number').val('1');
         $("#radio-small").prop("checked", true);
         selected_product_id = $(this).data('pid');
-        console.log(selected_product_id);
         let product = getProduct(selected_product_id);
         //set header image;
         $('#prd-modal-header').css('background-image', ' linear-gradient(\n' +
@@ -874,7 +870,6 @@
                 }
                 `;
             sessionStorage.setItem('cartItems', jsonArr);
-            console.log('cart item initialized.');
             $( "#nav_bar_cart" ).removeClass('ui-icon-cart');
             $( "#nav_bar_cart" ).addClass('ui-icon-cart-with-items');
             let productModel = $("#productModel");
@@ -909,8 +904,6 @@
                     itemsArr['items'].push(JSON.parse(item));
                 }
                 sessionStorage.setItem('cartItems', JSON.stringify(itemsArr));
-                console.log('cart items updated');
-                console.log(itemsArr);
                 $( "#nav_bar_cart" ).removeClass('ui-icon-cart');
                 $( "#nav_bar_cart" ).addClass('ui-icon-cart-with-items');
                 let productModel = $("#productModel");
@@ -960,7 +953,6 @@
         }
         `;
         sessionStorage.setItem('buyNowItem', item);
-        console.log(JSON.parse(sessionStorage.getItem('buyNowItem')).price);
         // window.location.href="/HOMEAL/home/Checkout.html";
         openDelivery = true;
         popupDeliveryModalInBuyNow();
@@ -1035,7 +1027,6 @@
                 $('#cart-switch-modal-add').click(
                     function () {
                         sessionStorage.setItem('cartItems', jsonArr);
-                        console.log('cart item initialized.');
                         $( "#nav_bar_cart" ).removeClass('ui-icon-cart');
                         $( "#nav_bar_cart" ).addClass('ui-icon-cart-with-items');
                         let x = document.getElementById("snackbar");

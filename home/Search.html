@@ -350,7 +350,6 @@
 <script>
 
     $.mobile.ajaxEnabled = false;
-    console.log('ajax disabled.');
     let merchantJsonArray;
     $(document).ready(function () {
         merchantJsonArray = JSON.parse(sessionStorage.getItem('merchants'));
@@ -489,7 +488,6 @@
 
     $( "#home-nav-text" ).click(function() {
         let user = JSON.parse(sessionStorage.getItem('user'));
-        console.log(user);
         if(!!user) {
 
         } else {
@@ -498,28 +496,6 @@
     });
 
     $( "#cartModal" ).load( "../common/Cart_N_Delivery_Modal.html" );
-
-    /* ******************* Do not remove this part till 2021/01/13 *****************
-    $(document).on('click', '.card', function () {
-        let id = $(this).data('id');
-        if (id) {
-            console.log("id: ", id);
-            $.mobile.ajaxEnabled = false;
-            $.mobile.pageContainer.pagecontainer("change", '/HOMEAL/home/Merchant.html?merchant_id=' + id,
-                {transition: "flow", changeHash: true, reload: true, })
-        // $.mobile.pagecontainer( "load", '/HOMEAL/home/Merchant.html?merchant_id=' + id);
-        //     $.mobile.navigate('/HOMEAL/home/Merchant.html?merchant_id=' + id);
-           /!* $.mobile.changePage(
-                window.location.href,
-                {
-                    allowSamePageTransition : true,
-                    transition              : 'none',
-                    showLoadMsg             : false,
-                    reloadPage              : true
-                }
-            );*!/
-        }
-    });*/
 </script>
 <script src="../js/location.js"></script>
 

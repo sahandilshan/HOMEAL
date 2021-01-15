@@ -459,11 +459,9 @@
         $('.btn-promocode').removeClass('ui-btn');
         changeIpadScreen(); // if page is load with  the ipad screen.
         if (isBuyNow == 1) {
-            console.log('BuyNow');
             buyNow();
 
         } else {
-            console.log('here');
             cartItem();
         }
     });
@@ -664,7 +662,6 @@
         $('#checkoutButton').on('click', function(e) {
             // Code Section B  Open Checkout with further options
             let paymentMethod = $('input[name=payment]:checked', '#paymentForm').val();
-            console.log(paymentMethod)
             if (paymentMethod === 'card') {
                 let merchantJsonArr = JSON.parse(sessionStorage.getItem('merchants'))
                 let merchant = merchantJsonArr.find(x => x['merchant_id'] === merchantId);
