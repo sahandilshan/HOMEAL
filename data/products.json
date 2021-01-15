@@ -118,9 +118,9 @@
   "products": [
     {
       "product_id": "P001",
-      "product_name": "Coffee Doughnut",
-      "filter_text": "Coffee Doughnut",
-      "product_description": "Coffee Doughnut has a great blend of dark coffee taste which is loved by most coffee lovers.",
+      "product_name": "Doughnut",
+      "filter_text": "Doughnut",
+      "product_description": "Doughnut has a great blend of dark coffee taste which is loved by most coffee lovers.",
       "product_img_path": "../assets/products/bakeryHouse/donuts-5815746_640.jpg",
       "variant_title": "Size",
       "discount": 10,
@@ -338,8 +338,8 @@
     "products": [
       {
         "product_id": "P001",
-        "product_name": "Chicken Mix Salad",
-        "filter_text": "Chicken Mix Salad",
+        "product_name": "Chicken Salad",
+        "filter_text": "Chicken Salad",
         "product_description": "Chicken Salad consists of cucumber, salad leaves along with bell pepper served with a great mixture of sauce.",
         "product_img_path": "../assets/products/saladsCorner/spinach-791629_1920.jpg",
         "variant_title": "Size",
