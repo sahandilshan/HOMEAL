@@ -448,7 +448,6 @@ The below attached is the list of your favorites items from our local restaurant
                 Body: msgBody,
             });
             emailPromise.then(function (message) {
-                console.log(message);
                 if (message === 'OK') {
                     openSuccessEmailModal = true;
                     popupSuccessEmailModal();
