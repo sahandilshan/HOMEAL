@@ -664,7 +664,7 @@
                     width: fit-content;
                     font-size: 1rem;
                     color: #EC7A23">
-                                <span id="review_reply_text">Reply</span>
+                                <span id="review_reply_text_${review['review_id']}">Reply</span>
                             </button>
                         </div>
 
@@ -675,7 +675,7 @@
                             </div>
                         </div>
                         <div id="btns_${review['review_id']}" class="row mt-2">
-                            <div id="reply2_${review['review_id']}" class="col-2 cancel"
+                            <div id="reply2_${review['review_id']}" class="col-2 reply2"
                             data-review-id="${review['review_id']}" style="margin-left: 15px">
                                 <button id="reply_btn_${review['review_id']}" style="background-color:#EC7A23 !important;
                     color:white;
@@ -716,6 +716,9 @@
         prdReviews.forEach(function (review) {
             $('#btns_' + review['review_id']).hide();
             $('#reply_' + review['review_id']).hide();
+            if (review['reply']) {
+                $('#review_reply_text_' + review['review_id']).text(review['reply']);
+            }
         });
     }
 
@@ -734,6 +737,7 @@
                    if (reviewReply) {
                        placeholderText = reviewReply;
                        btn_reply_text = 'Edit';
+                       $('#review_reply_text_' + review_id).text(reviewReply); // main reply button text replace
                    }
                    $('#reply_text_' + review_id).attr('placeholder', placeholderText);
                    $('#reply_btn_' + review_id).text(btn_reply_text);
@@ -757,6 +761,10 @@
         selected_product['reviews'].forEach(function (review) {
             if (review['review_id'] === review_id) {
                 review['reply'] = replyText;
+                if (replyText === '') {
+                    replyText = 'Reply';
+                }
+                $('#review_reply_text_' + review_id).text(replyText); // main reply button text replace
                 $('#reply_' + review_id).hide(); //clearing
                 $('#btns_' + review_id).hide();
                 $('#main_reply_' + review_id).show();
@@ -773,19 +781,6 @@
     });
 
     $(document).on('click', '.cancel', function () {
-        /*let x = `
-        {
-            "user": "Sahan",
-            "test": "1234"
-        }
-        `
-        let json = JSON.parse(x);
-        console.log(json);
-        json['test'] = '4321';
-        console.log(json)
-
-        json['test1'] = "test"
-        console.log(json)*/
         let review_id = $(this).data('review-id');
         $('#reply_' + review_id).hide();
         $('#btns_' + review_id).hide();
