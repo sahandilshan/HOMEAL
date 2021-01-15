@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template - 1</title>
+    <link rel="icon" href="../assets/logos/Title.png"
+          type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/custom2.css"/>
+    <style>
+
+
+        .ui-icon-add-merchant:after {
+            background-image: url("../assets/icons/add_black.png");
+            border-radius: 0px !important;
+            background-color: transparent !important;
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            /*background-color: transparent;*/
+        }
+
+        .ui-icon-add-merchant.ui-btn-active:after {
+            background-image: url("../assets/icons/add_orange.png") !important;
+            background-size: 18px 18px;
+        }
+        .ui-icon-stat-merchant:after {
+            background-image: url("../assets/icons/stats_black.png");
+            /* Make your icon fit */
+            background-size: 18px 18px;
+            border-radius: 0px !important;
+            background-color: transparent !important;
+            border: none !important;
+            /*background-color: transparent;*/
+        }
+        .ui-icon-stat-merchant.ui-btn-active:after {
+            background-image: url("../assets/icons/stats_orange.png") !important;
+            background-size: 18px 18px;
+        }
+    </style>
+
+</head>
+<body>
+<div data-role="page">
+    <div class="top pl-3 pr-3 pb-2 fixed-top">
+        <div data-role="header" class="mb-1 header">
+            <button data-rel="back" id="backBtn" class="ui-btn ui-btn-icon-left ui-icon-back custom-back">Back</button>
+            <h1>
+                <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
+            </h1>
+            <button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-10">
+                <a href="#popupBasicLocation" data-rel="popup" data-transition="pop" id="selectLocation"
+                   class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">Select
+                    Your
+                    Location</a>
+            </div>
+        </div>
+        <div class="row mt-n2"> <!--first hr line-->
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row mt-n2">
+            <div class="col"><span id="nav_bar_home_2">Home</span> / <span style="color: #F19B55">My Account</span></div>
+        </div>
+
+        <!--Location Modal-->
+        <div data-role="popup" id="popupBasicLocation" class="custom-location" data-position-to="window"
+             data-overlay-theme="a" data-transition="pop">
+            <div class="row mb-2">
+                <div class="col-8">
+                </div>
+                <div class="col-4 custom-close-button">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+            <form>
+                <div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear">
+                    <input data-type="search" data-enhanced="true" data-inset="false" id="pre-rendered-example-input"
+                           placeholder="Search by locations..." value="">
+                </div>
+                <div data-role="controlgroup" data-enhanced="true" data-filter="true" data-filter-reveal="true"
+                     data-input="#pre-rendered-example-input"
+                     class="ui-controlgroup ui-controlgroup-vertical ui-corner-all">
+                    <div class="ui-controlgroup-controls">
+                        <a href="#"
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left
+                           ui-icon-location location" data-filtertext = "Colombo 10">Colombo
+                            10</a>
+                        <a href="#"
+                           class="ui-btn ui-corner-all ui-shadow ui-first-child ui-shadow ui-last-child ui-btn-icon-left
+                            ui-icon-location location" data-filtertext = "Colombo 11">Colombo
+                            11</a>
+                        <a href="#"
+                           class="ui-btn ui-corner-all ui-shadow ui-shadow ui-screen-hidden ui-btn-icon-left
+                           ui-icon-location location" data-filtertext = "Maradhana">Maradana</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--Filters Modal-->
+        <div data-role="popup" id="popupBasic" class="custom-filter" data-position-to="window" data-overlay-theme="a"
+             data-transition="pop">
+            <div class="row mb-2">
+                <div class="col-8">
+                    <label><strong>Categories </strong> </label>
+                </div>
+                <div class="col-4 custom-close-button">
+                    <a href="#" data-rel="back" data-role="button" data-transition="pop"
+                       class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all m-0">No text</a>
+                </div>
+            </div>
+
+            <form>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-1">Pizza</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-1" id="flip-1" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-2">Noodles</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-2" id="flip-2" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-3">Bakery</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-3" id="flip-3" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="flip-4">Chinese</label>
+                            </div>
+                            <div class="col-8 custom-switch">
+                                <select name="flip-4" id="flip-4" data-role="slider" style="width: 4.0em;">
+                                    <option value="off"></option>
+                                    <option value="on"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form>
+                <div data-role="rangeslider">
+                    <label for="range-1a" class="mb-3"><strong>Price Range (LKR)</strong></label>
+                    <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
+                    <label for="range-1b">Rangeslider:</label>
+                    <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
+                </div>
+            </form>
+
+            <div class="row mb-3 mt-3">
+                <div class="col-6">
+                    <a href="#" data-rel="back" data-role="button" class="ui-btn">Cancel</a>
+                </div>
+                <div class="col-6">
+                    <button class="ui-btn">Apply</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="main"> <!--content area starts from here-->
+        <div class="mr-2 ml-2">
+            <!--Add content here-->
+            <div class="container m-0 p-1">
+                <div class=" row">
+                <div class="col-lg-6 col-md-12 col-sm-6 col-12">
+                    <div class="row-12" style="text-align-last:center">
+                        <img id="user_image" src="../assets/otherImages/Men-Profile-Image.png" style="width: 100px; height: 100px;border-radius: 50px"
+                             alt="logo" >
+                    </div>
+                    <div class="row-12 mb-2" style="text-align-last:center; font-weight: bold" id="user_name">
+                        James Smith
+                    </div>
+                    <hr class="m-0"/>
+                    <div class="row mt-1" style="text-align-last:center">
+                        <div class="col-6">
+                            <div class="row-12">
+                                12
+                            </div>
+                            <div class="row-12">
+                                Orders
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row-12">
+                                1
+                            </div>
+                            <div class="row-12">
+                                Year
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-6 col-12">
+                    <div class="row-12 mt-3 mb-3" style="font-weight: bold">
+                        Personal Information
+                    </div>
+
+                    <div class="row-12" id="mobile_number">
+                        +94 770519613
+                    </div>
+                    <hr style="background-color: #F19B55"/>
+                    <div class="row-12" id="email">
+                        chaveen.2017106@iit.ac.lk
+                    </div>
+                    <hr style="background-color: #F19B55"/>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <div class="footer">
+        <div class="row justify-content-between">
+            <div class="col d-flex justify-content-left ml-3 p-3">
+                <img src="../assets/logos/AltDark.png" class="img-fluid" alt="logo">
+            </div>
+            <div class="col mr-3 p-3">
+                <div class="row">
+                    <div class="col font1">Privacy Policy Terms of Use</div>
+                    <div class="w-100"></div>
+                    <div class="col font2">© 2020 HOMEAL. All rights reserved</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" id="bottom-nav" class="fixed-bottom">
+        <nav data-role="navbar">
+            <ul>
+                <li><a id="nav_bar_home_merchant" class="ui-btn ui-icon-home ui-btn-icon-top">Home</a></li>
+                <li><a id="nav_bar_stats_merchant" class="ui-btn ui-icon-stat-merchant ui-btn-icon-top">Stats</a></li>
+                <li><a id="nav_bar_add_merchant" class="ui-btn ui-icon-add-merchant ui-btn-icon-top">Add</a></li>
+                <li><a id="nav_bar_profile_merchant" class="ui-btn ui-icon-profile ui-btn-icon-top ui-state-persist">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div data-role="panel" data-position="right" data-display="overlay" data-theme="a" id="side-drawer"
+         style="z-index: 1400">
+                
+        <div><img src="../assets/logos/MainLight.png" class="side-drawer-logo"></div>
+        <ul data-role="listview">
+            <li data-icon="false"><a onclick='window.location.href="../merchant/MyAccountMerchant.html"' class="side-drawer-option">My Account</a></li>
+            <li data-icon="false"><a  id="profile_logout_merchant" class="side-drawer-option">Logout</a></li>
+        </ul>
+            
+    </div>
+</div>
+</body>
+<script>
+    $( "#backBtn" ).click(function() {
+        window.history.back();
+    });
+    $(document).ready(function () {
+        try {
+            var x = sessionStorage.getItem("user");
+            var user=JSON.parse(x);
+            $('#user_name').text(user.user_name);
+            $('#email').text(user.email);
+            $('#mobile_number').text(user.mobile_no);
+            if(user['image']=='src'){
+                $("#user_image").attr("src","../assets/otherImages/Men-Profile-Image.png");
+            }else{
+                $("#user_image").attr("src",user.image);
+            }
+        }
+        catch(err) {
+            console.log("Failed to get user details")
+        }
+
+
+    });
+
+    $( "#nav_bar_home_merchant" ).click(function() {
+        let user = JSON.parse(sessionStorage.getItem('user'));
+        window.location.href ='../home/MerchantHome.html'
+    });
+
+    $( "#nav_bar_profile_merchant" ).click(function() {
+        $("#nav_bar_profile_merchant").prop("href", "#side-drawer");
+
+    });
+
+    $( "#profile_logout_merchant" ).click(function() {
+        sessionStorage.removeItem('user');
+        window.location.replace('../welcome_screens/SignIn.html');
+    });
+
+    $( "#nav_bar_home_2" ).click(function() {
+
+        window.location.href ='../home/MerchantHome.html'
+
+    });
+</script>
+<script src="../js/location.js"></script>
+</html>
