@@ -368,16 +368,16 @@
                if (user) {
                     href = "/HOMEAL/home/Merchant.html?merchant_id=" + merchant['merchant_id'];
                }
-               merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant.filter_text}">
+               merchants += `<div class="col-12 col-sm-6 col-md-4 pr-3 pl-3" data-filtertext="${merchant['filter_text']}">
                             <a class="card" href="#" data-merchant_id="${merchant['merchant_id']}">
                                 <div class="card-image">
-                                    <img alt="home" src="${merchant.merchant_background_img_path}" style="width: 100%;"/>
+                                    <img alt="home" src="${merchant['merchant_background_img_path']}" style="width: 100%;"/>
                                 </div>
                                 <div class="ui-grid-a">
-                                    <span class="card-title">${merchant.merchant_name}</span>
+                                    <span class="card-title">${merchant['merchant_name']}</span>
                                     <span class="row card-rating">  <img alt="home"
                                                                          src="../assets/icons/star_orange_18dp.png"
-                                                                         class="custom-star"/>50+ Rating</span>
+                                                                         class="custom-star"/>${merchant['ratingCount']}+ Rating</span>
                                 </div>
                             </a>
                         </div>`;
