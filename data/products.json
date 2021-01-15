@@ -123,6 +123,7 @@
       "product_description": "Coffee Doughnut has a great blend of dark coffee taste which is loved by most coffee lovers.",
       "product_img_path": "../assets/products/bakeryHouse/donuts-5815746_640.jpg",
       "variant_title": "Size",
+      "discount": 10,
       "variants": [
         {
           "name": "Small",
@@ -232,6 +233,7 @@
       "product_description": "Chicken Pizza is good",
       "product_img_path": "../assets/products/burgerHut/pizza-chikcen-1949183_640.jpg",
       "variant_title": "Size",
+      "discount": 10,
       "variants": [
         {
           "name": "Small",
@@ -341,6 +343,7 @@
         "product_description": "Chicken Salad consists of cucumber, salad leaves along with bell pepper served with a great mixture of sauce.",
         "product_img_path": "../assets/products/saladsCorner/spinach-791629_1920.jpg",
         "variant_title": "Size",
+        "discount": 10,
         "variants": [
           {
             "name": "Small",
@@ -364,6 +367,7 @@
         "product_id": "P002",
         "product_name": "Egg Vegi Salad",
         "filter_text": "Egg Vegi Salad",
+        "discount": 15,
         "product_description": "Egg Salad consists of boiled eggs being cut into small pieces, cucumber, salad leaves along with bell pepper served with a great mixture of sauce.",
         "product_img_path": "../assets/products/saladsCorner/flat-lay-2583212_1920.jpg",
         "variant_title": "Size",
