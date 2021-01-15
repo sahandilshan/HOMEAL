@@ -338,7 +338,7 @@
                     <div class="row m-1">
                         <label class="mb-2"><strong>Reviews</strong></label></div>
 
-                    <div class="row m-1" id="prdModal-reviews">
+                    <div class="row m-1" id="prdModal-reviews" style="background-color: #f19b553d; padding: 5px !important;">
                         <div class="col-4"></div>
                         <div class="col-8">
 
@@ -773,19 +773,33 @@
             }
             reviews +=
                                `</div>
-                                <div class="col-5 p-0 m-0 text-right">${review['date']}</div>
+                                <div class="col-5 p-0 m-0 pr-1 text-right">${review['date']}</div>
 
                             </div>
                             <div class="row">${review['user_name']}</div>
                             <div class="row">
-                                ${review['review_content']}
+                                <span style="font-weight: bold;color: #EC7A23;">${review['review_content']}</span>
                             </div>
 `;
-            if (review['reply']) {
+            if (true) {
                 reviews += `
-                <div class="row" style="color: dimgrey">
-                    Merchant Reply: ${review['reply']}
-                </div>
+                        <div class="row" style="margin-left: 8px !important;">
+                             <div class="col-4 p-0 m-0">
+                                <div class="row" style="color: #282f33">
+                                 Merchant
+                                </div>
+                              </div>
+                              <div class="col-8 p-0 pr-1 m-0 text-right">
+                              ${review['date']}
+                               </div>
+                         </div>
+                         <div class="row" style="margin-left:10px !important;">
+                             <div class="col-12 p-0 m-0">
+                                <div class="row" style="color: #ec7a23;">
+                               <span style="font-weight: bold">${review['reply']}</span>
+                                </div>
+                              </div>
+                              </div>
                 `;
             }
             reviews += "</div>";
