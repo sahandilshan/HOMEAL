@@ -492,6 +492,16 @@
                 cartItems = '<p class="text-center">No items available </p>';
             }
             $('#cartItems').html(cartItems);
+            let cartButton = $('#toCheckout');
+            let itemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
+            cartButton.prop('disabled', false);
+            if (itemsArr) {
+                if (itemsArr['items'] === 0) {
+                    cartButton.prop('disabled', true);
+                }
+            } else {
+                cartButton.prop('disabled', true);
+            }
             $("#cart_popup").popup('open');
         } else {
             $('#signin-required-modal').popup('open');
@@ -502,7 +512,7 @@
         sessionStorage.setItem('isBuyNow', '0');
         openDelivery = true;
         popupDeliveryModal();
-    })
+    });
 
     function popupDeliveryModal() {
         let cartModal = $("#cart_popup");
@@ -529,7 +539,7 @@
          }
         });
         cartItemsArrMain['items']=cartItemsArr;
-        if(cartItemsArr.length==0){
+        if(cartItemsArr.length===0){
             sessionStorage.removeItem('cartItems');
             $('#'+id).addClass('d-none');
             $('#cartItems').html('<p class="text-center">No items available </p>');
@@ -537,6 +547,16 @@
         else{
         sessionStorage.setItem('cartItems', JSON.stringify(cartItemsArrMain));
         $('#'+id).addClass('d-none');
+        }
+        let cartButton = $('#toCheckout');
+        let itemsArr = JSON.parse(sessionStorage.getItem('cartItems'));
+        cartButton.prop('disabled', false);
+        if (itemsArr) {
+            if (itemsArr['items'] === 0) {
+                cartButton.prop('disabled', true);
+            }
+        } else {
+            cartButton.prop('disabled', true);
         }
     }
 
