@@ -702,19 +702,21 @@
             $("#productModal_fav").attr('src', '../assets/icons/favorite_border.png');
         }
 
-        let discount = product.discount;
+        let discount = product['discount'];
         discount = Number(discount);
         if (Number.isNaN(discount)) {
             discount = 0;
         }
+        let productModalItmDiscount = $("#prdModal-itmDiscount");
         if (discount === 0) {
-            $("#prdModal-itmDiscount").hide();
+            productModalItmDiscount.hide();
         } else {
-            $("#prdModal-itmDiscount").show();
+            productModalItmDiscount.text(`Save Upto ${discount}%`)
+            productModalItmDiscount.show();
         }
-        $("#small").text('LKR ' + product.variants[0].price.toFixed(2));
-        $("#medium").text('LKR ' + product.variants[1].price.toFixed(2));
-        $("#large").text('LKR ' + product.variants[2].price.toFixed(2));
+        $("#small").text('LKR ' + product['variants'][0]['price'].toFixed(2));
+        $("#medium").text('LKR ' + product['variants'][1]['price'].toFixed(2));
+        $("#large").text('LKR ' + product['variants'][2]['price'].toFixed(2));
 
         let reviews = '';
         let prdReviews = product['reviews'];
