@@ -49,6 +49,7 @@
         ::placeholder {
             color: #EC7A23;
             opacity: 1; /* Firefox */
+            padding-left: 5px;
         }
 
         :-ms-input-placeholder { /* Internet Explorer 10-11 */
@@ -58,6 +59,7 @@
         ::-ms-input-placeholder { /* Microsoft Edge */
             color: #EC7A23;
         }
+
     </style>
 </head>
 <body>
@@ -67,7 +69,10 @@
         <div class="centered-top-home">
             <div data-role="header" class="mb-1 header m-0">
                 <h1>
-                    <img src="../assets/logos/MainLight.png" class="img-fluid" alt="Logo.png">
+                    <img src="../assets/logos/MainDark.png" class="img-fluid" alt="Logo.png" style="margin-top: 80px !important;  height: 40px !important;">
+                    <div class="w-100 pt-1 mt-3" style="color: white;font-size: 14px;text-shadow:none !important;">
+                        Relish your taste buds with home-made
+                    </div>
                 </h1>
                 <!--<button class="ui-btn-right ui-btn ui-btn-icon-notext ui-icon-notification">Notification</button>-->
             </div>
@@ -116,7 +121,7 @@
 
         <div class="ml-2 mr-2 mt-2" style="margin-top: 5px">
             <div class="row mt-n3">
-                <div class="col" style="margin-top: 10px"><b>Home <font color="#ec7a23">/ Update Resturant</font></b></div>
+                <div class="col" style="margin-top: 10px"><b><span id="home-nav-text">Home</span> / <font color="#ec7a23">Update Restaurant</font></b></div>
             </div>
         </div>
 
@@ -142,7 +147,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-10">
-                    <a href="#popupBasicLocation" id="selectLocation" data-rel="popup" data-transition="pop"
+                    <a href="#" id="selectLocation" data-rel="popup" data-transition="pop"
                        style="box-shadow: 0px 5px 9px 4px #80808024"
                        class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-location custom-search-bar">
                         Colombo 10
@@ -163,7 +168,7 @@
 
         <div class="ml-2 mr-2 mt-2">
 
-            <div class="row-12  mainTitle">
+            <div class="row-12  mainTitle" style="font-size: 16px !important;">
                 All Products
             </div>
 
@@ -646,50 +651,59 @@
                         </div>
                         <div class="row" style="margin-top: -8px;margin-left: 15px;">${review['user_name']}</div>
                         <div class="row" style="margin-left: 15px;">
-                            <p>${review['review_content']}</p>
+                            <p style="margin-bottom :0px !important;">${review['review_content']}</p>
                         </div>
-                        <div class="row" style="margin-left: 15px;">
+                        <div class="row" id="main_reply_${review['review_id']}" style="margin-left: 15px;">
                             <button class="reply1" data-review-id="${review['review_id']}" style="background-color:transparent !important;
                     color:gray;
                     text-shadow: none!important;
                     border: none;
                     margin: 0;
                     padding: 3px;
+                    margin-left: 10px;
                     width: fit-content;
-                    font-size: 1rem;">
-                                Reply
+                    font-size: 1rem;
+                    color: #EC7A23">
+                                <span id="review_reply_text">Reply</span>
                             </button>
                         </div>
 
-                        <div id="reply_${review['review_id']}" class="row" style="margin-left: 15px;">
-                            <div class="col-11" style="margin-left: 15px">
-                                <input id="reply_text_${review['review_id']}" type="text">
+                        <div id="reply_${review['review_id']}" class="row" style="margin-left: 15px; margin-bottom: 5px;margin-top: 5px;">
+                            <div class="col-11 p-0">
+                                <input style="font-size: 14px;box-shadow: 0px 5px 9px 4px #00000026;border: none !important;border-radius: 10px; padding-left: :5px;"
+                                type="text" id="reply_text_${review['review_id']}" type="text" />
                             </div>
                         </div>
-                        <div id="btns_${review['review_id']}" class="row" style="margin-left: 15px;">
-                            <div id="reply2_${review['review_id']}" class="col-2 reply2"
+                        <div id="btns_${review['review_id']}" class="row mt-2">
+                            <div id="reply2_${review['review_id']}" class="col-2 cancel"
                             data-review-id="${review['review_id']}" style="margin-left: 15px">
                                 <button id="reply_btn_${review['review_id']}" style="background-color:#EC7A23 !important;
                     color:white;
                     text-shadow: none!important;
                     border-radius: 8px;
                     margin: 0;
-                    padding: 3px;
+                    padding: 5px;
+                    padding-left: 8px;
+                    padding-right: 8px;
                     width: fit-content;
-                    font-size: 0.8rem;">
+                    font-size: 0.8rem;
+                        border: none !important; ">
                                     Reply
                                 </button>
                             </div>
                             <div id="cancel_${review['review_id']}"  data-review-id="${review['review_id']}"
                              class="col-2 cancel" style="margin-left: 15px">
-                                <button style="background-color:#EC7A23 !important;
+                                <button style="background-color:#282f33 !important;
                     color:white;
                     text-shadow: none!important;
                     border-radius: 8px;
                     margin: 0;
-                    padding: 3px;
+                    padding: 5px;
+                        padding-left: 8px;
+                    padding-right: 8px;
                     width: fit-content;
-                    font-size: 0.8rem;">
+                    font-size: 0.8rem;
+                        border: none!important;">
                                     Cancel
                                 </button>
                             </div>
@@ -709,6 +723,7 @@
         let review_id = $(this).data('review-id').toString();
         let btns = $('#btns_' + review_id);
         let reply = $('#reply_' + review_id);
+        let main_reply = $('#main_reply_' + review_id);
         if (btns.is(":hidden")) {
             let reviews = selected_product['reviews'];
             reviews.forEach(function (review) {
@@ -725,6 +740,7 @@
                    return false;
                }
             });
+            main_reply.hide();
             btns.show();
             reply.show();
         } else {
@@ -743,6 +759,7 @@
                 review['reply'] = replyText;
                 $('#reply_' + review_id).hide(); //clearing
                 $('#btns_' + review_id).hide();
+                $('#main_reply_' + review_id).show();
                 $('#reply_text_' + review_id).val('');
                 let x = document.getElementById("snackbar");
                 x.className = "show";
@@ -772,8 +789,13 @@
         let review_id = $(this).data('review-id');
         $('#reply_' + review_id).hide();
         $('#btns_' + review_id).hide();
+        $('#main_reply_' + review_id).show();
         $('#reply_text_' + review_id).val('');
 
+    });
+
+    $( "#home-nav-text" ).click(function() {
+        window.location.href ='./../home/MerchantHome.html'
     });
 
 </script>
