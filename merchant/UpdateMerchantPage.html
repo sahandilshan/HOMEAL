@@ -317,18 +317,6 @@
                     </div>
                 </div>
 
-
-                <!--<div class="row justify-content-start">-->
-                <!--<div class="col-12">-->
-                <!--<label style="position: relative;font-size: 1rem;">-->
-                <!--<strong>Product Image</strong>-->
-                <!--</label>-->
-                <!--<img id="usser_image" src="../assets/otherImages/Men-Profile-Image.png"-->
-                <!--style="width: 60px; height: 60px;border-radius: 50px;background-color: #a9a9a95e;"-->
-                <!--alt="logo" >-->
-                <!--</div>-->
-                <!--</div>-->
-
                 <div class="row justify-content-start">
                     <div class="col-12">
                         <label id="reviewTab" style="position: relative;font-size: 1rem;">
@@ -398,12 +386,10 @@
     $(document).ready(function () {
         let merchantJsonArray = JSON.parse(sessionStorage.getItem('merchants'));
         productsJsonArr = JSON.parse(sessionStorage.getItem('products'));
-        console.log(productsJsonArr)
         let searchParams = new URLSearchParams(window.location.search);
         user = JSON.parse(sessionStorage.getItem('user'));
         if (searchParams.has('merchant_id')) {
             merchant_id = searchParams.get('merchant_id');
-            console.log("Merchant id: ", merchant_id);
         } else {
             console.log("merchant id could not extract from the url.");
         }
@@ -672,8 +658,6 @@
                 return false;
             }
         });
-        console.log(selected_product)
-        console.log(productsArr);
         sessionStorage.setItem('products', JSON.stringify(productsJsonArr));
     });
 
