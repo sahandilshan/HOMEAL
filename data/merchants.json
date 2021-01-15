@@ -4,6 +4,7 @@
 		"merchant_name": "Pizza Zone",
 		"filter_text": "Pizza Zone",
 		"merchantLocation": "Colombo 10",
+		"ratingCount": 9,
 		"sellerDetails": {
 			"seller_id": "S8574",
 			"seller_name": "Kasun Lakmal"
@@ -30,6 +31,7 @@
 		"merchant_name": "Bakery House",
 		"filter_text": "Bakery House",
 		"merchantLocation": "Colombo 11",
+		"ratingCount": 2,
 		"sellerDetails": {
 			"seller_id": "S6585",
 			"seller_name": "Nimal Siri"
@@ -56,6 +58,7 @@
 		"merchant_name": "Burger Hut",
 		"filter_text": "Burger Hut",
 		"merchantLocation": "Colombo 10",
+		"ratingCount": 11,
 		"sellerDetails": {
 			"seller_id": "S8877",
 			"seller_name": "Pasindu Jaye"
@@ -82,6 +85,7 @@
 		"merchant_name": "Salads Corner",
 		"filter_text": "Salads Corner",
 		"merchantLocation": "Colombo 11",
+		"ratingCount": 4,
 		"sellerDetails": {
 			"seller_id": "S8877",
 			"seller_name": "Pasindu Jaye"
