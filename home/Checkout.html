@@ -576,14 +576,13 @@
         merchantId = itemsArr['merchant_id'];
         let bgImg = itemsArr['merchant_bgImg'];
         itemsArr = itemsArr['items'];
-        console.log(itemsArr);
         let items = '';
         let subTotal = 0;
         let orderItemJsonArr = [];
+        itemsQty = 0;
         $.each(itemsArr, function (i, item) {
-            console.log(item);
             let itemName = item.product_name;
-            let qty = item.qty;
+            let qty = parseInt(item.qty);
             itemsQty += qty;
             let price = item.price * qty;
             subTotal += price;
