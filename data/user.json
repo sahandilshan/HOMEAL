@@ -14,10 +14,10 @@
     "user_id" : "002",
     "user_name" : "Chaveen",
     "user_password" :"#1234",
-    "email" :"Chaveen@gmail.com",
-    "image":"../assets/otherImages/user2.jpg",
+    "email" :"chaveen@gmail.com",
+    "image":"../assets/otherImages/chaveen.jpg",
     "mobile_no" : "0777123456",
-    "user_type": "seller",
+    "user_type": "customer",
     "location": "",
     "favorites_list":[]
   },
@@ -29,7 +29,7 @@
     "image":"../assets/otherImages/user2.jpg",
     "mobile_no" : "0777123456",
     "user_type": "customer",
-    "location": "Colombo 10",
+    "location": "",
     "favorites_list":[
       {
         "product_id": "P001",
@@ -51,6 +51,17 @@
     "mobile_no" : "0777123456",
     "user_type": "merchant",
     "location": "Colombo 10",
+    "favorites_list":[]
+  },
+  {
+    "user_id" : "005",
+    "user_name" : "homeal",
+    "user_password" :"#1234",
+    "email" :"homeallk@gmail.com",
+    "image":"../assets/otherImages/Men-Profile-Image.png",
+    "mobile_no" : "0777123456",
+    "user_type": "seller",
+    "location": "",
     "favorites_list":[]
   }
 ]
