@@ -336,7 +336,7 @@
 
                 <div>
                     <div class="row m-1">
-                        <label class="mb-2"><strong>Reviews</strong></label></div>
+                        <label id="reviewTab" class="mb-2"><strong>Reviews</strong></label></div>
 
                     <div class="row m-1" id="prdModal-reviews" style="background-color: #f19b553d; padding: 5px !important;">
                         <div class="col-4"></div>
@@ -717,7 +717,7 @@
         $("#large").text('LKR ' + product.variants[2].price.toFixed(2));
 
         let reviews = '';
-        let prdReviews = product.reviews;
+        let prdReviews = product['reviews'];
         prdReviews.forEach(function (review) {
             reviews += `
             <div class="col-4">
@@ -790,7 +790,7 @@
                                 </div>
                               </div>
                               <div class="col-8 p-0 pr-1 m-0 text-right">
-                              ${review['date']}
+                              ${review['reply_date']}
                                </div>
                          </div>
                          <div class="row" style="margin-left:10px !important;">
@@ -804,7 +804,15 @@
             }
             reviews += "</div>";
         })
-        $("#prdModal-reviews").html(reviews);
+        let reviewSection = $("#prdModal-reviews");
+        reviewSection.html(reviews);
+        let reviewTab = $('#reviewTab');
+        reviewTab.show();
+        reviewSection.show();
+        if (prdReviews.length === 0) {
+            reviewTab.hide();
+            reviewSection.hide();
+        }
         changePrice();
         productModel.popup( "open" );
     });
