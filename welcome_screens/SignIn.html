@@ -267,7 +267,6 @@
         let password = $("#user_password").val();
         let usersJsonArray = JSON.parse(sessionStorage.getItem('users'));
         let foundUser = false;
-        console.log(usersJsonArray);
         $.each(usersJsonArray, function (i, user) {
             if ((user['user_name'] === username) && (user['user_password'] === password)) {
                 foundUser = true;
