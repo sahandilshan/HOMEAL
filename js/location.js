@@ -2,9 +2,17 @@ $(document).on('click', '.location', function () {
     let location = $(this).data('filtertext');
     console.log(location);
     let user = JSON.parse(sessionStorage.getItem('user'));
+    let users = JSON.parse(sessionStorage.getItem('users'));
     if (user) {
         user['location'] = location
-        sessionStorage.setItem('user', JSON.stringify(user))
+        users.forEach(function (user_) {
+            if (user_['user_id'] === user['user_id']) {
+                user_['location'] = location;
+                return false;
+            }
+        });
+        sessionStorage.setItem('user', JSON.stringify(user));
+        sessionStorage.setItem('users', JSON.stringify(users));
     } else {
         sessionStorage.setItem('location', location);
     }
