@@ -670,7 +670,7 @@
                 let merchant = merchantJsonArr.find(x => x['merchant_id'] === merchantId);
                 handler.open({
                     name: merchant['merchant_name'],//merchant name
-                    currency: 'gbp',
+                    currency: 'lkr',
                     description: itemsQty + " Item(s)",//number of items or products with qty
                     amount: total * 100
                 });
