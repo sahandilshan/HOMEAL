@@ -325,8 +325,8 @@
                      style="object-fit: cover !important; border-radius: 50%;box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 14%);" width=170px height="170px"/>
             </div>
             <div class="row mb-2 mt-3" style="text-align: -webkit-center;">
-                <div class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
-                    Merchant
+                <div id="merchantName" class="col-12 text-black" style="font-size: 18px; font-weight: bold;">
+                    Merchants
                 </div>
                 <div class="stars" data-role="none"
                      style="margin-right: auto;margin-left: auto;display: block">
@@ -354,7 +354,7 @@
         <!--*********************************END**********************************-->
 
 
-        <!--**********************************************************shop rating modal***************************************************-->
+        <!--**********************************************************Product rating modal***************************************************-->
         <div data-history="false" data-position-to="window" data-role="popup" id="product-rating-modal" style=" width: 300px !important;"
              data-overlay-theme="a"
              data-transition="pop">
@@ -377,21 +377,21 @@
                 </div>
                 <div class="stars" data-role="none"
                      style="margin-right: auto;margin-left: auto;display: block">
-                    <input class="star star-5" data-role="none" id="shop-rating-modal-star-5" name="productStar"
+                    <input class="star star-5" data-role="none" id="product-rating-modal-star-5" name="productStar"
                            type="radio" value="star-5"/>
-                    <label class="star star-5" data-role="none" for="shop-rating-modal-star-5"></label>
-                    <input class="star star-4" data-role="none" id="shop-rating-modal-star-4" name="productStar"
+                    <label class="star star-5" data-role="none" for="product-rating-modal-star-5"></label>
+                    <input class="star star-4" data-role="none" id="product-rating-modal-star-4" name="productStar"
                            type="radio" value="star-4"/>
-                    <label data-role="none" class="star star-4" for="shop-rating-modal-star-4"></label>
-                    <input class="star star-3" data-role="none" id="shop-rating-modal-star-3" name="productStar"
+                    <label data-role="none" class="star star-4" for="product-rating-modal-star-4"></label>
+                    <input class="star star-3" data-role="none" id="product-rating-modal-star-3" name="productStar"
                            type="radio" value="star-3"/>
-                    <label data-role="none" class="star star-3" for="shop-rating-modal-star-3"></label>
-                    <input class="star star-2" data-role="none" id="shop-rating-modal-star-2" name="productStar"
+                    <label data-role="none" class="star star-3" for="product-rating-modal-star-3"></label>
+                    <input class="star star-2" data-role="none" id="product-rating-modal-star-2" name="productStar"
                            type="radio" value="star-2"/>
-                    <label data-role="none" class="star star-2" for="shop-rating-modal-star-2"></label>
-                    <input checked class="star star-1" data-role="none" id="shop-rating-modal-star-1" name="productStar"
+                    <label data-role="none" class="star star-2" for="product-rating-modal-star-2"></label>
+                    <input checked class="star star-1" data-role="none" id="product-rating-modal-star-1" name="productStar"
                            type="radio" value="star-1"/>
-                    <label data-role="none" class="star star-1" for="shop-rating-modal-star-1"></label>
+                    <label data-role="none" class="star star-1" for="product-rating-modal-star-1"></label>
                 </div>
             </div>
             <div class="container">
@@ -417,6 +417,7 @@
         <!--*********************************END**********************************-->
 
     </div>
+    <div id="cartModal"></div>
 
 
     <!--Footer-->
@@ -850,6 +851,7 @@
     let selectedPastOrderCard;
     let btnDriverRatingNextClicked = false; //to check whether user has clicked the next button so that next modal will open
     let btnMerchantRatingNextClicked = false;
+    let productRatingNextButtonClicked = false;
 
     $(document).on('click', '.btnRate', function () {
         // rateStatus: 0 (driver modal), rateStatus: 1 (merchant modal), anyOther(product modal)
@@ -867,7 +869,7 @@
     });
 
     $('#btnDriverRatingNext').click(function () {
-        btnDriverRatingNextClicked = true;
+        btnDriverRatingNextClicked = true; // to start merchant rating after
        selectedPastOrderCard.data('rate-status', 1);
        $('#driver-rating-modal').popup('close');
     });
@@ -896,17 +898,38 @@
         let orderId= selectedPastOrderCard.data('order-id').toString();
         let order = pastOrdersJsonArr.find(x => x['order_id'] === orderId);
         $('#merchantRatingImg').attr('src', order['bg_img']);
+        let merchantJsonArr = JSON.parse(sessionStorage.getItem('merchants'));
+        let merchant = merchantJsonArr.find(x => x['merchant_id'] === order['merchant_id']);
+        $('#merchantName').text(merchant['merchant_name']);
         $("#merchant-rating-star-1").prop("checked", true);
         $('#merchant-rating-modal').popup('open');
     }
 
+    $('#product-rating-modal').on("popupafterclose", function () {
+        if (productRatingNextButtonClicked) {
+            productRatingNextButtonClicked = false;
+            let orderId= selectedPastOrderCard.data('order-id').toString();
+            openProductRatingModal(orderId);
+
+        }
+    });
 
 
     function openProductRatingModal(orderId) {
+        $('#product-rating-modal-star-1').prop('checked', true);
+        let rateStatus = parseInt(selectedPastOrderCard.data('rate-status'));
+        let itemIndex = rateStatus - 2; // 2 is the default value
         $('#commentTextarea').val('');
         let order = pastOrdersJsonArr.find(x => x['order_id'] === orderId);
         let merchant_id = order['merchant_id'];
-        let productId = order['items'][0]['product_id'];
+        if ((order['items'].length - 1) === itemIndex) {
+            $('#productRatingSubmit').text('Submit');
+            // productRatingNextButtonClicked = false;
+        } else {
+            $('#productRatingSubmit').text('Next');
+            // productRatingNextButtonClicked = true;
+        }
+        let productId = order['items'][itemIndex]['product_id'];
         let merchant = productJsonArr.find(x => x['merchant_id'] === merchant_id);
         let productsArr = merchant['products'];
         let ratingProduct = productsArr.find(x => x['product_id'] === productId);
@@ -916,13 +939,15 @@
     }
 
     $('#productRatingSubmit').click(function () {
+        let rateStatus = parseInt(selectedPastOrderCard.data('rate-status'));
+        let itemIndex = rateStatus - 2; // 2 is the default value
         let orderId= selectedPastOrderCard.data('order-id').toString();
         let order = pastOrdersJsonArr.find(x => x['order_id'] === orderId);
         let merchant_id = order['merchant_id'];
-        let productId = order['items'][0]['product_id'];
+        let productId = order['items'][itemIndex]['product_id'];
         let comment = $('#commentTextarea').val();
         let star = $("input[name=productStar]").filter(":checked").val();
-        switch (star){
+        switch (star) {
             case "star-1": {
                 star = "1";
                 break;
@@ -964,8 +989,14 @@
         sessionStorage.setItem('products', JSON.stringify(productJsonArr));
         order['rated'] = true;
         sessionStorage.setItem('pastOrders', JSON.stringify(pastOrdersJsonArr));
-        $('#'+ orderId + '-rated').show();
-        $('#'+ orderId + '-rate').remove();
+        if ((order['items'].length - 1) === itemIndex) {
+            $('#'+ orderId + '-rated').show();
+            $('#'+ orderId + '-rate').remove();
+            productRatingNextButtonClicked = false;
+        } else {
+            productRatingNextButtonClicked = true;
+        }
+        selectedPastOrderCard.data('rate-status', ++rateStatus);
         $('#product-rating-modal').popup('close');
     });
 
