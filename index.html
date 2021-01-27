@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
-    <link rel = "icon" href="../assets/logos/Title.png"
+    <link rel = "icon" href="assets/logos/Title.png"
           type = "image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
@@ -13,7 +13,7 @@
     <style>
         .ui-page {
             background: #000;
-            background-image: url('img_1.jpg');
+            background-image: url('welcome_screens/img_1.jpg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -139,7 +139,7 @@
 <body>
 <div data-role="page">
     <div>
-        <img src="../assets/logos/MainDark.png">
+        <img src="assets/logos/MainDark.png">
     </div>
     <div class="w3-row absolute1">
         <div class="w3-col w3-container empty"><p>&nbsp;</p></div>
@@ -161,21 +161,21 @@
 </body>
 <script>
     $( "#getstarter-btn" ).click(function() {
-        window.location.href ='../home/Home.html'
+        window.location.href ='home/Home.html'
     });
     $( "#sign-in-btn" ).click(function() {
-        window.location.href ='SignIn.html'
+        window.location.href ='welcome_screens/SignIn.html'
     });
 
     $(document).ready(function () {
         sessionStorage.removeItem('user'); // remove previously logged user
-        $.getJSON("../data/user.json", function (result) {
+        $.getJSON("data/user.json", function (result) {
             sessionStorage.setItem('users', JSON.stringify(result));
         });
-        $.getJSON("../data/merchants.json", function (result) {
+        $.getJSON("data/merchants.json", function (result) {
             sessionStorage.setItem('merchants', JSON.stringify(result));
         });
-        $.getJSON("../data/products.json", function (result) {
+        $.getJSON("data/products.json", function (result) {
             sessionStorage.setItem('products', JSON.stringify(result));
         });
     });
